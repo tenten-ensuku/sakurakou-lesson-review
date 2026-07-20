@@ -112,12 +112,7 @@ summary:focus-visible {
   background: linear-gradient(145deg, #fffdf7, #f4f0ff);
 }
 
-.answer--visible {
-  display: block;
-  margin-top: 24px;
-}
-
-.info-card .answer p {
+.info-card .answer-block p {
   white-space: pre-line;
 }
 

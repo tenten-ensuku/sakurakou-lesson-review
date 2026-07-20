@@ -5,6 +5,7 @@ const MAX_CARD_ID = 27;
 
 function trustedOrigin(origin) {
   return !origin || /^https:\/\/[a-z0-9-]+\.kobotenmitsu\.chatgpt\.site$/i.test(origin)
+    || origin === "https://tenten-ensuku.github.io"
     || /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/i.test(origin);
 }
 function headers(request) {

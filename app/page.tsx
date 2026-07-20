@@ -190,12 +190,26 @@ export default function Home() {
       <div className="session-top"><button className="close-button" onClick={leave} aria-label="メニューへ戻る">×</button><div className="session-title"><span>{LESSON_TITLE}</span><strong>{index + 1}<small> / {sessionCards.length}</small></strong></div><div className="timer">◷ {formatTime(elapsed)}</div></div>
       <div className="progress-track"><span style={{width:`${((index + 1) / sessionCards.length) * 100}%`}} /></div>
       {current.kind === "question" ? <>
-        <article className="flashcard"><div className="card-meta"><span>QUESTION</span><strong>Q{String(questionNumber(cards,current.id)).padStart(2,"0")}</strong></div><h2><TileText text={current.question} /></h2>{revealed && <div className="answer"><span>ANSWER</span><p><TileText text={current.answer} /></p></div>}</article>
-        {!revealed ? <button className="reveal-button" onClick={() => setRevealed(true)}>答えを見る</button> : <div className="rating-area"><p>思い出せましたか？</p><div className="rating-grid"><button className="rating-button rating-button--again" onClick={() => rate("again")}>↺ 解き直しに追加</button><button className="rating-button rating-button--known" onClick={() => rate("known")}>✓ わかった</button></div></div>}
-      </> : <>
-        <article className={`flashcard info-card info-card--${current.kind}`}><div className="card-meta"><span>{current.kind === "section" ? "SESSION" : "LEARNING NOTE"}</span><strong>＋</strong></div><h2><TileText text={current.question} /></h2><div className="answer answer--visible"><p><TileText text={current.answer} /></p></div></article>
-        <button className="reveal-button" onClick={() => nextCard()}>{index === sessionCards.length - 1 ? "学習を終える" : "次へ"} →</button>
-      </>}
+        <div className="study-stage">
+          <article className={`flashcard ${revealed ? "flashcard--revealed" : ""}`}>
+            <div className="card-meta"><span>QUESTION</span><strong>Q{String(questionNumber(cards,current.id)).padStart(2,"0")}</strong></div>
+            <p className="question-text"><TileText text={current.question} /></p>
+            <div className="answer-divider"><span>{revealed ? "ANSWER" : "THINK & REVEAL"}</span></div>
+            {revealed
+              ? <div className="answer-block"><p><TileText text={current.answer} /></p></div>
+              : <button className="reveal-button" onClick={() => setRevealed(true)}><span aria-hidden="true">◉</span> 答えを見る <kbd>Space</kbd></button>}
+          </article>
+        </div>
+        <div className="rating-panel"><p>思い出せましたか？</p><div className="rating-actions"><button className="rating-button rating-button--again" disabled={!revealed} onClick={() => rate("again")}><span aria-hidden="true">↺</span><strong>解き直しに追加</strong><small>←</small></button><button className="rating-button rating-button--known" disabled={!revealed} onClick={() => rate("known")}><span aria-hidden="true">✓</span><strong>わかった</strong><small>→</small></button></div></div>
+      </> : <div className="study-stage">
+        <article className={`flashcard flashcard--revealed info-card info-card--${current.kind}`}>
+          <div className="card-meta"><span>{current.kind === "section" ? "SESSION" : "LEARNING NOTE"}</span><strong>＋</strong></div>
+          <p className="question-text"><TileText text={current.question} /></p>
+          <div className="answer-divider"><span>NOTE</span></div>
+          <div className="answer-block"><p><TileText text={current.answer} /></p></div>
+          <button className="reveal-button" onClick={() => nextCard()}>{index === sessionCards.length - 1 ? "学習を終える" : "次へ"} →</button>
+        </article>
+      </div>}
     </section>}
 
     {screen === "result" && result && <section className="screen screen--result"><Header compact /><div className="result-panel"><p className="result-kicker">SESSION COMPLETE</p><h2>おつかれさまでした！</h2><div className="score-ring" style={{"--score":`${score * 3.6}deg`} as React.CSSProperties}><div><strong>{score}</strong><span>%</span></div></div><div className={`rank-badge rank-badge--${getRank(score).toLowerCase()}`}><span>定着ランク</span><strong>{getRank(score)}</strong></div><dl className="result-stats"><div><dt>わかった</dt><dd>{result.known}<small>問</small></dd></div><div><dt>解き直し</dt><dd>{result.again}<small>問</small></dd></div><div><dt>時間</dt><dd>{formatTime(result.elapsed)}</dd></div></dl><div className="result-actions"><button className="primary-button" onClick={() => start(false)}>もう一度</button><button className="text-button" onClick={leave}>メニューへ</button></div></div></section>}
