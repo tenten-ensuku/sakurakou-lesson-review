@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { APP_VERSION, BASE_CARDS, LESSON_TITLE, VIDEO_URL, getRank, mergeOverrides, questionNumber } from "../app/lib/lesson.mjs";
 
 test("lesson metadata and version are synchronized", () => {
-  assert.equal(APP_VERSION, 4);
+  assert.equal(APP_VERSION, 5);
   assert.equal(LESSON_TITLE, "7/21　てんてん先生　蒼嵐戦　牌譜検討");
   assert.equal(VIDEO_URL, "https://youtu.be/zhg7AH9aWgk");
 });

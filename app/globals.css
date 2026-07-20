@@ -2118,17 +2118,6 @@ summary:focus-visible {
     padding-bottom: 10px;
   }
 
-  .flashcard {
-    padding: 16px;
-    border-radius: 20px;
-  }
-
-  .question-text {
-    margin: 8px 0;
-    font-size: 1.1rem;
-    line-height: 1.42;
-  }
-
   .answer-block,
   .reveal-button {
     min-height: 54px;
