@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
 
 import { useEffect, useMemo, useState } from "react";
-import { tokenizeRichText } from "./lib/rich-text.mjs";
+import { linkLabel, tokenizeRichText } from "./lib/rich-text.mjs";
 import { tokenizeMahjongText } from "./lib/mahjong-tiles.mjs";
 import {
   APP_VERSION, BASE_CARDS, DEFAULT_LESSON, STORAGE_KEY,
@@ -12,16 +12,18 @@ import {
 type Kind = "question" | "section" | "note";
 type Card = { id:string|number; kind:Kind; question:string; answer:string; source:"base"|"custom"; deleted?:boolean; sortOrder?:number };
 type Lesson = { id:string; date:string; teacher:string; title:string; videoUrl:string; deleted?:boolean };
+type ResourceKind = "link" | "image";
+type LessonResource = { id:string; lessonId:string; sortOrder:number; kind:ResourceKind; label:string; url:string };
 type LegacyOverride = { lessonId:string; id:number; question:string; answer:string; deleted?:boolean };
 type RemoteCard = { id:string; lessonId:string; sortOrder:number; kind:Kind; question:string; answer:string; deleted?:boolean };
-type Notebook = { overrides:LegacyOverride[]; metadata:Lesson[]; lessons:Lesson[]; cards:RemoteCard[] };
+type Notebook = { overrides:LegacyOverride[]; metadata:Lesson[]; lessons:Lesson[]; cards:RemoteCard[]; resources:LessonResource[] };
 type Screen = "home"|"session"|"result"|"list"|"admin";
 type Rating = "known"|"again";
 type Result = { known:number; again:number; elapsed:number };
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const API_BASE = process.env.NEXT_PUBLIC_ADMIN_API_URL ?? "";
-const EMPTY_NOTEBOOK:Notebook = { overrides:[], metadata:[], lessons:[], cards:[] };
+const EMPTY_NOTEBOOK:Notebook = { overrides:[], metadata:[], lessons:[], cards:[], resources:[] };
 const SUITS = { m:"man", p:"pin", s:"sou" } as const;
 
 const cardKey = (lessonId:string, card:Pick<Card,"id"|"source">) => `${lessonId}:${card.source}:${card.id}`;
@@ -79,6 +81,8 @@ export default function Home() {
   const [lessonDraft,setLessonDraft] = useState({date:"",teacher:"",title:"",videoUrl:""});
   const [newLesson,setNewLesson] = useState({date:todayShort(),teacher:"",title:"",videoUrl:""});
   const [cardDrafts,setCardDrafts] = useState<Record<string,{kind:Kind;question:string;answer:string}>>({});
+  const [resourceLessonId,setResourceLessonId] = useState("");
+  const [resourceDraft,setResourceDraft] = useState({label:"",url:""});
 
   const defaultLesson = useMemo(() => normalizeLesson({ ...DEFAULT_LESSON, ...(notebook.metadata.find((item) => item.id === DEFAULT_LESSON.id) ?? {}) }),[notebook.metadata]);
   const lessons = useMemo(() => sortLessons([defaultLesson,...notebook.lessons.filter((item) => !item.deleted).map(normalizeLesson)]),[defaultLesson,notebook.lessons]);
@@ -87,8 +91,11 @@ export default function Home() {
     ? mergeLessonCards(BASE_CARDS,notebook.overrides,notebook.cards.filter((card) => card.lessonId === lessonId)) as Card[]
     : notebook.cards.filter((card) => card.lessonId === lessonId && !card.deleted).sort((a,b) => a.sortOrder-b.sortOrder).map((card) => ({...card,source:"custom" as const}));
   const activeCards = useMemo(() => cardsFor(activeLesson.id),[activeLesson.id,notebook]);
+  const resourcesFor = (lessonId:string) => (notebook.resources ?? []).filter((resource) => resource.lessonId === lessonId).sort((a,b) => a.sortOrder-b.sortOrder);
   const activeQuestions = activeCards.filter((card) => card.kind === "question");
   const current = sessionCards[index];
+  const resourceLesson = lessons.find((lesson) => lesson.id === resourceLessonId);
+  const visibleResources = resourceLesson ? resourcesFor(resourceLesson.id) : [];
 
   const refresh = async () => {
     const response = await fetch(`${API_BASE}/api/notebook`,{cache:"no-store"});
@@ -98,6 +105,8 @@ export default function Home() {
   useEffect(() => { refresh().catch(() => setError("保存データに接続できないため、既存カードだけを表示しています。")); }, []);
   useEffect(() => { try { const saved=JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}"); if(Array.isArray(saved.reviewIds)) setReviewIds(saved.reviewIds); } catch {} }, []);
   useEffect(() => { try { localStorage.setItem(STORAGE_KEY,JSON.stringify({reviewIds})); } catch {} },[reviewIds]);
+  useEffect(() => { if (!resourceLessonId) return; const close=(event:KeyboardEvent) => { if(event.key === "Escape") setResourceLessonId(""); }; window.addEventListener("keydown",close); return ()=>window.removeEventListener("keydown",close); },[resourceLessonId]);
+  useEffect(() => { setResourceDraft({label:"",url:""}); },[adminLessonId]);
   useEffect(() => { if(screen !== "session") return; const timer=window.setInterval(() => setElapsed((value) => value+1),1000); return () => window.clearInterval(timer); },[screen]);
   useEffect(() => {
     const lesson = lessons.find((item) => item.id === adminLessonId); if (!lesson) return;
@@ -150,6 +159,28 @@ export default function Home() {
     if (file) uploadImage(card,field,file);
     else setError("画像ファイルを選択してください。");
   };
+  const addReferenceLink = async () => {
+    setBusy("resource-link"); setError("");
+    try { await call(`/api/lessons/${adminLessonId}/resources`,"POST",{kind:"link",label:resourceDraft.label,url:resourceDraft.url}); await refresh(); setResourceDraft({label:"",url:""}); setNotice("参考資料リンクを追加しました。"); }
+    catch(e) { setError(e instanceof Error ? e.message : "参考資料を追加できませんでした。"); } finally { setBusy(""); }
+  };
+  const addReferenceImage = async (files:FileList|File[]) => {
+    const file = Array.from(files).find((item) => item.type.startsWith("image/"));
+    if(!file) { setError("画像ファイルを選択してください。"); return; }
+    setBusy("resource-image"); setError("");
+    try {
+      const response = await fetch(`${API_BASE}/api/images`,{method:"POST",headers:{"content-type":file.type},body:file});
+      const data = await response.json().catch(()=>({})); if(!response.ok) throw new Error(data.error ?? "画像を追加できませんでした。");
+      const label = resourceDraft.label.trim() || file.name.replace(/\.[^.]+$/u,"") || "画像資料";
+      await call(`/api/lessons/${adminLessonId}/resources`,"POST",{kind:"image",label,url:data.url}); await refresh(); setResourceDraft({label:"",url:""}); setNotice("参考資料画像を追加しました。");
+    } catch(e) { setError(e instanceof Error ? e.message : "画像を追加できませんでした。"); } finally { setBusy(""); }
+  };
+  const deleteReference = async (resource:LessonResource) => {
+    if(!window.confirm(`「${resource.label}」を参考資料から削除しますか？`)) return;
+    setBusy(`resource:${resource.id}`); setError("");
+    try { await call(`/api/lessons/${adminLessonId}/resources/${resource.id}`,"DELETE"); await refresh(); setNotice("参考資料を削除しました。"); }
+    catch(e) { setError(e instanceof Error ? e.message : "参考資料を削除できませんでした。"); } finally { setBusy(""); }
+  };
   const openAdmin = () => { setAdminLessonId(activeLesson.id); setNotice(""); setError(""); setScreen("admin"); };
   const saveLesson = async () => { setBusy("lesson"); setError(""); try { await call(`/api/lessons/${adminLessonId}`,"PUT",lessonDraft); await refresh(); setNotice("授業情報を保存しました。"); } catch(e) { setError(e instanceof Error ? e.message : "保存できませんでした。"); } finally { setBusy(""); } };
   const createLesson = async () => { setBusy("new-lesson"); setError(""); try { const data=await call("/api/lessons","POST",newLesson); await refresh(); setAdminLessonId(data.lesson.id); setNewLesson({date:todayShort(),teacher:"",title:"",videoUrl:""}); setNotice("新しい授業ノートを作成しました。続けてカードを追加できます。"); } catch(e) { setError(e instanceof Error ? e.message : "作成できませんでした。"); } finally { setBusy(""); } };
@@ -164,7 +195,17 @@ export default function Home() {
     {screen === "home" && <section className="screen screen--home" aria-labelledby="app-title"><Header />
       {error && <p className="admin-message admin-message--error">{error}</p>}
       <section className="mode-panel notebook-intro"><div><p className="section-kicker">MY MAHJONG NOTE</p><h2>授業ごとの復習ノート</h2><p>問題・解説・授業動画を、自分で追加して育てられます。</p></div><button className="admin-entry-button" onClick={openAdmin}>＋ ノートを作る・編集する</button></section>
-      <div className="lesson-grid">{lessons.map((lesson) => { const cards=cardsFor(lesson.id); const questions=cards.filter((card)=>card.kind === "question"); const reviews=reviewIds.filter((key)=>questions.some((card)=>cardKey(lesson.id,card)===key)).length; return <section className="mode-panel lesson-panel" key={lesson.id}><div className="section-heading"><div className="lesson-title-row"><h2><span className="lesson-date">{lesson.date}</span><span className="lesson-teacher">{lesson.teacher}</span>{lesson.title}</h2>{lesson.videoUrl && <a className="youtube-icon-button" href={lesson.videoUrl} target="_blank" rel="noreferrer" aria-label="授業動画をYouTubeで見る"><span className="youtube-play-mark" /></a>}</div><span className="review-count">解き直し <strong>{reviews}</strong> 枚</span></div><p className="lesson-card-summary">全{questions.length}問＋学習カード{cards.length-questions.length}枚</p><div className="mode-grid"><button className="mode-card mode-card--primary" disabled={!cards.length} onClick={()=>startForLesson(lesson,false)}><span className="mode-card__number">{questions.length}</span><span><strong>すべて学習する</strong><small>問題と講義メモを順番に確認</small></span><span className="mode-card__arrow">→</span></button><button className="mode-card mode-card--review" disabled={!reviews} onClick={()=>startForLesson(lesson,true)}><span className="mode-card__number">↺</span><span><strong>解き直しカード</strong><small>{reviews ? `${reviews}枚を解き直す` : "回答後に追加できます"}</small></span><span className="mode-card__arrow">→</span></button></div><div className="lesson-panel-actions"><button className="text-button" onClick={()=>{setActiveLessonId(lesson.id);setScreen("list");}}>☰ カード一覧</button><button className="text-button" onClick={()=>{setAdminLessonId(lesson.id);setScreen("admin");}}>編集</button></div></section>; })}</div>
+      <div className="lesson-grid">{lessons.map((lesson) => {
+        const cards=cardsFor(lesson.id); const questions=cards.filter((card)=>card.kind === "question");
+        const reviews=reviewIds.filter((key)=>questions.some((card)=>cardKey(lesson.id,card)===key)).length;
+        const lessonResources=resourcesFor(lesson.id);
+        return <section className="mode-panel lesson-panel" key={lesson.id}>
+          <div className="section-heading"><div className="lesson-title-row"><h2><span className="lesson-date">{lesson.date}</span><span className="lesson-teacher">{lesson.teacher}</span>{lesson.title}</h2><div className="lesson-title-actions">{lesson.videoUrl && <a className="youtube-icon-button" href={lesson.videoUrl} target="_blank" rel="noreferrer" aria-label="授業動画をYouTubeで見る"><span className="youtube-play-mark" /></a>}{lessonResources.length > 0 && <button className="reference-material-button" onClick={()=>setResourceLessonId(lesson.id)}>参考資料 <span>{lessonResources.length}</span></button>}</div></div><span className="review-count">解き直し <strong>{reviews}</strong> 枚</span></div>
+          <p className="lesson-card-summary">全{questions.length}問＋学習カード{cards.length-questions.length}枚</p>
+          <div className="mode-grid"><button className="mode-card mode-card--primary" disabled={!cards.length} onClick={()=>startForLesson(lesson,false)}><span className="mode-card__number">{questions.length}</span><span><strong>すべて学習する</strong><small>問題と講義メモを順番に確認</small></span><span className="mode-card__arrow">→</span></button><button className="mode-card mode-card--review" disabled={!reviews} onClick={()=>startForLesson(lesson,true)}><span className="mode-card__number">↺</span><span><strong>解き直しカード</strong><small>{reviews ? `${reviews}枚を解き直す` : "回答後に追加できます"}</small></span><span className="mode-card__arrow">→</span></button></div>
+          <div className="lesson-panel-actions"><button className="text-button" onClick={()=>{setActiveLessonId(lesson.id);setScreen("list");}}>☰ カード一覧</button><button className="text-button" onClick={()=>{setAdminLessonId(lesson.id);setScreen("admin");}}>編集</button></div>
+        </section>;
+      })}</div>
     </section>}
 
     {screen === "session" && current && <section className="screen screen--session" aria-live="polite"><div className="session-top"><button className="icon-button" onClick={()=>setScreen("home")} aria-label="メニューへ戻る">×</button><div className="session-title"><span>{sessionLesson.date}　{sessionLesson.title}</span><strong>{index+1}<small> / {sessionCards.length}</small></strong></div><div className="timer">◷ {formatTime(elapsed)}</div></div><div className="progress-track"><span style={{width:`${((index+1)/sessionCards.length)*100}%`}} /></div>{current.kind === "question" ? <><div className="study-stage"><article className={`flashcard ${revealed ? "flashcard--revealed" : ""}`}><div className="card-meta"><span>QUESTION</span><strong>Q{String(questionNumber(sessionCards,current.id)).padStart(2,"0")}</strong></div><p className="question-text"><TileText text={current.question} /></p><div className="answer-divider"><span>{revealed ? "ANSWER" : "THINK & REVEAL"}</span></div>{revealed ? <div className="answer-block"><p><TileText text={current.answer} /></p></div> : <button className="reveal-button" onClick={()=>setRevealed(true)}>◉ 答えを見る <kbd>Space</kbd></button>}</article></div><div className="rating-panel"><p>思い出せましたか？</p><div className="rating-actions"><button className="rating-button rating-button--again" disabled={!revealed} onClick={()=>rate("again")}>↺ <strong>解き直しに追加</strong><small>←</small></button><button className="rating-button rating-button--known" disabled={!revealed} onClick={()=>rate("known")}>✓ <strong>わかった</strong><small>→</small></button></div></div></> : <div className="study-stage"><article className={`flashcard flashcard--revealed info-card info-card--${current.kind}`}><div className="card-meta"><span>{current.kind === "section" ? "SESSION" : "LEARNING NOTE"}</span><strong>＋</strong></div><p className="question-text"><TileText text={current.question} /></p><div className="answer-divider"><span>NOTE</span></div><div className="answer-block"><p><TileText text={current.answer} /></p></div><button className="reveal-button" onClick={()=>nextCard()}>{index === sessionCards.length-1 ? "学習を終える" : "次へ"} →</button></article></div>}</section>}
@@ -177,7 +218,9 @@ export default function Home() {
       <section className="admin-create-lesson"><p className="section-kicker">NEW LESSON</p><h3>新しい授業ノートを作る</h3><div className="admin-meta-fields"><label>日付<input value={newLesson.date} placeholder="例：7/22" onChange={(event)=>setNewLesson({...newLesson,date:event.target.value})} /></label><label>講師<input value={newLesson.teacher} placeholder="例：てんてん先生" onChange={(event)=>setNewLesson({...newLesson,teacher:event.target.value})} /></label><label>タイトル<input value={newLesson.title} placeholder="例：基本牌効率 復習" onChange={(event)=>setNewLesson({...newLesson,title:event.target.value})} /></label><label>YouTubeリンク（任意）<input value={newLesson.videoUrl} placeholder="https://youtu.be/..." onChange={(event)=>setNewLesson({...newLesson,videoUrl:event.target.value})} /></label></div><button className="primary-button" disabled={busy === "new-lesson" || !newLesson.date.trim() || !newLesson.teacher.trim() || !newLesson.title.trim()} onClick={createLesson}>＋ この授業ノートを作る</button></section>
       <div className="admin-lesson-tabs">{lessons.map((lesson) => <button className={adminLessonId === lesson.id ? "is-active" : ""} key={lesson.id} onClick={()=>setAdminLessonId(lesson.id)}>{lesson.date}<br />{lesson.teacher}<br />{lesson.title}</button>)}</div>
       <section className="admin-lesson-editor"><div className="section-heading"><div><p className="section-kicker">LESSON INFO</p><h3>日付・講師・タイトル・動画</h3></div>{adminLessonId !== DEFAULT_LESSON.id && <button className="admin-delete-button" disabled={busy === "lesson-delete"} onClick={removeLesson}>授業を削除</button>}</div><div className="admin-meta-fields"><label>日付<input value={lessonDraft.date} onChange={(event)=>setLessonDraft({...lessonDraft,date:event.target.value})} /></label><label>講師<input value={lessonDraft.teacher} onChange={(event)=>setLessonDraft({...lessonDraft,teacher:event.target.value})} /></label><label>タイトル<input value={lessonDraft.title} onChange={(event)=>setLessonDraft({...lessonDraft,title:event.target.value})} /></label><label>YouTubeリンク（任意）<input value={lessonDraft.videoUrl} onChange={(event)=>setLessonDraft({...lessonDraft,videoUrl:event.target.value})} /></label></div><button className="admin-save-button" disabled={busy === "lesson" || !lessonDraft.date.trim() || !lessonDraft.teacher.trim() || !lessonDraft.title.trim()} onClick={saveLesson}>授業情報を保存</button></section>
+      <section className="admin-reference-editor"><div><p className="section-kicker">REFERENCE MATERIALS</p><h3>参考資料</h3><p>画像やURLを授業ごとにまとめられます。資料がある授業だけ、メニューに参考資料ボタンが表示されます。</p></div><div className="admin-resource-fields"><label>表示名（任意）<input value={resourceDraft.label} placeholder="例：授業資料・牌姿画像" onChange={(event)=>setResourceDraft({...resourceDraft,label:event.target.value})} /></label><label>参考URL<input type="url" value={resourceDraft.url} placeholder="https://docs.google.com/..." onChange={(event)=>setResourceDraft({...resourceDraft,url:event.target.value})} /></label><button className="admin-save-button" disabled={busy === "resource-link" || !resourceDraft.url.trim()} onClick={addReferenceLink}>URLを追加</button><label className="reference-image-upload" tabIndex={0} onDragOver={(event)=>event.preventDefault()} onDrop={(event)=>{event.preventDefault();addReferenceImage(event.dataTransfer.files);}} onPaste={(event)=>addReferenceImage(event.clipboardData.files)}>画像を追加<span>クリック・ドロップ・貼り付け</span><input type="file" accept="image/png,image/jpeg,image/webp,image/gif" disabled={busy === "resource-image"} onChange={(event)=>{const files=event.target.files; if(files) addReferenceImage(files); event.currentTarget.value="";}} /></label></div><div className="admin-resource-list">{resourcesFor(adminLessonId).length ? resourcesFor(adminLessonId).map((resource) => <article key={resource.id}><div>{resource.kind === "image" ? <img src={resource.url} alt="" /> : <span className="resource-kind-mark">↗</span>}<p><strong>{resource.label}</strong><small>{resource.kind === "image" ? "画像資料" : linkLabel(resource.url).label}</small></p></div><button className="admin-delete-button" disabled={busy === `resource:${resource.id}`} onClick={()=>deleteReference(resource)}>削除</button></article>) : <p className="admin-resource-empty">参考資料はまだありません。</p>}</div></section>
       <div className="admin-card-toolbar"><div><p className="section-kicker">CARDS</p><h3>問題と解説</h3></div><button className="primary-button" disabled={busy === "add-card"} onClick={addCard}>＋ カードを追加</button></div><div className="admin-card-list">{adminCards(adminLessonId).map((card) => { const key=cardKey(adminLessonId,card); const draft=cardDrafts[key] ?? {kind:card.kind,question:card.question,answer:card.answer}; return <details className={`admin-card-editor${card.deleted ? " admin-card-editor--deleted" : ""}`} key={key}><summary><span>{card.kind === "question" ? "問題" : card.kind === "section" ? "章" : "メモ"}</span><strong>{card.deleted ? "削除済みカード" : draft.question}</strong><i>＋</i></summary><div className="admin-card-form">{card.deleted ? <button className="admin-restore-button" disabled={busy === key} onClick={()=>restoreCard(card)}>このカードを復元</button> : <><label>種類<select value={draft.kind} onChange={(event)=>setCardDrafts({...cardDrafts,[key]:{...draft,kind:event.target.value as Kind}})}><option value="question">フラッシュカード問題</option><option value="section">セクション見出し</option><option value="note">学習メモ</option></select></label><label>問題文・タイトル<textarea value={draft.question} onChange={(event)=>setCardDrafts({...cardDrafts,[key]:{...draft,question:event.target.value}})} /></label><label className="image-upload image-upload--drop" tabIndex={0} onDragOver={(event)=>event.preventDefault()} onDrop={(event)=>{event.preventDefault();addDroppedImage(card,"question",event.dataTransfer.files);}} onPaste={(event)=>addDroppedImage(card,"question",event.clipboardData.files)}>問題文に画像を追加<span>ドロップ・貼り付け可</span><input type="file" accept="image/png,image/jpeg,image/webp,image/gif" disabled={busy === `${key}:question`} onChange={(event)=>{const file=event.target.files?.[0]; if(file) uploadImage(card,"question",file); event.currentTarget.value="";}} /></label><label>解説・本文<textarea value={draft.answer} onChange={(event)=>setCardDrafts({...cardDrafts,[key]:{...draft,answer:event.target.value}})} /></label><label className="image-upload image-upload--drop" tabIndex={0} onDragOver={(event)=>event.preventDefault()} onDrop={(event)=>{event.preventDefault();addDroppedImage(card,"answer",event.dataTransfer.files);}} onPaste={(event)=>addDroppedImage(card,"answer",event.clipboardData.files)}>解説に画像を追加<span>ドロップ・貼り付け可</span><input type="file" accept="image/png,image/jpeg,image/webp,image/gif" disabled={busy === `${key}:answer`} onChange={(event)=>{const file=event.target.files?.[0]; if(file) uploadImage(card,"answer",file); event.currentTarget.value="";}} /></label><p className="image-help">画像は文字の間にも入れられます。ここへドラッグ＆ドロップ、または画像をコピーして貼り付けた後にカードを保存してください。</p><div className="admin-card-actions"><button className="primary-button" disabled={busy === key || !draft.question.trim() || !draft.answer.trim()} onClick={()=>saveCard(card)}>保存</button><button className="admin-delete-button" disabled={busy === key} onClick={()=>deleteCard(card)}>削除</button></div></>}</div></details>; })}</div>
     </section>}
+    {resourceLesson && <div className="reference-dialog-backdrop" onMouseDown={()=>setResourceLessonId("")}><section className="reference-dialog" role="dialog" aria-modal="true" aria-labelledby="reference-dialog-title" onMouseDown={(event)=>event.stopPropagation()}><header><div><p className="section-kicker">REFERENCE MATERIALS</p><h2 id="reference-dialog-title">{resourceLesson.date}　{resourceLesson.title}</h2></div><button className="icon-button" onClick={()=>setResourceLessonId("")} aria-label="参考資料を閉じる">×</button></header><div className="reference-dialog-list">{visibleResources.map((resource) => resource.kind === "image" ? <a className="reference-image-card" href={resource.url} target="_blank" rel="noreferrer" key={resource.id}><img src={resource.url} alt={resource.label} /><strong>{resource.label}</strong><span>画像を開く ↗</span></a> : <a className="reference-link-card" href={resource.url} target="_blank" rel="noreferrer" key={resource.id}><span className="resource-kind-mark">↗</span><strong>{resource.label}</strong><small>{linkLabel(resource.url).label}</small></a>)}</div></section></div>}
   </main>;
 }
