@@ -3,7 +3,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { tokenizeRichText } from "./lib/rich-text.mjs";
-import { honorTileNumber } from "./lib/mahjong-tiles.mjs";
+import { tokenizeMahjongText } from "./lib/mahjong-tiles.mjs";
 import {
   APP_VERSION, BASE_CARDS, DEFAULT_LESSON, STORAGE_KEY,
   getRank, mergeLessonCards, questionNumber, sortLessons,
@@ -30,19 +30,12 @@ const todayShort = () => { const now = new Date(); return `${now.getMonth() + 1}
 
 function TileText({ text, links = true }:{ text:string; links?:boolean }) {
   const tiles = (value:string) => {
-    const nodes:React.ReactNode[] = []; const pattern = /([1-9]+)\s*([mps])|([東南西北白發発中]+)/giu;
-    let cursor = 0; let match:RegExpExecArray|null;
-    while ((match = pattern.exec(value))) {
-      const found = match;
-      if (found.index > cursor) nodes.push(value.slice(cursor,found.index));
-      const honor = found[3]; const digits = honor ? [...honor].map(honorTileNumber) : [...found[1]];
-      const suit = honor ? "ji" : SUITS[found[2].toLowerCase() as keyof typeof SUITS];
-      nodes.push(<span className="tile-run" key={`${found.index}-${found[0]}`}>{digits.map((digit,index) =>
-        <span className="tile-slot" key={`${digit}-${index}`}><img className="tile-image" src={`${BASE_PATH}/tiles/${suit}${digit}-66-90-l.png`} width="66" height="90" alt={honor ?? `${digit}${found[2]}`} /></span>)}</span>);
-      cursor = pattern.lastIndex;
-    }
-    if (cursor < value.length) nodes.push(value.slice(cursor));
-    return nodes;
+    return tokenizeMahjongText(value).map((token,index) => token.type === "text"
+      ? token.value
+      : <span className="tile-run" key={`${index}-${token.source ?? "tiles"}`}>{(token.digits ?? []).map((digit:string,tileIndex:number) => {
+        const suit = token.suit === "ji" ? "ji" : SUITS[token.suit as keyof typeof SUITS];
+        return <span className="tile-slot" key={`${digit}-${tileIndex}`}><img className="tile-image" src={`${BASE_PATH}/tiles/${suit}${digit}-66-90-l.png`} width="66" height="90" alt={token.source ?? "麻雀牌"} /></span>;
+      })}</span>);
   };
   return <>{tokenizeRichText(text).map((token,index) => token.type === "text"
     ? <span key={index}>{tiles(token.value)}</span>
