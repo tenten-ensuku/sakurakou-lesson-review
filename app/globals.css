@@ -227,6 +227,32 @@ summary:focus-visible {
   resize: vertical;
 }
 
+.image-upload {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px dashed rgba(10, 155, 118, .48);
+  border-radius: 12px;
+  background: #edfbf5;
+  color: #08715f !important;
+  cursor: pointer;
+}
+
+.image-upload input {
+  width: min(100%, 155px);
+  color: #17624f;
+  font-size: .7rem;
+  font-weight: 700;
+}
+
+.image-help {
+  margin: -2px 0 2px;
+  color: var(--muted);
+  font-size: .72rem;
+  line-height: 1.5;
+}
+
 .admin-meta-fields input:focus,
 .admin-card-form textarea:focus,
 .admin-card-form select:focus {
@@ -1340,6 +1366,31 @@ summary:focus-visible {
 .embedded-link--static {
   box-shadow: none;
   transform: none;
+}
+
+.card-image {
+  display: grid;
+  width: min(100%, 680px);
+  margin: 14px auto;
+  gap: 6px;
+}
+
+.card-image img {
+  display: block;
+  width: 100%;
+  max-height: min(48svh, 520px);
+  object-fit: contain;
+  border: 1px solid rgba(20, 86, 73, .16);
+  border-radius: 14px;
+  background: #edf7f2;
+  box-shadow: 0 8px 20px rgba(9, 91, 73, .12);
+}
+
+.card-image figcaption {
+  color: var(--muted);
+  font-size: .72em;
+  font-weight: 700;
+  text-align: left;
 }
 
 .answer-divider {

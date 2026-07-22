@@ -1,8 +1,9 @@
 const URL_PATTERN = /https?:\/\/[^\s<>"']+/giu;
+const IMAGE_PATTERN = /!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)/giu;
 const TRAILING_PUNCTUATION = /[.,!?;:。、，．！？；：）)\]】}」』〉》]+$/u;
 
 /** @typedef {{ label: string, kind: "youtube" | "external" }} LinkMetadata */
-/** @typedef {{ type: "text", value: string } | ({ type: "link", url: string } & LinkMetadata)} RichTextToken */
+/** @typedef {{ type: "text", value: string } | ({ type: "link", url: string } & LinkMetadata) | { type: "image", url: string, alt: string }} RichTextToken */
 
 /** @returns {LinkMetadata} */
 export function linkLabel(url) {
@@ -29,12 +30,18 @@ export function tokenizeRichText(text) {
   /** @type {RichTextToken[]} */
   const tokens = [];
   let cursor = 0;
-  const pattern = new RegExp(URL_PATTERN.source, URL_PATTERN.flags);
+  const pattern = new RegExp(`${IMAGE_PATTERN.source}|${URL_PATTERN.source}`, "giu");
   let match;
 
   while ((match = pattern.exec(text)) !== null) {
     if (match.index > cursor) {
       tokens.push({ type: "text", value: text.slice(cursor, match.index) });
+    }
+
+    if (match[2]) {
+      tokens.push({ type: "image", alt: match[1], url: match[2] });
+      cursor = pattern.lastIndex;
+      continue;
     }
 
     const trailing = match[0].match(TRAILING_PUNCTUATION)?.[0] ?? "";

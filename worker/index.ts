@@ -21,6 +21,10 @@ interface Env {
       };
     };
   };
+  MEDIA: {
+    put(key: string, value: ArrayBuffer, options?: { httpMetadata?: { contentType?: string } }): Promise<void>;
+    get(key: string): Promise<{ body: ReadableStream; httpMetadata?: { contentType?: string } } | null>;
+  };
 }
 
 interface ExecutionContext {
