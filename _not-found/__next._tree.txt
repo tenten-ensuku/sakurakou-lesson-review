@@ -1,2 +1,2 @@
-:HL["/sakurakou-lesson-review/_next/static/chunks/0d67cooj9u~xr.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"p6Ypum31iUb4d85kqtd73"}
+:HL["/sakurakou-lesson-review/_next/static/chunks/174.awk80~.9i.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"3FgFueR1WJyxNE3DAES8u"}

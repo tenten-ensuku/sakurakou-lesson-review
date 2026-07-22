@@ -2,4 +2,4 @@
 2:I[39756,["/sakurakou-lesson-review/_next/static/chunks/0dbhjjzl8qfwv.js"],"default"]
 3:I[37457,["/sakurakou-lesson-review/_next/static/chunks/0dbhjjzl8qfwv.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"p6Ypum31iUb4d85kqtd73"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"3FgFueR1WJyxNE3DAES8u"}
