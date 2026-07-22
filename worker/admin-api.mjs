@@ -6,6 +6,8 @@ const MAX_LESSON_LENGTH = 120;
 const MAX_URL_LENGTH = 2000;
 const MAX_QUESTION_LENGTH = 2000;
 const MAX_ANSWER_LENGTH = 5000;
+const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
+const IMAGE_TYPES = new Map([["image/jpeg","jpg"],["image/png","png"],["image/webp","webp"],["image/gif","gif"]]);
 
 function trustedOrigin(origin) {
   return !origin || /^https:\/\/[a-z0-9-]+\.kobotenmitsu\.chatgpt\.site$/i.test(origin)
@@ -50,10 +52,29 @@ async function nextSortOrder(db, lessonId) {
 export async function handleAdminApi(request, env) {
   const url = new URL(request.url);
   const managed = url.pathname === "/api/notebook" || url.pathname === "/api/cards"
-    || url.pathname.startsWith("/api/admin/cards/") || url.pathname.startsWith("/api/lessons");
+    || url.pathname.startsWith("/api/admin/cards/") || url.pathname.startsWith("/api/lessons") || url.pathname.startsWith("/api/images");
   if (!managed) return null;
   if (!trustedOrigin(request.headers.get("origin"))) return json(request,{error:"許可されていない接続元です。"},403);
   if (request.method === "OPTIONS") return new Response(null,{status:204,headers:headers(request)});
+  const imageMatch = url.pathname.match(/^\/api\/images\/(note-images\/[a-f0-9-]+\.(?:jpg|png|webp|gif))$/i);
+  if (imageMatch && request.method === "GET") {
+    if (!env.MEDIA) return json(request,{error:"画像保存を利用できません。"},503);
+    const object = await env.MEDIA.get(imageMatch[1]);
+    if (!object) return json(request,{error:"画像が見つかりません。"},404);
+    const imageHeaders = headers(request); imageHeaders.set("Content-Type",object.httpMetadata?.contentType ?? "application/octet-stream"); imageHeaders.set("Cache-Control","public, max-age=31536000, immutable");
+    return new Response(object.body,{headers:imageHeaders});
+  }
+  if (url.pathname === "/api/images" && request.method === "POST") {
+    if (!env.MEDIA) return json(request,{error:"画像保存を利用できません。"},503);
+    const type = request.headers.get("content-type")?.split(";",1)[0].toLowerCase() ?? "";
+    const extension = IMAGE_TYPES.get(type); const declaredSize = Number(request.headers.get("content-length") ?? "0");
+    if (!extension || (declaredSize && declaredSize > MAX_IMAGE_BYTES)) return json(request,{error:"PNG・JPEG・WebP・GIFの8MB以下の画像を選んでください。"},400);
+    const bytes = await request.arrayBuffer();
+    if (!bytes.byteLength || bytes.byteLength > MAX_IMAGE_BYTES) return json(request,{error:"PNG・JPEG・WebP・GIFの8MB以下の画像を選んでください。"},400);
+    const key = `note-images/${crypto.randomUUID()}.${extension}`;
+    await env.MEDIA.put(key,bytes,{httpMetadata:{contentType:type}});
+    return json(request,{ok:true,url:`${url.origin}/api/images/${key}`,markdown:`![画像](${url.origin}/api/images/${key})`});
+  }
   if (!env.DB) return json(request,{error:"保存データベースを利用できません。"},503);
   await ensureSchema(env.DB);
 

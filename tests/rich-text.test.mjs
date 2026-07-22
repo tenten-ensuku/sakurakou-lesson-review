@@ -43,6 +43,14 @@ test("uses only a compact hostname for ordinary links", () => {
   assert.deepEqual(tokenizeRichText("URLなし"), [{ type: "text", value: "URLなし" }]);
 });
 
+test("renders Markdown image syntax as a separate rich-text image token", () => {
+  assert.deepEqual(tokenizeRichText("牌姿 ![南3局](https://example.com/hand.png) を確認"), [
+    { type:"text", value:"牌姿 " },
+    { type:"image", alt:"南3局", url:"https://example.com/hand.png" },
+    { type:"text", value:" を確認" },
+  ]);
+});
+
 test("renders automatic links through the shared mahjong text component", () => {
   const page = readFileSync("app/page.tsx", "utf8");
   const css = readFileSync("app/globals.css", "utf8");
