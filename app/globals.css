@@ -1337,6 +1337,139 @@ summary:focus-visible {
   letter-spacing: 0;
 }
 
+.card-meta-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inline-edit-button {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(8, 113, 95, 0.2);
+  border-radius: 999px;
+  padding: 6px 11px;
+  background: rgba(227, 248, 239, 0.88);
+  color: #08715f;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.inline-edit-button:hover {
+  background: #d4f3e6;
+  transform: translateY(-1px);
+}
+
+.inline-edit-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.inline-card-editor {
+  display: grid;
+  width: 100%;
+  align-self: center;
+  gap: 10px;
+  margin: 14px 0;
+  border: 1px solid rgba(8, 113, 95, 0.22);
+  border-radius: 18px;
+  padding: 14px;
+  background: #f3fcf8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.inline-card-editor--answer {
+  align-self: end;
+  background: #e4f8ef;
+}
+
+.inline-card-editor label {
+  display: grid;
+  gap: 7px;
+  color: #17624f;
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+.inline-card-editor textarea {
+  width: 100%;
+  min-height: 150px;
+  resize: vertical;
+  border: 2px solid rgba(8, 113, 95, 0.22);
+  border-radius: 13px;
+  padding: 12px 13px;
+  background: #fffefa;
+  color: #153f36;
+  font: 800 clamp(1rem, 3.8vw, 1.25rem)/1.55 inherit;
+  outline: none;
+}
+
+.inline-card-editor textarea:focus {
+  border-color: #0a9b76;
+  box-shadow: 0 0 0 4px rgba(10, 155, 118, 0.12);
+}
+
+.inline-edit-actions {
+  display: grid;
+  grid-template-columns: 1fr 1.35fr;
+  gap: 8px;
+}
+
+.inline-edit-actions button {
+  min-height: 46px;
+  border-radius: 12px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+}
+
+.inline-edit-cancel {
+  border: 1px solid rgba(17, 74, 63, 0.16);
+  background: #fffefa;
+  color: #47675f;
+}
+
+.inline-edit-save {
+  border: 0;
+  background: linear-gradient(135deg, #ff9b73, #ff7d5a);
+  box-shadow: 0 6px 0 #ca5c43;
+  color: #173f36;
+}
+
+.inline-edit-save:disabled {
+  cursor: not-allowed;
+  filter: grayscale(0.5);
+  opacity: 0.55;
+}
+
+.inline-edit-error {
+  margin: 0;
+  color: #a43c36;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.inline-edit-hint,
+.session-save-message {
+  margin: 10px 0 0;
+  color: rgba(17, 74, 63, 0.72);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.session-save-message {
+  margin: -4px 0 0;
+  color: #0a765d;
+}
+
 .question-text {
   align-self: center;
   margin: 16px 0;
@@ -2686,6 +2819,16 @@ summary:focus-visible {
 
   .mode-panel .section-heading > div {
     flex: 1 1 100%;
+  }
+
+  .inline-edit-button span {
+    display: none;
+  }
+
+  .inline-edit-button {
+    min-width: 36px;
+    justify-content: center;
+    padding-inline: 9px;
   }
 
   .mode-panel .section-heading .review-count {

@@ -20,6 +20,7 @@ type Notebook = { overrides:LegacyOverride[]; metadata:Lesson[]; lessons:Lesson[
 type Screen = "home"|"session"|"result"|"list"|"admin";
 type Rating = "known"|"again";
 type Result = { known:number; again:number; elapsed:number };
+type InlineEdit = { field:"question"|"answer"; value:string } | null;
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const API_BASE = process.env.NEXT_PUBLIC_ADMIN_API_URL ?? "";
@@ -78,6 +79,7 @@ export default function Home() {
   const [index,setIndex] = useState(0); const [revealed,setRevealed] = useState(false);
   const [ratings,setRatings] = useState<Record<string,Rating>>({}); const [elapsed,setElapsed] = useState(0); const [result,setResult] = useState<Result|null>(null);
   const [notice,setNotice] = useState(""); const [error,setError] = useState(""); const [busy,setBusy] = useState("");
+  const [inlineEdit,setInlineEdit] = useState<InlineEdit>(null); const [inlineEditError,setInlineEditError] = useState("");
   const [lessonDraft,setLessonDraft] = useState({date:"",teacher:"",title:"",videoUrl:""});
   const [newLesson,setNewLesson] = useState({date:todayShort(),teacher:"",title:"",videoUrl:""});
   const [cardDrafts,setCardDrafts] = useState<Record<string,{kind:Kind;question:string;answer:string}>>({});
@@ -127,23 +129,43 @@ export default function Home() {
     const cards = cardsFor(lesson.id); const questions = cards.filter((card) => card.kind === "question");
     const reviewKeys = reviewIds.filter((key) => questions.some((card) => cardKey(lesson.id,card) === key));
     const chosen = review ? questions.filter((card) => reviewKeys.includes(cardKey(lesson.id,card))) : cards;
-    if (!chosen.length) return; setActiveLessonId(lesson.id); setSessionCards(chosen); setSessionLesson(lesson); setIndex(0); setRevealed(false); setRatings({}); setElapsed(0); setResult(null); setScreen("session");
+    if (!chosen.length) return; setActiveLessonId(lesson.id); setSessionCards(chosen); setSessionLesson(lesson); setIndex(0); setRevealed(false); setInlineEdit(null); setInlineEditError(""); setRatings({}); setElapsed(0); setResult(null); setScreen("session");
   };
   const start = (review = false) => startForLesson(activeLesson,review);
   const nextCard = (nextRatings = ratings) => {
     if(index >= sessionCards.length-1) { const values=Object.values(nextRatings); setResult({known:values.filter((value)=>value==="known").length,again:values.filter((value)=>value==="again").length,elapsed}); setScreen("result"); }
-    else { setIndex((value)=>value+1); setRevealed(false); }
+    else { setIndex((value)=>value+1); setRevealed(false); setInlineEdit(null); setInlineEditError(""); }
   };
   const rate = (rating:Rating) => {
     if(!current || current.kind !== "question" || !revealed) return; const key=cardKey(sessionLesson.id,current); const next={...ratings,[key]:rating}; setRatings(next);
     setReviewIds((ids) => rating === "again" ? [...new Set([...ids,key])] : ids.filter((item) => item !== key)); window.setTimeout(() => nextCard(next),180);
   };
-  useEffect(() => { const onKey=(event:KeyboardEvent) => { if(screen !== "session" || !current) return; if(current.kind !== "question" && ["Enter"," "].includes(event.key)){event.preventDefault();nextCard();} else if(!revealed && ["Enter"," "].includes(event.key)){event.preventDefault();setRevealed(true);} else if(revealed && event.key === "ArrowLeft") rate("again"); else if(revealed && event.key === "ArrowRight") rate("known");}; window.addEventListener("keydown",onKey); return ()=>window.removeEventListener("keydown",onKey); });
+  useEffect(() => { const onKey=(event:KeyboardEvent) => { if(screen !== "session" || !current || inlineEdit) return; if(current.kind !== "question" && ["Enter"," "].includes(event.key)){event.preventDefault();nextCard();} else if(!revealed && ["Enter"," "].includes(event.key)){event.preventDefault();setRevealed(true);} else if(revealed && event.key === "ArrowLeft") rate("again"); else if(revealed && event.key === "ArrowRight") rate("known");}; window.addEventListener("keydown",onKey); return ()=>window.removeEventListener("keydown",onKey); });
 
   const call = async (path:string,method:string,body?:unknown) => {
     const response = await fetch(`${API_BASE}${path}`,{method,headers:body?{"content-type":"application/json"}:undefined,body:body?JSON.stringify(body):undefined});
     if(!response.ok) { const data=await response.json().catch(()=>({})); throw new Error(data.error ?? "保存できませんでした。"); }
     return response.json().catch(()=>({}));
+  };
+  const beginInlineEdit = () => {
+    if(!current || current.kind !== "question") return;
+    const field = revealed ? "answer" : "question";
+    setInlineEdit({field,value:current[field]}); setInlineEditError(""); setNotice("");
+  };
+  const cancelInlineEdit = () => { setInlineEdit(null); setInlineEditError(""); };
+  const saveInlineEdit = async () => {
+    if(!current || current.kind !== "question" || !inlineEdit) return;
+    const value=inlineEdit.value.trim();
+    if(!value) { setInlineEditError(inlineEdit.field === "question" ? "問題文を入力してください。" : "解説文を入力してください。"); return; }
+    const draft={kind:current.kind,question:inlineEdit.field === "question" ? value : current.question,answer:inlineEdit.field === "answer" ? value : current.answer};
+    setBusy("inline-card"); setInlineEditError("");
+    try {
+      if(current.source === "base") await call(`/api/admin/cards/${DEFAULT_LESSON.id}/${current.id}`,"PUT",draft);
+      else await call(`/api/lessons/${sessionLesson.id}/cards/${current.id}`,"PUT",draft);
+      setSessionCards((cards)=>cards.map((card,position)=>position === index ? {...card,...draft} : card));
+      setInlineEdit(null); setNotice(inlineEdit.field === "question" ? "問題文を保存しました。" : "解説文を保存しました。");
+      refresh().catch(()=>{});
+    } catch(e) { setInlineEditError(e instanceof Error ? e.message : "保存できませんでした。"); } finally { setBusy(""); }
   };
   const uploadImage = async (card:Card, field:"question"|"answer", file:File) => {
     const key = cardKey(adminLessonId,card); setBusy(`${key}:${field}`); setError("");
@@ -208,7 +230,7 @@ export default function Home() {
       })}</div>
     </section>}
 
-    {screen === "session" && current && <section className="screen screen--session" aria-live="polite"><div className="session-top"><button className="icon-button" onClick={()=>setScreen("home")} aria-label="メニューへ戻る">×</button><div className="session-title"><span>{sessionLesson.date}　{sessionLesson.title}</span><strong>{index+1}<small> / {sessionCards.length}</small></strong></div><div className="timer">◷ {formatTime(elapsed)}</div></div><div className="progress-track"><span style={{width:`${((index+1)/sessionCards.length)*100}%`}} /></div>{current.kind === "question" ? <><div className="study-stage"><article className={`flashcard ${revealed ? "flashcard--revealed" : ""}`}><div className="card-meta"><span>QUESTION</span><strong>Q{String(questionNumber(sessionCards,current.id)).padStart(2,"0")}</strong></div><p className="question-text"><TileText text={current.question} /></p><div className="answer-divider"><span>{revealed ? "ANSWER" : "THINK & REVEAL"}</span></div>{revealed ? <div className="answer-block"><p><TileText text={current.answer} /></p></div> : <button className="reveal-button" onClick={()=>setRevealed(true)}>◉ 答えを見る <kbd>Space</kbd></button>}</article></div><div className="rating-panel"><p>思い出せましたか？</p><div className="rating-actions"><button className="rating-button rating-button--again" disabled={!revealed} onClick={()=>rate("again")}>↺ <strong>解き直しに追加</strong><small>←</small></button><button className="rating-button rating-button--known" disabled={!revealed} onClick={()=>rate("known")}>✓ <strong>わかった</strong><small>→</small></button></div></div></> : <div className="study-stage"><article className={`flashcard flashcard--revealed info-card info-card--${current.kind}`}><div className="card-meta"><span>{current.kind === "section" ? "SESSION" : "LEARNING NOTE"}</span><strong>＋</strong></div><p className="question-text"><TileText text={current.question} /></p><div className="answer-divider"><span>NOTE</span></div><div className="answer-block"><p><TileText text={current.answer} /></p></div><button className="reveal-button" onClick={()=>nextCard()}>{index === sessionCards.length-1 ? "学習を終える" : "次へ"} →</button></article></div>}</section>}
+    {screen === "session" && current && <section className="screen screen--session" aria-live="polite"><div className="session-top"><button className="icon-button" onClick={()=>{setInlineEdit(null);setScreen("home");}} aria-label="メニューへ戻る">×</button><div className="session-title"><span>{sessionLesson.date}　{sessionLesson.title}</span><strong>{index+1}<small> / {sessionCards.length}</small></strong></div><div className="timer">◷ {formatTime(elapsed)}</div></div><div className="progress-track"><span style={{width:`${((index+1)/sessionCards.length)*100}%`}} /></div>{current.kind === "question" ? <><div className="study-stage"><article className={`flashcard ${revealed ? "flashcard--revealed" : ""}`}><div className="card-meta"><span>QUESTION</span><div className="card-meta-actions"><strong>Q{String(questionNumber(sessionCards,current.id)).padStart(2,"0")}</strong><button className="inline-edit-button" type="button" onClick={beginInlineEdit} disabled={busy === "inline-card"} aria-label={revealed ? "解説を編集" : "問題文を編集"}>✎ <span>{revealed ? "解説を編集" : "問題を編集"}</span></button></div></div>{inlineEdit?.field === "question" ? <div className="inline-card-editor inline-card-editor--question"><label>問題文<textarea autoFocus value={inlineEdit.value} onChange={(event)=>setInlineEdit({...inlineEdit,value:event.target.value})} onKeyDown={(event)=>{if((event.ctrlKey || event.metaKey) && event.key === "Enter"){event.preventDefault();saveInlineEdit();} else if(event.key === "Escape"){event.preventDefault();cancelInlineEdit();}}} /></label>{inlineEditError && <p className="inline-edit-error">{inlineEditError}</p>}<div className="inline-edit-actions"><button type="button" className="inline-edit-cancel" onClick={cancelInlineEdit}>キャンセル</button><button type="button" className="inline-edit-save" disabled={busy === "inline-card" || !inlineEdit.value.trim()} onClick={saveInlineEdit}>{busy === "inline-card" ? "保存中…" : "保存"}</button></div></div> : <p className="question-text"><TileText text={current.question} /></p>}<div className="answer-divider"><span>{inlineEdit?.field === "question" ? "EDIT QUESTION" : inlineEdit?.field === "answer" ? "EDIT ANSWER" : revealed ? "ANSWER" : "THINK & REVEAL"}</span></div>{revealed ? inlineEdit?.field === "answer" ? <div className="inline-card-editor inline-card-editor--answer"><label>解説文<textarea autoFocus value={inlineEdit.value} onChange={(event)=>setInlineEdit({...inlineEdit,value:event.target.value})} onKeyDown={(event)=>{if((event.ctrlKey || event.metaKey) && event.key === "Enter"){event.preventDefault();saveInlineEdit();} else if(event.key === "Escape"){event.preventDefault();cancelInlineEdit();}}} /></label>{inlineEditError && <p className="inline-edit-error">{inlineEditError}</p>}<div className="inline-edit-actions"><button type="button" className="inline-edit-cancel" onClick={cancelInlineEdit}>キャンセル</button><button type="button" className="inline-edit-save" disabled={busy === "inline-card" || !inlineEdit.value.trim()} onClick={saveInlineEdit}>{busy === "inline-card" ? "保存中…" : "保存"}</button></div></div> : <div className="answer-block"><p><TileText text={current.answer} /></p></div> : inlineEdit?.field === "question" ? <p className="inline-edit-hint">保存すると、このカードへすぐ反映されます。</p> : <button className="reveal-button" onClick={()=>setRevealed(true)}>◉ 答えを見る <kbd>Space</kbd></button>}</article></div>{notice && <p className="session-save-message">{notice}</p>}<div className="rating-panel"><p>思い出せましたか？</p><div className="rating-actions"><button className="rating-button rating-button--again" disabled={!revealed || Boolean(inlineEdit)} onClick={()=>rate("again")}>↺ <strong>解き直しに追加</strong><small>←</small></button><button className="rating-button rating-button--known" disabled={!revealed || Boolean(inlineEdit)} onClick={()=>rate("known")}>✓ <strong>わかった</strong><small>→</small></button></div></div></> : <div className="study-stage"><article className={`flashcard flashcard--revealed info-card info-card--${current.kind}`}><div className="card-meta"><span>{current.kind === "section" ? "SESSION" : "LEARNING NOTE"}</span><strong>＋</strong></div><p className="question-text"><TileText text={current.question} /></p><div className="answer-divider"><span>NOTE</span></div><div className="answer-block"><p><TileText text={current.answer} /></p></div><button className="reveal-button" onClick={()=>nextCard()}>{index === sessionCards.length-1 ? "学習を終える" : "次へ"} →</button></article></div>}</section>}
 
     {screen === "result" && result && <section className="screen screen--result"><Header compact /><div className="result-panel"><p className="result-kicker">SESSION COMPLETE</p><h2>おつかれさまでした！</h2><div className="score-ring" style={{"--score":`${score*3.6}deg`} as React.CSSProperties}><div><strong>{score}</strong><span>%</span></div></div><div className={`rank-badge rank-badge--${getRank(score).toLowerCase()}`}><span>定着ランク</span><strong>{getRank(score)}</strong></div><dl className="result-stats"><div><dt>わかった</dt><dd>{result.known}<small>枚</small></dd></div><div><dt>解き直し</dt><dd>{result.again}<small>枚</small></dd></div><div><dt>時間</dt><dd>{formatTime(result.elapsed)}</dd></div></dl><div className="result-actions"><button className="primary-button" onClick={()=>start(false)}>もう一度</button><button className="text-button" onClick={()=>setScreen("home")}>メニューへ</button></div></div></section>}
 
