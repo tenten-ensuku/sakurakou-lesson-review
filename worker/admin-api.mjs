@@ -3,6 +3,7 @@ import { FLASHCARD_OVERRIDES_SCHEMA_SQL, NOTEBOOK_SCHEMA_SQL } from "../db/schem
 const DEFAULT_LESSON_ID = "sakurakou-2026-07-21";
 const MAX_BASE_CARD_ID = 27;
 const MAX_LESSON_LENGTH = 120;
+const MAX_TEACHER_LENGTH = 80;
 const MAX_URL_LENGTH = 2000;
 const MAX_QUESTION_LENGTH = 2000;
 const MAX_ANSWER_LENGTH = 5000;
@@ -40,6 +41,8 @@ function videoUrl(value) {
 async function ensureSchema(db) {
   await db.prepare(FLASHCARD_OVERRIDES_SCHEMA_SQL).run();
   for (const sql of NOTEBOOK_SCHEMA_SQL) await db.prepare(sql).run();
+  await db.prepare("ALTER TABLE lesson_metadata_overrides ADD COLUMN teacher TEXT NOT NULL DEFAULT ''").run().catch(() => {});
+  await db.prepare("ALTER TABLE notebook_lessons ADD COLUMN teacher TEXT NOT NULL DEFAULT ''").run().catch(() => {});
 }
 async function parseBody(request) {
   try { return await request.json(); } catch { return null; }
@@ -81,14 +84,14 @@ export async function handleAdminApi(request, env) {
   if (url.pathname === "/api/notebook" && request.method === "GET") {
     const [legacy, metadata, lessons, cards] = await Promise.all([
       env.DB.prepare("SELECT lesson_id, card_id, question, answer, deleted, updated_at FROM lesson_card_overrides ORDER BY card_id").all(),
-      env.DB.prepare("SELECT lesson_id, lesson_date, title, video_url, updated_at FROM lesson_metadata_overrides").all(),
-      env.DB.prepare("SELECT lesson_id, lesson_date, title, video_url, deleted, updated_at FROM notebook_lessons ORDER BY created_at DESC").all(),
+      env.DB.prepare("SELECT lesson_id, lesson_date, teacher, title, video_url, updated_at FROM lesson_metadata_overrides").all(),
+      env.DB.prepare("SELECT lesson_id, lesson_date, teacher, title, video_url, deleted, updated_at FROM notebook_lessons ORDER BY created_at DESC").all(),
       env.DB.prepare("SELECT card_id, lesson_id, sort_order, kind, question, answer, deleted, updated_at FROM notebook_cards ORDER BY lesson_id, sort_order, created_at").all(),
     ]);
     return json(request,{
       overrides:(legacy.results ?? []).map((row) => ({lessonId:row.lesson_id,id:row.card_id,question:row.question,answer:row.answer,...(row.deleted === 1 ? {deleted:true}:{}),updatedAt:row.updated_at})),
-      metadata:(metadata.results ?? []).map((row) => ({lessonId:row.lesson_id,date:row.lesson_date,title:row.title,videoUrl:row.video_url,updatedAt:row.updated_at})),
-      lessons:(lessons.results ?? []).map((row) => ({id:row.lesson_id,date:row.lesson_date,title:row.title,videoUrl:row.video_url,deleted:row.deleted === 1,updatedAt:row.updated_at})),
+      metadata:(metadata.results ?? []).map((row) => ({lessonId:row.lesson_id,date:row.lesson_date,teacher:row.teacher ?? "",title:row.title,videoUrl:row.video_url,updatedAt:row.updated_at})),
+      lessons:(lessons.results ?? []).map((row) => ({id:row.lesson_id,date:row.lesson_date,teacher:row.teacher ?? "",title:row.title,videoUrl:row.video_url,deleted:row.deleted === 1,updatedAt:row.updated_at})),
       cards:(cards.results ?? []).map((row) => ({id:row.card_id,lessonId:row.lesson_id,sortOrder:row.sort_order,kind:row.kind,question:row.question,answer:row.answer,deleted:row.deleted === 1,updatedAt:row.updated_at})),
     });
   }
@@ -120,11 +123,11 @@ export async function handleAdminApi(request, env) {
   }
 
   if (url.pathname === "/api/lessons" && request.method === "POST") {
-    const body = await parseBody(request); const date = dateText(body?.date); const title = text(body?.title,MAX_LESSON_LENGTH); const video = videoUrl(body?.videoUrl);
-    if (!date || !title || (body?.videoUrl && !video)) return json(request,{error:"日付、タイトル、YouTubeリンクを確認してください。"},400);
+    const body = await parseBody(request); const date = dateText(body?.date); const teacher = text(body?.teacher,MAX_TEACHER_LENGTH); const title = text(body?.title,MAX_LESSON_LENGTH); const video = videoUrl(body?.videoUrl);
+    if (!date || !teacher || !title || (body?.videoUrl && !video)) return json(request,{error:"日付、講師、タイトル、YouTubeリンクを確認してください。"},400);
     const id = `lesson-${crypto.randomUUID()}`;
-    await env.DB.prepare("INSERT INTO notebook_lessons (lesson_id,lesson_date,title,video_url) VALUES (?,?,?,?)").bind(id,date,title,video).run();
-    return json(request,{ok:true,lesson:{id,date,title,videoUrl:video}});
+    await env.DB.prepare("INSERT INTO notebook_lessons (lesson_id,lesson_date,teacher,title,video_url) VALUES (?,?,?,?,?)").bind(id,date,teacher,title,video).run();
+    return json(request,{ok:true,lesson:{id,date,teacher,title,videoUrl:video}});
   }
 
   const lessonMatch = url.pathname.match(/^\/api\/lessons\/([^/]+)$/);
@@ -132,10 +135,10 @@ export async function handleAdminApi(request, env) {
     const lessonId = lessonMatch[1];
     if (!validLessonId(lessonId)) return json(request,{error:"対象の授業が見つかりません。"},404);
     if (request.method === "PUT") {
-      const body = await parseBody(request); const date = dateText(body?.date); const title = text(body?.title,MAX_LESSON_LENGTH); const video = videoUrl(body?.videoUrl);
-      if (!date || !title || (body?.videoUrl && !video)) return json(request,{error:"日付、タイトル、YouTubeリンクを確認してください。"},400);
-      if (lessonId === DEFAULT_LESSON_ID) await env.DB.prepare("INSERT INTO lesson_metadata_overrides (lesson_id,lesson_date,title,video_url,updated_at) VALUES (?,?,?,?,CURRENT_TIMESTAMP) ON CONFLICT(lesson_id) DO UPDATE SET lesson_date=excluded.lesson_date,title=excluded.title,video_url=excluded.video_url,updated_at=CURRENT_TIMESTAMP").bind(lessonId,date,title,video).run();
-      else await env.DB.prepare("UPDATE notebook_lessons SET lesson_date=?,title=?,video_url=?,updated_at=CURRENT_TIMESTAMP WHERE lesson_id=?").bind(date,title,video,lessonId).run();
+      const body = await parseBody(request); const date = dateText(body?.date); const teacher = text(body?.teacher,MAX_TEACHER_LENGTH); const title = text(body?.title,MAX_LESSON_LENGTH); const video = videoUrl(body?.videoUrl);
+      if (!date || !teacher || !title || (body?.videoUrl && !video)) return json(request,{error:"日付、講師、タイトル、YouTubeリンクを確認してください。"},400);
+      if (lessonId === DEFAULT_LESSON_ID) await env.DB.prepare("INSERT INTO lesson_metadata_overrides (lesson_id,lesson_date,teacher,title,video_url,updated_at) VALUES (?,?,?,?,?,CURRENT_TIMESTAMP) ON CONFLICT(lesson_id) DO UPDATE SET lesson_date=excluded.lesson_date,teacher=excluded.teacher,title=excluded.title,video_url=excluded.video_url,updated_at=CURRENT_TIMESTAMP").bind(lessonId,date,teacher,title,video).run();
+      else await env.DB.prepare("UPDATE notebook_lessons SET lesson_date=?,teacher=?,title=?,video_url=?,updated_at=CURRENT_TIMESTAMP WHERE lesson_id=?").bind(date,teacher,title,video,lessonId).run();
       return json(request,{ok:true});
     }
     if (request.method === "DELETE" && lessonId !== DEFAULT_LESSON_ID) {

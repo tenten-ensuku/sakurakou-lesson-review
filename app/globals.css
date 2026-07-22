@@ -162,6 +162,12 @@ summary:focus-visible {
   font-family: Georgia, serif;
 }
 
+.lesson-teacher {
+  margin-right: 8px;
+  color: var(--ink-muted);
+  font-size: .82em;
+}
+
 .lesson-panel-actions {
   display: flex;
   justify-content: flex-end;

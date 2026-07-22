@@ -1,4 +1,4 @@
-export const APP_VERSION = 8;
+export const APP_VERSION = 9;
 export const STORAGE_KEY = "sakurakou-lesson-review-v1";
 export const LESSON_ID = "sakurakou-2026-07-21";
 export const LESSON_TITLE = "7/21　てんてん先生　蒼嵐戦　牌譜検討";
@@ -40,7 +40,8 @@ export const BASE_CARDS = Object.freeze([
 export const DEFAULT_LESSON = Object.freeze({
   id: LESSON_ID,
   date: "7/21",
-  title: LESSON_TITLE,
+  teacher: "てんてん先生",
+  title: "蒼嵐戦 牌譜検討",
   videoUrl: VIDEO_URL,
 });
 
