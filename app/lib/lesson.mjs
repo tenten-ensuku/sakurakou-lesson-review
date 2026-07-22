@@ -59,7 +59,7 @@ export function mergeLessonCards(baseCards, overrides = [], customCards = []) {
 }
 
 export function questionNumber(cards, id) {
-  return cards.filter((card) => card.kind === "question" && card.id <= id).length;
+  return cards.filter((card) => card.kind === "question").findIndex((card) => String(card.id) === String(id)) + 1;
 }
 
 export function mergeOverrides(overrides = []) {
