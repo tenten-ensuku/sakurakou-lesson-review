@@ -1,4 +1,4 @@
-export const APP_VERSION = 12;
+export const APP_VERSION = 13;
 export const STORAGE_KEY = "sakurakou-lesson-review-v1";
 export const LESSON_ID = "sakurakou-2026-07-21";
 export const LESSON_TITLE = "7/21　てんてん先生　蒼嵐戦　牌譜検討";
