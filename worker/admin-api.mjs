@@ -7,6 +7,7 @@ const MAX_TEACHER_LENGTH = 80;
 const MAX_URL_LENGTH = 2000;
 const MAX_QUESTION_LENGTH = 2000;
 const MAX_ANSWER_LENGTH = 5000;
+const MAX_RESOURCE_LABEL_LENGTH = 120;
 const MAX_IMAGE_BYTES = 8 * 1024 * 1024;
 const IMAGE_TYPES = new Map([["image/jpeg","jpg"],["image/png","png"],["image/webp","webp"],["image/gif","gif"]]);
 
@@ -31,6 +32,7 @@ function json(request, value, status = 200) {
 }
 function validLessonId(value) { return value === DEFAULT_LESSON_ID || /^lesson-[a-z0-9-]{10,80}$/i.test(value); }
 function validCardId(value) { return /^card-[a-z0-9-]{10,80}$/i.test(value); }
+function validResourceId(value) { return /^resource-[a-z0-9-]{10,80}$/i.test(value); }
 function text(value, max) { return typeof value === "string" && value.trim().length <= max ? value.trim() : ""; }
 function dateText(value) { return typeof value === "string" && /^\d{1,2}\/\d{1,2}$/.test(value.trim()) ? value.trim() : ""; }
 function videoUrl(value) {
@@ -49,6 +51,10 @@ async function parseBody(request) {
 }
 async function nextSortOrder(db, lessonId) {
   const result = await db.prepare("SELECT COALESCE(MAX(sort_order), 0) + 1 AS next_order FROM notebook_cards WHERE lesson_id = ?").bind(lessonId).all();
+  return Number(result.results?.[0]?.next_order ?? 1);
+}
+async function nextResourceSortOrder(db, lessonId) {
+  const result = await db.prepare("SELECT COALESCE(MAX(sort_order), 0) + 1 AS next_order FROM lesson_resources WHERE lesson_id = ?").bind(lessonId).all();
   return Number(result.results?.[0]?.next_order ?? 1);
 }
 
@@ -82,17 +88,19 @@ export async function handleAdminApi(request, env) {
   await ensureSchema(env.DB);
 
   if (url.pathname === "/api/notebook" && request.method === "GET") {
-    const [legacy, metadata, lessons, cards] = await Promise.all([
+    const [legacy, metadata, lessons, cards, resources] = await Promise.all([
       env.DB.prepare("SELECT lesson_id, card_id, question, answer, deleted, updated_at FROM lesson_card_overrides ORDER BY card_id").all(),
       env.DB.prepare("SELECT lesson_id, lesson_date, teacher, title, video_url, updated_at FROM lesson_metadata_overrides").all(),
       env.DB.prepare("SELECT lesson_id, lesson_date, teacher, title, video_url, deleted, updated_at FROM notebook_lessons ORDER BY created_at DESC").all(),
       env.DB.prepare("SELECT card_id, lesson_id, sort_order, kind, question, answer, deleted, updated_at FROM notebook_cards ORDER BY lesson_id, sort_order, created_at").all(),
+      env.DB.prepare("SELECT resource_id, lesson_id, sort_order, kind, label, url, updated_at FROM lesson_resources ORDER BY lesson_id, sort_order, created_at").all(),
     ]);
     return json(request,{
       overrides:(legacy.results ?? []).map((row) => ({lessonId:row.lesson_id,id:row.card_id,question:row.question,answer:row.answer,...(row.deleted === 1 ? {deleted:true}:{}),updatedAt:row.updated_at})),
       metadata:(metadata.results ?? []).map((row) => ({lessonId:row.lesson_id,date:row.lesson_date,teacher:row.teacher ?? "",title:row.title,videoUrl:row.video_url,updatedAt:row.updated_at})),
       lessons:(lessons.results ?? []).map((row) => ({id:row.lesson_id,date:row.lesson_date,teacher:row.teacher ?? "",title:row.title,videoUrl:row.video_url,deleted:row.deleted === 1,updatedAt:row.updated_at})),
       cards:(cards.results ?? []).map((row) => ({id:row.card_id,lessonId:row.lesson_id,sortOrder:row.sort_order,kind:row.kind,question:row.question,answer:row.answer,deleted:row.deleted === 1,updatedAt:row.updated_at})),
+      resources:(resources.results ?? []).map((row) => ({id:row.resource_id,lessonId:row.lesson_id,sortOrder:row.sort_order,kind:row.kind,label:row.label,url:row.url,updatedAt:row.updated_at})),
     });
   }
   if (url.pathname === "/api/cards" && request.method === "GET") {
@@ -143,6 +151,34 @@ export async function handleAdminApi(request, env) {
     }
     if (request.method === "DELETE" && lessonId !== DEFAULT_LESSON_ID) {
       await env.DB.prepare("UPDATE notebook_lessons SET deleted=1,updated_at=CURRENT_TIMESTAMP WHERE lesson_id=?").bind(lessonId).run();
+      return json(request,{ok:true,deleted:true});
+    }
+  }
+
+  const resourceCollection = url.pathname.match(/^\/api\/lessons\/([^/]+)\/resources$/);
+  if (resourceCollection && request.method === "POST") {
+    const lessonId = resourceCollection[1];
+    if (!validLessonId(lessonId)) return json(request,{error:"対象の授業が見つかりません。"},404);
+    const body = await parseBody(request); const kind = ["link","image"].includes(body?.kind) ? body.kind : "link";
+    const urlValue = videoUrl(body?.url); const label = text(body?.label,MAX_RESOURCE_LABEL_LENGTH) || (kind === "image" ? "画像資料" : "参考資料");
+    if (!urlValue) return json(request,{error:"http または https の参考資料URLを入力してください。"},400);
+    const id = `resource-${crypto.randomUUID()}`; const sortOrder = await nextResourceSortOrder(env.DB,lessonId);
+    await env.DB.prepare("INSERT INTO lesson_resources (resource_id,lesson_id,sort_order,kind,label,url) VALUES (?,?,?,?,?,?)").bind(id,lessonId,sortOrder,kind,label,urlValue).run();
+    return json(request,{ok:true,resource:{id,lessonId,sortOrder,kind,label,url:urlValue}});
+  }
+
+  const resourceMatch = url.pathname.match(/^\/api\/lessons\/([^/]+)\/resources\/([^/]+)$/);
+  if (resourceMatch && validLessonId(resourceMatch[1]) && validResourceId(resourceMatch[2])) {
+    const [,lessonId,resourceId] = resourceMatch;
+    if (request.method === "PUT") {
+      const body = await parseBody(request); const kind = ["link","image"].includes(body?.kind) ? body.kind : "link";
+      const urlValue = videoUrl(body?.url); const label = text(body?.label,MAX_RESOURCE_LABEL_LENGTH) || (kind === "image" ? "画像資料" : "参考資料");
+      if (!urlValue) return json(request,{error:"http または https の参考資料URLを入力してください。"},400);
+      await env.DB.prepare("UPDATE lesson_resources SET kind=?,label=?,url=?,updated_at=CURRENT_TIMESTAMP WHERE lesson_id=? AND resource_id=?").bind(kind,label,urlValue,lessonId,resourceId).run();
+      return json(request,{ok:true});
+    }
+    if (request.method === "DELETE") {
+      await env.DB.prepare("DELETE FROM lesson_resources WHERE lesson_id=? AND resource_id=?").bind(lessonId,resourceId).run();
       return json(request,{ok:true,deleted:true});
     }
   }
