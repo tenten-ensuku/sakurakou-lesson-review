@@ -252,6 +252,24 @@ summary:focus-visible {
   font-weight: 700;
 }
 
+.image-upload--drop {
+  border: 1px dashed #6ac5ad;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #f3fffa;
+}
+
+.image-upload--drop:focus-within,
+.image-upload--drop:focus {
+  outline: 3px solid color-mix(in srgb, var(--aqua) 38%, transparent);
+  outline-offset: 2px;
+}
+
+.image-upload--drop > span {
+  color: var(--muted);
+  font-size: .76rem;
+}
+
 .image-help {
   margin: -2px 0 2px;
   color: var(--muted);
