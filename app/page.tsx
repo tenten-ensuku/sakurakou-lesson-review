@@ -3,6 +3,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { tokenizeRichText } from "./lib/rich-text.mjs";
+import { honorTileNumber } from "./lib/mahjong-tiles.mjs";
 import {
   APP_VERSION, BASE_CARDS, DEFAULT_LESSON, STORAGE_KEY,
   getRank, mergeLessonCards, questionNumber, sortLessons,
@@ -34,7 +35,7 @@ function TileText({ text, links = true }:{ text:string; links?:boolean }) {
     while ((match = pattern.exec(value))) {
       const found = match;
       if (found.index > cursor) nodes.push(value.slice(cursor,found.index));
-      const honor = found[3]; const digits = honor ? [...honor].map(() => "5") : [...found[1]];
+      const honor = found[3]; const digits = honor ? [...honor].map(honorTileNumber) : [...found[1]];
       const suit = honor ? "ji" : SUITS[found[2].toLowerCase() as keyof typeof SUITS];
       nodes.push(<span className="tile-run" key={`${found.index}-${found[0]}`}>{digits.map((digit,index) =>
         <span className="tile-slot" key={`${digit}-${index}`}><img className="tile-image" src={`${BASE_PATH}/tiles/${suit}${digit}-66-90-l.png`} width="66" height="90" alt={honor ?? `${digit}${found[2]}`} /></span>)}</span>);
