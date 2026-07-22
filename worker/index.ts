@@ -4,7 +4,6 @@ import handler from "vinext/server/app-router-entry";
 import { handleAdminApi } from "./admin-api.mjs";
 
 interface Env {
-  ADMIN_PASSWORD?: string;
   ASSETS: {
     fetch(request: Request): Promise<Response>;
   };

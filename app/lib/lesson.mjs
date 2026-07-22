@@ -1,4 +1,4 @@
-export const APP_VERSION = 6;
+export const APP_VERSION = 7;
 export const STORAGE_KEY = "sakurakou-lesson-review-v1";
 export const LESSON_ID = "sakurakou-2026-07-21";
 export const LESSON_TITLE = "7/21　てんてん先生　蒼嵐戦　牌譜検討";
@@ -36,6 +36,27 @@ export const BASE_CARDS = Object.freeze([
   { id: 26, kind: "question", question: "オーラス（最終局）の方針立てにおいて、最も優先して確認すべき2項目は何ですか？", answer: "①放銃してはいけない相手（着順が入れ替わる相手）の確認、②逆転に必要な条件（打点・着順上昇条件）の確認です。" },
   { id: 27, kind: "note", question: "おわりに：継続学習のアドバイス", answer: "本フラッシュカードの内容を実戦で『武器』にするためには、『毎日1回ドリルを解く』習慣が不可欠です。\n\n潮桜紅氏の対局検討で見られたような、複雑な6枚形や10枚形、そしてオーラスの繊細な判断は、すべて基礎の積み重ねの上に成り立っています。特に多面張は『考える』時間をゼロにし、『視覚的に認知する』レベル（SSランク）まで高めてください。1日10分の反復が、あなたの雀力を劇的に進化させます。" },
 ]);
+
+export const DEFAULT_LESSON = Object.freeze({
+  id: LESSON_ID,
+  date: "7/21",
+  title: LESSON_TITLE,
+  videoUrl: VIDEO_URL,
+});
+
+export function sortLessons(lessons) {
+  const stamp = (date) => {
+    const match = String(date ?? "").match(/^(\d{1,2})\/(\d{1,2})$/);
+    return match ? Number(match[1]) * 32 + Number(match[2]) : 0;
+  };
+  return [...lessons].sort((a, b) => stamp(b.date) - stamp(a.date) || a.title.localeCompare(b.title, "ja"));
+}
+
+export function mergeLessonCards(baseCards, overrides = [], customCards = []) {
+  const legacy = mergeOverrides(overrides);
+  const extras = customCards.filter((card) => !card.deleted).map((card) => ({ ...card, source:"custom" }));
+  return [...legacy.map((card) => ({ ...card, source:"base" })), ...extras];
+}
 
 export function questionNumber(cards, id) {
   return cards.filter((card) => card.kind === "question" && card.id <= id).length;

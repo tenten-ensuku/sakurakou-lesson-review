@@ -120,6 +120,180 @@ summary:focus-visible {
   opacity: .7;
 }
 
+.notebook-intro,
+.admin-create-lesson,
+.admin-lesson-editor {
+  display: grid;
+  gap: 12px;
+}
+
+.notebook-intro {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.notebook-intro h2,
+.notebook-intro p,
+.admin-create-lesson h3,
+.admin-lesson-editor h3,
+.admin-card-toolbar h3 {
+  margin: 0;
+}
+
+.notebook-intro > div > p:last-child {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.6;
+}
+
+.lesson-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.lesson-panel {
+  padding: 18px;
+}
+
+.lesson-date {
+  margin-right: 8px;
+  color: var(--gold-bright);
+  font-family: Georgia, serif;
+}
+
+.lesson-panel-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 5px;
+}
+
+.admin-create-lesson,
+.admin-lesson-editor {
+  margin: 18px 0;
+  padding: 17px;
+  border: 1px solid rgba(20, 86, 73, .16);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .84);
+  box-shadow: 0 8px 22px rgba(9, 91, 73, .08);
+}
+
+.admin-create-lesson {
+  background: linear-gradient(135deg, rgba(238, 233, 255, .94), rgba(255, 246, 228, .94));
+}
+
+.admin-meta-fields {
+  display: grid;
+  grid-template-columns: minmax(90px, .32fr) minmax(0, 1fr);
+  gap: 10px;
+}
+
+.admin-meta-fields label,
+.admin-card-form label {
+  display: grid;
+  gap: 5px;
+  color: #17624f;
+  font-size: .76rem;
+  font-weight: 900;
+}
+
+.admin-meta-fields label:last-child {
+  grid-column: 1 / -1;
+}
+
+.admin-meta-fields input,
+.admin-card-form textarea,
+.admin-card-form select {
+  width: 100%;
+  border: 1px solid rgba(20, 86, 73, .22);
+  border-radius: 12px;
+  outline: none;
+  background: #fff;
+  color: var(--cream);
+  font: inherit;
+  line-height: 1.55;
+}
+
+.admin-meta-fields input,
+.admin-card-form select {
+  min-height: 44px;
+  padding: 8px 10px;
+}
+
+.admin-card-form textarea {
+  min-height: 100px;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.admin-meta-fields input:focus,
+.admin-card-form textarea:focus,
+.admin-card-form select:focus {
+  border-color: var(--green-light);
+  box-shadow: 0 0 0 3px rgba(10, 155, 118, .14);
+}
+
+.admin-save-button {
+  min-height: 48px;
+  border: 1px solid #ef765b;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #ff9c7f, var(--orange));
+  color: #4c261d;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.admin-card-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 26px 0 12px;
+}
+
+.admin-card-toolbar .primary-button,
+.admin-create-lesson .primary-button {
+  min-height: 48px;
+  padding: 8px 15px;
+}
+
+.admin-card-editor summary {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.admin-card-editor summary i {
+  color: var(--gold);
+  font-style: normal;
+  transition: transform .15s;
+}
+
+.admin-card-editor[open] summary i {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 520px) {
+  .notebook-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .notebook-intro .admin-entry-button {
+    justify-self: start;
+  }
+
+  .admin-meta-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-meta-fields label:last-child {
+    grid-column: auto;
+  }
+
+  .admin-card-toolbar {
+    align-items: flex-end;
+  }
+}
+
 .brand {
   display: grid;
   grid-template-columns: auto 1fr auto;
