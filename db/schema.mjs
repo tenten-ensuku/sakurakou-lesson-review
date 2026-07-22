@@ -13,6 +13,7 @@ export const NOTEBOOK_SCHEMA_SQL = [
   `CREATE TABLE IF NOT EXISTS lesson_metadata_overrides (
     lesson_id TEXT PRIMARY KEY,
     lesson_date TEXT NOT NULL,
+    teacher TEXT NOT NULL DEFAULT '',
     title TEXT NOT NULL,
     video_url TEXT NOT NULL DEFAULT '',
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -20,6 +21,7 @@ export const NOTEBOOK_SCHEMA_SQL = [
   `CREATE TABLE IF NOT EXISTS notebook_lessons (
     lesson_id TEXT PRIMARY KEY,
     lesson_date TEXT NOT NULL,
+    teacher TEXT NOT NULL DEFAULT '',
     title TEXT NOT NULL,
     video_url TEXT NOT NULL DEFAULT '',
     deleted INTEGER NOT NULL DEFAULT 0 CHECK (deleted IN (0, 1)),
