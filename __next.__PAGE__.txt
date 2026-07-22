@@ -1,9 +1,9 @@
 1:"$Sreact.fragment"
-2:I[62696,["/sakurakou-lesson-review/_next/static/chunks/0gkk~b-y3nx99.js"],"ClientPageRoot"]
-3:I[70842,["/sakurakou-lesson-review/_next/static/chunks/0gkk~b-y3nx99.js","/sakurakou-lesson-review/_next/static/chunks/0no7~xhwn.6c~.js"],"default"]
-6:I[51929,["/sakurakou-lesson-review/_next/static/chunks/0gkk~b-y3nx99.js"],"OutletBoundary"]
+2:I[47257,["/sakurakou-lesson-review/_next/static/chunks/0dbhjjzl8qfwv.js"],"ClientPageRoot"]
+3:I[31713,["/sakurakou-lesson-review/_next/static/chunks/0dbhjjzl8qfwv.js","/sakurakou-lesson-review/_next/static/chunks/0pv3gz~iltwyi.js"],"default"]
+6:I[97367,["/sakurakou-lesson-review/_next/static/chunks/0dbhjjzl8qfwv.js"],"OutletBoundary"]
 7:"$Sreact.suspense"
-0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/sakurakou-lesson-review/_next/static/chunks/0no7~xhwn.6c~.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"7XCK-bzgvqBQqZ_vURNtv"}
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/sakurakou-lesson-review/_next/static/chunks/0pv3gz~iltwyi.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"P0ruvHSurCRL0xhpeWWbW"}
 4:{}
 5:"$0:rsc:props:children:0:props:serverProvidedParams:params"
 8:null
