@@ -111,6 +111,19 @@ export default function Home() {
   useEffect(() => { setResourceDraft({label:"",url:""}); },[adminLessonId]);
   useEffect(() => { if(screen !== "session") return; const timer=window.setInterval(() => setElapsed((value) => value+1),1000); return () => window.clearInterval(timer); },[screen]);
   useEffect(() => {
+    if (screen !== "home") return;
+    const headings = [...document.querySelectorAll<HTMLElement>(".lesson-panel .section-heading")];
+    const handlers = headings.map((heading) => {
+      const handler = (event: MouseEvent) => {
+        if ((event.target as HTMLElement).closest("a,button")) return;
+        heading.closest(".lesson-panel")?.classList.toggle("lesson-panel--expanded");
+      };
+      heading.addEventListener("click", handler);
+      return [heading, handler] as const;
+    });
+    return () => handlers.forEach(([heading, handler]) => heading.removeEventListener("click", handler));
+  }, [screen, lessons.length]);
+  useEffect(() => {
     const lesson = lessons.find((item) => item.id === adminLessonId); if (!lesson) return;
     setLessonDraft({date:lesson.date,teacher:lesson.teacher,title:lesson.title,videoUrl:lesson.videoUrl});
     const next:Record<string,{kind:Kind;question:string;answer:string}> = {};

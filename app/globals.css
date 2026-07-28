@@ -1138,6 +1138,55 @@ summary:focus-visible {
 .lesson-panel .mode-card strong { font-size: .84rem; }
 .lesson-panel .mode-card small { font-size: .66rem; }
 
+/* Serina-style lesson rows: keep the home menu to one compact line and
+   reveal study actions only after tapping the row header. */
+.lesson-panel {
+  padding: 0;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.lesson-panel .section-heading {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  min-height: 76px;
+  margin: 0;
+  padding: 12px 16px;
+  cursor: pointer;
+}
+
+.lesson-panel .lesson-title-row { min-width: 0; }
+.lesson-panel .lesson-title-row h2 {
+  overflow: hidden;
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: .98rem;
+}
+.lesson-panel .review-count { margin-top: 4px; font-size: .7rem; }
+.lesson-panel .lesson-title-actions { margin-left: 8px; }
+.lesson-panel .section-heading::after {
+  content: "⌄";
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgba(8,113,95,.2);
+  border-radius: 10px;
+  color: #08715f;
+  font-size: 1rem;
+}
+.lesson-panel--expanded .section-heading::after { content: "⌃"; }
+.lesson-panel:not(.lesson-panel--expanded) .lesson-card-summary,
+.lesson-panel:not(.lesson-panel--expanded) .mode-grid,
+.lesson-panel:not(.lesson-panel--expanded) .lesson-panel-actions { display: none; }
+.lesson-panel--expanded .section-heading { border-bottom: 1px solid rgba(20,86,73,.12); }
+.lesson-panel--expanded .lesson-card-summary,
+.lesson-panel--expanded .mode-grid,
+.lesson-panel--expanded .lesson-panel-actions { margin-left: 16px; margin-right: 16px; }
+.lesson-panel--expanded .lesson-panel-actions { margin-bottom: 14px; }
+
 .mode-card {
   display: grid;
   grid-template-columns: 50px 1fr auto;
