@@ -1107,36 +1107,9 @@ summary:focus-visible {
 
 .mode-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   margin-top: 14px;
 }
-
-/* Keep the lesson menu compact while preserving both launch actions. */
-.lesson-panel {
-  padding: 14px 16px;
-}
-
-.lesson-panel .lesson-card-summary {
-  margin: 6px 0 0;
-  font-size: .76rem;
-}
-
-.lesson-panel .mode-card {
-  min-height: 62px;
-  border-radius: 15px;
-  padding: 8px 10px;
-}
-
-.lesson-panel .mode-card__number {
-  width: 38px;
-  height: 38px;
-  border-radius: 11px;
-  font-size: 1rem;
-}
-
-.lesson-panel .mode-card strong { font-size: .84rem; }
-.lesson-panel .mode-card small { font-size: .66rem; }
 
 .mode-card {
   display: grid;
