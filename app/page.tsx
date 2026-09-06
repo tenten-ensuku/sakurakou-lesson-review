@@ -14,7 +14,6 @@ import {
   GearSix,
   YoutubeLogo,
   Images,
-  LinkSimple,
   ListBullets,
   X,
   Plus,
@@ -27,6 +26,12 @@ import {
 import LegacyNotebook from "./LegacyNotebook";
 import ConfirmProvider, { useConfirm } from "./ConfirmAction";
 import RichContent from "./RichContent";
+import LessonMaterials, { MaterialLink } from "./LessonMaterials";
+import {
+  loadContentSnapshot,
+  readContentSnapshot,
+  saveContentSnapshot,
+} from "./lib/content-loading.mjs";
 import {
   APP_VERSION,
   BASE_CARDS,
@@ -123,9 +128,13 @@ function NotebookHome() {
   const [notebook, setNotebook] = useState<Notebook>(empty),
     [catalog, setCatalog] = useState<Catalog>(seedCatalog() as Catalog);
   const [loading, setLoading] = useState(true),
+    [contentReady, setContentReady] = useState(false),
     [error, setError] = useState(""),
     [message, setMessage] = useState(""),
     [busy, setBusy] = useState(false);
+  const contentRef = useRef<{ notebook: Notebook; catalog: Catalog } | null>(
+    null,
+  );
   const [activeLessonId, setActiveLessonId] = useState<string>(
       DEFAULT_LESSON.id,
     ),
@@ -191,42 +200,36 @@ function NotebookHome() {
   }, [resourceId]);
   const refresh = useCallback(async () => {
     setLoading(true);
-    const [n, c] = await Promise.allSettled([
-      api("/api/notebook"),
-      api("/api/catalog"),
-    ]);
-    if (n.status === "fulfilled") {
-      setNotebook(n.value);
+    try {
+      const snapshot = await loadContentSnapshot(api);
+      contentRef.current = snapshot;
+      setNotebook(snapshot.notebook);
+      setCatalog(snapshot.catalog);
+      setContentReady(true);
+      setError("");
       try {
-        localStorage.setItem(
-          "ensuku-notebook-content-v1",
-          JSON.stringify(n.value),
-        );
+        saveContentSnapshot(localStorage, snapshot);
       } catch {}
-    } else {
-      try {
-        const old = localStorage.getItem("ensuku-notebook-content-v1");
-        if (old) setNotebook(JSON.parse(old));
-      } catch {}
-      setError("教材に接続できません。保存済み教材で復習を続けられます。");
-    }
-    if (c.status === "fulfilled") {
-      setCatalog(c.value);
-      try {
-        localStorage.setItem("ensuku-catalog-v1", JSON.stringify(c.value));
-      } catch {}
-    } else {
-      try {
-        const old = localStorage.getItem("ensuku-catalog-v1");
-        if (old) setCatalog(JSON.parse(old));
-      } catch {}
+    } catch {
       setError(
-        "図鑑の共有データに接続できません。編集は再接続後に保存してください。",
+        contentRef.current
+          ? "最新の教材に接続できません。保存済みの授業一覧で復習を続けられます。"
+          : "授業一覧を読み込めませんでした。通信を確認して、もう一度お試しください。",
       );
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   }, []);
   useEffect(() => {
+    try {
+      const cached = readContentSnapshot(localStorage);
+      if (cached) {
+        contentRef.current = cached;
+        setNotebook(cached.notebook);
+        setCatalog(cached.catalog);
+        setContentReady(true);
+      }
+    } catch {}
     void refresh();
   }, [refresh]);
   useEffect(() => {
@@ -293,7 +296,9 @@ function NotebookHome() {
           )?.sortOrder ?? 100000 + b.sortOrder),
       );
   const resourcesFor = (id: string) =>
-    notebook.resources.filter((r) => r.lessonId === id);
+    notebook.resources
+      .filter((r) => r.lessonId === id)
+      .sort((a, b) => a.sortOrder - b.sortOrder);
   const questionIndex = buildQuestionIndex(
     lessons,
     Object.fromEntries(lessons.map((l) => [l.id, cardsFor(l.id)])),
@@ -717,24 +722,6 @@ function NotebookHome() {
           <YoutubeLogo size={23} weight="fill" />
         </a>
       )}
-      {resourcesFor(l.id).some((r) => r.kind === "image") && (
-        <button
-          className="round-button"
-          aria-label={l.title + "の画像資料"}
-          onClick={() => setResourceId(l.id)}
-        >
-          <Images size={22} />
-        </button>
-      )}
-      {resourcesFor(l.id).some((r) => r.kind !== "image") && (
-        <button
-          className="round-button"
-          aria-label={l.title + "の参考資料"}
-          onClick={() => setResourceId(l.id)}
-        >
-          <LinkSimple size={22} />
-        </button>
-      )}
     </div>
   );
   const theoryRow = (t: Theory, i: number, progress = state) => (
@@ -841,10 +828,40 @@ function NotebookHome() {
       </article>
     );
   };
-  if (!booted)
+  if (!booted || !contentReady)
     return (
       <main className="notebook">
-        <p>ノートを開いています…</p>
+        <header className="notebook-header">
+          <span className="student-mark" aria-hidden="true">
+            桜
+          </span>
+          <div>
+            <h1>エンスク授業ノート</h1>
+            <p>
+              桜紅さん{" "}
+              <span className="notebook-version">ver{APP_VERSION}</span>
+            </p>
+          </div>
+        </header>
+        <section className="content-loading" aria-busy={loading}>
+          <BookOpen size={32} aria-hidden="true" />
+          {error ? (
+            <>
+              <p role="alert">{error}</p>
+              <button
+                disabled={loading}
+                onClick={() => {
+                  setError("");
+                  void refresh();
+                }}
+              >
+                もう一度読み込む
+              </button>
+            </>
+          ) : (
+            <p role="status">授業一覧をまとめて読み込んでいます…</p>
+          )}
+        </section>
       </main>
     );
   if (teacherToken)
@@ -1001,18 +1018,16 @@ function NotebookHome() {
             </div>
             <button
               className="continue-button"
-              disabled={!learner.ready || loading}
+              disabled={!learner.ready}
               onClick={startPrimary}
             >
               <BookOpen size={34} />
               <strong>
-                {loading
-                  ? "教材を読み込み中"
-                  : !latestSession &&
-                      !cardsFor(primaryLesson.id).length &&
-                      !itemsFor(primaryLesson.id).length
-                    ? "資料を読む"
-                    : "復習をつづける"}
+                {!latestSession &&
+                !cardsFor(primaryLesson.id).length &&
+                !itemsFor(primaryLesson.id).length
+                  ? "資料を読む"
+                  : "復習をつづける"}
               </strong>
               <CaretRight size={27} />
             </button>
@@ -1119,6 +1134,11 @@ function NotebookHome() {
                     </button>
                     {links(l)}
                   </div>
+                  <LessonMaterials
+                    resources={resourcesFor(l.id)}
+                    title={l.title}
+                    onOpen={() => setResourceId(l.id)}
+                  />
                   {expanded === l.id && (
                     <div className="lesson-expanded">
                       <p>
@@ -2464,7 +2484,7 @@ function NotebookHome() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="section-title">
-              <h2>参考資料</h2>
+              <h2>授業資料</h2>
               <button
                 className="round-button"
                 autoFocus
@@ -2474,23 +2494,12 @@ function NotebookHome() {
                 <X />
               </button>
             </div>
+            <p className="materials-lesson-title">
+              {lessons.find((l) => l.id === resourceId)?.title}
+            </p>
             {resourcesFor(resourceId).length ? (
               resourcesFor(resourceId).map((r) => (
-                <a
-                  className="resource-item"
-                  key={r.id}
-                  href={r.url}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {r.kind === "image" ? (
-                    <img src={r.url} alt={r.label} />
-                  ) : (
-                    <LinkSimple size={24} />
-                  )}
-                  <strong>{r.label}</strong>
-                  <CaretRight />
-                </a>
+                <MaterialLink key={r.id} resource={r} preview />
               ))
             ) : (
               <p>

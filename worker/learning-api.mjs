@@ -47,23 +47,37 @@ const ids = (v) =>
   Array.isArray(v) && v.length <= 500 && v.every(idOK) ? [...new Set(v)] : null;
 const http = (v) =>
   !v || (typeof v === "string" && v.length < 2000 && /^https?:\/\//i.test(v));
-let initialized = new WeakSet();
+const initialized = new WeakMap();
 export async function ensureLearning(db) {
-  if (initialized.has(db)) return;
-  for (const sql of LEARNING_SCHEMA_SQL) await db.prepare(sql).run();
-  const seed = seedCatalog();
-  // INSERT OR IGNORE is intentional: seed upgrades must never overwrite teacher edits.
-  for (const t of seed.theories)
-    await db
-      .prepare("INSERT OR IGNORE INTO theory_catalog(id,data) VALUES (?,?)")
-      .bind(t.id, JSON.stringify(t))
-      .run();
-  for (const q of seed.items)
-    await db
-      .prepare("INSERT OR IGNORE INTO review_checks(id,data) VALUES (?,?)")
-      .bind(q.id, JSON.stringify(q))
-      .run();
-  initialized.add(db);
+  if (!initialized.has(db)) {
+    const seed = seedCatalog();
+    // One ordered transaction avoids dozens of cold-start network round trips.
+    // INSERT OR IGNORE must never overwrite shared edits or deleted entries.
+    const pending = db
+      .batch([
+        ...LEARNING_SCHEMA_SQL.map((sql) => db.prepare(sql)),
+        ...seed.theories.map((t) =>
+          db
+            .prepare(
+              "INSERT OR IGNORE INTO theory_catalog(id,data) VALUES (?,?)",
+            )
+            .bind(t.id, JSON.stringify(t)),
+        ),
+        ...seed.items.map((q) =>
+          db
+            .prepare(
+              "INSERT OR IGNORE INTO review_checks(id,data) VALUES (?,?)",
+            )
+            .bind(q.id, JSON.stringify(q)),
+        ),
+      ])
+      .catch((error) => {
+        initialized.delete(db);
+        throw error;
+      });
+    initialized.set(db, pending);
+  }
+  await initialized.get(db);
 }
 export async function readCatalog(db) {
   const [a, b, c] = await Promise.all([

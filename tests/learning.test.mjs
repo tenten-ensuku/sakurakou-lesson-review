@@ -11,6 +11,7 @@ import {
   handleLearningApi,
   hashSecret,
   sanitizeEvent,
+  ensureLearning,
 } from "../worker/learning-api.mjs";
 import { seedCatalog } from "../app/lib/catalog-seed.mjs";
 import { handleAdminApi } from "../worker/admin-api.mjs";
@@ -40,6 +41,47 @@ function database() {
 }
 const secret = "ensuku-" + "a".repeat(64),
   other = "ensuku-" + "b".repeat(64);
+test("cold catalog initialization uses one batch, coalesces concurrent requests and preserves edits", async () => {
+  const db = database(),
+    original = db.batch;
+  let batches = 0;
+  db.batch = async (statements) => {
+    batches++;
+    return original(statements);
+  };
+  await Promise.all([
+    ensureLearning(db),
+    ensureLearning(db),
+    ensureLearning(db),
+  ]);
+  assert.equal(batches, 1);
+  const row = db.sql.prepare("SELECT id FROM theory_catalog LIMIT 1").get();
+  db.sql
+    .prepare("UPDATE theory_catalog SET data=? WHERE id=?")
+    .run('{"title":"edited","deleted":true}', row.id);
+  // A new binding simulates a new worker isolate/cold start against the same DB.
+  await ensureLearning({ prepare: db.prepare, batch: db.batch });
+  assert.equal(batches, 2);
+  assert.equal(
+    JSON.parse(
+      db.sql.prepare("SELECT data FROM theory_catalog WHERE id=?").get(row.id)
+        .data,
+    ).title,
+    "edited",
+  );
+});
+test("failed catalog initialization can be retried", async () => {
+  const db = database(),
+    original = db.batch;
+  let batches = 0;
+  db.batch = async (statements) => {
+    if (++batches === 1) throw new Error("offline");
+    return original(statements);
+  };
+  await assert.rejects(ensureLearning(db), /offline/);
+  await ensureLearning(db);
+  assert.equal(batches, 2);
+});
 async function call(db, path, method = "GET", value, token = secret) {
   const response = await handleLearningApi(
     new Request("https://example.test" + path, {

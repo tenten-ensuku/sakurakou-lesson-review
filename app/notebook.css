@@ -504,6 +504,99 @@ body {
 .lesson-expanded {
   padding: 0 0 17px;
 }
+.content-loading {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  padding: 40px 24px;
+  text-align: center;
+  background: var(--mint-soft);
+  border: 1px solid var(--edge);
+  border-radius: 18px;
+}
+.lesson-materials {
+  margin: 0 0 18px;
+  padding: 12px 16px 4px;
+  border-left: 3px solid #6b9d82;
+  border-radius: 0 12px 12px 0;
+  background: var(--mint-soft);
+}
+.materials-heading {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+  font-size: 14px;
+}
+.materials-heading small {
+  margin-left: auto;
+  font-size: 13px;
+  color: #507168;
+}
+.material-link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  padding: 12px 0;
+  min-height: 60px;
+  border-bottom: 1px solid #d2e2d6;
+  color: var(--ink);
+  text-decoration: none;
+}
+.material-link:last-child {
+  border-bottom: 0;
+}
+.material-copy {
+  flex: 1;
+  min-width: 100px;
+}
+.material-copy strong {
+  display: block;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.material-copy small {
+  display: block;
+  color: #507168;
+  font-size: 12px;
+  margin-top: 3px;
+}
+.material-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+  color: #8e430a;
+  font-weight: 700;
+  font-size: 14px;
+}
+.material-link:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.material-link:focus-visible {
+  outline: 3px solid #c46a26;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.notebook .materials-more {
+  width: 100%;
+  background: none;
+  border: 0;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 10px 0;
+}
+.material-preview {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.materials-lesson-title {
+  color: #507168;
+  font-size: 15px;
+}
 .lesson-expanded > p {
   font-size: 13px;
   margin-bottom: 12px;
@@ -1245,10 +1338,10 @@ body {
     max-width: 44px;
   }
   .lesson-links .round-button {
-    height: 36px;
-    min-height: 36px;
-    min-width: 36px;
-    width: 36px;
+    height: 44px;
+    min-height: 44px;
+    min-width: 44px;
+    width: 44px;
     padding: 5px;
   }
   .lesson-toggle strong {

@@ -1,4 +1,16 @@
-# Design QA — エンスク授業ノート ver18
+# Design QA — エンスク授業ノート ver19
+
+## ver19: complete lesson loading and discoverable materials
+
+- Initial HTML renders a neutral loading state, never the bundled single-lesson fallback. Notebook and catalog are applied together after both resolve. Repeat visits read one validated complete snapshot before background refresh; a legacy cache is accepted only when both parts exist. Failed refresh leaves the previous snapshot intact; cold failure offers retry.
+- Batched the existing additive catalog initialization into one D1 transaction and coalesced concurrent initialization. Tests verify retry after failure and preservation of shared edits/deleted entries. No migrations or teaching-content changes.
+- Replaced the clip-only lesson links with always-visible mint material rows: actual title, service, and a `読む`/image/video action. First two resources are visible; larger collections have an all-materials dialog. Lessons without resources have no empty material block. Original editable URLs are unchanged.
+- Browser checked at 320/390/1280px: no horizontal overflow; material anchors at least 60px tall. Modal lists all four 8/18 resources, supports Escape/focus return, and retains safe new-tab links. Captures: `design-evidence/materials-320.jpg`, `materials-390.jpg`, `materials-pc.jpg`. Existing cream/mint/green/orange tone retained.
+- Reload was observed with the loading state followed by all four lessons, without a one-lesson intermediate screen. Deferred-response tests cover both response orders; cache, timeout, malformed data, offline refresh and blocked storage are tested separately.
+- Regression: flashcard self-rating disabled before reveal; Enter reveals; return to question and save-to-menu work. No browser console errors. Public editor and image upload logic unchanged.
+- 43 automated tests passed; backend and GitHub Pages builds, typecheck and source whitespace check passed. Lint has no errors (existing image/static-export and unused legacy-variable warnings remain).
+
+final result: passed
 
 ## ver18: learning clarity, no character growth
 
