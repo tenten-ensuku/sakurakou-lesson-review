@@ -2,11 +2,13 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 const title = "エンスク授業ノート | 桜紅さん";
-const description = "授業を復習して、セオリー図鑑とフクロウの相棒を育てる。桜紅さんの麻雀授業ノート。";
+const description =
+  "授業と問題を探し、迷った内容を解き直す。セオリー図鑑で知識を確認できる桜紅さんの麻雀授業ノート。";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ?? "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/";
 const siteOrigin = new URL(siteUrl).origin;
 
 export const metadata: Metadata = {

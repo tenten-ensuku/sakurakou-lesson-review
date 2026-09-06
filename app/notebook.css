@@ -1,4 +1,4 @@
-/* Selected green-owl design. Existing content editor retains its established behavior. */
+/* Calm cream/mint lesson notebook. Existing content editor retains its behavior. */
 :root {
   --paper: #fffdf4;
   --ink: #103b38;
@@ -228,6 +228,141 @@ body {
 }
 .notebook .continue-button:hover:not(:disabled) {
   background: #df6504;
+}
+.continue-section {
+  position: relative;
+  border: 1px solid #cbded0;
+  border-radius: 18px;
+  padding: 18px;
+  background: var(--mint-soft);
+}
+.section-eyebrow {
+  color: #486c61;
+  font-size: 13px;
+}
+.continue-section .continue-title {
+  margin: 10px 0 16px;
+}
+.continue-title > div {
+  min-width: 0;
+}
+.continue-title h2 {
+  word-break: auto-phrase;
+  text-wrap: pretty;
+}
+.continue-section .count-pill {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 14px;
+}
+.notebook .continue-section .continue-button {
+  min-height: 58px;
+  padding: 12px 16px;
+  font-size: 21px;
+  border-width: 2px;
+  border-radius: 13px;
+  box-shadow: 0 3px 0 #e5dfcc;
+}
+.review-shortcuts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 18px 0;
+}
+.notebook .review-shortcuts button {
+  justify-content: flex-start;
+  padding: 12px 10px;
+  background: #fafbf2;
+}
+.review-shortcuts button span {
+  flex: 1;
+  text-align: left;
+}
+.review-shortcuts button > svg:last-child {
+  display: none;
+}
+.review-shortcuts button span {
+  white-space: nowrap;
+}
+.question-search {
+  margin-top: 22px;
+}
+.knowledge-status {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 7px;
+  white-space: nowrap;
+  color: #53635b;
+  background: #f0f0e7;
+}
+.knowledge-status.review {
+  color: #805015;
+  background: #fff0d2;
+}
+.knowledge-status.confirmed {
+  color: #256a54;
+  background: #e0f0e4;
+}
+.review-notice {
+  border-left: 3px solid #d49a44;
+  background: #fff8e9;
+  margin-top: 16px;
+  padding: 12px;
+  display: grid;
+  gap: 10px;
+}
+.study-entry {
+  padding: 17px 0;
+  border-bottom: 1px solid #d5decb;
+  text-align: left;
+}
+.entry-context {
+  font-size: 12px;
+  color: #567266;
+}
+.entry-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 7px 0;
+  font-size: 12px;
+}
+.notebook .entry-question {
+  font-size: 17px;
+  line-height: 1.7;
+  margin: 8px 0 14px;
+  word-break: auto-phrase;
+}
+.entry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.notebook .entry-actions button {
+  font-size: 13px;
+  padding: 8px 10px;
+}
+.empty-state {
+  padding: 24px 12px;
+  background: var(--mint-soft);
+  border-radius: 12px;
+  margin: 16px 0;
+}
+.empty-state p {
+  margin: 12px 0;
+}
+.lesson-toggle .lesson-status-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 8px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #406452;
+}
+.lesson-status-line > span {
+  white-space: nowrap;
 }
 .notebook .wardrobe-link {
   display: flex;
@@ -1158,6 +1293,27 @@ body {
   }
 }
 @media (max-width: 350px) {
+  .continue-section {
+    padding: 12px;
+  }
+  .review-shortcuts {
+    gap: 8px;
+  }
+  .notebook .review-shortcuts button {
+    gap: 5px;
+    font-size: 13px;
+    padding: 10px 7px;
+  }
+  .review-shortcuts button > svg:first-child {
+    width: 18px;
+  }
+  .notebook .continue-section .continue-button {
+    font-size: 19px;
+  }
+  .knowledge-status {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
   .notebook {
     padding-left: 13px;
     padding-right: 13px;

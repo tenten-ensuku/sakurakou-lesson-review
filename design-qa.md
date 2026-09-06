@@ -1,4 +1,19 @@
-# Design QA — エンスク授業ノート ver17
+# Design QA — エンスク授業ノート ver18
+
+## ver18: learning clarity, no character growth
+
+- User explicitly retired the character-growth theme while keeping the calm tone. Removed companion/wardrobe, star displays, promotion dialogs and result ranks. Existing anonymous progress/recovery and all teaching content remain compatible.
+- Added cross-lesson question/answer/teacher search, direct entry at the selected stable card ID, a consolidated review tab, actionable result review list, and unconfirmed/confirmed/review-needed knowledge labels. Lesson rows show card/check counts separately and pending/review state.
+- Comparison: `design-evidence/no-growth-comparison.png` pairs the live ver17 menu with ver18 at CSS 390×844. Both captures returned 375×812 and were normalized identically. Cream, mint, green, orange, fonts and outlined controls retained; the owl/wardrobe block is deliberately replaced by study controls. Final combined image was visually inspected.
+- 320px: fixed a split lesson-title word by moving the progress count to the panel's upper-right. Fixed the review-count button wrap. Grouped counts wrap as intact labels. 320/390/1280 overflow scans returned no overflowing elements. Screenshots: `no-growth-320.jpg`, `no-growth-390.jpg`, `no-growth-pc.jpg`.
+- Browser verified: search `00物件` found six questions across cards/choice/cloze; selected Q2 opened at the correct hidden-answer face, Enter revealed, review addition/180ms advance worked. New review tab showed Q2 with lesson context and linked knowledge; removal persisted after reload. Empty search has an explicit message.
+- First correct objective answer displayed the explanation immediately with no promotion dialog. A wrong cloze answer appeared in the results' actionable review list. Knowledge status changed accordingly. Navigation returns to page top. Browser console errors: none.
+- Four new automated tests cover index numbering/deletion/deduplication, Unicode-normalized cross-lesson search, meaningful status labels, and absence of growth controls. The legacy progression tests remain for saved-data compatibility, not as active UI features.
+- Native OS image D&D is still a manual regression check; existing file-picker upload/render was verified in ver17 and its implementation is unchanged.
+
+final result: passed
+
+## Archived ver17 visual baseline
 
 ## Comparison target
 

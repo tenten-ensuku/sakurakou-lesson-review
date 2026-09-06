@@ -1,7 +1,7 @@
 {
   "name": "エンスク授業ノート | 桜紅さん",
   "short_name": "授業ノート",
-  "description": "授業を復習して、セオリー図鑑とフクロウの相棒を育てる",
+  "description": "授業と問題を探し、迷った内容を解き直す麻雀授業ノート",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#fffdf4",

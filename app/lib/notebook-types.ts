@@ -83,6 +83,17 @@ export type Session = {
   reviewOnly: boolean;
   updatedAt?: string;
 };
+export type StudyEntry = {
+  key: string;
+  lesson: Lesson;
+  lessonIds: string[];
+  number: number;
+  type: "flash" | "check";
+  label: string;
+  question: string;
+  answer: string;
+  theoryId?: string;
+};
 export type TheoryProgress = {
   collected: boolean;
   stars: number;

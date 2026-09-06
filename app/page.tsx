@@ -4,7 +4,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   BookOpen,
   Books,
-  Bird,
   CalendarDots,
   CaretRight,
   CaretLeft,
@@ -12,7 +11,6 @@ import {
   ArrowClockwise,
   Check as CheckIcon,
   PencilSimple,
-  Star,
   GearSix,
   YoutubeLogo,
   Images,
@@ -22,7 +20,6 @@ import {
   Plus,
   ArrowUp,
   ArrowDown,
-  LockSimple,
   ShareNetwork,
   Copy,
   FloppyDisk,
@@ -37,15 +34,18 @@ import {
   mergeLessonCards,
   sortLessons,
   questionNumber,
-  getRank,
 } from "./lib/lesson.mjs";
 import { seedCatalog } from "./lib/catalog-seed.mjs";
-import { REWARDS, canRate, jstDay } from "./lib/progress.mjs";
+import { canRate } from "./lib/progress.mjs";
+import {
+  buildQuestionIndex,
+  filterQuestionIndex,
+  knowledgeStatus,
+} from "./lib/study-index.mjs";
 import { useLearner } from "./lib/use-learner";
 import {
   api,
   API_BASE,
-  BASE_PATH,
   keyFor,
   type Card,
   type Lesson,
@@ -55,6 +55,8 @@ import {
   type Check,
   type Session,
   type LearningState,
+  type StudyEntry,
+  type TheoryProgress,
 } from "./lib/notebook-types";
 import "./notebook.css";
 
@@ -85,43 +87,10 @@ const dayLabel = (s: string | null) =>
         day: "numeric",
       })
     : "まだありません";
-function Stars({ count = 0 }: { count?: number }) {
+function KnowledgeStatus({ progress }: { progress?: TheoryProgress }) {
+  const status = knowledgeStatus(progress);
   return (
-    <span className="knowledge-stars" aria-label={count + "つ星"}>
-      {[1, 2, 3].map((i) => (
-        <Star
-          key={i}
-          weight={i <= count ? "fill" : "regular"}
-          className={i <= count ? "lit" : ""}
-        />
-      ))}
-    </span>
-  );
-}
-function Hero({
-  outfit = "base",
-  room = false,
-}: {
-  outfit?: string;
-  room?: boolean;
-}) {
-  return (
-    <div className="companion-hero">
-      {room && (
-        <img
-          className="companion-room"
-          src={BASE_PATH + "/companion/room.png"}
-          alt="解放したひだまりの書斎"
-        />
-      )}
-      <img
-        src={BASE_PATH + "/companion/" + outfit + ".png"}
-        width={1774}
-        height={887}
-        alt="本のポーチを持った緑のフクロウの相棒"
-      />
-      <p>一緒に復習しよう</p>
-    </div>
+    <span className={"knowledge-status " + status.kind}>{status.label}</span>
   );
 }
 export default function Home() {
@@ -143,11 +112,14 @@ function NotebookHome() {
   const learner = useLearner(booted && !teacherToken),
     { state, record } = learner;
   const [tab, setTab] = useState<
-    "lessons" | "encyclopedia" | "buddy" | "settings"
+    "lessons" | "encyclopedia" | "review" | "settings"
   >("lessons");
   const [view, setView] = useState<
     "main" | "session" | "result" | "list" | "editor" | "catalog-editor"
   >("main");
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [view, tab]);
   const [notebook, setNotebook] = useState<Notebook>(empty),
     [catalog, setCatalog] = useState<Catalog>(seedCatalog() as Catalog);
   const [loading, setLoading] = useState(true),
@@ -162,6 +134,9 @@ function NotebookHome() {
   const [selectedTheory, setSelectedTheory] = useState(""),
     [search, setSearch] = useState(""),
     [reviewFilter, setReviewFilter] = useState(false);
+  const [questionSearch, setQuestionSearch] = useState(""),
+    [questionLesson, setQuestionLesson] = useState("");
+  const searchRef = useRef<HTMLInputElement>(null);
   const [run, setRun] = useState<Session | null>(null),
     runRef = useRef<Session | null>(null);
   const [editing, setEditing] = useState<{
@@ -169,11 +144,7 @@ function NotebookHome() {
     field: "question" | "answer";
     value: string;
   } | null>(null);
-  const [promotion, setPromotion] = useState<{
-      title: string;
-      stars: number;
-    } | null>(null),
-    [advancing, setAdvancing] = useState(false);
+  const [advancing, setAdvancing] = useState(false);
   const advancingRef = useRef(false),
     timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [restoreCode, setRestoreCode] = useState(""),
@@ -185,7 +156,7 @@ function NotebookHome() {
   const [dragKey, setDragKey] = useState("");
   const [editorCardKey, setEditorCardKey] = useState("");
   useEffect(() => {
-    if (!resourceId && !promotion) return;
+    if (!resourceId) return;
     const previous = document.activeElement as HTMLElement | null;
     const root = document.querySelector<HTMLElement>(".note-modal-backdrop");
     const focusable = () =>
@@ -199,7 +170,6 @@ function NotebookHome() {
       if (e.key === "Escape") {
         e.preventDefault();
         setResourceId("");
-        setPromotion(null);
       }
       if (e.key !== "Tab") return;
       const nodes = focusable(),
@@ -218,7 +188,7 @@ function NotebookHome() {
       document.removeEventListener("keydown", keydown);
       previous?.focus({ preventScroll: true });
     };
-  }, [resourceId, promotion]);
+  }, [resourceId]);
   const refresh = useCallback(async () => {
     setLoading(true);
     const [n, c] = await Promise.allSettled([
@@ -324,6 +294,23 @@ function NotebookHome() {
       );
   const resourcesFor = (id: string) =>
     notebook.resources.filter((r) => r.lessonId === id);
+  const questionIndex = buildQuestionIndex(
+    lessons,
+    Object.fromEntries(lessons.map((l) => [l.id, cardsFor(l.id)])),
+    catalog.items,
+    visibleTheories,
+  ) as StudyEntry[];
+  const reviewEntries = questionIndex.filter((q) =>
+    state.reviewIds.includes(q.key),
+  );
+  const needsReviewTheories = visibleTheories.filter(
+    (t) => state.theories[t.id]?.needsReview,
+  );
+  const searchResults = filterQuestionIndex(
+    questionIndex,
+    questionSearch,
+    questionLesson,
+  ) as StudyEntry[];
   const lesson = lessons.find((l) => l.id === activeLessonId) ?? lessons[0];
   const lessonCards = cardsFor(lesson.id),
     lessonItems = itemsFor(lesson.id);
@@ -548,20 +535,7 @@ function NotebookHome() {
   };
   const answer = (index: number) => {
     if (!run || !currentCheck || currentPick !== undefined) return;
-    const correct = index === currentCheck.correctIndex,
-      t = state.theories[currentCheck.theoryId],
-      day = jstDay(new Date().toISOString());
-    const nextStars = correct
-      ? !t?.stars
-        ? 1
-        : t.stars === 1 && day > (t.firstDay ?? day)
-          ? 2
-          : t.stars === 2 &&
-              day >= (t.firstDay ?? day) + 7 &&
-              day > (t.secondDay ?? day)
-            ? 3
-            : t.stars
-      : (t?.stars ?? 0);
+    const correct = index === currentCheck.correctIndex;
     record("attempt", {
       sessionId: run.id,
       itemId: currentCheck.id,
@@ -571,17 +545,10 @@ function NotebookHome() {
       theoryIds: [currentCheck.theoryId],
     });
     updateRun({ ...run, picks: { ...run.picks, [currentCheck.id]: index } });
-    if (nextStars > (t?.stars ?? 0))
-      setPromotion({
-        title:
-          catalog.theories.find((t) => t.id === currentCheck.theoryId)?.title ??
-          "知識",
-        stars: nextStars,
-      });
   };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (view !== "session" || editing || promotion || !run) return;
+      if (view !== "session" || editing || !run) return;
       if (
         (e.target as HTMLElement)?.closest(
           "input,textarea,select,button,a,summary",
@@ -783,14 +750,97 @@ function NotebookHome() {
       <span className="theory-index">{String(i + 1).padStart(2, "0")}</span>
       <span className="theory-row-title">
         <strong>{t.title}</strong>
-        {progress.theories[t.id]?.needsReview && <small>解き直し</small>}
-        {progress.theories[t.id]?.collected &&
-          !progress.theories[t.id]?.stars && <small>収集済み</small>}
+        <small>{t.category}</small>
       </span>
-      <Stars count={progress.theories[t.id]?.stars} />
+      <KnowledgeStatus progress={progress.theories[t.id]} />
       <CaretRight size={20} />
     </button>
   );
+  const openEntry = (entry: StudyEntry) => {
+    const l = entry.lesson;
+    const keys =
+      entry.type === "flash"
+        ? cardsFor(l.id).map((c) => keyFor(l.id, c))
+        : itemsFor(l.id).map((q) => q.id);
+    const target = entry.type === "flash" ? entry.key : entry.key.slice(6);
+    openSession(l, entry.type, false, undefined, {
+      id: crypto.randomUUID(),
+      slot: entry.type + ":" + l.id,
+      lessonId: l.id,
+      mode: entry.type,
+      keys,
+      index: Math.max(0, keys.indexOf(target)),
+      elapsed: 0,
+      revealed: false,
+      picks: {},
+      ratings: {},
+      completed: false,
+      reviewOnly: false,
+    });
+  };
+  const entryRow = (source: StudyEntry, removable = false) => {
+    const entry = {
+      ...source,
+      lesson:
+        lessons.find(
+          (l) => l.id === questionLesson && source.lessonIds.includes(l.id),
+        ) ?? source.lesson,
+    };
+    return (
+      <article className="study-entry" key={entry.key}>
+        <p className="entry-context">
+          {entry.lesson.date} {entry.lesson.teacher} · {entry.lesson.title}
+        </p>
+        <div className="entry-heading">
+          <span>
+            {entry.label}
+            {entry.number ? " Q" + entry.number : ""}
+          </span>
+          {state.reviewIds.includes(entry.key) && (
+            <span className="knowledge-status review">解き直し</span>
+          )}
+        </div>
+        <p className="entry-question">
+          {entry.question
+            .replace(/!\[[^\]]*\]\([^)]+\)/g, "【画像】")
+            .replace(/https?:\/\/\S+/g, "【リンク】")}
+        </p>
+        <div className="entry-actions">
+          <button className="primary" onClick={() => openEntry(entry)}>
+            この問題から復習
+          </button>
+          <button
+            onClick={() => {
+              setActiveLessonId(entry.lesson.id);
+              setView("list");
+            }}
+          >
+            問題一覧
+          </button>
+          {removable && (
+            <button
+              aria-label="この問題を解き直しから外す"
+              onClick={() =>
+                record("review", {
+                  target: entry.key,
+                  active: false,
+                  theoryIds: visibleTheories
+                    .filter(
+                      (t) =>
+                        t.cardKeys.includes(entry.key) ||
+                        t.id === entry.theoryId,
+                    )
+                    .map((t) => t.id),
+                })
+              }
+            >
+              解き直しから外す
+            </button>
+          )}
+        </div>
+      </article>
+    );
+  };
   if (!booted)
     return (
       <main className="notebook">
@@ -808,8 +858,26 @@ function NotebookHome() {
         {teacherState ? (
           <>
             <div className="summary-strip">
-              <span>収集 {teacherState.collected}枚</span>
-              <span>星 {teacherState.stars}個</span>
+              <span>
+                確認済み{" "}
+                {
+                  visibleTheories.filter(
+                    (t) =>
+                      teacherState.theories[t.id]?.collected &&
+                      !teacherState.theories[t.id]?.needsReview,
+                  ).length
+                }
+                項目
+              </span>
+              <span>
+                要復習{" "}
+                {
+                  visibleTheories.filter(
+                    (t) => teacherState.theories[t.id]?.needsReview,
+                  ).length
+                }
+                項目
+              </span>
               <span>最終復習 {dayLabel(teacherState.lastReviewedAt)}</span>
             </div>
             {catalog.theories
@@ -817,12 +885,10 @@ function NotebookHome() {
               .map((t) => (
                 <article className="teacher-row" key={t.id}>
                   <strong>{t.title}</strong>
-                  <Stars count={teacherState.theories[t.id].stars} />
-                  <span>
-                    {teacherState.theories[t.id].needsReview
-                      ? "解き直し"
-                      : "確認済み"}
-                  </span>
+                  <KnowledgeStatus progress={teacherState.theories[t.id]} />
+                  <small>
+                    最終復習 {dayLabel(teacherState.theories[t.id].lastAt)}
+                  </small>
                 </article>
               ))}
             <h2>解き直し対象</h2>
@@ -915,8 +981,10 @@ function NotebookHome() {
       )}
       {view === "main" && tab === "lessons" && (
         <>
-          <Hero outfit={state.outfit} />
           <section className="continue-section">
+            <p className="section-eyebrow">
+              {latestSession ? "途中の復習" : "最新の授業"}
+            </p>
             <div className="continue-title">
               <CalendarDots size={34} />
               <div>
@@ -949,21 +1017,58 @@ function NotebookHome() {
               <CaretRight size={27} />
             </button>
           </section>
-          <button className="wardrobe-link" onClick={() => setTab("buddy")}>
-            <Bird size={27} />
-            <span>相棒の着せ替え</span>
-            <CaretRight size={22} />
-          </button>
-          <section>
-            <div className="section-title">
-              <Books size={26} />
-              <h2>セオリー図鑑</h2>
-              <button onClick={() => setTab("encyclopedia")}>すべて見る</button>
-            </div>
-            <div className="preview-theories">
-              {visibleTheories.slice(0, 2).map((t, i) => theoryRow(t, i))}
-            </div>
-          </section>
+          <div className="review-shortcuts">
+            <button
+              onClick={() => {
+                setTab("review");
+                setQuestionSearch("");
+                setQuestionLesson("");
+              }}
+            >
+              <ArrowClockwise size={23} />
+              <span>
+                解き直し <b>{reviewEntries.length}</b>問
+              </span>
+              <CaretRight />
+            </button>
+            <button
+              onClick={() => {
+                searchRef.current?.focus();
+                searchRef.current?.scrollIntoView({ block: "center" });
+              }}
+            >
+              <ListBullets size={23} />
+              <span>問題を探す</span>
+              <CaretRight />
+            </button>
+          </div>
+          <label className="search-field question-search">
+            授業・問題を検索
+            <input
+              ref={searchRef}
+              value={questionSearch}
+              onChange={(e) => setQuestionSearch(e.target.value)}
+              placeholder="日付・講師・用語・問題文"
+            />
+          </label>
+          {questionSearch.trim() && (
+            <section aria-label="問題の検索結果">
+              <div className="section-title">
+                <h2>検索結果</h2>
+                <span>{searchResults.length}問</span>
+                <button onClick={() => setQuestionSearch("")}>
+                  検索を解除
+                </button>
+              </div>
+              {searchResults.length ? (
+                searchResults.map((entry) => entryRow(entry))
+              ) : (
+                <p className="empty-state">
+                  一致する問題はありません。別の言葉で検索できます。
+                </p>
+              )}
+            </section>
+          )}
           <section className="lesson-section">
             <div className="section-title">
               <CalendarDots size={26} />
@@ -992,6 +1097,21 @@ function NotebookHome() {
                       <span>
                         <small>{l.teacher}</small>
                         <strong>{l.title}</strong>
+                        <small className="lesson-status-line">
+                          {questions.length > 0 && (
+                            <span>カード {questions.length}問</span>
+                          )}
+                          {checks.length > 0 && (
+                            <span>確認 {checks.length}問</span>
+                          )}
+                          {!questions.length && !checks.length && (
+                            <span>資料・学習メモ</span>
+                          )}
+                          {saved && <span>途中あり</span>}
+                          {reviews.length > 0 && (
+                            <span>解き直し {reviews.length}問</span>
+                          )}
+                        </small>
                       </span>
                       <CaretRight
                         className={expanded === l.id ? "turned" : ""}
@@ -1094,20 +1214,23 @@ function NotebookHome() {
           </div>
           <div className="summary-strip">
             <span>
-              収集 <b>{state.collected}</b>枚
+              全 <b>{visibleTheories.length}</b>項目
             </span>
             <span>
-              星 <b>{state.stars}</b>個
+              要復習 <b>{needsReviewTheories.length}</b>項目
             </span>
             <span>
-              三つ星{" "}
+              未確認{" "}
               <b>
                 {
-                  Object.values(state.theories).filter((t) => t.stars === 3)
-                    .length
+                  visibleTheories.filter(
+                    (t) =>
+                      !state.theories[t.id]?.collected &&
+                      !state.theories[t.id]?.needsReview,
+                  ).length
                 }
               </b>
-              枚
+              項目
             </span>
           </div>
           {theory ? (
@@ -1121,9 +1244,26 @@ function NotebookHome() {
               </button>
               <div className="section-title">
                 <h2>{theory.title}</h2>
-                <Stars count={state.theories[theory.id]?.stars} />
+                <KnowledgeStatus progress={state.theories[theory.id]} />
               </div>
-              <small>{theory.category}</small>
+              <small>
+                {theory.category} · 最終復習{" "}
+                {dayLabel(state.theories[theory.id]?.lastAt ?? null)}
+              </small>
+              {state.theories[theory.id]?.needsReview && (
+                <div className="review-notice">
+                  <strong>この知識に解き直し対象があります</strong>
+                  <button
+                    onClick={() => {
+                      setTab("review");
+                      setQuestionSearch("");
+                      setQuestionLesson("");
+                    }}
+                  >
+                    解き直す問題を見る
+                  </button>
+                </div>
+              )}
               <h3>資料の文言</h3>
               <blockquote>
                 <RichContent text={theory.canonical} />
@@ -1164,7 +1304,7 @@ function NotebookHome() {
                     )
                   }
                 >
-                  確認問題に挑戦
+                  確認問題を解く
                 </button>
                 <button
                   onClick={() => {
@@ -1196,7 +1336,7 @@ function NotebookHome() {
                   </button>
                 ))}
               <p className="muted">
-                収集後、確認問題の初正解で星1つ。翌日以降の正解で星2つ。初正解から7日以上・星2つ獲得日より後の正解で星3つ。休んでも星は減りません。
+                確認済みは回答履歴に基づく目安です。迷った内容は解き直しに残しておけます。
               </p>
             </article>
           ) : (
@@ -1225,9 +1365,94 @@ function NotebookHome() {
                 )
                 .map((t) => theoryRow(t, visibleTheories.indexOf(t)))}
               <p className="muted">
-                未収集の内容もすべて読めます。星は復習の記録で、理解を保証するものではありません。
+                未確認の内容もすべて読めます。用語・条件・例外を調べるノートとして使えます。
               </p>
             </>
+          )}
+        </section>
+      )}
+      {view === "main" && tab === "review" && (
+        <section className="review-screen">
+          <div className="section-title">
+            <ArrowClockwise size={28} />
+            <h2>解き直し</h2>
+            <span>{reviewEntries.length}問</span>
+          </div>
+          <p className="muted">
+            間違えた確認問題と、自分で追加した問題をまとめています。
+          </p>
+          {reviewEntries.length > 0 ? (
+            <>
+              <label className="search-field">
+                解き直す問題を検索
+                <input
+                  value={questionSearch}
+                  onChange={(e) => setQuestionSearch(e.target.value)}
+                  placeholder="用語・問題文"
+                />
+              </label>
+              <label>
+                授業で絞り込む
+                <select
+                  value={questionLesson}
+                  onChange={(e) => setQuestionLesson(e.target.value)}
+                >
+                  <option value="">すべての授業</option>
+                  {lessons
+                    .filter((l) =>
+                      reviewEntries.some((q) => q.lessonIds.includes(l.id)),
+                    )
+                    .map((l) => (
+                      <option key={l.id} value={l.id}>
+                        {l.date} {l.teacher} {l.title}
+                      </option>
+                    ))}
+                </select>
+              </label>
+              {(
+                filterQuestionIndex(
+                  reviewEntries,
+                  questionSearch,
+                  questionLesson,
+                ) as StudyEntry[]
+              ).map((entry) => entryRow(entry, true))}
+              {!filterQuestionIndex(
+                reviewEntries,
+                questionSearch,
+                questionLesson,
+              ).length && (
+                <p className="empty-state">
+                  条件に合う問題はありません。検索や絞り込みを解除してください。
+                </p>
+              )}
+            </>
+          ) : (
+            <div className="empty-state">
+              <CheckIcon size={28} />
+              <h3>解き直しに残した問題はありません</h3>
+              <p>
+                迷った問題で「解き直しに追加」を押すと、ここから見直せます。
+              </p>
+              <button
+                onClick={() => {
+                  setTab("lessons");
+                  setQuestionSearch("");
+                }}
+              >
+                授業一覧へ
+              </button>
+            </div>
+          )}
+          {needsReviewTheories.length > 0 && (
+            <section>
+              <div className="section-title">
+                <Books size={24} />
+                <h2>関連する知識</h2>
+              </div>
+              {needsReviewTheories.map((t) =>
+                theoryRow(t, visibleTheories.indexOf(t)),
+              )}
+            </section>
           )}
         </section>
       )}
@@ -1524,9 +1749,8 @@ function NotebookHome() {
       )}
       {view === "result" && run && (
         <section className="results">
-          <Bird size={42} />
-          <h2>おつかれさまでした！</h2>
-          <p>今日の復習が、ひとつずつ力になります。</p>
+          <BookOpen size={36} />
+          <h2>今回の復習</h2>
           {(() => {
             const values = flash
               ? Object.values(run.ratings).map((r) => r === "known")
@@ -1535,29 +1759,30 @@ function NotebookHome() {
                     catalog.items.find((q) => q.id === id)?.correctIndex ===
                     pick,
                 );
-            const known = values.filter(Boolean).length,
-              percent = values.length
-                ? Math.round((known / values.length) * 100)
-                : 0;
+            const known = values.filter(Boolean).length;
+            const totalQuestions = flash
+              ? run.keys.filter(
+                  (key) =>
+                    runCards.find((c) => keyFor(run.lessonId, c) === key)
+                      ?.kind === "question",
+                ).length
+              : run.keys.length;
+            const remaining = Math.max(0, totalQuestions - values.length);
             return (
               <>
-                <div className="result-score">
-                  <strong>{values.length ? percent + "%" : "—"}</strong>
-                  <span>{flash ? "わかった率" : "正答率"}</span>
-                </div>
-                <progress max={100} value={percent} aria-label="結果" />
-                <p>
-                  {values.length
-                    ? "今回のランク " + getRank(percent)
-                    : "今回は学習メモを確認しました"}
-                </p>
                 <div className="summary-strip">
                   <span>
                     {flash ? "わかった" : "正解"} {known}件
                   </span>
                   <span>回答 {values.length}件</span>
+                  {remaining > 0 && <span>未回答 {remaining}問</span>}
                   <span>{time(run.elapsed)}</span>
                 </div>
+                {remaining > 0 && (
+                  <p className="muted">
+                    未回答の問題は、問題一覧からいつでも確認できます。
+                  </p>
+                )}
               </>
             );
           })()}
@@ -1575,13 +1800,47 @@ function NotebookHome() {
             <button
               onClick={() => {
                 setView("main");
-                setTab("buddy");
+                setTab("review");
+                setQuestionSearch("");
+                setQuestionLesson("");
               }}
             >
-              相棒に会う
+              解き直す問題を見る
             </button>
-            <button onClick={closeToMenu}>授業一覧へ</button>
+            <button
+              onClick={() => {
+                setActiveLessonId(run.lessonId);
+                setView("list");
+              }}
+            >
+              今回の問題一覧
+            </button>
+            <button
+              onClick={() => {
+                closeToMenu();
+                setTab("lessons");
+                setQuestionSearch("");
+              }}
+            >
+              授業一覧へ
+            </button>
           </div>
+          {reviewEntries.some((entry) =>
+            run.keys.includes(
+              entry.type === "flash" ? entry.key : entry.key.slice(6),
+            ),
+          ) && (
+            <section className="result-review-list">
+              <h3>見直す問題</h3>
+              {reviewEntries
+                .filter((entry) =>
+                  run.keys.includes(
+                    entry.type === "flash" ? entry.key : entry.key.slice(6),
+                  ),
+                )
+                .map((entry) => entryRow(entry, true))}
+            </section>
+          )}
         </section>
       )}
       {view === "list" && (
@@ -1910,7 +2169,7 @@ function NotebookHome() {
                 ))}
               </fieldset>
               <details>
-                <summary>「わかった」で収集するカードを関連付ける</summary>
+                <summary>この知識を確認するカードを関連付ける</summary>
                 {lessons
                   .filter((l) => editTheory.lessonIds.includes(l.id))
                   .map((l) => (
@@ -1973,7 +2232,7 @@ function NotebookHome() {
                     if (
                       !editTheory.deleted &&
                       !(await confirmAction(
-                        "この図鑑項目を非表示にしますか？獲得した星は残ります。",
+                        "この図鑑項目を非表示にしますか？学習履歴は残ります。",
                       ))
                     )
                       return;
@@ -2175,7 +2434,7 @@ function NotebookHome() {
             [
               { id: "lessons", label: "授業", Icon: BookOpen },
               { id: "encyclopedia", label: "図鑑", Icon: Books },
-              { id: "buddy", label: "相棒", Icon: Bird },
+              { id: "review", label: "解き直し", Icon: ArrowClockwise },
             ] as const
           ).map(({ id, label, Icon }) => (
             <button
@@ -2185,6 +2444,8 @@ function NotebookHome() {
                 setTab(id);
                 setSelectedTheory("");
                 setMessage("");
+                setQuestionSearch("");
+                setQuestionLesson("");
               }}
             >
               <Icon size={32} weight={tab === id ? "duotone" : "regular"} />
@@ -2238,81 +2499,6 @@ function NotebookHome() {
             )}
           </section>
         </div>
-      )}
-      {promotion && (
-        <div
-          className="note-modal-backdrop promotion-backdrop"
-          role="dialog"
-          aria-modal="true"
-          aria-label="知識の昇格"
-        >
-          <button
-            className="promotion"
-            autoFocus
-            onClick={() => setPromotion(null)}
-            aria-label="昇格のお知らせを閉じる"
-          >
-            <Star weight="fill" size={50} />
-            <h2>知識が育ちました！</h2>
-            <p>{promotion.title}</p>
-            <Stars count={promotion.stars} />
-            <small>タップしてつづける</small>
-          </button>
-        </div>
-      )}
-      {view === "main" && tab === "buddy" && (
-        <section className="buddy-screen">
-          <Hero outfit={state.outfit} room={state.room} />
-          <div className="section-title">
-            <Bird size={30} />
-            <h2>あなたの相棒</h2>
-            <span>星 {state.stars}個</span>
-          </div>
-          <p>知識が増えると、装いや部屋が増えていきます。</p>
-          <div className="reward-grid">
-            {REWARDS.map((r) => {
-              const unlocked = state.stars >= r.stars,
-                selected = r.id === "room" ? state.room : state.outfit === r.id;
-              return (
-                <button
-                  className={"reward " + (selected ? "selected" : "")}
-                  key={r.id}
-                  disabled={!unlocked}
-                  aria-pressed={selected}
-                  onClick={() =>
-                    record("outfit", {
-                      outfit: r.id === "room" ? state.outfit : r.id,
-                      room: r.id === "room" ? !state.room : state.room,
-                    })
-                  }
-                >
-                  <img
-                    src={BASE_PATH + "/companion/" + r.id + ".png"}
-                    alt=""
-                    loading="lazy"
-                  />
-                  <strong>{r.label}</strong>
-                  <small>
-                    {unlocked ? (
-                      selected ? (
-                        "使用中"
-                      ) : (
-                        "使う"
-                      )
-                    ) : (
-                      <>
-                        <LockSimple size={15} />星{r.stars}個で解放
-                      </>
-                    )}
-                  </small>
-                </button>
-              );
-            })}
-          </div>
-          <p className="muted">
-            休んでも、不正解でも、相棒や獲得した装いは失われません。
-          </p>
-        </section>
       )}
       {view === "main" && tab === "settings" && (
         <section className="settings-screen">
@@ -2427,7 +2613,7 @@ function NotebookHome() {
           <section className="settings-box">
             <h3>講師に記録を共有</h3>
             <p>
-              知識の星・解き直し対象・最終復習日だけを、読み取り専用で共有します。リンクを知る人が閲覧できます。
+              知識の確認状況・解き直し対象・最終復習日だけを、読み取り専用で共有します。リンクを知る人が閲覧できます。
             </p>
             <div className="action-grid">
               <button
