@@ -41,8 +41,19 @@ export default function RichContent({
           <span key={i}>{tiles(t.value)}</span>
         ) : t.type === "image" ? (
           <figure className="note-image" key={i}>
-            <img src={t.url} alt={t.alt || "教材画像"} loading="lazy" />
-            {t.alt && t.alt !== "画像" && <figcaption>{t.alt}</figcaption>}
+            <a
+              className="note-image-open"
+              href={t.url}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${t.alt || "教材画像"}を拡大（別タブで開く）`}
+            >
+              <img src={t.url} alt={t.alt || "教材画像"} loading="lazy" />
+            </a>
+            <figcaption>
+              {t.alt && t.alt !== "画像" && <span>{t.alt}</span>}
+              <span className="note-image-hint">画像を押すと拡大</span>
+            </figcaption>
           </figure>
         ) : links ? (
           <a

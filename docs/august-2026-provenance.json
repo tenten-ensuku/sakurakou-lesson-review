@@ -710,6 +710,584 @@
     "0828/00-09-38-headless.jpg": {
       "sha256": "a031e437dbf56d3d68acac79273b3b7c7c9069f452e115b36aa6ff2d3084cc69",
       "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/956a3b7d-ae93-4edd-9cc7-f17cd1cba1b9.jpg"
+    },
+    "board-frames/0824-1120-board.jpg": {
+      "sha256": "127ee2785e4e3299f451b69b612f51fc2c0e911925e0dbcbfe137a2e09e3df19",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/9dfc5e80-ad82-4bf8-a1a2-c99306278d73.jpg"
+    },
+    "board-frames/0824-1845.jpg": {
+      "sha256": "22f4eba8978fd8f72b920fc6868f23b91ff7b4ad05c4488d9d289516cbbba181",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/096061d0-b363-4fec-83db-5b6dedcdff05.jpg"
+    },
+    "board-frames/0824-2790.jpg": {
+      "sha256": "554032e1d8fb6ea775eebdb70cc833f692a64848be13b5e3f3903605f55e44f0",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/89a9bb09-3270-49cc-a18b-8a36429edf25.jpg"
+    },
+    "board-frames/0824-3090-shape.jpg": {
+      "sha256": "83e1a3febd0f7c877b385a84fc2a6de9fed4eaf670413facae80a47e172e9f33",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/3817f4df-d6b6-497d-b2c4-44eab5356103.jpg"
+    },
+    "board-frames/0824-3150.jpg": {
+      "sha256": "2f6a1e43da75a2f1af74ca2558ac87043c81d412cc6947a4709cedc781ec2e1f",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7b14f774-d09b-47de-b408-67ab38085da2.jpg"
+    },
+    "board-frames/0824-3375-shape.jpg": {
+      "sha256": "cc01affc4839bbb1ff500259f8188f066408e0148030fd8ba3258529fdb74a17",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2066c0c2-ca72-47b5-99e2-11a6438486c9.jpg"
+    },
+    "board-frames/0828-0255.jpg": {
+      "sha256": "397a50d6cd14e53fcccbf210c4662027bcae60c42ce086f35e5e521a0cf75937",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/c8b49361-0aff-4f56-813d-f5e4d3cda1ba.jpg"
+    },
+    "board-frames/0828-0418-hand.jpg": {
+      "sha256": "4afe33082efc52b620d89e5320c50cf42ea7e823c1f1dd9d8859ef561d1cd7e0",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/99e731a3-3dfc-4b73-beee-1988e55738db.jpg"
+    },
+    "board-frames/0828-0720-shape.jpg": {
+      "sha256": "33eb518658e4e6da477da59ea19ddf02b1e7659b9d5a5ed2e2f3c572bd951852",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/a9ec38d4-737b-4692-8cc2-1c7a15c38b02.jpg"
+    },
+    "board-frames/0828-0825-shape.jpg": {
+      "sha256": "a5be84f37978e102be44267765c0c52f2c70b2593ba0df8862cfa7d5b542dc0a",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7299b758-9ab7-4938-b13b-8d53f2d8b0ed.jpg"
+    },
+    "board-frames/0828-0895.jpg": {
+      "sha256": "3844249ef8241c9ba3ff896ba17e95ade4a32fa98bf9128d123333b7a6e5755d",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/da257651-d4b8-4724-ae86-2a5729a1a5ea.jpg"
+    },
+    "board-frames/0828-1185.jpg": {
+      "sha256": "ccb562fa0b33a107302dc74cd3f3ef66dff7823d318043a2b9c4ae80ab863a97",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ad18e539-6fb6-4932-81c9-57dcf4754a5e.jpg"
+    },
+    "board-frames/0828-1390.jpg": {
+      "sha256": "53f7b39e34c7e1ce295f012fb547620217c57cdf2ee1eb5a6850023ba773874a",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e93e05f9-2fb9-46d0-b1f2-0abdd6aa961e.jpg"
+    },
+    "board-frames/0828-1835.jpg": {
+      "sha256": "02738056accabdee640fec84cc851b069a75ec8531abb9fc8a41ba32999ff76e",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/eab6e213-6899-49fc-95b2-137d40c1f70a.jpg"
+    },
+    "board-frames/0828-1870.jpg": {
+      "sha256": "79d75967b1e8250907868bdf9f8ae11de7a9389834e429edf9f36cb90d79b736",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2832bc49-aef6-4d54-a663-2faec76cbac5.jpg"
     }
+  },
+  "boardImages": {
+    "version": 21,
+    "method": "YouTubeの通常再生で盤面と設問を照合し、動画部分だけを切り抜いた。全画面のブラウザ画像は公開しない。",
+    "mappings": [
+      {
+        "day": "0822",
+        "numbers": [
+          9
+        ],
+        "file": "0822/00-15-19-combined.jpg",
+        "seconds": 919.24,
+        "caption": "講師の比較図。問うのは下段の23455677pの受け入れ",
+        "evidence": "上段12344566p、下段23455677p。受け入れの答えは未記載。",
+        "lessonId": "lesson-20260822-nejimaki",
+        "appId": "card-20260822-89d1797fe88ac902b2e7",
+        "sourceNumber": 9,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/8a99d69d-2506-4c8a-b0d5-3534a20c9611.jpg",
+        "prefix": "![講師の比較図。問うのは下段の23455677pの受け入れ（動画 15:19）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/8a99d69d-2506-4c8a-b0d5-3534a20c9611.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=0NFphQRVaq8&t=919s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          4,
+          7,
+          9
+        ],
+        "file": "0824/00-03-24-safety.jpg",
+        "seconds": 204.04,
+        "caption": "東4局：下家の河と、見えている4pを確認",
+        "evidence": "既存Q6と同じ局面。壁と下家の早い1p切りの確認に使用。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "check-20260824-5ce2bb86775a3218a09e",
+        "sourceNumber": 4,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg",
+        "prefix": "![東4局：下家の河と、見えている4pを確認（動画 3:24）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=204s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          4,
+          7,
+          9
+        ],
+        "file": "0824/00-03-24-safety.jpg",
+        "seconds": 204.04,
+        "caption": "東4局：下家の河と、見えている4pを確認",
+        "evidence": "既存Q6と同じ局面。壁と下家の早い1p切りの確認に使用。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "card-20260824-2011426b2568ba9f601a",
+        "sourceNumber": 7,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg",
+        "prefix": "![東4局：下家の河と、見えている4pを確認（動画 3:24）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=204s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          4,
+          7,
+          9
+        ],
+        "file": "0824/00-03-24-safety.jpg",
+        "seconds": 204.04,
+        "caption": "東4局：下家の河と、見えている4pを確認",
+        "evidence": "既存Q6と同じ局面。壁と下家の早い1p切りの確認に使用。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "card-20260824-f6276db6ddb2534149cb",
+        "sourceNumber": 9,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg",
+        "prefix": "![東4局：下家の河と、見えている4pを確認（動画 3:24）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=204s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          14,
+          15
+        ],
+        "file": "board-frames/0824-1120-board.jpg",
+        "seconds": 1120.286536,
+        "caption": "東4局：対面の字牌の切り方と下家の現物を確認",
+        "evidence": "NAGAの実盤面。対面の北対子落とし・西連打が見える。候補バー・推奨コメントは切り抜き範囲に含めない。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "card-20260824-ad80135dfc3585e0cbdd",
+        "sourceNumber": 14,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/9dfc5e80-ad82-4bf8-a1a2-c99306278d73.jpg",
+        "prefix": "![東4局：対面の字牌の切り方と下家の現物を確認（動画 18:40）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/9dfc5e80-ad82-4bf8-a1a2-c99306278d73.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1120s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          14,
+          15
+        ],
+        "file": "board-frames/0824-1120-board.jpg",
+        "seconds": 1120.286536,
+        "caption": "東4局：対面の字牌の切り方と下家の現物を確認",
+        "evidence": "NAGAの実盤面。対面の北対子落とし・西連打が見える。候補バー・推奨コメントは切り抜き範囲に含めない。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "check-20260824-def921800e47926c5c24",
+        "sourceNumber": 15,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/9dfc5e80-ad82-4bf8-a1a2-c99306278d73.jpg",
+        "prefix": "![東4局：対面の字牌の切り方と下家の現物を確認（動画 18:40）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/9dfc5e80-ad82-4bf8-a1a2-c99306278d73.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1120s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          19
+        ],
+        "file": "board-frames/0824-1845.jpg",
+        "seconds": 1846.440172,
+        "caption": "南1局10巡目：1600点持ち、親の立直を受けて西をツモ",
+        "evidence": "持ち点1600・下家親立直・西ツモが一致。点数調整後の別画面は使わない。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "card-20260824-b76cbb1a5b3e8cddcb2c",
+        "sourceNumber": 19,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/096061d0-b363-4fec-83db-5b6dedcdff05.jpg",
+        "prefix": "![南1局10巡目：1600点持ち、親の立直を受けて西をツモ（動画 30:46）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/096061d0-b363-4fec-83db-5b6dedcdff05.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1846s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          24,
+          25
+        ],
+        "file": "board-frames/0824-2790.jpg",
+        "seconds": 2799.365884,
+        "caption": "南2局8巡目：待ちの質と打点を比較する手牌（ドラ1m）",
+        "evidence": "11m23p77p56s、123mチーと西ポン、ドラ表示牌9m。打牌候補の解説表示なし。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "card-20260824-a71ffe2df247b35c75fa",
+        "sourceNumber": 24,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/89a9bb09-3270-49cc-a18b-8a36429edf25.jpg",
+        "prefix": "![南2局8巡目：待ちの質と打点を比較する手牌（ドラ1m）（動画 46:39）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/89a9bb09-3270-49cc-a18b-8a36429edf25.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=2799s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          24,
+          25
+        ],
+        "file": "board-frames/0824-2790.jpg",
+        "seconds": 2799.365884,
+        "caption": "南2局8巡目：待ちの質と打点を比較する手牌（ドラ1m）",
+        "evidence": "11m23p77p56s、123mチーと西ポン、ドラ表示牌9m。打牌候補の解説表示なし。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "check-20260824-801811c87fbf17198291",
+        "sourceNumber": 25,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/89a9bb09-3270-49cc-a18b-8a36429edf25.jpg",
+        "prefix": "![南2局8巡目：待ちの質と打点を比較する手牌（ドラ1m）（動画 46:39）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/89a9bb09-3270-49cc-a18b-8a36429edf25.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=2799s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          26
+        ],
+        "file": "board-frames/0824-3090-shape.jpg",
+        "seconds": 3092.054002,
+        "caption": "講師の仮想比較：7pの対子を西の対子に置き換えた部分",
+        "evidence": "11m23p56s西西の比較図。必要な手牌部分のみを切り抜き、下段の結論を含めない。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "check-20260824-1d7b21cc60edd1c6d5d1",
+        "sourceNumber": 26,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/3817f4df-d6b6-497d-b2c4-44eab5356103.jpg",
+        "prefix": "![講師の仮想比較：7pの対子を西の対子に置き換えた部分（動画 51:32）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/3817f4df-d6b6-497d-b2c4-44eab5356103.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=3092s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          27,
+          28
+        ],
+        "file": "board-frames/0824-3150.jpg",
+        "seconds": 3152.157424,
+        "caption": "南2局11巡目。画像は8sを切った直後です。問題では8sを1枚手牌に戻し、8s切りと9s切りを比較します",
+        "evidence": "33355m89sと999p・白白白の副露。切る前の盤面とは偽らず、8sを戻して比較する条件を明記。表示中の7s待ちは設問で既に示した選択肢であり、推奨打牌の表示ではない。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "check-20260824-26bbbab6d365c7caf4cf",
+        "sourceNumber": 27,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7b14f774-d09b-47de-b408-67ab38085da2.jpg",
+        "prefix": "![南2局11巡目。画像は8sを切った直後です。問題では8sを1枚手牌に戻し、8s切りと9s切りを比較します（動画 52:32）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7b14f774-d09b-47de-b408-67ab38085da2.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=3152s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          27,
+          28
+        ],
+        "file": "board-frames/0824-3150.jpg",
+        "seconds": 3152.157424,
+        "caption": "南2局11巡目。画像は8sを切った直後です。問題では8sを1枚手牌に戻し、8s切りと9s切りを比較します",
+        "evidence": "33355m89sと999p・白白白の副露。切る前の盤面とは偽らず、8sを戻して比較する条件を明記。表示中の7s待ちは設問で既に示した選択肢であり、推奨打牌の表示ではない。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "check-20260824-6ac898f21f892cddbc7f",
+        "sourceNumber": 28,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7b14f774-d09b-47de-b408-67ab38085da2.jpg",
+        "prefix": "![南2局11巡目。画像は8sを切った直後です。問題では8sを1枚手牌に戻し、8s切りと9s切りを比較します（動画 52:32）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7b14f774-d09b-47de-b408-67ab38085da2.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=3152s"
+      },
+      {
+        "day": "0824",
+        "numbers": [
+          29
+        ],
+        "file": "board-frames/0824-3375-shape.jpg",
+        "seconds": 3377.969702,
+        "caption": "講師の仮想比較：副露が789pチーに変化。下に離した8sも手牌に含めて比較",
+        "evidence": "33355m89sと別置き8s、789pチー・白白白のポン。対々和の有無を確認するための比較図。",
+        "lessonId": "lesson-20260824-nejimaki",
+        "appId": "check-20260824-af97c5985d7f7c67530e",
+        "sourceNumber": 29,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2066c0c2-ca72-47b5-99e2-11a6438486c9.jpg",
+        "prefix": "![講師の仮想比較：副露が789pチーに変化。下に離した8sも手牌に含めて比較（動画 56:17）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2066c0c2-ca72-47b5-99e2-11a6438486c9.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA&t=3377s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          4,
+          5
+        ],
+        "file": "board-frames/0828-0255.jpg",
+        "seconds": 255.716532,
+        "caption": "東1局4巡目：手牌だけでなく、対面の河と副露も確認",
+        "evidence": "2379m24588p1226s＋4m、ドラ9m。対面の中ポンとピンズ染め手の兆候を確認できる。正解の打牌指示なし。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-3804df2e387fd199c8b5",
+        "sourceNumber": 4,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/c8b49361-0aff-4f56-813d-f5e4d3cda1ba.jpg",
+        "prefix": "![東1局4巡目：手牌だけでなく、対面の河と副露も確認（動画 4:15）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/c8b49361-0aff-4f56-813d-f5e4d3cda1ba.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=255s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          4,
+          5
+        ],
+        "file": "board-frames/0828-0255.jpg",
+        "seconds": 255.716532,
+        "caption": "東1局4巡目：手牌だけでなく、対面の河と副露も確認",
+        "evidence": "2379m24588p1226s＋4m、ドラ9m。対面の中ポンとピンズ染め手の兆候を確認できる。正解の打牌指示なし。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "card-20260828-828c61cb78fdef5bc8fd",
+        "sourceNumber": 5,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/c8b49361-0aff-4f56-813d-f5e4d3cda1ba.jpg",
+        "prefix": "![東1局4巡目：手牌だけでなく、対面の河と副露も確認（動画 4:15）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/c8b49361-0aff-4f56-813d-f5e4d3cda1ba.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=255s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          7
+        ],
+        "file": "board-frames/0828-0418-hand.jpg",
+        "seconds": 432.092016,
+        "caption": "東2局6巡目の手牌（5mツモ・ドラ5p）。5678mと12sを比較",
+        "evidence": "画面上部には基本序列の正解が書かれているため、手牌だけを切り抜いた。ツモ5mを含めて5678m。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-0cc8688f7b16d4efb2be",
+        "sourceNumber": 7,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/99e731a3-3dfc-4b73-beee-1988e55738db.jpg",
+        "prefix": "![東2局6巡目の手牌（5mツモ・ドラ5p）。5678mと12sを比較（動画 7:12）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/99e731a3-3dfc-4b73-beee-1988e55738db.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=432s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          11
+        ],
+        "file": "board-frames/0828-0720-shape.jpg",
+        "seconds": 720.321105,
+        "caption": "講師の比較図：2sをチーする前の24m・24p・122s",
+        "evidence": "両方カンチャンの例。実戦の河ではなく、講師の仮想牌姿として明示。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-16c42fb48fdd6e4be690",
+        "sourceNumber": 11,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/a9ec38d4-737b-4692-8cc2-1c7a15c38b02.jpg",
+        "prefix": "![講師の比較図：2sをチーする前の24m・24p・122s（動画 12:00）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/a9ec38d4-737b-4692-8cc2-1c7a15c38b02.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=720s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          12
+        ],
+        "file": "board-frames/0828-0825-shape.jpg",
+        "seconds": 826.567277,
+        "caption": "講師の比較図：両面を残せる23m・23p・122s。2sチーを比べる",
+        "evidence": "23m23p122s、678sチーと中ポン。先の両カンチャン図と取り違えない。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "card-20260828-e5d3b773934d326a24e5",
+        "sourceNumber": 12,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7299b758-9ab7-4938-b13b-8d53f2d8b0ed.jpg",
+        "prefix": "![講師の比較図：両面を残せる23m・23p・122s。2sチーを比べる（動画 13:46）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7299b758-9ab7-4938-b13b-8d53f2d8b0ed.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=826s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          13,
+          15
+        ],
+        "file": "board-frames/0828-0895.jpg",
+        "seconds": 895.207564,
+        "caption": "南3局16巡目：6mを引いたところ。安全な牌で聴牌を維持できるか確認",
+        "evidence": "34789m11p123s＋6m、既存副露あり。解説用の並べ替え図ではなく、ツモ直後の手牌・河が見える実盤面。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-e004251a2f84d18b6140",
+        "sourceNumber": 13,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/da257651-d4b8-4724-ae86-2a5729a1a5ea.jpg",
+        "prefix": "![南3局16巡目：6mを引いたところ。安全な牌で聴牌を維持できるか確認（動画 14:55）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/da257651-d4b8-4724-ae86-2a5729a1a5ea.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=895s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          13,
+          15
+        ],
+        "file": "board-frames/0828-0895.jpg",
+        "seconds": 895.207564,
+        "caption": "南3局16巡目：6mを引いたところ。安全な牌で聴牌を維持できるか確認",
+        "evidence": "34789m11p123s＋6m、既存副露あり。解説用の並べ替え図ではなく、ツモ直後の手牌・河が見える実盤面。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "card-20260828-656cd3f90e05190c3d2e",
+        "sourceNumber": 15,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/da257651-d4b8-4724-ae86-2a5729a1a5ea.jpg",
+        "prefix": "![南3局16巡目：6mを引いたところ。安全な牌で聴牌を維持できるか確認（動画 14:55）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/da257651-d4b8-4724-ae86-2a5729a1a5ea.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=895s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          16,
+          17
+        ],
+        "file": "board-frames/0828-1185.jpg",
+        "seconds": 1185.174739,
+        "caption": "南3局6巡目：白単騎の門前混一色。役・符とリーチ判断を確認",
+        "evidence": "122334s東東東西西西白。白単騎は問題に記載済み。リーチ／ダマの推奨表示なし。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-dafb719354d3584f659a",
+        "sourceNumber": 16,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ad18e539-6fb6-4932-81c9-57dcf4754a5e.jpg",
+        "prefix": "![南3局6巡目：白単騎の門前混一色。役・符とリーチ判断を確認（動画 19:45）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ad18e539-6fb6-4932-81c9-57dcf4754a5e.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=1185s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          16,
+          17
+        ],
+        "file": "board-frames/0828-1185.jpg",
+        "seconds": 1185.174739,
+        "caption": "南3局6巡目：白単騎の門前混一色。役・符とリーチ判断を確認",
+        "evidence": "122334s東東東西西西白。白単騎は問題に記載済み。リーチ／ダマの推奨表示なし。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "card-20260828-521e3f735edd055d648f",
+        "sourceNumber": 17,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ad18e539-6fb6-4932-81c9-57dcf4754a5e.jpg",
+        "prefix": "![南3局6巡目：白単騎の門前混一色。役・符とリーチ判断を確認（動画 19:45）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ad18e539-6fb6-4932-81c9-57dcf4754a5e.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=1185s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          19,
+          21,
+          22
+        ],
+        "file": "board-frames/0828-1390.jpg",
+        "seconds": 1391.337726,
+        "caption": "南4局9巡目：立直者の河と、白・6pの安全度を比較",
+        "evidence": "白と6pを持ち、対面の立直と河が確認できる。切り順による推測と現物を区別する問題に使用。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-62bc56ba3e9575de1a64",
+        "sourceNumber": 19,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e93e05f9-2fb9-46d0-b1f2-0abdd6aa961e.jpg",
+        "prefix": "![南4局9巡目：立直者の河と、白・6pの安全度を比較（動画 23:11）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e93e05f9-2fb9-46d0-b1f2-0abdd6aa961e.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=1391s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          19,
+          21,
+          22
+        ],
+        "file": "board-frames/0828-1390.jpg",
+        "seconds": 1391.337726,
+        "caption": "南4局9巡目：立直者の河と、白・6pの安全度を比較",
+        "evidence": "白と6pを持ち、対面の立直と河が確認できる。切り順による推測と現物を区別する問題に使用。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "card-20260828-3cd2b91befc8bbf6969b",
+        "sourceNumber": 21,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e93e05f9-2fb9-46d0-b1f2-0abdd6aa961e.jpg",
+        "prefix": "![南4局9巡目：立直者の河と、白・6pの安全度を比較（動画 23:11）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e93e05f9-2fb9-46d0-b1f2-0abdd6aa961e.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=1391s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          19,
+          21,
+          22
+        ],
+        "file": "board-frames/0828-1390.jpg",
+        "seconds": 1391.337726,
+        "caption": "南4局9巡目：立直者の河と、白・6pの安全度を比較",
+        "evidence": "白と6pを持ち、対面の立直と河が確認できる。切り順による推測と現物を区別する問題に使用。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-a1d588ec04c72ac0fe1b",
+        "sourceNumber": 22,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e93e05f9-2fb9-46d0-b1f2-0abdd6aa961e.jpg",
+        "prefix": "![南4局9巡目：立直者の河と、白・6pの安全度を比較（動画 23:11）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e93e05f9-2fb9-46d0-b1f2-0abdd6aa961e.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=1391s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          24,
+          25
+        ],
+        "file": "board-frames/0828-1835.jpg",
+        "seconds": 1835.346983,
+        "caption": "南4局1巡目：点差と、7p・発を含む配牌を確認",
+        "evidence": "10300点、上37200・下-8900で設問の点差に一致。7mツモ後、7pと発を切る前。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-e5dece9af59d4acd3e6f",
+        "sourceNumber": 24,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/eab6e213-6899-49fc-95b2-137d40c1f70a.jpg",
+        "prefix": "![南4局1巡目：点差と、7p・発を含む配牌を確認（動画 30:35）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/eab6e213-6899-49fc-95b2-137d40c1f70a.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=1835s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          24,
+          25
+        ],
+        "file": "board-frames/0828-1835.jpg",
+        "seconds": 1835.346983,
+        "caption": "南4局1巡目：点差と、7p・発を含む配牌を確認",
+        "evidence": "10300点、上37200・下-8900で設問の点差に一致。7mツモ後、7pと発を切る前。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "card-20260828-a58803ecfe2ba66ee175",
+        "sourceNumber": 25,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/eab6e213-6899-49fc-95b2-137d40c1f70a.jpg",
+        "prefix": "![南4局1巡目：点差と、7p・発を含む配牌を確認（動画 30:35）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/eab6e213-6899-49fc-95b2-137d40c1f70a.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=1835s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          26,
+          27,
+          28
+        ],
+        "file": "board-frames/0828-1870.jpg",
+        "seconds": 1870.142167,
+        "caption": "南4局5巡目：7pを引いた6ブロックの形。整理するブロックを比較",
+        "evidence": "2367m78p33s白白＋7p、南ポン。赤い括りは設問に記載済みのブロック分けで、整理する牌の答えは未記載。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-7830d74c3638ebc75e03",
+        "sourceNumber": 26,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2832bc49-aef6-4d54-a663-2faec76cbac5.jpg",
+        "prefix": "![南4局5巡目：7pを引いた6ブロックの形。整理するブロックを比較（動画 31:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2832bc49-aef6-4d54-a663-2faec76cbac5.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=1870s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          26,
+          27,
+          28
+        ],
+        "file": "board-frames/0828-1870.jpg",
+        "seconds": 1870.142167,
+        "caption": "南4局5巡目：7pを引いた6ブロックの形。整理するブロックを比較",
+        "evidence": "2367m78p33s白白＋7p、南ポン。赤い括りは設問に記載済みのブロック分けで、整理する牌の答えは未記載。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-8472786336890438ace5",
+        "sourceNumber": 27,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2832bc49-aef6-4d54-a663-2faec76cbac5.jpg",
+        "prefix": "![南4局5巡目：7pを引いた6ブロックの形。整理するブロックを比較（動画 31:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2832bc49-aef6-4d54-a663-2faec76cbac5.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=1870s"
+      },
+      {
+        "day": "0828",
+        "numbers": [
+          26,
+          27,
+          28
+        ],
+        "file": "board-frames/0828-1870.jpg",
+        "seconds": 1870.142167,
+        "caption": "南4局5巡目：7pを引いた6ブロックの形。整理するブロックを比較",
+        "evidence": "2367m78p33s白白＋7p、南ポン。赤い括りは設問に記載済みのブロック分けで、整理する牌の答えは未記載。",
+        "lessonId": "lesson-20260828-nejimaki",
+        "appId": "check-20260828-e08c696040bd0e02cf76",
+        "sourceNumber": 28,
+        "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2832bc49-aef6-4d54-a663-2faec76cbac5.jpg",
+        "prefix": "![南4局5巡目：7pを引いた6ブロックの形。整理するブロックを比較（動画 31:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2832bc49-aef6-4d54-a663-2faec76cbac5.jpg)\n\n",
+        "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE&t=1870s"
+      }
+    ]
   }
 }

@@ -43,7 +43,7 @@
       "id": "card-20260828-828c61cb78fdef5bc8fd",
       "lessonId": "lesson-20260828-nejimaki",
       "kind": "question",
-      "question": "6sのくっつきからタンヤオを狙う場面。自己都合の1s切りに加え、不要な2pの先切りも候補になった。対面のどんな兆候を考慮した判断だった？",
+      "question": "![東1局4巡目：手牌だけでなく、対面の河と副露も確認（動画 4:15）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/c8b49361-0aff-4f56-813d-f5e4d3cda1ba.jpg)\n\n6sのくっつきからタンヤオを狙う場面。自己都合の1s切りに加え、不要な2pの先切りも候補になった。対面のどんな兆候を考慮した判断だった？",
       "answer": "対面にピンズの染め手の気配があった。\n\n6sのくっつきを残す方針は共通。不要な2pと1sを比較する際に、対面の染め手へ後から切りにくくなる2pを先に処理する視点が加わる。自己都合の牌効率と、他家への安全度・先切りは分けて考える。\n\n条件・例外：講義は2pと1sの比較を一律の唯一解として扱っていない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=345s\n\nセオリー集（随時更新）・副露対応・染め手／手組㉓先切り\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
       "sortOrder": 5
     },
@@ -59,7 +59,7 @@
       "id": "card-20260828-e5d3b773934d326a24e5",
       "lessonId": "lesson-20260828-nejimaki",
       "kind": "question",
-      "question": "すでに副露した余剰牌型で、チーして両面聴牌を取れる。受け入れを広げるために雀頭を消すと、鳴いて単騎聴牌になるルートが増える。この比較で講師は何を優先した？",
+      "question": "![講師の比較図：両面を残せる23m・23p・122s。2sチーを比べる（動画 13:46）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7299b758-9ab7-4938-b13b-8d53f2d8b0ed.jpg)\n\nすでに副露した余剰牌型で、チーして両面聴牌を取れる。受け入れを広げるために雀頭を消すと、鳴いて単騎聴牌になるルートが増える。この比較で講師は何を優先した？",
       "answer": "元の雀頭を残し、両面聴牌を取れる進行を優先した。\n\n副露手は鳴ける分、聴牌に近い。枚数だけを増やして最終的な待ちを弱くするより、元の良形聴牌を残したい。どう進んでも愚形になる手の例とは、鳴いた後の和了しやすさが違う。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=795s\n\n一向聴（基礎講義）・ヘッドレス2型に取らない例・副露手の最終好形重視\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
       "sortOrder": 12
     },
@@ -67,7 +67,7 @@
       "id": "card-20260828-656cd3f90e05190c3d2e",
       "lessonId": "lesson-20260828-nejimaki",
       "kind": "question",
-      "question": "6mツモ後に「9mが切れないから聴牌を崩す」と決める前に、今回の見落としを防ぐために行いたい手牌の見方は？",
+      "question": "![南3局16巡目：6mを引いたところ。安全な牌で聴牌を維持できるか確認（動画 14:55）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/da257651-d4b8-4724-ae86-2a5729a1a5ea.jpg)\n\n6mツモ後に「9mが切れないから聴牌を崩す」と決める前に、今回の見落としを防ぐために行いたい手牌の見方は？",
       "answer": "ツモ牌を手牌の並びに入れ、面子と待ちを別の分け方でも確認する。\n\n元の分け方だけだと、6789mから9mを切ることに意識が向く。6mを含めて手牌全体を分解し直すと、3mを切るルートとカン5mが見える。安全牌探しだけでなく、安全に切れる牌で聴牌が残るかを再点検する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1138s\n\nセオリー集（随時更新）・手組⑲・安全な形式聴牌\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
       "sortOrder": 15
     },
@@ -75,7 +75,7 @@
       "id": "card-20260828-521e3f735edd055d648f",
       "lessonId": "lesson-20260828-nejimaki",
       "kind": "question",
-      "question": "役ありダマ6400点の今回の白単騎。リーチでロン8000点にできるが、講師がダマを選んだ主な理由は？",
+      "question": "![南3局6巡目：白単騎の門前混一色。役・符とリーチ判断を確認（動画 19:45）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ad18e539-6fb6-4932-81c9-57dcf4754a5e.jpg)\n\n役ありダマ6400点の今回の白単騎。リーチでロン8000点にできるが、講師がダマを選んだ主な理由は？",
       "answer": "1600点の上積みより、ダマで和了率を保つ価値を重視したから。\n\n高打点の聴牌は、すでに和了そのものの価値が高い。リーチで警戒され、他家が白を切らなくなる損と1600点の上昇を比べた。これは今回の判断であり、字牌待ち・早い巡目などでも必ずダマと一般化しない。\n\n条件・例外：資料には、立直しても和了率が大きく下がらない字牌待ち等では立直も可能という補足がある。今回の講師のダマ推奨と区別する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1205s\n\nセオリー集（随時更新）・立直判断③・④\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
       "sortOrder": 17
     },
@@ -83,7 +83,7 @@
       "id": "card-20260828-3cd2b91befc8bbf6969b",
       "lessonId": "lesson-20260828-nejimaki",
       "kind": "question",
-      "question": "早い8p切りを根拠に「カン6pや6pシャンポンは考えにくい」と読めた。この6pを現物と同じ扱いにしてよい？",
+      "question": "![南4局9巡目：立直者の河と、白・6pの安全度を比較（動画 23:11）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e93e05f9-2fb9-46d0-b1f2-0abdd6aa961e.jpg)\n\n早い8p切りを根拠に「カン6pや6pシャンポンは考えにくい」と読めた。この6pを現物と同じ扱いにしてよい？",
       "answer": "同じには扱わない。手順からの推測で安全度を高く評価しているだけ。\n\n現物と違い、相手が不自然な手順や特殊な手役を選んでいる可能性は残る。今回の6pは中筋で両面が否定され、さらに8pを切った順序が加わった強い候補だが、放銃率0%の保証ではない。\n\n補足（推論）：講義の「かなり通る」という評価を、確定安全と区別する確認問題。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1655s\n\nセオリー集（随時更新）・立直対応⑤・⑥\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
       "sortOrder": 21
     },
@@ -91,7 +91,7 @@
       "id": "card-20260828-a58803ecfe2ba66ee175",
       "lessonId": "lesson-20260828-nejimaki",
       "kind": "question",
-      "question": "オーラスでも上下の点差が大きく、通常の和了では着順がほぼ動かない。講義では、どの基準を中心に打つと説明した？",
+      "question": "![南4局1巡目：点差と、7p・発を含む配牌を確認（動画 30:35）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/eab6e213-6899-49fc-95b2-137d40c1f70a.jpg)\n\nオーラスでも上下の点差が大きく、通常の和了では着順がほぼ動かない。講義では、どの基準を中心に打つと説明した？",
       "answer": "着順を無理に動かす狙いより、局収支を中心に打つ。\n\n上との差だけ見て無理な高打点を追うのでも、最終局というだけで安い和了に決めるのでもない。普段の局収支の基準へ戻して判断する。役満などの例外や、実際の逆転条件が残る点況は別途確認する。\n\n条件・例外：順位が確定していると断言するものではなく、講義で扱った大きな点差の局面に限定する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1755s",
       "sortOrder": 25
     },
@@ -131,7 +131,7 @@
       "id": "card-20260824-2011426b2568ba9f601a",
       "lessonId": "lesson-20260824-nejimaki",
       "kind": "question",
-      "question": "早い1p切りを、2p・3p周辺の愚形が残りにくい根拠にしたのはなぜ？",
+      "question": "![東4局：下家の河と、見えている4pを確認（動画 3:24）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg)\n\n早い1p切りを、2p・3p周辺の愚形が残りにくい根拠にしたのはなぜ？",
       "answer": "その愚形があるなら、1pをフォロー牌として残したい形が多いため。\n\n例えば13pのカンチャンや12pのペンチャンなどがある段階では、1pを早々に外すとフォローを失う場合がある。講義では手出しの順序も含めて、愚形の残りやすさを読んだ。単独の早切り1枚だけで断定する読みではない。\n\n条件・例外：ツモの変化、手役、特殊な進行などで愚形が残ることはある。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=300s\n\nセオリー集（随時更新）・手組⑤・弱い所をフォロー\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
       "sortOrder": 7
     },
@@ -139,7 +139,7 @@
       "id": "card-20260824-f6276db6ddb2534149cb",
       "lessonId": "lesson-20260824-nejimaki",
       "kind": "question",
-      "question": "この東4局で「南は字牌だから2p・3pより安全」と決めてはいけない理由は？",
+      "question": "![東4局：下家の河と、見えている4pを確認（動画 3:24）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg)\n\nこの東4局で「南は字牌だから2p・3pより安全」と決めてはいけない理由は？",
       "answer": "南のシャンポンなどは残り得る一方、2p・3pには壁と早い切り順という追加の安全根拠があるから。\n\n牌の種類だけでなく、相手がその待ちに到達できる手順を比べる。講義では対子落としの河から、字牌がシャンポンとして残る進行も説明している。\n\n条件・例外：この結論は提示された河を使った比較。あらゆる字牌と数牌の一般順位ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=522s",
       "sortOrder": 9
     },
@@ -147,7 +147,7 @@
       "id": "card-20260824-ad80135dfc3585e0cbdd",
       "lessonId": "lesson-20260824-nejimaki",
       "kind": "question",
-      "question": "東4局、対面は仕掛けている。それでも講師が「対面を過度に怖がらなくてよい」とした河の具体的な根拠は？",
+      "question": "![東4局：対面の字牌の切り方と下家の現物を確認（動画 18:40）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/9dfc5e80-ad82-4bf8-a1a2-c99306278d73.jpg)\n\n東4局、対面は仕掛けている。それでも講師が「対面を過度に怖がらなくてよい」とした河の具体的な根拠は？",
       "answer": "北の対子落としや西の連打など、手を崩しているように見える切り方。\n\n仕掛けの数だけで聴牌と決めつけず、何を手出ししているかを読む。対面の聴牌可能性を低く見る根拠があるため、下家立直への現物を避ける必要があるかを再検討する。\n\n条件・例外：対子・暗刻を落としていても、常にノーテンと断定できるわけではない。\n\n![降り判断の検討場面](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/920e34b9-d8a5-42dc-a9b7-7c4d4a362ff6.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1117s",
       "sortOrder": 14
     },
@@ -163,7 +163,7 @@
       "id": "card-20260824-b76cbb1a5b3e8cddcb2c",
       "lessonId": "lesson-20260824-nejimaki",
       "kind": "question",
-      "question": "1600点持ちで親の立直を受けた場面。段位戦前提のNAGAが強く押す結果を、そのままリーグ戦へ採用しない理由は？",
+      "question": "![南1局10巡目：1600点持ち、親の立直を受けて西をツモ（動画 30:46）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/096061d0-b363-4fec-83db-5b6dedcdff05.jpg)\n\n1600点持ちで親の立直を受けた場面。段位戦前提のNAGAが強く押す結果を、そのままリーグ戦へ採用しない理由は？",
       "answer": "段位戦では親ツモによる飛び終了を強く意識するため、飛び終了なしのリーグと判断条件が違うから。\n\n講義では、点数を変えて再検討し、飛び寸前という特殊事情の影響を調べた。NAGAを否定するのではなく、解析の前提を実際の対局ルールへ合わせて読む。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1820s",
       "sortOrder": 19
     },
@@ -179,7 +179,7 @@
       "id": "card-20260824-a71ffe2df247b35c75fa",
       "lessonId": "lesson-20260824-nejimaki",
       "kind": "question",
-      "question": "大きなラス目だから、3900の両面より満貫のシャンポンを必ず選ぶべき？",
+      "question": "![南2局8巡目：待ちの質と打点を比較する手牌（ドラ1m）（動画 46:39）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/89a9bb09-3270-49cc-a18b-8a36429edf25.jpg)\n\n大きなラス目だから、3900の両面より満貫のシャンポンを必ず選ぶべき？",
       "answer": "必ずではない。打点だけでなく和了率を含め、得られる点数を比較する。\n\n講義の例では、両面の3900を残す方針も評価した。打点を上げるために和了しやすさをどれだけ失うのかを見る。順位条件がある局面では、その条件も別に加える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=2780s\n\nセオリー集（随時更新）・手組・打点上昇と和了率の比較\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
       "sortOrder": 24
     },
@@ -219,7 +219,7 @@
       "id": "card-20260822-89d1797fe88ac902b2e7",
       "lessonId": "lesson-20260822-nejimaki",
       "kind": "question",
-      "question": "12344566pを1つずらした23455677p。受け入れを「2〜8pのうち3p以外」としたとき、さらに見落としている牌は？",
+      "question": "![講師の比較図。問うのは下段の23455677pの受け入れ（動画 15:19）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/8a99d69d-2506-4c8a-b0d5-3534a20c9611.jpg)\n\n12344566pを1つずらした23455677p。受け入れを「2〜8pのうち3p以外」としたとき、さらに見落としている牌は？",
       "answer": "1p。全体では1245678p。\n\n4pの受け入れに対し、4pから左へ始まる234pの順子がついているため、筋の1pまで伸びる。元の端にかかった形を数字だけずらして暗記すると、この1pを落としやすい。\n\n![複合形の受け入れ比較](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/8a99d69d-2506-4c8a-b0d5-3534a20c9611.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=1044s\n\n一向聴（基礎講義）・筋が伸びる法則・複合形\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
       "sortOrder": 9
     },
@@ -317,7 +317,7 @@
       "id": "check-20260828-3804df2e387fd199c8b5",
       "theoryId": "",
       "type": "choice",
-      "question": "ドラ9mを含むカンチャンを使えば5ブロック。別にタンヤオで使える4ブロックがあり、6sにくっつけば5つ目になる。6sをすぐ切りたくない理由は？",
+      "question": "![東1局4巡目：手牌だけでなく、対面の河と副露も確認（動画 4:15）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/c8b49361-0aff-4f56-813d-f5e4d3cda1ba.jpg)\n\nドラ9mを含むカンチャンを使えば5ブロック。別にタンヤオで使える4ブロックがあり、6sにくっつけば5つ目になる。6sをすぐ切りたくない理由は？",
       "choices": [
         "5ブロックあれば、6ブロック目は必ず残すから",
         "6sを残した瞬間にタンヤオが確定するから",
@@ -357,7 +357,7 @@
       "id": "check-20260828-0cc8688f7b16d4efb2be",
       "theoryId": "",
       "type": "choice",
-      "question": "東2局の例。5678mの4連形とドラ5pがあり、12sのペンチャンを持っている。講義で選んだ整理は？",
+      "question": "![東2局6巡目の手牌（5mツモ・ドラ5p）。5678mと12sを比較（動画 7:12）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/99e731a3-3dfc-4b73-beee-1988e55738db.jpg)\n\n東2局の例。5678mの4連形とドラ5pがあり、12sのペンチャンを持っている。講義で選んだ整理は？",
       "choices": [
         "1sを切り、ペンチャンを払う",
         "8mを切り、4連形を普通の順子にする",
@@ -417,7 +417,7 @@
       "id": "check-20260828-16c42fb48fdd6e4be690",
       "theoryId": "",
       "type": "choice",
-      "question": "すでに副露し、どちらが埋まっても愚形聴牌になるカン3m・カン3pの余剰牌型。2sチーで雀頭をなくし、24m・24pのヘッドレス2型にできる例で、鳴く利点は？",
+      "question": "![講師の比較図：2sをチーする前の24m・24p・122s（動画 12:00）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/a9ec38d4-737b-4692-8cc2-1c7a15c38b02.jpg)\n\nすでに副露し、どちらが埋まっても愚形聴牌になるカン3m・カン3pの余剰牌型。2sチーで雀頭をなくし、24m・24pのヘッドレス2型にできる例で、鳴く利点は？",
       "choices": [
         "門前に戻り、リーチが打てるようになる",
         "すべてのツモで両面聴牌できる",
@@ -437,7 +437,7 @@
       "id": "check-20260828-e004251a2f84d18b6140",
       "theoryId": "",
       "type": "choice",
-      "question": "南3局の形を整理すると、2面子完成済みで、残りは34789m11p。6mをツモった。3mは通り、9mは切りたくない。この3mを切って聴牌は維持できる？ 残る待ちは？",
+      "question": "![南3局16巡目：6mを引いたところ。安全な牌で聴牌を維持できるか確認（動画 14:55）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/da257651-d4b8-4724-ae86-2a5729a1a5ea.jpg)\n\n南3局の形を整理すると、2面子完成済みで、残りは34789m11p。6mをツモった。3mは通り、9mは切りたくない。この3mを切って聴牌は維持できる？ 残る待ちは？",
       "choices": [
         "維持できる。カン5m待ち",
         "維持できる。69m待ち",
@@ -477,7 +477,7 @@
       "id": "check-20260828-dafb719354d3584f659a",
       "theoryId": "",
       "type": "choice",
-      "question": "子の門前混一色3飜をロン。基本20符＋門前ロン10符＋暗刻8符が2組＋単騎2符＋三元牌の雀頭2符。この手の符・ロン点は？",
+      "question": "![南3局6巡目：白単騎の門前混一色。役・符とリーチ判断を確認（動画 19:45）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ad18e539-6fb6-4932-81c9-57dcf4754a5e.jpg)\n\n子の門前混一色3飜をロン。基本20符＋門前ロン10符＋暗刻8符が2組＋単騎2符＋三元牌の雀頭2符。この手の符・ロン点は？",
       "choices": [
         "40符3飜・5200点",
         "60符3飜・7700点",
@@ -517,7 +517,7 @@
       "id": "check-20260828-62bc56ba3e9575de1a64",
       "theoryId": "",
       "type": "choice",
-      "question": "立直者に3pと9pが通っている。6pについて、フリテンの制約から否定できるのはどの放銃形？",
+      "question": "![南4局9巡目：立直者の河と、白・6pの安全度を比較（動画 23:11）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e93e05f9-2fb9-46d0-b1f2-0abdd6aa961e.jpg)\n\n立直者に3pと9pが通っている。6pについて、フリテンの制約から否定できるのはどの放銃形？",
       "choices": [
         "両面の36p待ち・69p待ち",
         "6p単騎・6pを含むシャンポンもすべて",
@@ -557,7 +557,7 @@
       "id": "check-20260828-a1d588ec04c72ac0fe1b",
       "theoryId": "",
       "type": "choice",
-      "question": "オーラスの守備。現物がなく、白と6pが候補。6pは中筋で、立直者は中を抱えた段階で8pを先にツモ切っている。講義ではどちらをより安全とした？",
+      "question": "![南4局9巡目：立直者の河と、白・6pの安全度を比較（動画 23:11）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e93e05f9-2fb9-46d0-b1f2-0abdd6aa961e.jpg)\n\nオーラスの守備。現物がなく、白と6pが候補。6pは中筋で、立直者は中を抱えた段階で8pを先にツモ切っている。講義ではどちらをより安全とした？",
       "choices": [
         "白。字牌は数牌より常に安全",
         "どちらも現物なので安全度は同じ",
@@ -597,7 +597,7 @@
       "id": "check-20260828-e5dece9af59d4acd3e6f",
       "theoryId": "",
       "type": "choice",
-      "question": "最終局。上との点差は約27000点、下とは約19000点で、通常の和了では着順が動きにくい。染め色と字牌で4ブロックがある例で、講師は7pと発のどちらを切った？",
+      "question": "![南4局1巡目：点差と、7p・発を含む配牌を確認（動画 30:35）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/eab6e213-6899-49fc-95b2-137d40c1f70a.jpg)\n\n最終局。上との点差は約27000点、下とは約19000点で、通常の和了では着順が動きにくい。染め色と字牌で4ブロックがある例で、講師は7pと発のどちらを切った？",
       "choices": [
         "7pを切り、混一色への渡りを残す",
         "発を切る。最終局は必ず最速で終わらせる",
@@ -617,7 +617,7 @@
       "id": "check-20260828-7830d74c3638ebc75e03",
       "theoryId": "",
       "type": "choice",
-      "question": "副露手で6ブロック。両面が2つ、778pの両面対子、3s対子、白対子、完成面子がある。場況による特別な差はなく、白は3sより鳴きやすい。どこを整理する？",
+      "question": "![南4局5巡目：7pを引いた6ブロックの形。整理するブロックを比較（動画 31:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2832bc49-aef6-4d54-a663-2faec76cbac5.jpg)\n\n副露手で6ブロック。両面が2つ、778pの両面対子、3s対子、白対子、完成面子がある。場況による特別な差はなく、白は3sより鳴きやすい。どこを整理する？",
       "choices": [
         "7pを切り、778pのフォローを外す",
         "3s対子を落とし、5ブロックにする",
@@ -637,7 +637,7 @@
       "id": "check-20260828-8472786336890438ace5",
       "theoryId": "",
       "type": "cloze",
-      "question": "3s対子を整理し、778pのフォローを残すと、一向聴で白だけでなく［　］のポン聴牌も残せる。",
+      "question": "![南4局5巡目：7pを引いた6ブロックの形。整理するブロックを比較（動画 31:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2832bc49-aef6-4d54-a663-2faec76cbac5.jpg)\n\n3s対子を整理し、778pのフォローを残すと、一向聴で白だけでなく［　］のポン聴牌も残せる。",
       "choices": [
         "8p",
         "3s",
@@ -657,7 +657,7 @@
       "id": "check-20260828-e08c696040bd0e02cf76",
       "theoryId": "",
       "type": "choice",
-      "question": "6ブロックを維持するため先に7pを切ると、手が進んだ後で3sが余剰牌になる。一向聴の価値の比較として正しいのは？",
+      "question": "![南4局5巡目：7pを引いた6ブロックの形。整理するブロックを比較（動画 31:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2832bc49-aef6-4d54-a663-2faec76cbac5.jpg)\n\n6ブロックを維持するため先に7pを切ると、手が進んだ後で3sが余剰牌になる。一向聴の価値の比較として正しいのは？",
       "choices": [
         "余剰牌を残すほど、聴牌受け入れは必ず増える",
         "完全形と余剰牌型は、孤立牌の働きまで同じ",
@@ -717,7 +717,7 @@
       "id": "check-20260824-5ce2bb86775a3218a09e",
       "theoryId": "",
       "type": "choice",
-      "question": "下家の立直を受けた二向聴。現物の1p→4pを切っても二向聴を維持できる。講師がこの進め方を評価した理由は？",
+      "question": "![東4局：下家の河と、見えている4pを確認（動画 3:24）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg)\n\n下家の立直を受けた二向聴。現物の1p→4pを切っても二向聴を維持できる。講師がこの進め方を評価した理由は？",
       "choices": [
         "向聴数が同じなら、その後の和了率も必ず同じだから",
         "下家の現物なら必ず全員に安全だから",
@@ -877,7 +877,7 @@
       "id": "check-20260824-def921800e47926c5c24",
       "theoryId": "",
       "type": "choice",
-      "question": "同じ東4局。対面は手を崩しているように見え、発は下家立直の現物。一方、7pは下家に対する筋にすぎない。講師が勧めた打牌は？",
+      "question": "![東4局：対面の字牌の切り方と下家の現物を確認（動画 18:40）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/9dfc5e80-ad82-4bf8-a1a2-c99306278d73.jpg)\n\n同じ東4局。対面は手を崩しているように見え、発は下家立直の現物。一方、7pは下家に対する筋にすぎない。講師が勧めた打牌は？",
       "choices": [
         "7pを切る",
         "無筋の5pを切る",
@@ -997,7 +997,7 @@
       "id": "check-20260824-801811c87fbf17198291",
       "theoryId": "",
       "type": "cloze",
-      "question": "ドラ対子がある手で、別の対子を落として良形を残しても、打点を上げるためにドラを［　］するルートが後から残る場合がある。",
+      "question": "![南2局8巡目：待ちの質と打点を比較する手牌（ドラ1m）（動画 46:39）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/89a9bb09-3270-49cc-a18b-8a36429edf25.jpg)\n\nドラ対子がある手で、別の対子を落として良形を残しても、打点を上げるためにドラを［　］するルートが後から残る場合がある。",
       "choices": [
         "ポン",
         "対子落とし",
@@ -1017,7 +1017,7 @@
       "id": "check-20260824-1d7b21cc60edd1c6d5d1",
       "theoryId": "",
       "type": "choice",
-      "question": "講義で7pの対子を西の対子に置き換えた仮想比較を行った。両面を落としてシャンポンを残す評価が上がり得る理由は？",
+      "question": "![講師の仮想比較：7pの対子を西の対子に置き換えた部分（動画 51:32）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/3817f4df-d6b6-497d-b2c4-44eab5356103.jpg)\n\n講義で7pの対子を西の対子に置き換えた仮想比較を行った。両面を落としてシャンポンを残す評価が上がり得る理由は？",
       "choices": [
         "西は必ず4枚山に残っているから",
         "シャンポン側の待ちの質が変わるから",
@@ -1037,7 +1037,7 @@
       "id": "check-20260824-26bbbab6d365c7caf4cf",
       "theoryId": "",
       "type": "choice",
-      "question": "南2局の比較。8s切りならペン7sで5200、9s切りなら5m・8sのシャンポンで安目8000・高目12000。待ち枚数の差も小さいこの場面で、講師が勧めたのは？",
+      "question": "![南2局11巡目。画像は8sを切った直後です。問題では8sを1枚手牌に戻し、8s切りと9s切りを比較します（動画 52:32）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7b14f774-d09b-47de-b408-67ab38085da2.jpg)\n\n南2局の比較。8s切りならペン7sで5200、9s切りなら5m・8sのシャンポンで安目8000・高目12000。待ち枚数の差も小さいこの場面で、講師が勧めたのは？",
       "choices": [
         "8sを切る",
         "点数は同じなのでどちらでもよい",
@@ -1057,7 +1057,7 @@
       "id": "check-20260824-6ac898f21f892cddbc7f",
       "theoryId": "",
       "type": "cloze",
-      "question": "この南2局で、9s切りの5m・8sシャンポンを高く評価する際、見落としてはいけない役は［　］。",
+      "question": "![南2局11巡目。画像は8sを切った直後です。問題では8sを1枚手牌に戻し、8s切りと9s切りを比較します（動画 52:32）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7b14f774-d09b-47de-b408-67ab38085da2.jpg)\n\nこの南2局で、9s切りの5m・8sシャンポンを高く評価する際、見落としてはいけない役は［　］。",
       "choices": [
         "平和",
         "一気通貫",
@@ -1077,7 +1077,7 @@
       "id": "check-20260824-af97c5985d7f7c67530e",
       "theoryId": "",
       "type": "choice",
-      "question": "副露の一つをチーに変えて対々和がなく、良形3900と高目満貫のシャンポンを比べる仮想例。先ほどの「9s切りで高打点を優先」をそのまま使ってよい？",
+      "question": "![講師の仮想比較：副露が789pチーに変化。下に離した8sも手牌に含めて比較（動画 56:17）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/2066c0c2-ca72-47b5-99e2-11a6438486c9.jpg)\n\n副露の一つをチーに変えて対々和がなく、良形3900と高目満貫のシャンポンを比べる仮想例。先ほどの「9s切りで高打点を優先」をそのまま使ってよい？",
       "choices": [
         "使わない。対々和が消えた後の打点差と待ちの質を比較し直す",
         "使う。対々和がなくても満貫なら常に和了率の差を上回る",

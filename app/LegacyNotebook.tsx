@@ -491,6 +491,7 @@ export default function LegacyNotebook({
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (screen !== "session" || !current || inlineEdit) return;
+      if ((event.target as HTMLElement)?.closest("input,textarea,select,button,a,summary")) return;
       if (current.kind !== "question" && ["Enter", " "].includes(event.key)) {
         event.preventDefault();
         nextCard();

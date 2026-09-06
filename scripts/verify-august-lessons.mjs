@@ -42,6 +42,12 @@ await Promise.all(Object.values(provenance.images).map(async ({url, sha256}) => 
   const bytes = new Uint8Array(await r.arrayBuffer());
   assert.equal(createHash("sha256").update(bytes).digest("hex"), sha256, url);
 }));
+for (const m of provenance.boardImages?.mappings ?? []) {
+  const q = [...notebook.cards, ...catalog.items].find((q) => q.id === m.appId);
+  assert.ok(q, m.appId);
+  assert.ok(q.question.includes(m.url), `Question image missing: ${m.appId}`);
+  assert.ok(q.question.startsWith("!["), `Image must precede question: ${m.appId}`);
+}
 const css = await get("/materials/august-2026/summary.css");
 assert.match(await css.text(), /object-fit:contain/);
-console.log(JSON.stringify({ origin, lessons: verified, verifiedImages: Object.keys(provenance.images).length }, null, 2));
+console.log(JSON.stringify({ origin, lessons: verified, verifiedImages: Object.keys(provenance.images).length, questionsWithAddedBoardImages: provenance.boardImages?.mappings.length ?? 0 }, null, 2));

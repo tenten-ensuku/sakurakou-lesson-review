@@ -5,6 +5,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { createHash } from "node:crypto";
 import { tokenizeMahjongText } from "../app/lib/mahjong-tiles.mjs";
+import { augmentAugustBoardImages } from "./augment-august-board-images.mjs";
 
 const root = resolve(process.argv[2] ?? "");
 if (!process.argv[2]) throw new Error("A reviewed draft directory is required");
@@ -106,3 +107,4 @@ await mkdir(resolve("content"), { recursive: true });
 await writeFile(resolve("content/august-2026.json"), JSON.stringify(output, null, 2) + "\n");
 await writeFile(resolve("docs/august-2026-provenance.json"), JSON.stringify(provenance, null, 2) + "\n");
 console.log(JSON.stringify({ lessons: output.lessons.length, flashcards: output.cards.filter((c) => c.kind === "question").length, checks: output.items.length, summaries: 3, images: selectedImages.size }));
+await augmentAugustBoardImages(root, process.argv.includes("--upload-images"));

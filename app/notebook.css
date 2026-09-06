@@ -709,8 +709,18 @@ body {
 .note-image {
   margin: 16px 0;
   max-width: 100%;
+  width: 100%;
 }
-.note-image > img {
+.note-image-open {
+  display: block;
+  border-radius: 10px;
+  cursor: zoom-in;
+}
+.note-image-open:focus-visible {
+  outline: 3px solid #087b6f;
+  outline-offset: 4px;
+}
+.note-image img {
   display: block;
   width: 100%;
   height: auto;
@@ -722,6 +732,12 @@ body {
   font-size: 12px;
   color: #62776b;
   text-align: left;
+  line-height: 1.6;
+  font-weight: 500;
+}
+.note-image-hint {
+  display: block;
+  color: #17695d;
 }
 .notebook .related-lesson {
   display: flex;
@@ -880,7 +896,9 @@ body {
   text-wrap: pretty;
 }
 .study-text > span {
-  display: contents;
+  display: block;
+  width: 100%;
+  min-width: 0;
 }
 .study-text.answer-side {
   font-size: clamp(20px, 2.7vw, 25px);
