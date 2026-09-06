@@ -10,11 +10,11 @@ test("lesson reference materials have durable schema and public API wiring", () 
   assert.match(schema, /CREATE TABLE IF NOT EXISTS lesson_resources/);
   assert.match(schema, /kind IN \('link', 'image'\)/);
   assert.match(worker, /\/resources/);
-  assert.match(worker, /resources:\(resources\.results/);
+  assert.match(worker, /resources:\s*\(resources\.results/);
 });
 
 test("the lesson list hides the reference button when a lesson has no materials", () => {
-  const page = readFileSync("app/page.tsx", "utf8");
+  const page = readFileSync("app/LegacyNotebook.tsx", "utf8");
 
   assert.match(page, /lessonResources\.length > 0/);
   assert.match(page, /reference-material-button/);

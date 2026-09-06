@@ -1,11 +1,11 @@
 {
-  "name": "桜紅さんの授業復習",
-  "short_name": "桜紅さん復習",
-  "description": "7/21 てんてん先生の牌譜検討を復習できるフラッシュカード",
+  "name": "エンスク授業ノート | 桜紅さん",
+  "short_name": "授業ノート",
+  "description": "授業を復習して、セオリー図鑑とフクロウの相棒を育てる",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#48d6b0",
-  "theme_color": "#48d6b0",
+  "background_color": "#fffdf4",
+  "theme_color": "#fffdf4",
   "lang": "ja",
   "icons": [
     {

@@ -2,6 +2,7 @@
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
 import { handleAdminApi } from "./admin-api.mjs";
+import { handleLearningApi } from "./learning-api.mjs";
 
 interface Env {
   ASSETS: {
@@ -42,6 +43,8 @@ const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
+    const learningResponse = await handleLearningApi(request, env);
+    if (learningResponse) return learningResponse;
     const adminApiResponse = await handleAdminApi(request, env);
     if (adminApiResponse) return adminApiResponse;
 

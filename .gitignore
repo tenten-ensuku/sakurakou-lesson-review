@@ -4,3 +4,9 @@ dist/
 .wrangler/
 *.log
 out/
+.env*
+!.env.example
+*.tsbuildinfo
+design-evidence/
+*.tar.gz
+next-env.d.ts

@@ -52,7 +52,7 @@ test("renders Markdown image syntax as a separate rich-text image token", () => 
 });
 
 test("renders automatic links through the shared mahjong text component", () => {
-  const page = readFileSync("app/page.tsx", "utf8");
+  const page = readFileSync("app/LegacyNotebook.tsx", "utf8");
   const css = readFileSync("app/globals.css", "utf8");
   assert.match(page, /tokenizeRichText\(text\)/);
   assert.match(page, /className=\{`embedded-link embedded-link--\$\{token\.kind\}`\}/);

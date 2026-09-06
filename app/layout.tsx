@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
-const title = "桜紅さんの授業復習";
-const description = "7/21 てんてん先生『蒼嵐戦 牌譜検討』を、23問のフラッシュカードと講義メモで復習できるアプリ。";
+const title = "エンスク授業ノート | 桜紅さん";
+const description = "授業を復習して、セオリー図鑑とフクロウの相棒を育てる。桜紅さんの麻雀授業ノート。";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
@@ -45,7 +45,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#48d6b0",
+  themeColor: "#fffdf4",
 };
 
 export default function RootLayout({

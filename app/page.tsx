@@ -1,261 +1,2516 @@
 "use client";
 /* eslint-disable react-hooks/set-state-in-effect, react-hooks/exhaustive-deps */
-
-import { useEffect, useMemo, useState } from "react";
-import { linkLabel, tokenizeRichText } from "./lib/rich-text.mjs";
-import { tokenizeMahjongText } from "./lib/mahjong-tiles.mjs";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
-  APP_VERSION, BASE_CARDS, DEFAULT_LESSON, STORAGE_KEY,
-  getRank, mergeLessonCards, questionNumber, sortLessons,
+  BookOpen,
+  Books,
+  Bird,
+  CalendarDots,
+  CaretRight,
+  CaretLeft,
+  ArrowLeft,
+  ArrowClockwise,
+  Check as CheckIcon,
+  PencilSimple,
+  Star,
+  GearSix,
+  YoutubeLogo,
+  Images,
+  LinkSimple,
+  ListBullets,
+  X,
+  Plus,
+  ArrowUp,
+  ArrowDown,
+  LockSimple,
+  ShareNetwork,
+  Copy,
+  FloppyDisk,
+} from "@phosphor-icons/react";
+import LegacyNotebook from "./LegacyNotebook";
+import ConfirmProvider, { useConfirm } from "./ConfirmAction";
+import RichContent from "./RichContent";
+import {
+  APP_VERSION,
+  BASE_CARDS,
+  DEFAULT_LESSON,
+  mergeLessonCards,
+  sortLessons,
+  questionNumber,
+  getRank,
 } from "./lib/lesson.mjs";
+import { seedCatalog } from "./lib/catalog-seed.mjs";
+import { REWARDS, canRate, jstDay } from "./lib/progress.mjs";
+import { useLearner } from "./lib/use-learner";
+import {
+  api,
+  API_BASE,
+  BASE_PATH,
+  keyFor,
+  type Card,
+  type Lesson,
+  type Notebook,
+  type Catalog,
+  type Theory,
+  type Check,
+  type Session,
+  type LearningState,
+} from "./lib/notebook-types";
+import "./notebook.css";
 
-type Kind = "question" | "section" | "note";
-type Card = { id:string|number; kind:Kind; question:string; answer:string; source:"base"|"custom"; deleted?:boolean; sortOrder?:number };
-type Lesson = { id:string; date:string; teacher:string; title:string; videoUrl:string; deleted?:boolean };
-type ResourceKind = "link" | "image";
-type LessonResource = { id:string; lessonId:string; sortOrder:number; kind:ResourceKind; label:string; url:string };
-type LegacyOverride = { lessonId:string; id:number; question:string; answer:string; deleted?:boolean };
-type RemoteCard = { id:string; lessonId:string; sortOrder:number; kind:Kind; question:string; answer:string; deleted?:boolean };
-type Notebook = { overrides:LegacyOverride[]; metadata:Lesson[]; lessons:Lesson[]; cards:RemoteCard[]; resources:LessonResource[] };
-type Screen = "home"|"session"|"result"|"list"|"admin";
-type Rating = "known"|"again";
-type Result = { known:number; again:number; elapsed:number };
-type InlineEdit = { field:"question"|"answer"; value:string } | null;
-
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const API_BASE = process.env.NEXT_PUBLIC_ADMIN_API_URL ?? "";
-const EMPTY_NOTEBOOK:Notebook = { overrides:[], metadata:[], lessons:[], cards:[], resources:[] };
-const SUITS = { m:"man", p:"pin", s:"sou" } as const;
-
-const cardKey = (lessonId:string, card:Pick<Card,"id"|"source">) => `${lessonId}:${card.source}:${card.id}`;
-const formatTime = (seconds:number) => `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2,"0")}`;
-const todayShort = () => { const now = new Date(); return `${now.getMonth() + 1}/${now.getDate()}`; };
-
-function TileText({ text, links = true }:{ text:string; links?:boolean }) {
-  const tiles = (value:string) => {
-    return tokenizeMahjongText(value).map((token,index) => token.type === "text"
-      ? token.value
-      : <span className="tile-run" key={`${index}-${token.source ?? "tiles"}`}>{(token.digits ?? []).map((digit:string,tileIndex:number) => {
-        const suit = token.suit === "ji" ? "ji" : SUITS[token.suit as keyof typeof SUITS];
-        return <span className="tile-slot" key={`${digit}-${tileIndex}`}><img className="tile-image" src={`${BASE_PATH}/tiles/${suit}${digit}-66-90-l.png`} width="66" height="90" alt={token.source ?? "麻雀牌"} /></span>;
-      })}</span>);
-  };
-  return <>{tokenizeRichText(text).map((token,index) => token.type === "text"
-    ? <span key={index}>{tiles(token.value)}</span>
-    : token.type === "image" ? <figure className="card-image" key={index}><img src={token.url} alt={token.alt || "カード画像"} /><figcaption>{token.alt}</figcaption></figure>
-    : links ? <a className={`embedded-link embedded-link--${token.kind}`} href={token.url} target="_blank" rel="noreferrer" title={token.url} key={index}>{token.label}</a>
-      : <span className={`embedded-link embedded-link--${token.kind} embedded-link--static`} key={index}>{token.label}</span>)}</>;
-}
-
-function normalizeLesson(lesson: Partial<Lesson>): Lesson {
-  let title = lesson.title ?? "";
-  let teacher = lesson.teacher ?? "";
-  title = title.replace(/^\d{1,2}\/\d{1,2}[　\s]*/, "");
-  if (!teacher) {
-    const legacy = title.match(/^(.+?先生)[　\s]+(.+)$/);
-    if (legacy) { teacher = legacy[1]; title = legacy[2]; }
+const empty: Notebook = {
+  overrides: [],
+  metadata: [],
+  lessons: [],
+  cards: [],
+  resources: [],
+};
+const normalize = (l: Lesson): Lesson => {
+  let title = l.title.replace(/^\d{1,2}\/\d{1,2}[　\s]*/, "");
+  let teacher = l.teacher ?? "";
+  const m = title.match(/^(.+?先生)[　\s]+(.+)$/);
+  if (!teacher && m) {
+    teacher = m[1];
+    title = m[2];
   }
-  return { id:lesson.id ?? "", date:lesson.date ?? "", teacher, title, videoUrl:lesson.videoUrl ?? "", deleted:lesson.deleted };
+  return { ...l, title, teacher };
+};
+const time = (s: number) =>
+  Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+const dayLabel = (s: string | null) =>
+  s
+    ? new Date(s).toLocaleDateString("ja-JP", {
+        timeZone: "Asia/Tokyo",
+        month: "numeric",
+        day: "numeric",
+      })
+    : "まだありません";
+function Stars({ count = 0 }: { count?: number }) {
+  return (
+    <span className="knowledge-stars" aria-label={count + "つ星"}>
+      {[1, 2, 3].map((i) => (
+        <Star
+          key={i}
+          weight={i <= count ? "fill" : "regular"}
+          className={i <= count ? "lit" : ""}
+        />
+      ))}
+    </span>
+  );
 }
-
-function lessonLabel(lesson: Lesson) { return [lesson.date, lesson.teacher, lesson.title].filter(Boolean).join("　"); }
-
-function Header({ compact = false }:{ compact?:boolean }) {
-  return <header className={`brand${compact ? " brand--compact" : ""}`}>
-    <div className="brand__mark" aria-hidden="true">桜</div>
-    <div><p className="brand__eyebrow">ENSUKU LESSON NOTE</p><h1 id="app-title">桜紅さんの授業復習</h1></div>
-    <span className="version">ver{APP_VERSION}</span>
-  </header>;
+function Hero({
+  outfit = "base",
+  room = false,
+}: {
+  outfit?: string;
+  room?: boolean;
+}) {
+  return (
+    <div className="companion-hero">
+      {room && (
+        <img
+          className="companion-room"
+          src={BASE_PATH + "/companion/room.png"}
+          alt="解放したひだまりの書斎"
+        />
+      )}
+      <img
+        src={BASE_PATH + "/companion/" + outfit + ".png"}
+        width={1774}
+        height={887}
+        alt="本のポーチを持った緑のフクロウの相棒"
+      />
+      <p>一緒に復習しよう</p>
+    </div>
+  );
 }
-
 export default function Home() {
-  const [screen,setScreen] = useState<Screen>("home");
-  const [notebook,setNotebook] = useState<Notebook>(EMPTY_NOTEBOOK);
-  const [activeLessonId,setActiveLessonId] = useState<string>(DEFAULT_LESSON.id);
-  const [adminLessonId,setAdminLessonId] = useState<string>(DEFAULT_LESSON.id);
-  const [reviewIds,setReviewIds] = useState<string[]>([]);
-  const [sessionCards,setSessionCards] = useState<Card[]>([]);
-  const [sessionLesson,setSessionLesson] = useState<Lesson>(DEFAULT_LESSON);
-  const [index,setIndex] = useState(0); const [revealed,setRevealed] = useState(false);
-  const [ratings,setRatings] = useState<Record<string,Rating>>({}); const [elapsed,setElapsed] = useState(0); const [result,setResult] = useState<Result|null>(null);
-  const [notice,setNotice] = useState(""); const [error,setError] = useState(""); const [busy,setBusy] = useState("");
-  const [inlineEdit,setInlineEdit] = useState<InlineEdit>(null); const [inlineEditError,setInlineEditError] = useState("");
-  const [lessonDraft,setLessonDraft] = useState({date:"",teacher:"",title:"",videoUrl:""});
-  const [newLesson,setNewLesson] = useState({date:todayShort(),teacher:"",title:"",videoUrl:""});
-  const [cardDrafts,setCardDrafts] = useState<Record<string,{kind:Kind;question:string;answer:string}>>({});
-  const [resourceLessonId,setResourceLessonId] = useState("");
-  const [resourceDraft,setResourceDraft] = useState({label:"",url:""});
-
-  const defaultLesson = useMemo(() => normalizeLesson({ ...DEFAULT_LESSON, ...(notebook.metadata.find((item) => item.id === DEFAULT_LESSON.id) ?? {}) }),[notebook.metadata]);
-  const lessons = useMemo(() => sortLessons([defaultLesson,...notebook.lessons.filter((item) => !item.deleted).map(normalizeLesson)]),[defaultLesson,notebook.lessons]);
-  const activeLesson = lessons.find((item) => item.id === activeLessonId) ?? lessons[0] ?? defaultLesson;
-  const cardsFor = (lessonId:string) => lessonId === DEFAULT_LESSON.id
-    ? mergeLessonCards(BASE_CARDS,notebook.overrides,notebook.cards.filter((card) => card.lessonId === lessonId)) as Card[]
-    : notebook.cards.filter((card) => card.lessonId === lessonId && !card.deleted).sort((a,b) => a.sortOrder-b.sortOrder).map((card) => ({...card,source:"custom" as const}));
-  const activeCards = useMemo(() => cardsFor(activeLesson.id),[activeLesson.id,notebook]);
-  const resourcesFor = (lessonId:string) => (notebook.resources ?? []).filter((resource) => resource.lessonId === lessonId).sort((a,b) => a.sortOrder-b.sortOrder);
-  const activeQuestions = activeCards.filter((card) => card.kind === "question");
-  const current = sessionCards[index];
-  const resourceLesson = lessons.find((lesson) => lesson.id === resourceLessonId);
-  const visibleResources = resourceLesson ? resourcesFor(resourceLesson.id) : [];
-
-  const refresh = async () => {
-    const response = await fetch(`${API_BASE}/api/notebook`,{cache:"no-store"});
-    if (!response.ok) throw new Error("保存データを読み込めませんでした。");
-    setNotebook(await response.json());
-  };
-  useEffect(() => { refresh().catch(() => setError("保存データに接続できないため、既存カードだけを表示しています。")); }, []);
-  useEffect(() => { try { const saved=JSON.parse(localStorage.getItem(STORAGE_KEY) ?? "{}"); if(Array.isArray(saved.reviewIds)) setReviewIds(saved.reviewIds); } catch {} }, []);
-  useEffect(() => { try { localStorage.setItem(STORAGE_KEY,JSON.stringify({reviewIds})); } catch {} },[reviewIds]);
-  useEffect(() => { if (!resourceLessonId) return; const close=(event:KeyboardEvent) => { if(event.key === "Escape") setResourceLessonId(""); }; window.addEventListener("keydown",close); return ()=>window.removeEventListener("keydown",close); },[resourceLessonId]);
-  useEffect(() => { setResourceDraft({label:"",url:""}); },[adminLessonId]);
-  useEffect(() => { if(screen !== "session") return; const timer=window.setInterval(() => setElapsed((value) => value+1),1000); return () => window.clearInterval(timer); },[screen]);
+  return (
+    <ConfirmProvider>
+      <NotebookHome />
+    </ConfirmProvider>
+  );
+}
+function NotebookHome() {
+  const confirmAction = useConfirm();
+  const [booted, setBooted] = useState(false),
+    [teacherToken, setTeacherToken] = useState("");
   useEffect(() => {
-    if (screen !== "home") return;
-    const headings = [...document.querySelectorAll<HTMLElement>(".lesson-panel .section-heading")];
-    const handlers = headings.map((heading) => {
-      const handler = (event: MouseEvent) => {
-        if ((event.target as HTMLElement).closest("a,button")) return;
-        heading.closest(".lesson-panel")?.classList.toggle("lesson-panel--expanded");
-      };
-      heading.addEventListener("click", handler);
-      return [heading, handler] as const;
+    const p = new URLSearchParams(location.hash.slice(1));
+    setTeacherToken(p.get("teacher") ?? "");
+    setBooted(true);
+  }, []);
+  const learner = useLearner(booted && !teacherToken),
+    { state, record } = learner;
+  const [tab, setTab] = useState<
+    "lessons" | "encyclopedia" | "buddy" | "settings"
+  >("lessons");
+  const [view, setView] = useState<
+    "main" | "session" | "result" | "list" | "editor" | "catalog-editor"
+  >("main");
+  const [notebook, setNotebook] = useState<Notebook>(empty),
+    [catalog, setCatalog] = useState<Catalog>(seedCatalog() as Catalog);
+  const [loading, setLoading] = useState(true),
+    [error, setError] = useState(""),
+    [message, setMessage] = useState(""),
+    [busy, setBusy] = useState(false);
+  const [activeLessonId, setActiveLessonId] = useState<string>(
+      DEFAULT_LESSON.id,
+    ),
+    [expanded, setExpanded] = useState(""),
+    [resourceId, setResourceId] = useState("");
+  const [selectedTheory, setSelectedTheory] = useState(""),
+    [search, setSearch] = useState(""),
+    [reviewFilter, setReviewFilter] = useState(false);
+  const [run, setRun] = useState<Session | null>(null),
+    runRef = useRef<Session | null>(null);
+  const [editing, setEditing] = useState<{
+    card: Card;
+    field: "question" | "answer";
+    value: string;
+  } | null>(null);
+  const [promotion, setPromotion] = useState<{
+      title: string;
+      stars: number;
+    } | null>(null),
+    [advancing, setAdvancing] = useState(false);
+  const advancingRef = useRef(false),
+    timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [restoreCode, setRestoreCode] = useState(""),
+    [showCode, setShowCode] = useState(false),
+    [shareUrl, setShareUrl] = useState("");
+  const [teacherState, setTeacherState] = useState<LearningState | null>(null);
+  const [editTheory, setEditTheory] = useState<Theory | null>(null),
+    [editCheck, setEditCheck] = useState<Check | null>(null);
+  const [dragKey, setDragKey] = useState("");
+  const [editorCardKey, setEditorCardKey] = useState("");
+  useEffect(() => {
+    if (!resourceId && !promotion) return;
+    const previous = document.activeElement as HTMLElement | null;
+    const root = document.querySelector<HTMLElement>(".note-modal-backdrop");
+    const focusable = () =>
+      Array.from(
+        root?.querySelectorAll<HTMLElement>(
+          'button:not(:disabled),a[href],input:not(:disabled),[tabindex="0"]',
+        ) ?? [],
+      );
+    focusable()[0]?.focus();
+    const keydown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        setResourceId("");
+        setPromotion(null);
+      }
+      if (e.key !== "Tab") return;
+      const nodes = focusable(),
+        first = nodes[0],
+        last = nodes[nodes.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last?.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first?.focus();
+      }
+    };
+    document.addEventListener("keydown", keydown);
+    return () => {
+      document.removeEventListener("keydown", keydown);
+      previous?.focus({ preventScroll: true });
+    };
+  }, [resourceId, promotion]);
+  const refresh = useCallback(async () => {
+    setLoading(true);
+    const [n, c] = await Promise.allSettled([
+      api("/api/notebook"),
+      api("/api/catalog"),
+    ]);
+    if (n.status === "fulfilled") {
+      setNotebook(n.value);
+      try {
+        localStorage.setItem(
+          "ensuku-notebook-content-v1",
+          JSON.stringify(n.value),
+        );
+      } catch {}
+    } else {
+      try {
+        const old = localStorage.getItem("ensuku-notebook-content-v1");
+        if (old) setNotebook(JSON.parse(old));
+      } catch {}
+      setError("教材に接続できません。保存済み教材で復習を続けられます。");
+    }
+    if (c.status === "fulfilled") {
+      setCatalog(c.value);
+      try {
+        localStorage.setItem("ensuku-catalog-v1", JSON.stringify(c.value));
+      } catch {}
+    } else {
+      try {
+        const old = localStorage.getItem("ensuku-catalog-v1");
+        if (old) setCatalog(JSON.parse(old));
+      } catch {}
+      setError(
+        "図鑑の共有データに接続できません。編集は再接続後に保存してください。",
+      );
+    }
+    setLoading(false);
+  }, []);
+  useEffect(() => {
+    void refresh();
+  }, [refresh]);
+  useEffect(() => {
+    if (teacherToken)
+      api("/api/learning/teacher", "GET", undefined, teacherToken)
+        .then(setTeacherState)
+        .catch((e) => setError(e.message));
+  }, [teacherToken]);
+  const lessons = useMemo(
+    () =>
+      sortLessons([
+        normalize({
+          ...DEFAULT_LESSON,
+          ...notebook.metadata.find(
+            (l) => (l.lessonId ?? l.id) === DEFAULT_LESSON.id,
+          ),
+        }),
+        ...notebook.lessons.filter((l) => !l.deleted).map(normalize),
+      ]) as Lesson[],
+    [notebook],
+  );
+  const cardsFor = (lessonId: string): Card[] => {
+    const list = (
+      lessonId === DEFAULT_LESSON.id
+        ? mergeLessonCards(
+            BASE_CARDS,
+            notebook.overrides,
+            notebook.cards.filter((c) => c.lessonId === lessonId),
+          )
+        : notebook.cards
+            .filter((c) => c.lessonId === lessonId && !c.deleted)
+            .map((c) => ({ ...c, source: "custom" }))
+    ) as Card[];
+    const order = new Map(
+      catalog.orders
+        .filter((o) => o.lessonId === lessonId)
+        .map((o) => [o.cardKey, o.sortOrder]),
+    );
+    return list
+      .map((c, i) => ({ c, i }))
+      .sort(
+        (a, b) =>
+          (order.get(keyFor(lessonId, a.c)) ?? 100000 + a.i) -
+          (order.get(keyFor(lessonId, b.c)) ?? 100000 + b.i),
+      )
+      .map((x) => x.c);
+  };
+  const visibleTheories = catalog.theories.filter((t) => !t.deleted);
+  const itemsFor = (lessonId: string) =>
+    catalog.items
+      .filter(
+        (q) =>
+          !q.deleted &&
+          q.lessonIds.includes(lessonId) &&
+          visibleTheories.some((t) => t.id === q.theoryId),
+      )
+      .sort(
+        (a, b) =>
+          (catalog.orders.find(
+            (o) => o.lessonId === lessonId && o.cardKey === "check:" + a.id,
+          )?.sortOrder ?? 100000 + a.sortOrder) -
+          (catalog.orders.find(
+            (o) => o.lessonId === lessonId && o.cardKey === "check:" + b.id,
+          )?.sortOrder ?? 100000 + b.sortOrder),
+      );
+  const resourcesFor = (id: string) =>
+    notebook.resources.filter((r) => r.lessonId === id);
+  const lesson = lessons.find((l) => l.id === activeLessonId) ?? lessons[0];
+  const lessonCards = cardsFor(lesson.id),
+    lessonItems = itemsFor(lesson.id);
+  const theory = visibleTheories.find((t) => t.id === selectedTheory);
+  const savedSessions = Object.values(state.sessions)
+    .filter(
+      (s) =>
+        !s.completed &&
+        lessons.some((l) => l.id === s.lessonId) &&
+        s.keys.some((k) =>
+          s.mode === "flash"
+            ? cardsFor(s.lessonId).some((c) => keyFor(s.lessonId, c) === k)
+            : catalog.items.some(
+                (q) =>
+                  q.id === k &&
+                  !q.deleted &&
+                  visibleTheories.some((t) => t.id === q.theoryId),
+              ),
+        ),
+    )
+    .sort((a, b) => (b.updatedAt ?? "").localeCompare(a.updatedAt ?? ""));
+  const latestSession = savedSessions[0],
+    primaryLesson = latestSession
+      ? (lessons.find((l) => l.id === latestSession.lessonId) ?? lessons[0])
+      : lessons[0];
+  const flash = run?.mode === "flash",
+    runLesson = lessons.find((l) => l.id === run?.lessonId) ?? lesson;
+  const runCards = run ? cardsFor(run.lessonId) : [];
+  const currentCard =
+    run && flash
+      ? runCards.find((c) => keyFor(run.lessonId, c) === run.keys[run.index])
+      : undefined;
+  const currentCheck =
+    run && !flash
+      ? catalog.items.find((c) => c.id === run.keys[run.index] && !c.deleted)
+      : undefined;
+  const currentPick =
+    currentCheck && run ? run.picks[currentCheck.id] : undefined;
+  const activeKey = run?.keys[run.index] ?? "";
+  const closeToMenu = () => {
+    if (timerRef.current) clearTimeout(timerRef.current);
+    advancingRef.current = false;
+    setAdvancing(false);
+    if (runRef.current) record("session", { session: runRef.current });
+    setEditing(null);
+    setView("main");
+    setMessage("");
+  };
+  const updateRun = (next: Session) => {
+    runRef.current = next;
+    setRun(next);
+    record("session", { session: next });
+  };
+  useEffect(() => {
+    runRef.current = run;
+  }, [run]);
+  useEffect(() => {
+    if (view !== "session" || !run) return;
+    const clock = setInterval(() => {
+      setRun((v) => (v ? { ...v, elapsed: v.elapsed + 1 } : v));
+    }, 1000);
+    const checkpoint = () => {
+      if (runRef.current) record("session", { session: runRef.current });
+    };
+    const save = setInterval(checkpoint, 15000);
+    window.addEventListener("pagehide", checkpoint);
+    const visibility = () => {
+      if (document.visibilityState === "hidden") checkpoint();
+    };
+    document.addEventListener("visibilitychange", visibility);
+    return () => {
+      clearInterval(clock);
+      clearInterval(save);
+      window.removeEventListener("pagehide", checkpoint);
+      document.removeEventListener("visibilitychange", visibility);
+    };
+  }, [view, run?.id, record]);
+  useEffect(
+    () => () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    },
+    [],
+  );
+  const openSession = (
+    l: Lesson,
+    mode: "flash" | "check" | "theory",
+    reviewOnly = false,
+    theoryId?: string,
+    resume?: Session,
+  ) => {
+    setError("");
+    setMessage("");
+    setEditing(null);
+    setActiveLessonId(l.id);
+    let keys =
+      mode === "flash"
+        ? cardsFor(l.id)
+            .filter(
+              (c) => !reviewOnly || state.reviewIds.includes(keyFor(l.id, c)),
+            )
+            .map((c) => keyFor(l.id, c))
+        : (theoryId ? catalog.items : itemsFor(l.id))
+            .filter(
+              (q) =>
+                !q.deleted &&
+                visibleTheories.some((t) => t.id === q.theoryId) &&
+                (theoryId
+                  ? q.theoryId === theoryId
+                  : q.lessonIds.includes(l.id)) &&
+                (!reviewOnly || state.reviewIds.includes("check:" + q.id)),
+            )
+            .map((q) => q.id);
+    if (resume) keys = resume.keys.filter((k) => keys.includes(k));
+    if (!keys.length) {
+      setMessage("対象の問題はありません。");
+      return;
+    }
+    const slot =
+      mode +
+      ":" +
+      l.id +
+      (theoryId ? ":" + theoryId : "") +
+      (reviewOnly ? ":review" : "");
+    const next = resume
+      ? {
+          ...resume,
+          keys,
+          index: keys.includes(resume.keys[resume.index])
+            ? keys.indexOf(resume.keys[resume.index])
+            : Math.min(resume.index, keys.length - 1),
+          revealed: keys.includes(resume.keys[resume.index]) && resume.revealed,
+          completed: false,
+        }
+      : {
+          id: crypto.randomUUID(),
+          slot,
+          lessonId: l.id,
+          mode,
+          keys,
+          index: 0,
+          elapsed: 0,
+          revealed: false,
+          picks: {},
+          ratings: {},
+          completed: false,
+          reviewOnly,
+        };
+    updateRun(next);
+    setView("session");
+    window.scrollTo({ top: 0 });
+  };
+  const resumeSession = (s: Session) => {
+    const l = lessons.find((l) => l.id === s.lessonId);
+    if (l)
+      openSession(
+        l,
+        s.mode,
+        s.reviewOnly,
+        s.mode === "theory"
+          ? catalog.items.find((q) => q.id === s.keys[0])?.theoryId
+          : undefined,
+        s,
+      );
+  };
+  const startPrimary = () => {
+    if (latestSession) resumeSession(latestSession);
+    else if (cardsFor(primaryLesson.id).length)
+      openSession(primaryLesson, "flash");
+    else if (itemsFor(primaryLesson.id).length)
+      openSession(primaryLesson, "check");
+    else setResourceId(primaryLesson.id);
+  };
+  const advance = (delta = 1, ratings = run?.ratings) => {
+    const r = runRef.current;
+    if (!r) return;
+    setEditing(null);
+    if (r.index + delta >= r.keys.length) {
+      updateRun({ ...r, ratings: ratings ?? r.ratings, completed: true });
+      setView("result");
+    } else
+      updateRun({
+        ...r,
+        index: Math.max(0, r.index + delta),
+        ratings: ratings ?? r.ratings,
+        revealed: false,
+      });
+  };
+  const rating = (value: "known" | "again") => {
+    if (
+      !run ||
+      !currentCard ||
+      currentCard.kind !== "question" ||
+      !canRate(run.revealed, !!editing, advancingRef.current)
+    )
+      return;
+    advancingRef.current = true;
+    setAdvancing(true);
+    const captured = run.id,
+      index = run.index;
+    record("review", {
+      target: activeKey,
+      active: value === "again",
+      theoryIds: visibleTheories
+        .filter((t) => t.cardKeys.includes(activeKey))
+        .map((t) => t.id),
     });
-    return () => handlers.forEach(([heading, handler]) => heading.removeEventListener("click", handler));
-  }, [screen, lessons.length]);
+    if (value === "known")
+      record("known", {
+        target: activeKey,
+        theoryIds: visibleTheories
+          .filter((t) => t.cardKeys.includes(activeKey))
+          .map((t) => t.id),
+      });
+    const ratings = { ...run.ratings, [activeKey]: value };
+    updateRun({ ...run, ratings });
+    timerRef.current = setTimeout(() => {
+      advancingRef.current = false;
+      setAdvancing(false);
+      if (runRef.current?.id === captured && runRef.current.index === index)
+        advance(1, ratings);
+    }, 180);
+  };
+  const answer = (index: number) => {
+    if (!run || !currentCheck || currentPick !== undefined) return;
+    const correct = index === currentCheck.correctIndex,
+      t = state.theories[currentCheck.theoryId],
+      day = jstDay(new Date().toISOString());
+    const nextStars = correct
+      ? !t?.stars
+        ? 1
+        : t.stars === 1 && day > (t.firstDay ?? day)
+          ? 2
+          : t.stars === 2 &&
+              day >= (t.firstDay ?? day) + 7 &&
+              day > (t.secondDay ?? day)
+            ? 3
+            : t.stars
+      : (t?.stars ?? 0);
+    record("attempt", {
+      sessionId: run.id,
+      itemId: currentCheck.id,
+      revision: currentCheck.revision,
+      choiceIndex: index,
+      correct,
+      theoryIds: [currentCheck.theoryId],
+    });
+    updateRun({ ...run, picks: { ...run.picks, [currentCheck.id]: index } });
+    if (nextStars > (t?.stars ?? 0))
+      setPromotion({
+        title:
+          catalog.theories.find((t) => t.id === currentCheck.theoryId)?.title ??
+          "知識",
+        stars: nextStars,
+      });
+  };
   useEffect(() => {
-    const lesson = lessons.find((item) => item.id === adminLessonId); if (!lesson) return;
-    setLessonDraft({date:lesson.date,teacher:lesson.teacher,title:lesson.title,videoUrl:lesson.videoUrl});
-    const next:Record<string,{kind:Kind;question:string;answer:string}> = {};
-    adminCards(adminLessonId).forEach((card) => { next[cardKey(adminLessonId,card)]={kind:card.kind,question:card.question,answer:card.answer}; });
-    setCardDrafts(next);
-  },[adminLessonId,notebook,lessons.length]);
-
-  function adminCards(lessonId:string):Card[] {
-    if (lessonId !== DEFAULT_LESSON.id) return notebook.cards.filter((card) => card.lessonId === lessonId).sort((a,b) => a.sortOrder-b.sortOrder).map((card) => ({...card,source:"custom" as const}));
-    const legacy = new Map(notebook.overrides.filter((item) => item.lessonId === lessonId).map((item) => [item.id,item]));
-    const base = BASE_CARDS.map((card) => { const item=legacy.get(card.id); return {...card,question:item?.question ?? card.question,answer:item?.answer ?? card.answer,deleted:item?.deleted,source:"base" as const}; });
-    const extras = notebook.cards.filter((card) => card.lessonId === lessonId).sort((a,b) => a.sortOrder-b.sortOrder).map((card) => ({...card,source:"custom" as const}));
-    return [...base,...extras];
-  }
-  const startForLesson = (lesson:Lesson, review = false) => {
-    const cards = cardsFor(lesson.id); const questions = cards.filter((card) => card.kind === "question");
-    const reviewKeys = reviewIds.filter((key) => questions.some((card) => cardKey(lesson.id,card) === key));
-    const chosen = review ? questions.filter((card) => reviewKeys.includes(cardKey(lesson.id,card))) : cards;
-    if (!chosen.length) return; setActiveLessonId(lesson.id); setSessionCards(chosen); setSessionLesson(lesson); setIndex(0); setRevealed(false); setInlineEdit(null); setInlineEditError(""); setNotice(""); setRatings({}); setElapsed(0); setResult(null); setScreen("session");
-  };
-  const start = (review = false) => startForLesson(activeLesson,review);
-  const nextCard = (nextRatings = ratings) => {
-    if(index >= sessionCards.length-1) { const values=Object.values(nextRatings); setResult({known:values.filter((value)=>value==="known").length,again:values.filter((value)=>value==="again").length,elapsed}); setScreen("result"); }
-    else { setIndex((value)=>value+1); setRevealed(false); setInlineEdit(null); setInlineEditError(""); setNotice(""); }
-  };
-  const rate = (rating:Rating) => {
-    if(!current || current.kind !== "question" || !revealed) return; const key=cardKey(sessionLesson.id,current); const next={...ratings,[key]:rating}; setRatings(next);
-    setReviewIds((ids) => rating === "again" ? [...new Set([...ids,key])] : ids.filter((item) => item !== key)); window.setTimeout(() => nextCard(next),180);
-  };
-  useEffect(() => { const onKey=(event:KeyboardEvent) => { if(screen !== "session" || !current || inlineEdit) return; if(current.kind !== "question" && ["Enter"," "].includes(event.key)){event.preventDefault();nextCard();} else if(current.kind === "question" && ["Enter"," "].includes(event.key)){event.preventDefault();setNotice("");setRevealed((value)=>!value);} else if(revealed && event.key === "ArrowLeft") rate("again"); else if(revealed && event.key === "ArrowRight") rate("known");}; window.addEventListener("keydown",onKey); return ()=>window.removeEventListener("keydown",onKey); });
-
-  const call = async (path:string,method:string,body?:unknown) => {
-    const response = await fetch(`${API_BASE}${path}`,{method,headers:body?{"content-type":"application/json"}:undefined,body:body?JSON.stringify(body):undefined});
-    if(!response.ok) { const data=await response.json().catch(()=>({})); throw new Error(data.error ?? "保存できませんでした。"); }
-    return response.json().catch(()=>({}));
-  };
-  const beginInlineEdit = () => {
-    if(!current || current.kind !== "question") return;
-    const field = revealed ? "answer" : "question";
-    setInlineEdit({field,value:current[field]}); setInlineEditError(""); setNotice("");
-  };
-  const cancelInlineEdit = () => { setInlineEdit(null); setInlineEditError(""); };
-  const saveInlineEdit = async () => {
-    if(!current || current.kind !== "question" || !inlineEdit) return;
-    const value=inlineEdit.value.trim();
-    if(!value) { setInlineEditError(inlineEdit.field === "question" ? "問題文を入力してください。" : "解説文を入力してください。"); return; }
-    const draft={kind:current.kind,question:inlineEdit.field === "question" ? value : current.question,answer:inlineEdit.field === "answer" ? value : current.answer};
-    setBusy("inline-card"); setInlineEditError("");
+    const onKey = (e: KeyboardEvent) => {
+      if (view !== "session" || editing || promotion || !run) return;
+      if (
+        (e.target as HTMLElement)?.closest(
+          "input,textarea,select,button,a,summary",
+        )
+      )
+        return;
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeToMenu();
+      }
+      if ([" ", "Enter"].includes(e.key)) {
+        e.preventDefault();
+        if (flash && currentCard?.kind === "question")
+          updateRun({ ...run, revealed: !run.revealed });
+        else if (flash || currentPick !== undefined) advance();
+      }
+      if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        advance(-1);
+      }
+      if (e.key === "ArrowRight") {
+        e.preventDefault();
+        advance();
+      }
+      if (!flash && /^[1-4]$/.test(e.key)) {
+        e.preventDefault();
+        answer(Number(e.key) - 1);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
+  const mutate = async (
+    action: () => Promise<unknown>,
+    success = "保存しました。",
+  ) => {
+    setBusy(true);
+    setError("");
     try {
-      if(current.source === "base") await call(`/api/admin/cards/${DEFAULT_LESSON.id}/${current.id}`,"PUT",draft);
-      else await call(`/api/lessons/${sessionLesson.id}/cards/${current.id}`,"PUT",draft);
-      setSessionCards((cards)=>cards.map((card,position)=>position === index ? {...card,...draft} : card));
-      setInlineEdit(null); setNotice(inlineEdit.field === "question" ? "問題文を保存しました。" : "解説文を保存しました。");
-      refresh().catch(()=>{});
-    } catch(e) { setInlineEditError(e instanceof Error ? e.message : "保存できませんでした。"); } finally { setBusy(""); }
+      await action();
+      await refresh();
+      setMessage(success);
+      return true;
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "保存できませんでした。");
+      return false;
+    } finally {
+      setBusy(false);
+    }
   };
-  const uploadImage = async (card:Card, field:"question"|"answer", file:File) => {
-    const key = cardKey(adminLessonId,card); setBusy(`${key}:${field}`); setError("");
+  const saveInline = async () => {
+    if (!editing || !run) return;
+    const c = editing.card;
+    const body = {
+      kind: c.kind,
+      question: editing.field === "question" ? editing.value : c.question,
+      answer: editing.field === "answer" ? editing.value : c.answer,
+    };
+    if (!body.question.trim() || !body.answer.trim()) {
+      setError("問題文と解説を入力してください。");
+      return;
+    }
+    if (
+      await mutate(() =>
+        api(
+          c.source === "base"
+            ? "/api/admin/cards/" + run.lessonId + "/" + c.id
+            : "/api/lessons/" + run.lessonId + "/cards/" + c.id,
+          "PUT",
+          body,
+        ),
+      )
+    )
+      setEditing(null);
+  };
+  const upload = async (file: File, append: (text: string) => void) => {
+    setBusy(true);
     try {
-      const response = await fetch(`${API_BASE}/api/images`,{method:"POST",headers:{"content-type":file.type},body:file});
-      const data = await response.json().catch(()=>({})); if(!response.ok) throw new Error(data.error ?? "画像を追加できませんでした。");
-      const draft = cardDrafts[key] ?? {kind:card.kind,question:card.question,answer:card.answer};
-      setCardDrafts({...cardDrafts,[key]:{...draft,[field]:`${draft[field].trimEnd()}\n${data.markdown}\n`}}); setNotice("画像を追加しました。カードを保存すると公開されます。");
-    } catch(e) { setError(e instanceof Error ? e.message : "画像を追加できませんでした。"); } finally { setBusy(""); }
+      const response = await fetch(API_BASE + "/api/images", {
+        method: "POST",
+        headers: { "content-type": file.type },
+        body: file,
+      });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error);
+      append("\n" + data.markdown + "\n");
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "画像を追加できませんでした。");
+    } finally {
+      setBusy(false);
+    }
   };
-  const addDroppedImage = (card:Card, field:"question"|"answer", files:FileList|File[]) => {
-    const file = Array.from(files).find((item) => item.type.startsWith("image/"));
-    if (file) uploadImage(card,field,file);
-    else setError("画像ファイルを選択してください。");
+  const reorder = async (from: string, to: string) => {
+    if (from === to || busy) return;
+    const keys = [
+        ...lessonCards.map((c) => keyFor(lesson.id, c)),
+        ...lessonItems.map((q) => "check:" + q.id),
+      ],
+      a = keys.indexOf(from),
+      b = keys.indexOf(to);
+    if (a < 0 || b < 0) return;
+    keys.splice(b, 0, keys.splice(a, 1)[0]);
+    const previous = catalog;
+    setCatalog({
+      ...catalog,
+      orders: [
+        ...catalog.orders.filter((o) => o.lessonId !== lesson.id),
+        ...keys.map((cardKey, sortOrder) => ({
+          lessonId: lesson.id,
+          cardKey,
+          sortOrder,
+        })),
+      ],
+    });
+    if (
+      !(await mutate(
+        () => api("/api/catalog/order", "PUT", { lessonId: lesson.id, keys }),
+        "順番を保存しました。",
+      ))
+    )
+      setCatalog(previous);
   };
-  const addReferenceLink = async () => {
-    setBusy("resource-link"); setError("");
-    try { await call(`/api/lessons/${adminLessonId}/resources`,"POST",{kind:"link",label:resourceDraft.label,url:resourceDraft.url}); await refresh(); setResourceDraft({label:"",url:""}); setNotice("参考資料リンクを追加しました。"); }
-    catch(e) { setError(e instanceof Error ? e.message : "参考資料を追加できませんでした。"); } finally { setBusy(""); }
-  };
-  const addReferenceImage = async (files:FileList|File[]) => {
-    const file = Array.from(files).find((item) => item.type.startsWith("image/"));
-    if(!file) { setError("画像ファイルを選択してください。"); return; }
-    setBusy("resource-image"); setError("");
-    try {
-      const response = await fetch(`${API_BASE}/api/images`,{method:"POST",headers:{"content-type":file.type},body:file});
-      const data = await response.json().catch(()=>({})); if(!response.ok) throw new Error(data.error ?? "画像を追加できませんでした。");
-      const label = resourceDraft.label.trim() || file.name.replace(/\.[^.]+$/u,"") || "画像資料";
-      await call(`/api/lessons/${adminLessonId}/resources`,"POST",{kind:"image",label,url:data.url}); await refresh(); setResourceDraft({label:"",url:""}); setNotice("参考資料画像を追加しました。");
-    } catch(e) { setError(e instanceof Error ? e.message : "画像を追加できませんでした。"); } finally { setBusy(""); }
-  };
-  const deleteReference = async (resource:LessonResource) => {
-    if(!window.confirm(`「${resource.label}」を参考資料から削除しますか？`)) return;
-    setBusy(`resource:${resource.id}`); setError("");
-    try { await call(`/api/lessons/${adminLessonId}/resources/${resource.id}`,"DELETE"); await refresh(); setNotice("参考資料を削除しました。"); }
-    catch(e) { setError(e instanceof Error ? e.message : "参考資料を削除できませんでした。"); } finally { setBusy(""); }
-  };
-  const openAdmin = () => { setAdminLessonId(activeLesson.id); setNotice(""); setError(""); setScreen("admin"); };
-  const saveLesson = async () => { setBusy("lesson"); setError(""); try { await call(`/api/lessons/${adminLessonId}`,"PUT",lessonDraft); await refresh(); setNotice("授業情報を保存しました。"); } catch(e) { setError(e instanceof Error ? e.message : "保存できませんでした。"); } finally { setBusy(""); } };
-  const createLesson = async () => { setBusy("new-lesson"); setError(""); try { const data=await call("/api/lessons","POST",newLesson); await refresh(); setAdminLessonId(data.lesson.id); setNewLesson({date:todayShort(),teacher:"",title:"",videoUrl:""}); setNotice("新しい授業ノートを作成しました。続けてカードを追加できます。"); } catch(e) { setError(e instanceof Error ? e.message : "作成できませんでした。"); } finally { setBusy(""); } };
-  const removeLesson = async () => { if(adminLessonId === DEFAULT_LESSON.id || !window.confirm("この授業ノートとカードを非表示にしますか？")) return; setBusy("lesson-delete"); try { await call(`/api/lessons/${adminLessonId}`,"DELETE"); await refresh(); setAdminLessonId(DEFAULT_LESSON.id); setNotice("授業ノートを削除しました。"); } catch(e) { setError(e instanceof Error ? e.message : "削除できませんでした。"); } finally { setBusy(""); } };
-  const saveCard = async (card:Card) => { const key=cardKey(adminLessonId,card); const draft=cardDrafts[key]; if(!draft) return; setBusy(key); setError(""); try { if(card.source === "base") await call(`/api/admin/cards/${DEFAULT_LESSON.id}/${card.id}`,"PUT",draft); else await call(`/api/lessons/${adminLessonId}/cards/${card.id}`,"PUT",draft); await refresh(); setNotice("カードを保存しました。"); } catch(e) { setError(e instanceof Error ? e.message : "保存できませんでした。"); } finally { setBusy(""); } };
-  const addCard = async () => { setBusy("add-card"); setError(""); try { await call(`/api/lessons/${adminLessonId}/cards`,"POST",{kind:"question",question:"新しい問題",answer:"ここに解説を書きます。"}); await refresh(); setNotice("カードを追加しました。"); } catch(e) { setError(e instanceof Error ? e.message : "追加できませんでした。"); } finally { setBusy(""); } };
-  const deleteCard = async (card:Card) => { if(!window.confirm("このカードを削除しますか？")) return; const key=cardKey(adminLessonId,card); setBusy(key); try { if(card.source === "base") await call(`/api/admin/cards/${DEFAULT_LESSON.id}/${card.id}/delete`,"DELETE"); else await call(`/api/lessons/${adminLessonId}/cards/${card.id}`,"DELETE"); await refresh(); setNotice("カードを削除しました。問題番号は自動で詰まります。"); } catch(e) { setError(e instanceof Error ? e.message : "削除できませんでした。"); } finally { setBusy(""); } };
-  const restoreCard = async (card:Card) => { const key=cardKey(adminLessonId,card); setBusy(key); try { if(card.source === "base") await call(`/api/admin/cards/${DEFAULT_LESSON.id}/${card.id}`,"DELETE"); else await call(`/api/lessons/${adminLessonId}/cards/${card.id}/restore`,"POST"); await refresh(); setNotice("カードを復元しました。"); } catch(e) { setError(e instanceof Error ? e.message : "復元できませんでした。"); } finally { setBusy(""); } };
-
-  const score = result ? Math.round(result.known / Math.max(1,result.known+result.again)*100) : 0;
-  return <main className="app-shell"><div className="felt-grain" aria-hidden="true" />
-    {screen === "home" && <section className="screen screen--home" aria-labelledby="app-title"><Header />
-      {error && <p className="admin-message admin-message--error">{error}</p>}
-      <section className="mode-panel notebook-intro"><div><p className="section-kicker">MY MAHJONG NOTE</p><h2>授業ごとの復習ノート</h2><p>問題・解説・授業動画を、自分で追加して育てられます。</p></div><button className="admin-entry-button" onClick={openAdmin}>＋ ノートを作る・編集する</button></section>
-      <div className="lesson-grid">{lessons.map((lesson) => {
-        const cards=cardsFor(lesson.id); const questions=cards.filter((card)=>card.kind === "question");
-        const reviews=reviewIds.filter((key)=>questions.some((card)=>cardKey(lesson.id,card)===key)).length;
-        const lessonResources=resourcesFor(lesson.id);
-        return <section className="mode-panel lesson-panel" key={lesson.id}>
-          <div className="section-heading"><div className="lesson-title-row"><h2><span className="lesson-date">{lesson.date}</span><span className="lesson-teacher">{lesson.teacher}</span>{lesson.title}</h2><div className="lesson-title-actions">{lesson.videoUrl && <a className="youtube-icon-button" href={lesson.videoUrl} target="_blank" rel="noreferrer" aria-label="授業動画をYouTubeで見る"><span className="youtube-play-mark" /></a>}{lessonResources.length > 0 && <button className="reference-material-button" onClick={()=>setResourceLessonId(lesson.id)}>参考資料 <span>{lessonResources.length}</span></button>}</div></div><span className="review-count">解き直し <strong>{reviews}</strong> 枚</span></div>
-          <p className="lesson-card-summary">全{questions.length}問＋学習カード{cards.length-questions.length}枚</p>
-          <div className="mode-grid"><button className="mode-card mode-card--primary" disabled={!cards.length} onClick={()=>startForLesson(lesson,false)}><span className="mode-card__number">{questions.length}</span><span><strong>すべて学習する</strong><small>問題と講義メモを順番に確認</small></span><span className="mode-card__arrow">→</span></button><button className="mode-card mode-card--review" disabled={!reviews} onClick={()=>startForLesson(lesson,true)}><span className="mode-card__number">↺</span><span><strong>解き直しカード</strong><small>{reviews ? `${reviews}枚を解き直す` : "回答後に追加できます"}</small></span><span className="mode-card__arrow">→</span></button></div>
-          <div className="lesson-panel-actions"><button className="text-button" onClick={()=>{setActiveLessonId(lesson.id);setScreen("list");}}>☰ カード一覧</button><button className="text-button" onClick={()=>{setAdminLessonId(lesson.id);setScreen("admin");}}>編集</button></div>
-        </section>;
-      })}</div>
-    </section>}
-
-    {screen === "session" && current && <section className="screen screen--session" aria-live="polite"><div className="session-top"><button className="icon-button" onClick={()=>{setInlineEdit(null);setScreen("home");}} aria-label="メニューへ戻る">×</button><div className="session-title"><span>{sessionLesson.date}　{sessionLesson.title}</span><strong>{index+1}<small> / {sessionCards.length}</small></strong></div><div className="timer">◷ {formatTime(elapsed)}</div></div><div className="progress-track"><span style={{width:`${((index+1)/sessionCards.length)*100}%`}} /></div>{current.kind === "question" ? <><div className="study-stage"><article className={`flashcard flashcard--flippable ${revealed ? "flashcard--revealed" : ""}`}><div className={`card-face ${revealed ? "card-face--answer" : "card-face--question"}`} key={revealed ? "answer" : "question"}><div className="card-meta card-meta--minimal"><div className="card-meta-actions"><strong>Q{String(questionNumber(sessionCards,current.id)).padStart(2,"0")}</strong><button className="inline-edit-button" type="button" onClick={beginInlineEdit} disabled={busy === "inline-card"} aria-label={revealed ? "解説を編集" : "問題文を編集"}>✎ <span>{revealed ? "解説を編集" : "問題を編集"}</span></button></div></div>{revealed ? inlineEdit?.field === "answer" ? <div className="inline-card-editor inline-card-editor--answer"><label>解説文<textarea autoFocus value={inlineEdit.value} onChange={(event)=>setInlineEdit({...inlineEdit,value:event.target.value})} onKeyDown={(event)=>{if((event.ctrlKey || event.metaKey) && event.key === "Enter"){event.preventDefault();saveInlineEdit();} else if(event.key === "Escape"){event.preventDefault();cancelInlineEdit();}}} /></label>{inlineEditError && <p className="inline-edit-error">{inlineEditError}</p>}<div className="inline-edit-actions"><button type="button" className="inline-edit-cancel" onClick={cancelInlineEdit}>キャンセル</button><button type="button" className="inline-edit-save" disabled={busy === "inline-card" || !inlineEdit.value.trim()} onClick={saveInlineEdit}>{busy === "inline-card" ? "保存中…" : "保存"}</button></div></div> : <div className="answer-block"><p><TileText text={current.answer} /></p></div> : inlineEdit?.field === "question" ? <div className="inline-card-editor inline-card-editor--question"><label>問題文<textarea autoFocus value={inlineEdit.value} onChange={(event)=>setInlineEdit({...inlineEdit,value:event.target.value})} onKeyDown={(event)=>{if((event.ctrlKey || event.metaKey) && event.key === "Enter"){event.preventDefault();saveInlineEdit();} else if(event.key === "Escape"){event.preventDefault();cancelInlineEdit();}}} /></label>{inlineEditError && <p className="inline-edit-error">{inlineEditError}</p>}<div className="inline-edit-actions"><button type="button" className="inline-edit-cancel" onClick={cancelInlineEdit}>キャンセル</button><button type="button" className="inline-edit-save" disabled={busy === "inline-card" || !inlineEdit.value.trim()} onClick={saveInlineEdit}>{busy === "inline-card" ? "保存中…" : "保存"}</button></div></div> : <p className="question-text"><TileText text={current.question} /></p>}{notice && <p className="session-save-message">{notice}</p>}{!inlineEdit && (revealed ? <button className="reveal-button reveal-button--back" onClick={()=>{setNotice("");setRevealed(false);}}>↶ 問題を見る <kbd>Space</kbd></button> : <button className="reveal-button" onClick={()=>{setNotice("");setRevealed(true);}}>答えを見る <kbd>Space</kbd></button>)}</div></article></div><div className="rating-panel"><p>思い出せましたか？</p><div className="rating-actions"><button className="rating-button rating-button--again" disabled={!revealed || Boolean(inlineEdit)} onClick={()=>rate("again")}>↺ <strong>解き直しに追加</strong><small>←</small></button><button className="rating-button rating-button--known" disabled={!revealed || Boolean(inlineEdit)} onClick={()=>rate("known")}>✓ <strong>わかった</strong><small>→</small></button></div></div></> : <div className="study-stage"><article className={`flashcard flashcard--revealed info-card info-card--${current.kind}`}><div className="card-meta"><span>{current.kind === "section" ? "SESSION" : "LEARNING NOTE"}</span><strong>＋</strong></div><p className="question-text"><TileText text={current.question} /></p><div className="answer-divider"><span>NOTE</span></div><div className="answer-block"><p><TileText text={current.answer} /></p></div><button className="reveal-button" onClick={()=>nextCard()}>{index === sessionCards.length-1 ? "学習を終える" : "次へ"} →</button></article></div>}</section>}
-
-    {screen === "result" && result && <section className="screen screen--result"><Header compact /><div className="result-panel"><p className="result-kicker">SESSION COMPLETE</p><h2>おつかれさまでした！</h2><div className="score-ring" style={{"--score":`${score*3.6}deg`} as React.CSSProperties}><div><strong>{score}</strong><span>%</span></div></div><div className={`rank-badge rank-badge--${getRank(score).toLowerCase()}`}><span>定着ランク</span><strong>{getRank(score)}</strong></div><dl className="result-stats"><div><dt>わかった</dt><dd>{result.known}<small>枚</small></dd></div><div><dt>解き直し</dt><dd>{result.again}<small>枚</small></dd></div><div><dt>時間</dt><dd>{formatTime(result.elapsed)}</dd></div></dl><div className="result-actions"><button className="primary-button" onClick={()=>start(false)}>もう一度</button><button className="text-button" onClick={()=>setScreen("home")}>メニューへ</button></div></div></section>}
-
-    {screen === "list" && <section className="screen screen--list"><div className="list-top"><button className="icon-button" onClick={()=>setScreen("home")}>×</button><div><p className="section-kicker">ALL CARDS</p><h2>{activeLesson.date}　{activeLesson.title}</h2><small>全{activeQuestions.length}問</small></div><button className="admin-entry-button" onClick={openAdmin}>編集</button></div><div className="question-list">{activeCards.map((card) => <details className={`question-row${reviewIds.includes(cardKey(activeLesson.id,card)) ? " question-row--review" : ""}`} key={cardKey(activeLesson.id,card)}><summary><span className="question-number">{card.kind === "question" ? `Q${String(questionNumber(activeCards,card.id)).padStart(2,"0")}` : card.kind === "section" ? "章" : "メモ"}</span><strong><TileText text={card.question} links={false} /></strong><i className="chevron">＋</i></summary><div className="list-answer"><span>{card.kind === "question" ? "ANSWER" : "NOTE"}</span><p><TileText text={card.answer} /></p></div></details>)}</div></section>}
-
-    {screen === "admin" && <section className="screen screen--admin"><div className="admin-top"><button className="icon-button" onClick={()=>setScreen("home")}>×</button><div><p className="section-kicker">MY NOTE EDITOR</p><h2>授業ノートを編集</h2></div><button className="admin-logout-button" onClick={()=>setScreen("home")}>完了</button></div><p className="admin-lead">ここで作った授業・カードは、同じアプリを開くすべての端末に反映されます。URLはそのまま貼り付けるだけで、表示時に見やすいリンクになります。</p>{notice && <p className="admin-message admin-message--success">{notice}</p>}{error && <p className="admin-message admin-message--error">{error}</p>}
-      <section className="admin-create-lesson"><p className="section-kicker">NEW LESSON</p><h3>新しい授業ノートを作る</h3><div className="admin-meta-fields"><label>日付<input value={newLesson.date} placeholder="例：7/22" onChange={(event)=>setNewLesson({...newLesson,date:event.target.value})} /></label><label>講師<input value={newLesson.teacher} placeholder="例：てんてん先生" onChange={(event)=>setNewLesson({...newLesson,teacher:event.target.value})} /></label><label>タイトル<input value={newLesson.title} placeholder="例：基本牌効率 復習" onChange={(event)=>setNewLesson({...newLesson,title:event.target.value})} /></label><label>YouTubeリンク（任意）<input value={newLesson.videoUrl} placeholder="https://youtu.be/..." onChange={(event)=>setNewLesson({...newLesson,videoUrl:event.target.value})} /></label></div><button className="primary-button" disabled={busy === "new-lesson" || !newLesson.date.trim() || !newLesson.teacher.trim() || !newLesson.title.trim()} onClick={createLesson}>＋ この授業ノートを作る</button></section>
-      <div className="admin-lesson-tabs">{lessons.map((lesson) => <button className={adminLessonId === lesson.id ? "is-active" : ""} key={lesson.id} onClick={()=>setAdminLessonId(lesson.id)}>{lesson.date}<br />{lesson.teacher}<br />{lesson.title}</button>)}</div>
-      <section className="admin-lesson-editor"><div className="section-heading"><div><p className="section-kicker">LESSON INFO</p><h3>日付・講師・タイトル・動画</h3></div>{adminLessonId !== DEFAULT_LESSON.id && <button className="admin-delete-button" disabled={busy === "lesson-delete"} onClick={removeLesson}>授業を削除</button>}</div><div className="admin-meta-fields"><label>日付<input value={lessonDraft.date} onChange={(event)=>setLessonDraft({...lessonDraft,date:event.target.value})} /></label><label>講師<input value={lessonDraft.teacher} onChange={(event)=>setLessonDraft({...lessonDraft,teacher:event.target.value})} /></label><label>タイトル<input value={lessonDraft.title} onChange={(event)=>setLessonDraft({...lessonDraft,title:event.target.value})} /></label><label>YouTubeリンク（任意）<input value={lessonDraft.videoUrl} onChange={(event)=>setLessonDraft({...lessonDraft,videoUrl:event.target.value})} /></label></div><button className="admin-save-button" disabled={busy === "lesson" || !lessonDraft.date.trim() || !lessonDraft.teacher.trim() || !lessonDraft.title.trim()} onClick={saveLesson}>授業情報を保存</button></section>
-      <section className="admin-reference-editor"><div><p className="section-kicker">REFERENCE MATERIALS</p><h3>参考資料</h3><p>画像やURLを授業ごとにまとめられます。資料がある授業だけ、メニューに参考資料ボタンが表示されます。</p></div><div className="admin-resource-fields"><label>表示名（任意）<input value={resourceDraft.label} placeholder="例：授業資料・牌姿画像" onChange={(event)=>setResourceDraft({...resourceDraft,label:event.target.value})} /></label><label>参考URL<input type="url" value={resourceDraft.url} placeholder="https://docs.google.com/..." onChange={(event)=>setResourceDraft({...resourceDraft,url:event.target.value})} /></label><button className="admin-save-button" disabled={busy === "resource-link" || !resourceDraft.url.trim()} onClick={addReferenceLink}>URLを追加</button><label className="reference-image-upload" tabIndex={0} onDragOver={(event)=>event.preventDefault()} onDrop={(event)=>{event.preventDefault();addReferenceImage(event.dataTransfer.files);}} onPaste={(event)=>addReferenceImage(event.clipboardData.files)}>画像を追加<span>クリック・ドロップ・貼り付け</span><input type="file" accept="image/png,image/jpeg,image/webp,image/gif" disabled={busy === "resource-image"} onChange={(event)=>{const files=event.target.files; if(files) addReferenceImage(files); event.currentTarget.value="";}} /></label></div><div className="admin-resource-list">{resourcesFor(adminLessonId).length ? resourcesFor(adminLessonId).map((resource) => <article key={resource.id}><div>{resource.kind === "image" ? <img src={resource.url} alt="" /> : <span className="resource-kind-mark">↗</span>}<p><strong>{resource.label}</strong><small>{resource.kind === "image" ? "画像資料" : linkLabel(resource.url).label}</small></p></div><button className="admin-delete-button" disabled={busy === `resource:${resource.id}`} onClick={()=>deleteReference(resource)}>削除</button></article>) : <p className="admin-resource-empty">参考資料はまだありません。</p>}</div></section>
-      <div className="admin-card-toolbar"><div><p className="section-kicker">CARDS</p><h3>問題と解説</h3></div><button className="primary-button" disabled={busy === "add-card"} onClick={addCard}>＋ カードを追加</button></div><div className="admin-card-list">{adminCards(adminLessonId).map((card) => { const key=cardKey(adminLessonId,card); const draft=cardDrafts[key] ?? {kind:card.kind,question:card.question,answer:card.answer}; return <details className={`admin-card-editor${card.deleted ? " admin-card-editor--deleted" : ""}`} key={key}><summary><span>{card.kind === "question" ? "問題" : card.kind === "section" ? "章" : "メモ"}</span><strong>{card.deleted ? "削除済みカード" : draft.question}</strong><i>＋</i></summary><div className="admin-card-form">{card.deleted ? <button className="admin-restore-button" disabled={busy === key} onClick={()=>restoreCard(card)}>このカードを復元</button> : <><label>種類<select value={draft.kind} onChange={(event)=>setCardDrafts({...cardDrafts,[key]:{...draft,kind:event.target.value as Kind}})}><option value="question">フラッシュカード問題</option><option value="section">セクション見出し</option><option value="note">学習メモ</option></select></label><label>問題文・タイトル<textarea value={draft.question} onChange={(event)=>setCardDrafts({...cardDrafts,[key]:{...draft,question:event.target.value}})} /></label><label className="image-upload image-upload--drop" tabIndex={0} onDragOver={(event)=>event.preventDefault()} onDrop={(event)=>{event.preventDefault();addDroppedImage(card,"question",event.dataTransfer.files);}} onPaste={(event)=>addDroppedImage(card,"question",event.clipboardData.files)}>問題文に画像を追加<span>ドロップ・貼り付け可</span><input type="file" accept="image/png,image/jpeg,image/webp,image/gif" disabled={busy === `${key}:question`} onChange={(event)=>{const file=event.target.files?.[0]; if(file) uploadImage(card,"question",file); event.currentTarget.value="";}} /></label><label>解説・本文<textarea value={draft.answer} onChange={(event)=>setCardDrafts({...cardDrafts,[key]:{...draft,answer:event.target.value}})} /></label><label className="image-upload image-upload--drop" tabIndex={0} onDragOver={(event)=>event.preventDefault()} onDrop={(event)=>{event.preventDefault();addDroppedImage(card,"answer",event.dataTransfer.files);}} onPaste={(event)=>addDroppedImage(card,"answer",event.clipboardData.files)}>解説に画像を追加<span>ドロップ・貼り付け可</span><input type="file" accept="image/png,image/jpeg,image/webp,image/gif" disabled={busy === `${key}:answer`} onChange={(event)=>{const file=event.target.files?.[0]; if(file) uploadImage(card,"answer",file); event.currentTarget.value="";}} /></label><p className="image-help">画像は文字の間にも入れられます。ここへドラッグ＆ドロップ、または画像をコピーして貼り付けた後にカードを保存してください。</p><div className="admin-card-actions"><button className="primary-button" disabled={busy === key || !draft.question.trim() || !draft.answer.trim()} onClick={()=>saveCard(card)}>保存</button><button className="admin-delete-button" disabled={busy === key} onClick={()=>deleteCard(card)}>削除</button></div></>}</div></details>; })}</div>
-    </section>}
-    {resourceLesson && <div className="reference-dialog-backdrop" onMouseDown={()=>setResourceLessonId("")}><section className="reference-dialog" role="dialog" aria-modal="true" aria-labelledby="reference-dialog-title" onMouseDown={(event)=>event.stopPropagation()}><header><div><p className="section-kicker">REFERENCE MATERIALS</p><h2 id="reference-dialog-title">{resourceLesson.date}　{resourceLesson.title}</h2></div><button className="icon-button" onClick={()=>setResourceLessonId("")} aria-label="参考資料を閉じる">×</button></header><div className="reference-dialog-list">{visibleResources.map((resource) => resource.kind === "image" ? <a className="reference-image-card" href={resource.url} target="_blank" rel="noreferrer" key={resource.id}><img src={resource.url} alt={resource.label} /><strong>{resource.label}</strong><span>画像を開く ↗</span></a> : <a className="reference-link-card" href={resource.url} target="_blank" rel="noreferrer" key={resource.id}><span className="resource-kind-mark">↗</span><strong>{resource.label}</strong><small>{linkLabel(resource.url).label}</small></a>)}</div></section></div>}
-  </main>;
+  const imageInput = (append: (v: string) => void) => (
+    <label
+      className="upload-target"
+      onDragOver={(e) => e.preventDefault()}
+      onDrop={(e) => {
+        e.preventDefault();
+        const f = Array.from(e.dataTransfer.files).find((f) =>
+          f.type.startsWith("image/"),
+        );
+        if (f) void upload(f, append);
+      }}
+      onPaste={(e) => {
+        const f = Array.from(e.clipboardData.files).find((f) =>
+          f.type.startsWith("image/"),
+        );
+        if (f) void upload(f, append);
+      }}
+      tabIndex={0}
+    >
+      <Images size={22} />
+      画像を追加・ここへドロップ
+      <input
+        type="file"
+        accept="image/png,image/jpeg,image/webp,image/gif"
+        disabled={busy}
+        onChange={(e) => {
+          const f = e.target.files?.[0];
+          if (f) void upload(f, append);
+          e.target.value = "";
+        }}
+      />
+    </label>
+  );
+  const links = (l: Lesson) => (
+    <div className="lesson-links">
+      {l.videoUrl && (
+        <a
+          className="round-button youtube"
+          aria-label={l.title + "の授業動画をYouTubeで見る"}
+          href={l.videoUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <YoutubeLogo size={23} weight="fill" />
+        </a>
+      )}
+      {resourcesFor(l.id).some((r) => r.kind === "image") && (
+        <button
+          className="round-button"
+          aria-label={l.title + "の画像資料"}
+          onClick={() => setResourceId(l.id)}
+        >
+          <Images size={22} />
+        </button>
+      )}
+      {resourcesFor(l.id).some((r) => r.kind !== "image") && (
+        <button
+          className="round-button"
+          aria-label={l.title + "の参考資料"}
+          onClick={() => setResourceId(l.id)}
+        >
+          <LinkSimple size={22} />
+        </button>
+      )}
+    </div>
+  );
+  const theoryRow = (t: Theory, i: number, progress = state) => (
+    <button
+      className="theory-row"
+      key={t.id}
+      onClick={() => {
+        setTab("encyclopedia");
+        setSelectedTheory(t.id);
+        setView("main");
+      }}
+    >
+      <span className="theory-index">{String(i + 1).padStart(2, "0")}</span>
+      <span className="theory-row-title">
+        <strong>{t.title}</strong>
+        {progress.theories[t.id]?.needsReview && <small>解き直し</small>}
+        {progress.theories[t.id]?.collected &&
+          !progress.theories[t.id]?.stars && <small>収集済み</small>}
+      </span>
+      <Stars count={progress.theories[t.id]?.stars} />
+      <CaretRight size={20} />
+    </button>
+  );
+  if (!booted)
+    return (
+      <main className="notebook">
+        <p>ノートを開いています…</p>
+      </main>
+    );
+  if (teacherToken)
+    return (
+      <main className="notebook teacher-view">
+        <header className="notebook-header">
+          <h1>桜紅さんの復習記録</h1>
+        </header>
+        <p>講師向け・読み取り専用</p>
+        {error && <p role="alert">{error}</p>}
+        {teacherState ? (
+          <>
+            <div className="summary-strip">
+              <span>収集 {teacherState.collected}枚</span>
+              <span>星 {teacherState.stars}個</span>
+              <span>最終復習 {dayLabel(teacherState.lastReviewedAt)}</span>
+            </div>
+            {catalog.theories
+              .filter((t) => teacherState.theories[t.id])
+              .map((t) => (
+                <article className="teacher-row" key={t.id}>
+                  <strong>{t.title}</strong>
+                  <Stars count={teacherState.theories[t.id].stars} />
+                  <span>
+                    {teacherState.theories[t.id].needsReview
+                      ? "解き直し"
+                      : "確認済み"}
+                  </span>
+                </article>
+              ))}
+            <h2>解き直し対象</h2>
+            {teacherState.reviewIds.map((key) => {
+              const q = catalog.items.find((q) => "check:" + q.id === key);
+              const card = lessons
+                .flatMap((l) =>
+                  cardsFor(l.id).map((c) => ({
+                    key: keyFor(l.id, c),
+                    card: c,
+                  })),
+                )
+                .find((x) => x.key === key)?.card;
+              return (
+                <p key={key}>
+                  <RichContent
+                    text={q?.question ?? card?.question ?? "非表示になった教材"}
+                  />
+                </p>
+              );
+            })}
+            {!teacherState.reviewIds.length && (
+              <p>解き直し対象はありません。</p>
+            )}
+          </>
+        ) : (
+          !error && <p>記録を読み込んでいます…</p>
+        )}
+      </main>
+    );
+  if (view === "editor")
+    return (
+      <div className="notebook legacy-editor">
+        <LegacyNotebook
+          key={activeLessonId}
+          initialLessonId={activeLessonId}
+          initialCardKey={editorCardKey}
+          onClose={() => {
+            setView("main");
+            void refresh();
+          }}
+        />
+      </div>
+    );
+  return (
+    <main className="notebook">
+      <header className="notebook-header">
+        <span className="student-mark" aria-hidden="true">
+          桜
+        </span>
+        <div>
+          <h1>エンスク授業ノート</h1>
+          <p>
+            桜紅さん <span className="notebook-version">ver{APP_VERSION}</span>
+          </p>
+        </div>
+        <button
+          className="round-button"
+          aria-label="設定・編集・引継ぎ"
+          onClick={() => {
+            closeToMenu();
+            setTab("settings");
+          }}
+        >
+          <GearSix size={23} />
+        </button>
+      </header>
+      {error && (
+        <div className="feedback error" role="alert">
+          {error}
+          <button
+            onClick={() => {
+              setError("");
+              void refresh();
+            }}
+          >
+            再接続
+          </button>
+        </div>
+      )}
+      {message && (
+        <p className="feedback" role="status">
+          {message}
+        </p>
+      )}
+      {learner.storageWarning && (
+        <p className="feedback error">
+          このブラウザには保存できません。閉じる前に設定で同期と引継ぎコードを確認してください。
+        </p>
+      )}
+      {view === "main" && tab === "lessons" && (
+        <>
+          <Hero outfit={state.outfit} />
+          <section className="continue-section">
+            <div className="continue-title">
+              <CalendarDots size={34} />
+              <div>
+                <p>
+                  {primaryLesson.date} {primaryLesson.teacher}
+                </p>
+                <h2>{primaryLesson.title}</h2>
+              </div>
+              {latestSession && (
+                <span className="count-pill">
+                  {latestSession.index + 1} / {latestSession.keys.length}
+                </span>
+              )}
+            </div>
+            <button
+              className="continue-button"
+              disabled={!learner.ready || loading}
+              onClick={startPrimary}
+            >
+              <BookOpen size={34} />
+              <strong>
+                {loading
+                  ? "教材を読み込み中"
+                  : !latestSession &&
+                      !cardsFor(primaryLesson.id).length &&
+                      !itemsFor(primaryLesson.id).length
+                    ? "資料を読む"
+                    : "復習をつづける"}
+              </strong>
+              <CaretRight size={27} />
+            </button>
+          </section>
+          <button className="wardrobe-link" onClick={() => setTab("buddy")}>
+            <Bird size={27} />
+            <span>相棒の着せ替え</span>
+            <CaretRight size={22} />
+          </button>
+          <section>
+            <div className="section-title">
+              <Books size={26} />
+              <h2>セオリー図鑑</h2>
+              <button onClick={() => setTab("encyclopedia")}>すべて見る</button>
+            </div>
+            <div className="preview-theories">
+              {visibleTheories.slice(0, 2).map((t, i) => theoryRow(t, i))}
+            </div>
+          </section>
+          <section className="lesson-section">
+            <div className="section-title">
+              <CalendarDots size={26} />
+              <h2>授業一覧</h2>
+              <span>{lessons.length}授業</span>
+            </div>
+            {lessons.map((l) => {
+              const cards = cardsFor(l.id),
+                checks = itemsFor(l.id),
+                questions = cards.filter((c) => c.kind === "question"),
+                reviews = state.reviewIds.filter(
+                  (k) =>
+                    cards.some((c) => keyFor(l.id, c) === k) ||
+                    checks.some((q) => "check:" + q.id === k),
+                );
+              const saved = savedSessions.find((s) => s.lessonId === l.id);
+              return (
+                <article className="lesson-line" key={l.id}>
+                  <div className="lesson-line-top">
+                    <button
+                      className="lesson-toggle"
+                      aria-expanded={expanded === l.id}
+                      onClick={() => setExpanded(expanded === l.id ? "" : l.id)}
+                    >
+                      <span className="lesson-date-badge">{l.date}</span>
+                      <span>
+                        <small>{l.teacher}</small>
+                        <strong>{l.title}</strong>
+                      </span>
+                      <CaretRight
+                        className={expanded === l.id ? "turned" : ""}
+                      />
+                    </button>
+                    {links(l)}
+                  </div>
+                  {expanded === l.id && (
+                    <div className="lesson-expanded">
+                      <p>
+                        {questions.length}問
+                        {cards.length > questions.length
+                          ? "・説明カード " +
+                            (cards.length - questions.length) +
+                            "枚"
+                          : ""}
+                        {checks.length ? "・確認 " + checks.length + "問" : ""}
+                      </p>
+                      <div className="action-grid">
+                        {saved && (
+                          <button
+                            className="primary"
+                            onClick={() => resumeSession(saved)}
+                          >
+                            途中から再開
+                          </button>
+                        )}
+                        {cards.length > 0 && (
+                          <button onClick={() => openSession(l, "flash")}>
+                            カードで復習
+                          </button>
+                        )}
+                        {checks.length > 0 && (
+                          <button onClick={() => openSession(l, "check")}>
+                            四択・穴埋め
+                          </button>
+                        )}
+                        {!cards.length && !checks.length && (
+                          <button
+                            className="primary"
+                            onClick={() => setResourceId(l.id)}
+                          >
+                            資料を読む
+                          </button>
+                        )}
+                        {reviews.length > 0 && (
+                          <>
+                            <button
+                              onClick={() =>
+                                openSession(
+                                  l,
+                                  cards.some((c) =>
+                                    state.reviewIds.includes(keyFor(l.id, c)),
+                                  )
+                                    ? "flash"
+                                    : "check",
+                                  true,
+                                )
+                              }
+                            >
+                              解き直し {reviews.length}件
+                            </button>
+                            {cards.some((c) =>
+                              state.reviewIds.includes(keyFor(l.id, c)),
+                            ) &&
+                              checks.some((q) =>
+                                state.reviewIds.includes("check:" + q.id),
+                              ) && (
+                                <button
+                                  onClick={() => openSession(l, "check", true)}
+                                >
+                                  確認問題の解き直し
+                                </button>
+                              )}
+                          </>
+                        )}
+                        <button
+                          onClick={() => {
+                            setActiveLessonId(l.id);
+                            setView("list");
+                          }}
+                        >
+                          <ListBullets />
+                          問題一覧
+                        </button>
+                      </div>
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </section>
+        </>
+      )}
+      {view === "main" && tab === "encyclopedia" && (
+        <section className="encyclopedia">
+          <div className="section-title">
+            <Books size={30} />
+            <h2>セオリー図鑑</h2>
+          </div>
+          <div className="summary-strip">
+            <span>
+              収集 <b>{state.collected}</b>枚
+            </span>
+            <span>
+              星 <b>{state.stars}</b>個
+            </span>
+            <span>
+              三つ星{" "}
+              <b>
+                {
+                  Object.values(state.theories).filter((t) => t.stars === 3)
+                    .length
+                }
+              </b>
+              枚
+            </span>
+          </div>
+          {theory ? (
+            <article className="theory-detail">
+              <button
+                className="plain-button"
+                onClick={() => setSelectedTheory("")}
+              >
+                <ArrowLeft />
+                図鑑一覧へ
+              </button>
+              <div className="section-title">
+                <h2>{theory.title}</h2>
+                <Stars count={state.theories[theory.id]?.stars} />
+              </div>
+              <small>{theory.category}</small>
+              <h3>資料の文言</h3>
+              <blockquote>
+                <RichContent text={theory.canonical} />
+              </blockquote>
+              <h3>どんなときに使う？</h3>
+              <div className="rich-content">
+                <RichContent text={theory.conditions} />
+              </div>
+              <h3>例外・注意点</h3>
+              <div className="rich-content">
+                <RichContent text={theory.exceptions} />
+              </div>
+              {theory.sourceUrl && (
+                <a
+                  className="link-chip"
+                  href={theory.sourceUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {theory.sourceLabel || "出典"}を開く
+                </a>
+              )}
+              <div className="action-grid">
+                <button
+                  className="primary"
+                  disabled={
+                    !catalog.items.some(
+                      (q) => !q.deleted && q.theoryId === theory.id,
+                    )
+                  }
+                  onClick={() =>
+                    openSession(
+                      lessons.find((l) => theory.lessonIds.includes(l.id)) ??
+                        lesson,
+                      "theory",
+                      false,
+                      theory.id,
+                    )
+                  }
+                >
+                  確認問題に挑戦
+                </button>
+                <button
+                  onClick={() => {
+                    setEditTheory({ ...theory });
+                    setEditCheck(null);
+                    setView("catalog-editor");
+                  }}
+                >
+                  <PencilSimple />
+                  この項目を編集
+                </button>
+              </div>
+              <h3>関連する授業</h3>
+              {lessons
+                .filter((l) => theory.lessonIds.includes(l.id))
+                .map((l) => (
+                  <button
+                    className="related-lesson"
+                    key={l.id}
+                    onClick={() => {
+                      setTab("lessons");
+                      setExpanded(l.id);
+                      setActiveLessonId(l.id);
+                      setSelectedTheory("");
+                    }}
+                  >
+                    {l.date} {l.teacher} {l.title}
+                    <CaretRight />
+                  </button>
+                ))}
+              <p className="muted">
+                収集後、確認問題の初正解で星1つ。翌日以降の正解で星2つ。初正解から7日以上・星2つ獲得日より後の正解で星3つ。休んでも星は減りません。
+              </p>
+            </article>
+          ) : (
+            <>
+              <label className="search-field">
+                知識を探す
+                <input
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  placeholder="用語・セオリーで検索"
+                />
+              </label>
+              <label className="filter-check">
+                <input
+                  type="checkbox"
+                  checked={reviewFilter}
+                  onChange={(e) => setReviewFilter(e.target.checked)}
+                />
+                解き直したい知識だけ
+              </label>
+              {visibleTheories
+                .filter(
+                  (t) =>
+                    (t.title + t.canonical + t.category).includes(search) &&
+                    (!reviewFilter || state.theories[t.id]?.needsReview),
+                )
+                .map((t) => theoryRow(t, visibleTheories.indexOf(t)))}
+              <p className="muted">
+                未収集の内容もすべて読めます。星は復習の記録で、理解を保証するものではありません。
+              </p>
+            </>
+          )}
+        </section>
+      )}
+      {view === "session" && run && (
+        <section className="learning-screen">
+          <div className="learning-top">
+            <button
+              className="round-button"
+              aria-label="途中保存してメニューへ"
+              onClick={closeToMenu}
+            >
+              <X size={24} />
+            </button>
+            <div>
+              <small>
+                {runLesson.date} {runLesson.teacher}
+              </small>
+              <strong>{runLesson.title}</strong>
+            </div>
+            <span className="elapsed">{time(run.elapsed)}</span>
+          </div>
+          <div className="session-progress">
+            <span>
+              カード {run.index + 1} / {run.keys.length}
+            </span>
+            <button
+              onClick={() => {
+                record("session", { session: run });
+                setActiveLessonId(run.lessonId);
+                setView("list");
+              }}
+            >
+              問題一覧
+            </button>
+          </div>
+          <progress
+            value={run.index + 1}
+            max={run.keys.length}
+            aria-label="復習の進捗"
+          />
+          {flash && currentCard ? (
+            <>
+              <article
+                className={
+                  "study-card " +
+                  (run.revealed ? "card-face--answer" : "card-face--question")
+                }
+              >
+                <div className="card-toolbar">
+                  <span>
+                    {currentCard.kind === "question"
+                      ? "Q" + questionNumber(runCards, currentCard.id)
+                      : "学習メモ"}
+                  </span>
+                  <button
+                    className="plain-button"
+                    onClick={() =>
+                      setEditing({
+                        card: currentCard,
+                        field: run.revealed ? "answer" : "question",
+                        value: run.revealed
+                          ? currentCard.answer
+                          : currentCard.question,
+                      })
+                    }
+                  >
+                    <PencilSimple />
+                    {run.revealed ? "解説を編集" : "問題を編集"}
+                  </button>
+                </div>
+                {editing ? (
+                  <div className="inline-editor">
+                    <label>
+                      {editing.field === "question" ? "問題文" : "解説文"}
+                      <textarea
+                        autoFocus
+                        value={editing.value}
+                        onChange={(e) =>
+                          setEditing({ ...editing, value: e.target.value })
+                        }
+                        onKeyDown={(e) => {
+                          if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
+                            e.preventDefault();
+                            void saveInline();
+                          }
+                          if (e.key === "Escape") setEditing(null);
+                        }}
+                      />
+                    </label>
+                    {imageInput((v) =>
+                      setEditing((p) => (p ? { ...p, value: p.value + v } : p)),
+                    )}
+                    <div className="action-grid">
+                      <button
+                        disabled={busy}
+                        className="primary"
+                        onClick={saveInline}
+                      >
+                        保存
+                      </button>
+                      <button onClick={() => setEditing(null)}>
+                        キャンセル
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <>
+                    <div
+                      className={
+                        "study-text rich-content " +
+                        (run.revealed ? "answer-side" : "question-side")
+                      }
+                      key={run.revealed ? "answer" : "question"}
+                    >
+                      <RichContent
+                        text={
+                          run.revealed
+                            ? currentCard.answer
+                            : currentCard.question
+                        }
+                      />
+                    </div>
+                    {currentCard.kind !== "question" && !run.revealed && (
+                      <div className="rich-content note-body">
+                        <RichContent text={currentCard.answer} />
+                      </div>
+                    )}
+                    {currentCard.kind === "question" && (
+                      <button
+                        className={
+                          "flip-button " + (run.revealed ? "back" : "")
+                        }
+                        onClick={() =>
+                          updateRun({ ...run, revealed: !run.revealed })
+                        }
+                      >
+                        <ArrowClockwise size={22} />
+                        {run.revealed ? "問題を見る" : "答えを見る"}
+                      </button>
+                    )}
+                  </>
+                )}
+              </article>
+              {currentCard.kind === "question" ? (
+                <div className="rating-row">
+                  <button
+                    disabled={!canRate(run.revealed, !!editing, advancing)}
+                    className="review-action"
+                    onClick={() => rating("again")}
+                  >
+                    <ArrowClockwise />
+                    解き直しに追加
+                  </button>
+                  <button
+                    disabled={!canRate(run.revealed, !!editing, advancing)}
+                    className="primary"
+                    onClick={() => rating("known")}
+                  >
+                    <CheckIcon />
+                    わかった
+                  </button>
+                </div>
+              ) : (
+                <button className="primary full" onClick={() => advance()}>
+                  次へ
+                </button>
+              )}
+            </>
+          ) : currentCheck ? (
+            <article className="study-card check-card">
+              <div className="card-toolbar">
+                <span>
+                  {currentCheck.type === "cloze" ? "穴埋め" : "四択"} Q
+                  {run.index + 1}
+                </span>
+                <button
+                  className="plain-button"
+                  onClick={() => {
+                    record("session", { session: run });
+                    setEditTheory(
+                      catalog.theories.find(
+                        (t) => t.id === currentCheck.theoryId,
+                      ) ?? null,
+                    );
+                    setEditCheck({ ...currentCheck });
+                    setView("catalog-editor");
+                  }}
+                >
+                  <PencilSimple />
+                  編集
+                </button>
+              </div>
+              <div className="check-question rich-content">
+                <RichContent
+                  text={
+                    currentCheck.type === "cloze" && currentPick !== undefined
+                      ? currentCheck.question.replace(
+                          /［[　\s]*］/g,
+                          "［" + currentCheck.choices[currentPick] + "］",
+                        )
+                      : currentCheck.question
+                  }
+                />
+              </div>
+              <div className="choices">
+                {currentCheck.choices.map((choice, i) => (
+                  <button
+                    key={i}
+                    disabled={currentPick !== undefined}
+                    className={
+                      currentPick === undefined
+                        ? ""
+                        : i === currentCheck.correctIndex
+                          ? "correct"
+                          : i === currentPick
+                            ? "incorrect"
+                            : ""
+                    }
+                    onClick={() => answer(i)}
+                  >
+                    <span className="choice-letter">
+                      {String.fromCharCode(65 + i)}
+                    </span>
+                    <span>
+                      <RichContent text={choice} links={false} />
+                    </span>
+                    {currentPick !== undefined &&
+                      i === currentCheck.correctIndex && <CheckIcon />}
+                  </button>
+                ))}
+              </div>
+              {currentPick !== undefined && (
+                <div className="check-feedback">
+                  <h3>
+                    {currentPick === currentCheck.correctIndex
+                      ? "正解！"
+                      : "正解は " +
+                        String.fromCharCode(65 + currentCheck.correctIndex)}
+                  </h3>
+                  <div className="rich-content">
+                    <RichContent text={currentCheck.explanation} />
+                  </div>
+                  <div className="action-grid">
+                    <button
+                      className="review-action"
+                      aria-pressed={state.reviewIds.includes(
+                        "check:" + currentCheck.id,
+                      )}
+                      onClick={() =>
+                        record("review", {
+                          target: "check:" + currentCheck.id,
+                          active: !state.reviewIds.includes(
+                            "check:" + currentCheck.id,
+                          ),
+                        })
+                      }
+                    >
+                      <ArrowClockwise />
+                      {state.reviewIds.includes("check:" + currentCheck.id)
+                        ? "解き直しから外す"
+                        : "解き直しに追加"}
+                    </button>
+                    <button className="primary" onClick={() => advance()}>
+                      次へ
+                      <CaretRight />
+                    </button>
+                  </div>
+                </div>
+              )}
+            </article>
+          ) : (
+            <div className="settings-box">
+              <p>
+                この教材は削除・更新されました。次へ進むか問題一覧で確認できます。
+              </p>
+              <button onClick={() => advance()}>次へ</button>
+            </div>
+          )}
+          <nav className="session-nav" aria-label="カードの移動">
+            <button
+              disabled={run.index === 0 || !!editing || advancing}
+              onClick={() => advance(-1)}
+            >
+              <CaretLeft />
+              前へ
+            </button>
+            <button onClick={closeToMenu}>途中保存して戻る</button>
+            <button disabled={!!editing || advancing} onClick={() => advance()}>
+              {run.index === run.keys.length - 1 ? "終了" : "次へ"}
+              <CaretRight />
+            </button>
+          </nav>
+        </section>
+      )}
+      {view === "result" && run && (
+        <section className="results">
+          <Bird size={42} />
+          <h2>おつかれさまでした！</h2>
+          <p>今日の復習が、ひとつずつ力になります。</p>
+          {(() => {
+            const values = flash
+              ? Object.values(run.ratings).map((r) => r === "known")
+              : Object.entries(run.picks).map(
+                  ([id, pick]) =>
+                    catalog.items.find((q) => q.id === id)?.correctIndex ===
+                    pick,
+                );
+            const known = values.filter(Boolean).length,
+              percent = values.length
+                ? Math.round((known / values.length) * 100)
+                : 0;
+            return (
+              <>
+                <div className="result-score">
+                  <strong>{values.length ? percent + "%" : "—"}</strong>
+                  <span>{flash ? "わかった率" : "正答率"}</span>
+                </div>
+                <progress max={100} value={percent} aria-label="結果" />
+                <p>
+                  {values.length
+                    ? "今回のランク " + getRank(percent)
+                    : "今回は学習メモを確認しました"}
+                </p>
+                <div className="summary-strip">
+                  <span>
+                    {flash ? "わかった" : "正解"} {known}件
+                  </span>
+                  <span>回答 {values.length}件</span>
+                  <span>{time(run.elapsed)}</span>
+                </div>
+              </>
+            );
+          })()}
+          <div className="action-grid">
+            <button
+              className="primary"
+              onClick={() => {
+                setView("main");
+                setTab("encyclopedia");
+                setSelectedTheory("");
+              }}
+            >
+              図鑑を見る
+            </button>
+            <button
+              onClick={() => {
+                setView("main");
+                setTab("buddy");
+              }}
+            >
+              相棒に会う
+            </button>
+            <button onClick={closeToMenu}>授業一覧へ</button>
+          </div>
+        </section>
+      )}
+      {view === "list" && (
+        <section className="all-questions">
+          <div className="section-title">
+            <button
+              className="round-button"
+              aria-label="メニューへ"
+              onClick={closeToMenu}
+            >
+              <ArrowLeft />
+            </button>
+            <h2>
+              {lesson.date} {lesson.title}
+            </h2>
+          </div>
+          <div className="action-grid">
+            {run && !run.completed && (
+              <button className="primary" onClick={() => setView("session")}>
+                学習へ戻る
+              </button>
+            )}
+            <button
+              onClick={() => {
+                setEditorCardKey("");
+                setView("editor");
+              }}
+            >
+              <PencilSimple />
+              ノートを編集
+            </button>
+          </div>
+          <h3>
+            フラッシュカード{" "}
+            {lessonCards.filter((c) => c.kind === "question").length}問
+          </h3>
+          <p className="muted">
+            ドラッグ、または上下ボタンで順番を変えられます。
+          </p>
+          {lessonCards.map((c, i) => {
+            const key = keyFor(lesson.id, c);
+            return (
+              <details
+                className="list-card"
+                key={key}
+                draggable={!busy}
+                onDragStart={() => setDragKey(key)}
+                onDragOver={(e) => e.preventDefault()}
+                onDrop={(e) => {
+                  e.preventDefault();
+                  void reorder(dragKey, key);
+                }}
+              >
+                <summary>
+                  <span>
+                    {c.kind === "question"
+                      ? "Q" + questionNumber(lessonCards, c.id)
+                      : "メモ"}
+                  </span>
+                  <strong>
+                    <RichContent text={c.question} links={false} />
+                  </strong>
+                  {state.reviewIds.includes(key) && (
+                    <span className="review-label">解き直し</span>
+                  )}
+                </summary>
+                <div className="list-card-body">
+                  <div className="rich-content">
+                    <RichContent text={c.answer} />
+                  </div>
+                  <div className="action-grid">
+                    <button
+                      onClick={() => {
+                        setEditorCardKey(key);
+                        setView("editor");
+                      }}
+                    >
+                      <PencilSimple />
+                      編集
+                    </button>
+                    <button
+                      aria-pressed={state.reviewIds.includes(key)}
+                      onClick={() =>
+                        record("review", {
+                          target: key,
+                          active: !state.reviewIds.includes(key),
+                        })
+                      }
+                    >
+                      {state.reviewIds.includes(key)
+                        ? "解き直しを解除"
+                        : "解き直しに追加"}
+                    </button>
+                    <button
+                      aria-label={
+                        "Q" + questionNumber(lessonCards, c.id) + "を上へ"
+                      }
+                      disabled={i === 0 || busy}
+                      onClick={() =>
+                        reorder(key, keyFor(lesson.id, lessonCards[i - 1]))
+                      }
+                    >
+                      <ArrowUp />
+                      上へ
+                    </button>
+                    <button
+                      aria-label={
+                        "Q" + questionNumber(lessonCards, c.id) + "を下へ"
+                      }
+                      disabled={i === lessonCards.length - 1 || busy}
+                      onClick={() =>
+                        reorder(key, keyFor(lesson.id, lessonCards[i + 1]))
+                      }
+                    >
+                      <ArrowDown />
+                      下へ
+                    </button>
+                  </div>
+                </div>
+              </details>
+            );
+          })}
+          <h3>確認問題 {lessonItems.length}問</h3>
+          {lessonItems.map((q, i) => (
+            <details
+              className="list-card"
+              key={q.id}
+              draggable={!busy}
+              onDragStart={() => setDragKey("check:" + q.id)}
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => {
+                e.preventDefault();
+                if (dragKey.startsWith("check:"))
+                  void reorder(dragKey, "check:" + q.id);
+              }}
+            >
+              <summary>
+                <span>Q{i + 1}</span>
+                <strong>
+                  <RichContent text={q.question} links={false} />
+                </strong>
+                {state.reviewIds.includes("check:" + q.id) && (
+                  <span className="review-label">解き直し</span>
+                )}
+              </summary>
+              <div className="list-card-body">
+                <ol type="A">
+                  {q.choices.map((c, j) => (
+                    <li key={j}>
+                      {c}
+                      {j === q.correctIndex ? "（正解）" : ""}
+                    </li>
+                  ))}
+                </ol>
+                <div className="rich-content">
+                  <RichContent text={q.explanation} />
+                </div>
+                <button
+                  onClick={() => {
+                    setEditTheory(
+                      catalog.theories.find((t) => t.id === q.theoryId) ?? null,
+                    );
+                    setEditCheck({ ...q });
+                    setView("catalog-editor");
+                  }}
+                >
+                  <PencilSimple />
+                  この確認問題を編集
+                </button>
+                <div className="action-grid">
+                  <button
+                    disabled={i === 0 || busy}
+                    onClick={() =>
+                      reorder("check:" + q.id, "check:" + lessonItems[i - 1].id)
+                    }
+                  >
+                    <ArrowUp />
+                    上へ
+                  </button>
+                  <button
+                    disabled={i === lessonItems.length - 1 || busy}
+                    onClick={() =>
+                      reorder("check:" + q.id, "check:" + lessonItems[i + 1].id)
+                    }
+                  >
+                    <ArrowDown />
+                    下へ
+                  </button>
+                </div>
+              </div>
+            </details>
+          ))}
+        </section>
+      )}
+      {view === "catalog-editor" && (
+        <section className="catalog-editor">
+          <div className="section-title">
+            <button
+              className="round-button"
+              aria-label="編集を閉じる"
+              onClick={() => {
+                setView(run && !run.completed ? "session" : "main");
+              }}
+            >
+              <ArrowLeft />
+            </button>
+            <h2>図鑑・確認問題を編集</h2>
+          </div>
+          <p className="muted">
+            変更は全員に共有されます。削除した項目はここで復元できます。
+          </p>
+          <label>
+            図鑑項目
+            <select
+              value={editTheory?.id ?? ""}
+              onChange={(e) => {
+                setEditTheory(
+                  catalog.theories.find((t) => t.id === e.target.value) ?? null,
+                );
+                setEditCheck(null);
+              }}
+            >
+              <option value="">項目を選択</option>
+              {catalog.theories.map((t) => (
+                <option key={t.id} value={t.id}>
+                  {t.deleted ? "【削除済み】" : ""}
+                  {t.title}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            onClick={() => {
+              setEditTheory({
+                id: "theory-" + crypto.randomUUID(),
+                title: "",
+                category: "手組",
+                canonical: "",
+                conditions: "",
+                exceptions: "",
+                sourceLabel: "",
+                sourceUrl: "",
+                lessonIds: [lesson.id],
+                cardKeys: [],
+                sortOrder: catalog.theories.length,
+                deleted: false,
+              });
+              setEditCheck(null);
+            }}
+          >
+            <Plus />
+            図鑑項目を追加
+          </button>
+          {editTheory && (
+            <div className="settings-box">
+              <h3>{editTheory.deleted ? "削除済み項目" : "図鑑の内容"}</h3>
+              {(
+                [
+                  "title",
+                  "category",
+                  "canonical",
+                  "conditions",
+                  "exceptions",
+                  "sourceLabel",
+                  "sourceUrl",
+                ] as const
+              ).map((field) => (
+                <label key={field}>
+                  {
+                    {
+                      title: "タイトル",
+                      category: "分類",
+                      canonical: "資料の文言",
+                      conditions: "適用条件",
+                      exceptions: "例外・注意点",
+                      sourceLabel: "出典名",
+                      sourceUrl: "出典URL",
+                    }[field]
+                  }
+                  {["canonical", "conditions", "exceptions"].includes(field) ? (
+                    <textarea
+                      value={editTheory[field]}
+                      onChange={(e) =>
+                        setEditTheory({
+                          ...editTheory,
+                          [field]: e.target.value,
+                        })
+                      }
+                    />
+                  ) : (
+                    <input
+                      value={editTheory[field]}
+                      onChange={(e) =>
+                        setEditTheory({
+                          ...editTheory,
+                          [field]: e.target.value,
+                        })
+                      }
+                    />
+                  )}
+                </label>
+              ))}
+              {imageInput((v) =>
+                setEditTheory((p) =>
+                  p ? { ...p, conditions: p.conditions + v } : p,
+                ),
+              )}
+              <fieldset>
+                <legend>関連授業</legend>
+                {lessons.map((l) => (
+                  <label className="filter-check" key={l.id}>
+                    <input
+                      type="checkbox"
+                      checked={editTheory.lessonIds.includes(l.id)}
+                      onChange={(e) =>
+                        setEditTheory({
+                          ...editTheory,
+                          lessonIds: e.target.checked
+                            ? [...editTheory.lessonIds, l.id]
+                            : editTheory.lessonIds.filter((id) => id !== l.id),
+                        })
+                      }
+                    />
+                    {l.date} {l.title}
+                  </label>
+                ))}
+              </fieldset>
+              <details>
+                <summary>「わかった」で収集するカードを関連付ける</summary>
+                {lessons
+                  .filter((l) => editTheory.lessonIds.includes(l.id))
+                  .map((l) => (
+                    <fieldset key={l.id}>
+                      <legend>
+                        {l.date} {l.title}
+                      </legend>
+                      {cardsFor(l.id)
+                        .filter((c) => c.kind === "question")
+                        .map((c) => {
+                          const key = keyFor(l.id, c);
+                          return (
+                            <label className="filter-check" key={key}>
+                              <input
+                                type="checkbox"
+                                checked={editTheory.cardKeys.includes(key)}
+                                onChange={(e) =>
+                                  setEditTheory({
+                                    ...editTheory,
+                                    cardKeys: e.target.checked
+                                      ? [...editTheory.cardKeys, key]
+                                      : editTheory.cardKeys.filter(
+                                          (k) => k !== key,
+                                        ),
+                                  })
+                                }
+                              />
+                              <span>
+                                {c.question.replace(
+                                  /!\[[^\]]*\]\([^)]+\)/g,
+                                  "",
+                                )}
+                              </span>
+                            </label>
+                          );
+                        })}
+                    </fieldset>
+                  ))}
+              </details>
+              <div className="action-grid">
+                <button
+                  className="primary"
+                  disabled={busy}
+                  onClick={() =>
+                    mutate(() =>
+                      api(
+                        "/api/catalog/theories/" + editTheory.id,
+                        "PUT",
+                        editTheory,
+                      ),
+                    )
+                  }
+                >
+                  <FloppyDisk />
+                  項目を保存
+                </button>
+                <button
+                  disabled={busy}
+                  onClick={async () => {
+                    if (
+                      !editTheory.deleted &&
+                      !(await confirmAction(
+                        "この図鑑項目を非表示にしますか？獲得した星は残ります。",
+                      ))
+                    )
+                      return;
+                    const t = { ...editTheory, deleted: !editTheory.deleted };
+                    if (
+                      await mutate(() =>
+                        api("/api/catalog/theories/" + t.id, "PUT", t),
+                      )
+                    )
+                      setEditTheory(t);
+                  }}
+                >
+                  {editTheory.deleted ? "復元する" : "削除する"}
+                </button>
+              </div>
+              <h3>この知識の確認問題</h3>
+              {catalog.items
+                .filter((q) => q.theoryId === editTheory.id)
+                .map((q) => (
+                  <button
+                    className="related-lesson"
+                    key={q.id}
+                    onClick={() => setEditCheck({ ...q })}
+                  >
+                    {q.deleted ? "【削除済み】" : ""}
+                    {q.type === "cloze" ? "穴埋め" : "四択"} {q.question}
+                    <PencilSimple />
+                  </button>
+                ))}
+              <button
+                disabled={!catalog.theories.some((t) => t.id === editTheory.id)}
+                onClick={() =>
+                  setEditCheck({
+                    id: "check-" + crypto.randomUUID(),
+                    theoryId: editTheory.id,
+                    type: "choice",
+                    question: "",
+                    choices: ["", "", "", ""],
+                    correctIndex: 0,
+                    explanation: "",
+                    lessonIds: [...editTheory.lessonIds],
+                    sortOrder: catalog.items.length,
+                    deleted: false,
+                    revision: 0,
+                  })
+                }
+              >
+                <Plus />
+                確認問題を追加
+              </button>
+            </div>
+          )}
+          {editCheck && (
+            <div className="settings-box check-editor">
+              <h3>確認問題の編集</h3>
+              <label>
+                形式
+                <select
+                  value={editCheck.type}
+                  onChange={(e) =>
+                    setEditCheck({
+                      ...editCheck,
+                      type: e.target.value as "choice" | "cloze",
+                    })
+                  }
+                >
+                  <option value="choice">四択</option>
+                  <option value="cloze">タップ式穴埋め</option>
+                </select>
+              </label>
+              <label>
+                問題文{editCheck.type === "cloze" && "（空欄は［　］）"}
+                <textarea
+                  value={editCheck.question}
+                  onChange={(e) =>
+                    setEditCheck({ ...editCheck, question: e.target.value })
+                  }
+                />
+              </label>
+              {imageInput((v) =>
+                setEditCheck((p) =>
+                  p ? { ...p, question: p.question + v } : p,
+                ),
+              )}
+              {editCheck.choices.map((c, i) => (
+                <label key={i}>
+                  選択肢 {String.fromCharCode(65 + i)}
+                  <input
+                    value={c}
+                    onChange={(e) =>
+                      setEditCheck({
+                        ...editCheck,
+                        choices: editCheck.choices.map((old, j) =>
+                          j === i ? e.target.value : old,
+                        ),
+                      })
+                    }
+                  />
+                </label>
+              ))}
+              <label>
+                正解
+                <select
+                  value={editCheck.correctIndex}
+                  onChange={(e) =>
+                    setEditCheck({
+                      ...editCheck,
+                      correctIndex: Number(e.target.value),
+                    })
+                  }
+                >
+                  {editCheck.choices.map((_, i) => (
+                    <option key={i} value={i}>
+                      {String.fromCharCode(65 + i)}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <label>
+                解説
+                <textarea
+                  value={editCheck.explanation}
+                  onChange={(e) =>
+                    setEditCheck({ ...editCheck, explanation: e.target.value })
+                  }
+                />
+              </label>
+              {imageInput((v) =>
+                setEditCheck((p) =>
+                  p ? { ...p, explanation: p.explanation + v } : p,
+                ),
+              )}
+              <fieldset>
+                <legend>出題する授業</legend>
+                {lessons.map((l) => (
+                  <label className="filter-check" key={l.id}>
+                    <input
+                      type="checkbox"
+                      checked={editCheck.lessonIds.includes(l.id)}
+                      onChange={(e) =>
+                        setEditCheck({
+                          ...editCheck,
+                          lessonIds: e.target.checked
+                            ? [...editCheck.lessonIds, l.id]
+                            : editCheck.lessonIds.filter((id) => id !== l.id),
+                        })
+                      }
+                    />
+                    {l.date} {l.title}
+                  </label>
+                ))}
+              </fieldset>
+              <div className="action-grid">
+                <button
+                  disabled={busy}
+                  className="primary"
+                  onClick={async () => {
+                    if (
+                      await mutate(() =>
+                        api(
+                          "/api/catalog/items/" + editCheck.id,
+                          "PUT",
+                          editCheck,
+                        ),
+                      )
+                    )
+                      setEditCheck(null);
+                  }}
+                >
+                  確認問題を保存
+                </button>
+                <button
+                  disabled={busy}
+                  onClick={async () => {
+                    if (
+                      !editCheck.deleted &&
+                      !(await confirmAction("この確認問題を非表示にしますか？"))
+                    )
+                      return;
+                    const q = { ...editCheck, deleted: !editCheck.deleted };
+                    if (
+                      await mutate(() =>
+                        api("/api/catalog/items/" + q.id, "PUT", q),
+                      )
+                    )
+                      setEditCheck(null);
+                  }}
+                >
+                  {editCheck.deleted ? "復元する" : "削除する"}
+                </button>
+              </div>
+            </div>
+          )}
+        </section>
+      )}
+      {view === "main" && (
+        <nav className="bottom-tabs" aria-label="メインメニュー">
+          {(
+            [
+              { id: "lessons", label: "授業", Icon: BookOpen },
+              { id: "encyclopedia", label: "図鑑", Icon: Books },
+              { id: "buddy", label: "相棒", Icon: Bird },
+            ] as const
+          ).map(({ id, label, Icon }) => (
+            <button
+              key={id}
+              aria-current={tab === id ? "page" : undefined}
+              onClick={() => {
+                setTab(id);
+                setSelectedTheory("");
+                setMessage("");
+              }}
+            >
+              <Icon size={32} weight={tab === id ? "duotone" : "regular"} />
+              <span>{label}</span>
+            </button>
+          ))}
+        </nav>
+      )}
+      {resourceId && (
+        <div className="note-modal-backdrop" onClick={() => setResourceId("")}>
+          <section
+            className="note-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-label="参考資料"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="section-title">
+              <h2>参考資料</h2>
+              <button
+                className="round-button"
+                autoFocus
+                aria-label="参考資料を閉じる"
+                onClick={() => setResourceId("")}
+              >
+                <X />
+              </button>
+            </div>
+            {resourcesFor(resourceId).length ? (
+              resourcesFor(resourceId).map((r) => (
+                <a
+                  className="resource-item"
+                  key={r.id}
+                  href={r.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {r.kind === "image" ? (
+                    <img src={r.url} alt={r.label} />
+                  ) : (
+                    <LinkSimple size={24} />
+                  )}
+                  <strong>{r.label}</strong>
+                  <CaretRight />
+                </a>
+              ))
+            ) : (
+              <p>
+                参考資料はまだありません。設定のノート編集から追加できます。
+              </p>
+            )}
+          </section>
+        </div>
+      )}
+      {promotion && (
+        <div
+          className="note-modal-backdrop promotion-backdrop"
+          role="dialog"
+          aria-modal="true"
+          aria-label="知識の昇格"
+        >
+          <button
+            className="promotion"
+            autoFocus
+            onClick={() => setPromotion(null)}
+            aria-label="昇格のお知らせを閉じる"
+          >
+            <Star weight="fill" size={50} />
+            <h2>知識が育ちました！</h2>
+            <p>{promotion.title}</p>
+            <Stars count={promotion.stars} />
+            <small>タップしてつづける</small>
+          </button>
+        </div>
+      )}
+      {view === "main" && tab === "buddy" && (
+        <section className="buddy-screen">
+          <Hero outfit={state.outfit} room={state.room} />
+          <div className="section-title">
+            <Bird size={30} />
+            <h2>あなたの相棒</h2>
+            <span>星 {state.stars}個</span>
+          </div>
+          <p>知識が増えると、装いや部屋が増えていきます。</p>
+          <div className="reward-grid">
+            {REWARDS.map((r) => {
+              const unlocked = state.stars >= r.stars,
+                selected = r.id === "room" ? state.room : state.outfit === r.id;
+              return (
+                <button
+                  className={"reward " + (selected ? "selected" : "")}
+                  key={r.id}
+                  disabled={!unlocked}
+                  aria-pressed={selected}
+                  onClick={() =>
+                    record("outfit", {
+                      outfit: r.id === "room" ? state.outfit : r.id,
+                      room: r.id === "room" ? !state.room : state.room,
+                    })
+                  }
+                >
+                  <img
+                    src={BASE_PATH + "/companion/" + r.id + ".png"}
+                    alt=""
+                    loading="lazy"
+                  />
+                  <strong>{r.label}</strong>
+                  <small>
+                    {unlocked ? (
+                      selected ? (
+                        "使用中"
+                      ) : (
+                        "使う"
+                      )
+                    ) : (
+                      <>
+                        <LockSimple size={15} />星{r.stars}個で解放
+                      </>
+                    )}
+                  </small>
+                </button>
+              );
+            })}
+          </div>
+          <p className="muted">
+            休んでも、不正解でも、相棒や獲得した装いは失われません。
+          </p>
+        </section>
+      )}
+      {view === "main" && tab === "settings" && (
+        <section className="settings-screen">
+          <div className="section-title">
+            <GearSix size={28} />
+            <h2>設定・編集</h2>
+          </div>
+          <section className="settings-box">
+            <h3>教材を編集</h3>
+            <p>
+              教材の変更は、このアプリを使う全員に反映されます。個人の学習記録とは別です。
+            </p>
+            <div className="action-grid">
+              <button
+                onClick={() => {
+                  setEditorCardKey("");
+                  setView("editor");
+                }}
+              >
+                <PencilSimple />
+                ノートを作る・編集する
+              </button>
+              <button
+                onClick={() => {
+                  setEditTheory(null);
+                  setEditCheck(null);
+                  setView("catalog-editor");
+                }}
+              >
+                <Books />
+                図鑑・確認問題を編集
+              </button>
+            </div>
+          </section>
+          <section className="settings-box">
+            <h3>保存と引継ぎ</h3>
+            <p role="status">{learner.status}</p>
+            <div className="action-grid">
+              <button onClick={() => void learner.sync()}>
+                <FloppyDisk />
+                今すぐ同期
+              </button>
+              <button onClick={() => setShowCode(!showCode)}>
+                引継ぎコードを{showCode ? "隠す" : "表示"}
+              </button>
+            </div>
+            {showCode && (
+              <>
+                <p className="muted">
+                  このコードを持つ人は学習記録を引き継げます。講師への共有には使わず、自分で保管してください。
+                </p>
+                <textarea
+                  readOnly
+                  aria-label="自分の引継ぎコード"
+                  value={learner.getSecret()}
+                />
+                <button
+                  onClick={() =>
+                    navigator.clipboard
+                      .writeText(learner.getSecret())
+                      .then(() => setMessage("コピーしました。"))
+                      .catch(() =>
+                        setMessage("コード欄から選択してコピーしてください。"),
+                      )
+                  }
+                >
+                  <Copy />
+                  コピー
+                </button>
+              </>
+            )}
+            <details>
+              <summary>別の端末の記録を引き継ぐ</summary>
+              <label>
+                引継ぎコード
+                <input
+                  autoComplete="off"
+                  value={restoreCode}
+                  onChange={(e) => setRestoreCode(e.target.value)}
+                />
+              </label>
+              <button
+                disabled={busy || !restoreCode.trim()}
+                onClick={async () => {
+                  if (
+                    !(await confirmAction(
+                      "この端末の表示を、コードの学習記録へ切り替えます。現在のコードは保管しましたか？",
+                    ))
+                  )
+                    return;
+                  setBusy(true);
+                  try {
+                    await learner.restore(restoreCode);
+                    setRestoreCode("");
+                    setMessage("学習記録を引き継ぎました。");
+                    setShowCode(false);
+                    setRun(null);
+                    runRef.current = null;
+                  } catch (e) {
+                    setError(
+                      e instanceof Error ? e.message : "引き継げませんでした。",
+                    );
+                  } finally {
+                    setBusy(false);
+                  }
+                }}
+              >
+                この記録に切り替える
+              </button>
+            </details>
+          </section>
+          <section className="settings-box">
+            <h3>講師に記録を共有</h3>
+            <p>
+              知識の星・解き直し対象・最終復習日だけを、読み取り専用で共有します。リンクを知る人が閲覧できます。
+            </p>
+            <div className="action-grid">
+              <button
+                disabled={busy}
+                onClick={async () => {
+                  setBusy(true);
+                  try {
+                    await learner.sync();
+                    const r = await api(
+                      "/api/learning/shares",
+                      "POST",
+                      {},
+                      learner.getSecret(),
+                    );
+                    setShareUrl(
+                      location.origin +
+                        location.pathname +
+                        "#teacher=" +
+                        r.token,
+                    );
+                  } catch (e) {
+                    setError(
+                      e instanceof Error ? e.message : "共有できませんでした。",
+                    );
+                  } finally {
+                    setBusy(false);
+                  }
+                }}
+              >
+                <ShareNetwork />
+                共有リンクを作る
+              </button>
+              <button
+                disabled={busy}
+                onClick={async () => {
+                  if (
+                    !(await confirmAction(
+                      "発行済みの講師用リンクをすべて無効にしますか？",
+                    ))
+                  )
+                    return;
+                  try {
+                    await api(
+                      "/api/learning/shares",
+                      "DELETE",
+                      undefined,
+                      learner.getSecret(),
+                    );
+                    setShareUrl("");
+                    setMessage("共有リンクを無効にしました。");
+                  } catch {
+                    setError("無効にできませんでした。");
+                  }
+                }}
+              >
+                共有を解除する
+              </button>
+            </div>
+            {shareUrl && (
+              <>
+                <input
+                  readOnly
+                  aria-label="講師向け共有リンク"
+                  value={shareUrl}
+                />
+                <button
+                  onClick={() =>
+                    navigator.clipboard
+                      .writeText(shareUrl)
+                      .then(() => setMessage("共有リンクをコピーしました。"))
+                      .catch(() =>
+                        setMessage("欄から選択してコピーしてください。"),
+                      )
+                  }
+                >
+                  <Copy />
+                  共有リンクをコピー
+                </button>
+              </>
+            )}
+          </section>
+        </section>
+      )}
+    </main>
+  );
 }
