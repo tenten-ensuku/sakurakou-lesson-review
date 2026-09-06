@@ -1,9 +1,7 @@
+import { isCheckAvailable } from "./check-availability.mjs";
 // Searchable display index. Stable learning IDs are never replaced by Q numbers.
 export function buildQuestionIndex(lessons, cardsByLesson, checks, theories) {
   const entries = [];
-  const visibleTheoryIds = new Set(
-    theories.filter((t) => !t.deleted).map((t) => t.id),
-  );
   for (const lesson of lessons.filter((l) => !l.deleted)) {
     let number = 0;
     for (const card of cardsByLesson[lesson.id] ?? []) {
@@ -25,7 +23,7 @@ export function buildQuestionIndex(lessons, cardsByLesson, checks, theories) {
     if (
       check.deleted ||
       seen.has(check.id) ||
-      !visibleTheoryIds.has(check.theoryId)
+      !isCheckAvailable(check, theories)
     )
       continue;
     const related = lessons.filter(

@@ -1,5 +1,7 @@
 import { LEARNING_SCHEMA_SQL } from "../db/learning-schema.mjs";
 import { seedCatalog } from "../app/lib/catalog-seed.mjs";
+import { isCheckAvailable } from "../app/lib/check-availability.mjs";
+import { seedAugustChecks } from "./august-lessons.mjs";
 import { progressFrom, teacherView, newSecret } from "../app/lib/progress.mjs";
 export const validSecret = (v) => /^ensuku-[a-f0-9]{64}$/.test(v ?? "");
 export async function hashSecret(secret) {
@@ -71,6 +73,7 @@ export async function ensureLearning(db) {
             .bind(q.id, JSON.stringify(q)),
         ),
       ])
+      .then(() => seedAugustChecks(db))
       .catch((error) => {
         initialized.delete(db);
         throw error;
@@ -144,7 +147,7 @@ function validateTheory(v) {
 function validateCheck(v) {
   if (
     !idOK(v?.id) ||
-    !idOK(v.theoryId) ||
+    (v.theoryId !== "" && !idOK(v.theoryId)) ||
     !["choice", "cloze"].includes(v.type) ||
     !string(v.question, 2000)?.trim() ||
     !string(v.explanation) ||
@@ -155,7 +158,8 @@ function validateCheck(v) {
     !Number.isInteger(v.correctIndex) ||
     v.correctIndex < 0 ||
     v.correctIndex > 3 ||
-    !ids(v.lessonIds)
+    !ids(v.lessonIds) ||
+    (!v.theoryId && !v.lessonIds.length)
   )
     return null;
   if (v.type === "cloze" && !v.question.includes("［　］")) return null;
@@ -189,7 +193,7 @@ export function sanitizeEvent(e, catalog, now = Date.now()) {
     const q = catalog.items.find((q) => q.id === e.itemId && !q.deleted);
     if (
       !q ||
-      !catalog.theories.some((t) => t.id === q.theoryId && !t.deleted) ||
+      !isCheckAvailable(q, catalog.theories) ||
       q.revision !== e.revision ||
       !Number.isInteger(e.choiceIndex) ||
       e.choiceIndex < 0 ||
@@ -205,7 +209,7 @@ export function sanitizeEvent(e, catalog, now = Date.now()) {
       choiceIndex: e.choiceIndex,
       sessionId: e.sessionId,
       correct: e.choiceIndex === q.correctIndex,
-      theoryIds: [q.theoryId],
+      theoryIds: q.theoryId ? [q.theoryId] : [],
     };
   }
   if (e.type === "known" && idOK(e.target))
@@ -316,12 +320,12 @@ export async function handleLearningApi(req, env) {
         );
       const table = cm[1] === "theories" ? "theory_catalog" : "review_checks";
       if (cm[1] === "items") {
-        const theory = await env.DB.prepare(
+        const theory = value.theoryId ? await env.DB.prepare(
           "SELECT data FROM theory_catalog WHERE id=?",
         )
           .bind(value.theoryId)
-          .all();
-        if (!theory.results?.length)
+          .all() : null;
+        if (value.theoryId && !theory?.results?.length)
           return response(
             req,
             { error: "図鑑項目を先に保存してください。" },

@@ -1,0 +1,715 @@
+{
+  "sourcePackage": "reviewed-video-drafts",
+  "sourceMethod": "yt-dlpで動画情報・日本語自動字幕を取得。全字幕を通読。動画ダウンロードは403で失敗したため、YouTubeの通常ブラウザ再生で採用場面を確認しスクリーンショットを取得。動画全音声の逐語照合や全フレームの連続視聴はしていない。",
+  "canonicalDocuments": [
+    {
+      "title": "【基本序列】",
+      "url": "https://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "revision": "ANLCKQm4vducjd-pVaYkP77v3q1fiqnc7IhzPwGCZNARnfVpukASXizElwmwvdhxUAlmRFiESnLIWTaszd9ydw"
+    },
+    {
+      "title": "セオリー集（随時更新）",
+      "url": "https://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "revision": "ANLCKQmi9i_V6dW1rId9qmIw31GSQjGkLpqm8w6KtPwJ17GYdp2DOOcKlHOgu8HiAwWJGig4Wa50m7h__PsPKw"
+    },
+    {
+      "title": "一向聴（基礎講義）",
+      "url": "https://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "revision": "ANLCKQmjUNkuOE43BkQfZchm3HPAILacmBKMQC6E4OFHG5t2SJqTggdk7NaD6GFEYXz2C6ipOrI3aIAxyBQeZQ"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lesson-20260828-nejimaki",
+      "sourceDate": "2026-08-28",
+      "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE",
+      "title": "NANA牌譜検討・鳴き判断と聴牌を逃さない手組",
+      "questions": [
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-head-already-exists-anchovy",
+          "appId": "card-20260828-ba78c5ac586db318bb0c",
+          "sourceNumber": 1,
+          "type": "flashcard",
+          "at": "00:00:20"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-super-weak-visible-two",
+          "appId": "check-20260828-15694c199bac58d974dc",
+          "sourceNumber": 2,
+          "type": "cloze",
+          "at": "00:01:40"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-super-weak-riichi-is-marginal",
+          "appId": "check-20260828-6c90bc49014433404911",
+          "sourceNumber": 3,
+          "type": "choice",
+          "at": "00:02:02"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-tanyao-replacement-six-sou",
+          "appId": "check-20260828-3804df2e387fd199c8b5",
+          "sourceNumber": 4,
+          "type": "choice",
+          "at": "00:04:20"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-self-interest-versus-precut",
+          "appId": "card-20260828-828c61cb78fdef5bc8fd",
+          "sourceNumber": 5,
+          "type": "flashcard",
+          "at": "00:05:45"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-penchan-between-strong-and-super",
+          "appId": "check-20260828-80965bd85d5ec73b4b09",
+          "sourceNumber": 6,
+          "type": "cloze",
+          "at": "00:07:10"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-two-super-strong-versus-penchan",
+          "appId": "check-20260828-0cc8688f7b16d4efb2be",
+          "sourceNumber": 7,
+          "type": "choice",
+          "at": "00:08:03"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-yakuhai-triplet-is-not-pair",
+          "appId": "card-20260828-1d3e3ff8caa341e5615e",
+          "sourceNumber": 8,
+          "type": "flashcard",
+          "at": "00:09:55"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-do-not-chi-away-head",
+          "appId": "check-20260828-95c2a4c11c44ad99a618",
+          "sourceNumber": 9,
+          "type": "choice",
+          "at": "00:09:20"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-headless-call-standard",
+          "appId": "check-20260828-9fb407e344f9d51134b5",
+          "sourceNumber": 10,
+          "type": "cloze",
+          "at": "00:09:25"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-open-bad-shape-headless-exception",
+          "appId": "check-20260828-16c42fb48fdd6e4be690",
+          "sourceNumber": 11,
+          "type": "choice",
+          "at": "00:12:00"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-open-good-shape-do-not-lose-ryanmen",
+          "appId": "card-20260828-e5d3b773934d326a24e5",
+          "sourceNumber": 12,
+          "type": "flashcard",
+          "at": "00:13:15"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-safe-tenpai-three-man",
+          "appId": "check-20260828-e004251a2f84d18b6140",
+          "sourceNumber": 13,
+          "type": "choice",
+          "at": "00:16:15"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-noten-relative-four-thousand",
+          "appId": "check-20260828-3a8e1808f16d5c10b25b",
+          "sourceNumber": 14,
+          "type": "cloze",
+          "at": "00:17:35"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-resegment-after-draw",
+          "appId": "card-20260828-656cd3f90e05190c3d2e",
+          "sourceNumber": 15,
+          "type": "flashcard",
+          "at": "00:18:58"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-honitsu-fu-score",
+          "appId": "check-20260828-dafb719354d3584f659a",
+          "sourceNumber": 16,
+          "type": "choice",
+          "at": "00:19:40"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-6400-riichi-tradeoff",
+          "appId": "card-20260828-521e3f735edd055d648f",
+          "sourceNumber": 17,
+          "type": "flashcard",
+          "at": "00:20:05"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-high-value-bad-wait-rule",
+          "appId": "check-20260828-88ef34d90cbd29d92a32",
+          "sourceNumber": 18,
+          "type": "cloze",
+          "at": "00:22:15"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-nakasuji-six-pin",
+          "appId": "check-20260828-62bc56ba3e9575de1a64",
+          "sourceNumber": 19,
+          "type": "choice",
+          "at": "00:23:40"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-early-eight-pin-rejects-kan-six",
+          "appId": "check-20260828-b904deab79eeab398d9e",
+          "sourceNumber": 20,
+          "type": "cloze",
+          "at": "00:26:15"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-inference-not-genbutsu",
+          "appId": "card-20260828-3cd2b91befc8bbf6969b",
+          "sourceNumber": 21,
+          "type": "flashcard",
+          "at": "00:27:35"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-fold-white-or-six-pin",
+          "appId": "check-20260828-a1d588ec04c72ac0fe1b",
+          "sourceNumber": 22,
+          "type": "choice",
+          "at": "00:23:10"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-honitsu-four-blocks-wording",
+          "appId": "check-20260828-7207d3cff858fd28e029",
+          "sourceNumber": 23,
+          "type": "cloze",
+          "at": "00:29:45"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-honitsu-route-seven-pin",
+          "appId": "check-20260828-e5dece9af59d4acd3e6f",
+          "sourceNumber": 24,
+          "type": "choice",
+          "at": "00:29:30"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-placement-stable-kyoku-shushi",
+          "appId": "card-20260828-a58803ecfe2ba66ee175",
+          "sourceNumber": 25,
+          "type": "flashcard",
+          "at": "00:29:15"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-open-six-blocks-discard-three-sou",
+          "appId": "check-20260828-7830d74c3638ebc75e03",
+          "sourceNumber": 26,
+          "type": "choice",
+          "at": "00:30:50"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-keep-pon-tenpai-follow",
+          "appId": "check-20260828-8472786336890438ace5",
+          "sourceNumber": 27,
+          "type": "cloze",
+          "at": "00:32:00"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-complete-not-surplus-after-progress",
+          "appId": "check-20260828-e08c696040bd0e02cf76",
+          "sourceNumber": 28,
+          "type": "choice",
+          "at": "00:33:00"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-six-blocks-needs-reason",
+          "appId": "card-20260828-32c0b2c9286b2cc45913",
+          "sourceNumber": 29,
+          "type": "flashcard",
+          "at": "00:34:30"
+        },
+        {
+          "sourceId": "nejimaki-20260828-IogKcSnPscE-review-large-repeatable-errors",
+          "appId": "card-20260828-c82cd77240427635a0cb",
+          "sourceNumber": 30,
+          "type": "flashcard",
+          "at": "00:35:35"
+        }
+      ]
+    },
+    {
+      "id": "lesson-20260824-nejimaki",
+      "sourceDate": "2026-08-24",
+      "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA",
+      "title": "NANAリーグ牌譜検討・安全牌と押し引き",
+      "questions": [
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-kan-open-vs-closed-cost",
+          "appId": "check-20260824-7405c667fce2083bf0aa",
+          "sourceNumber": 1,
+          "type": "choice",
+          "at": "00:01:07"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-kan-first-ryanmen-last",
+          "appId": "card-20260824-8bb3e157e564b2c8a53a",
+          "sourceNumber": 2,
+          "type": "flashcard",
+          "at": "00:01:07"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-riichi-weak-shanten-rule",
+          "appId": "check-20260824-8d7a31f1cfb27df3808d",
+          "sourceNumber": 3,
+          "type": "cloze",
+          "at": "00:31:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-safe-preserve-two-shanten",
+          "appId": "check-20260824-5ce2bb86775a3218a09e",
+          "sourceNumber": 4,
+          "type": "choice",
+          "at": "00:03:14"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-four-pin-wall",
+          "appId": "check-20260824-2f1540041f5d79939ee3",
+          "sourceNumber": 5,
+          "type": "cloze",
+          "at": "00:03:14"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-wall-plus-early-discard",
+          "appId": "check-20260824-df7d9d6b00cdaf966da2",
+          "sourceNumber": 6,
+          "type": "choice",
+          "at": "00:03:14"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-early-one-follow-loss",
+          "appId": "card-20260824-2011426b2568ba9f601a",
+          "sourceNumber": 7,
+          "type": "flashcard",
+          "at": "00:05:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-reading-is-not-genbutsu",
+          "appId": "check-20260824-53463ceb115f0c2a7cfb",
+          "sourceNumber": 8,
+          "type": "choice",
+          "at": "00:08:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-honor-not-always-safer",
+          "appId": "card-20260824-f6276db6ddb2534149cb",
+          "sourceNumber": 9,
+          "type": "flashcard",
+          "at": "00:08:42"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-suji-seven-remaining-shapes",
+          "appId": "check-20260824-ec14c412c2ad0bc44bb6",
+          "sourceNumber": 10,
+          "type": "choice",
+          "at": "00:20:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-suji-edge-quality",
+          "appId": "check-20260824-64b34905580be0dc1100",
+          "sourceNumber": 11,
+          "type": "cloze",
+          "at": "00:24:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-half-suji-five",
+          "appId": "check-20260824-70f89a1aad71e09d1612",
+          "sourceNumber": 12,
+          "type": "choice",
+          "at": "00:23:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-genbutsu-relative",
+          "appId": "check-20260824-ff9745fdbd660b9a03ec",
+          "sourceNumber": 13,
+          "type": "cloze",
+          "at": "00:18:37"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-open-opponent-fold-evidence",
+          "appId": "card-20260824-ad80135dfc3585e0cbdd",
+          "sourceNumber": 14,
+          "type": "flashcard",
+          "at": "00:18:37"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-genbutsu-hatsu-versus-suji-seven",
+          "appId": "check-20260824-def921800e47926c5c24",
+          "sourceNumber": 15,
+          "type": "choice",
+          "at": "00:19:24"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-naga-bars-not-calibrated-risk",
+          "appId": "card-20260824-f05535583a435689477d",
+          "sourceNumber": 16,
+          "type": "flashcard",
+          "at": "00:25:30"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-review-priority-clear-error",
+          "appId": "check-20260824-ad6c75a075fd07db29fb",
+          "sourceNumber": 17,
+          "type": "choice",
+          "at": "00:27:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-league-no-tobi",
+          "appId": "check-20260824-278588aab6e96ca3e98a",
+          "sourceNumber": 18,
+          "type": "cloze",
+          "at": "00:30:20"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-tobi-distorts-push",
+          "appId": "card-20260824-b76cbb1a5b3e8cddcb2c",
+          "sourceNumber": 19,
+          "type": "flashcard",
+          "at": "00:30:20"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-score-experiment-purpose",
+          "appId": "check-20260824-ecb63469556b5e0e8b77",
+          "sourceNumber": 20,
+          "type": "choice",
+          "at": "00:33:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-push-does-not-commit",
+          "appId": "check-20260824-e300d11a26796dd532a9",
+          "sourceNumber": 21,
+          "type": "choice",
+          "at": "00:35:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-hand-progression-changes-push",
+          "appId": "card-20260824-bf99a427def28058b3e6",
+          "sourceNumber": 22,
+          "type": "flashcard",
+          "at": "00:36:25"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-model-disagreement-not-unique",
+          "appId": "check-20260824-da3400651dee16606746",
+          "sourceNumber": 23,
+          "type": "choice",
+          "at": "00:43:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-last-place-value-efficiency",
+          "appId": "card-20260824-a71ffe2df247b35c75fa",
+          "sourceNumber": 24,
+          "type": "flashcard",
+          "at": "00:46:20"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-dora-pon-route-remains",
+          "appId": "check-20260824-801811c87fbf17198291",
+          "sourceNumber": 25,
+          "type": "cloze",
+          "at": "00:47:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-pair-quality-changes-choice",
+          "appId": "check-20260824-1d7b21cc60edd1c6d5d1",
+          "sourceNumber": 26,
+          "type": "choice",
+          "at": "00:50:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-toitoi-nine-discard",
+          "appId": "check-20260824-26bbbab6d365c7caf4cf",
+          "sourceNumber": 27,
+          "type": "choice",
+          "at": "00:52:30"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-toitoi-not-miss",
+          "appId": "check-20260824-6ac898f21f892cddbc7f",
+          "sourceNumber": 28,
+          "type": "cloze",
+          "at": "00:53:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-hypothetical-no-toitoi",
+          "appId": "check-20260824-af97c5985d7f7c67530e",
+          "sourceNumber": 29,
+          "type": "choice",
+          "at": "00:56:00"
+        },
+        {
+          "sourceId": "nejimaki-20260824-cJ6zv4MH_IA-wait-value-checklist",
+          "appId": "card-20260824-95ab4db4c3c02c32bc18",
+          "sourceNumber": 30,
+          "type": "flashcard",
+          "at": "00:58:00"
+        }
+      ]
+    },
+    {
+      "id": "lesson-20260822-nejimaki",
+      "sourceDate": "2026-08-22",
+      "videoUrl": "https://www.youtube.com/watch?v=0NFphQRVaq8",
+      "title": "一向聴の受け入れ・孤立1/9の比較",
+      "questions": [
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-headless-classification",
+          "appId": "check-20260822-be10484ad567875bef8a",
+          "sourceNumber": 1,
+          "type": "cloze",
+          "at": "00:02:09"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-continuous-five-definition",
+          "appId": "check-20260822-736efebc304cf27ea34a",
+          "sourceNumber": 2,
+          "type": "cloze",
+          "at": "00:11:53"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-complete-vs-surplus",
+          "appId": "card-20260822-46b9335f7fd0560b1c83",
+          "sourceNumber": 3,
+          "type": "flashcard",
+          "at": "01:02:10"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-head-remains-after-meld",
+          "appId": "check-20260822-35923d9297056ca61a3b",
+          "sourceNumber": 4,
+          "type": "choice",
+          "at": "01:01:04"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-headless-one-watch-shapes",
+          "appId": "card-20260822-c340b3d7d2d1fc87eed8",
+          "sourceNumber": 5,
+          "type": "flashcard",
+          "at": "00:32:47"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-headless-ryankan-acceptance",
+          "appId": "check-20260822-8e54b255c7e2fb82449e",
+          "sourceNumber": 6,
+          "type": "choice",
+          "at": "00:33:49"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-three-sided-skip",
+          "appId": "check-20260822-748a9e45f94f10672d19",
+          "sourceNumber": 7,
+          "type": "choice",
+          "at": "00:19:40"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-combined-missing-two",
+          "appId": "check-20260822-1f2605e321306e3b1d4b",
+          "sourceNumber": 8,
+          "type": "choice",
+          "at": "00:12:59"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-shifted-edge-acceptance",
+          "appId": "card-20260822-89d1797fe88ac902b2e7",
+          "sourceNumber": 9,
+          "type": "flashcard",
+          "at": "00:17:24"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-decompositions-union",
+          "appId": "check-20260822-030b77b991eb836451ab",
+          "sourceNumber": 10,
+          "type": "choice",
+          "at": "00:04:21"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-basic-kuttsuki-range",
+          "appId": "check-20260822-b55b061b741b26217ae7",
+          "sourceNumber": 11,
+          "type": "cloze",
+          "at": "02:12:00"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-kuttsuki-head-vertical",
+          "appId": "check-20260822-e620c22ac271f6237bd0",
+          "sourceNumber": 12,
+          "type": "cloze",
+          "at": "00:36:59"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-juntsu-skip-extra",
+          "appId": "card-20260822-7d878eee69e0b2c8078e",
+          "sourceNumber": 13,
+          "type": "flashcard",
+          "at": "01:41:00"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-aryanmen-kuttsuki",
+          "appId": "check-20260822-e71a8e01796ac56e02bb",
+          "sourceNumber": 14,
+          "type": "choice",
+          "at": "01:49:00"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-suji-extension-start",
+          "appId": "check-20260822-14cc69f2083fa5db3133",
+          "sourceNumber": 15,
+          "type": "cloze",
+          "at": "01:51:00"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-suji-extension-tanki-neighbor",
+          "appId": "card-20260822-438eda800c7a3a9f47be",
+          "sourceNumber": 16,
+          "type": "flashcard",
+          "at": "01:53:00"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-anchovy-near-triplet",
+          "appId": "check-20260822-c7456bc71531b98568a7",
+          "sourceNumber": 17,
+          "type": "choice",
+          "at": "01:55:00"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-adjacent-pairs-context",
+          "appId": "card-20260822-dd6de01e0134eba1dea3",
+          "sourceNumber": 18,
+          "type": "flashcard",
+          "at": "00:58:47"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-false-ryanmen-kanchan",
+          "appId": "check-20260822-fd9e0d351cfc2552d4c8",
+          "sourceNumber": 19,
+          "type": "choice",
+          "at": "01:03:19"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-surplus-discard-two-or-nine",
+          "appId": "check-20260822-e2cc7a6413834d4e5d0a",
+          "sourceNumber": 20,
+          "type": "choice",
+          "at": "01:05:36"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-seven-tile-goal",
+          "appId": "check-20260822-32e98b06fcc93e56b4bb",
+          "sourceNumber": 21,
+          "type": "cloze",
+          "at": "00:08:39"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-isolated-neighbor-principle",
+          "appId": "check-20260822-64ef0c10d93d615d9061",
+          "sourceNumber": 22,
+          "type": "cloze",
+          "at": "02:26:58"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-isolated-one-four-run-exception",
+          "appId": "card-20260822-1be11233a93cb8d03ac8",
+          "sourceNumber": 23,
+          "type": "flashcard",
+          "at": "02:30:16"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-one-versus-two-exception",
+          "appId": "check-20260822-b67b6837b59c1ef09d96",
+          "sourceNumber": 24,
+          "type": "choice",
+          "at": "02:50:04"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-one-step-follow-definition",
+          "appId": "check-20260822-8ac8ea730fa1a178b252",
+          "sourceNumber": 25,
+          "type": "cloze",
+          "at": "02:53:17"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-one-step-follow-rank",
+          "appId": "check-20260822-ee20d5cbe07058785b8f",
+          "sourceNumber": 26,
+          "type": "choice",
+          "at": "02:41:31"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-one-improvement-insufficient",
+          "appId": "check-20260822-b1f6bf8b2ea14686357c",
+          "sourceNumber": 27,
+          "type": "choice",
+          "at": "02:53:17"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-134-vs359",
+          "appId": "card-20260822-fc7397b5327a2109756b",
+          "sourceNumber": 28,
+          "type": "flashcard",
+          "at": "02:32:28"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-147-overlap",
+          "appId": "check-20260822-bfb2a157f274275bff74",
+          "sourceNumber": 29,
+          "type": "choice",
+          "at": "02:38:16"
+        },
+        {
+          "sourceId": "nejimaki-20260822-0NFphQRVaq8-equal-distance-ryanmen-kanchan",
+          "appId": "card-20260822-c8e3900b8771e555895b",
+          "sourceNumber": 30,
+          "type": "flashcard",
+          "at": "02:26:58"
+        }
+      ]
+    }
+  ],
+  "images": {
+    "0822/00-15-19-combined.jpg": {
+      "sha256": "14890a39338ebf6c0899f41a15508f1404f22a8148e1fd6d12eaaba8559863fb",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/8a99d69d-2506-4c8a-b0d5-3534a20c9611.jpg"
+    },
+    "0822/01-06-02-surplus.jpg": {
+      "sha256": "7c3e7fe239440e0ae2c54e5995c8b4096556d881b709c074aff68f99fee9b4b6",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ab11c5c8-1d55-4ca4-bac1-2431ef992edd.jpg"
+    },
+    "0824/00-01-23-kan.jpg": {
+      "sha256": "4b996a204a44b3262f6bffd42f797046faa28a1ab36d3c50b837cefe6b0c2421",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ef001478-98d3-44ed-aaf5-91be8a9e696d.jpg"
+    },
+    "0824/00-03-24-safety.jpg": {
+      "sha256": "d5b8e0a60872c6bf577297e4bce586399d29f299d6739d3a18e8b2156b55185f",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg"
+    },
+    "0824/00-19-24-fold.jpg": {
+      "sha256": "183be047cfadd6b9a158a3213495b2931630a17bc28af7047a098ae2363565b2",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/920e34b9-d8a5-42dc-a9b7-7c4d4a362ff6.jpg"
+    },
+    "0824/00-53-04-toitoi.jpg": {
+      "sha256": "c5400a9c0c5ce6fda6e33f64cc32530c61cd55e93b8e65016d94cca3d5c8f7d7",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/74a0142a-a3da-4f53-860e-8b2e6e3ad934.jpg"
+    },
+    "0828/00-01-47-super-weak.jpg": {
+      "sha256": "d6fae9fc38e794b32fe97fdf498fc51c051cd2a8a2ad48c48bab172ad9701a50",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/744e9292-b97e-4c01-a40a-9359bb55b049.jpg"
+    },
+    "0828/00-07-37-ranking.jpg": {
+      "sha256": "ddf94e4837868c0a2d2e4cfce2f98e3a4500b379581889ca458d5335f757e849",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/5fc4e2e7-7b07-4e69-92f7-6aa0de310c3a.jpg"
+    },
+    "0828/00-09-38-headless.jpg": {
+      "sha256": "a031e437dbf56d3d68acac79273b3b7c7c9069f452e115b36aa6ff2d3084cc69",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/956a3b7d-ae93-4edd-9cc7-f17cd1cba1b9.jpg"
+    }
+  }
+}

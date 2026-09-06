@@ -24,6 +24,7 @@ export function materialDetails(resource) {
           ? "Googleスライド"
           : "Google資料";
   } else if (host === "drive.google.com") service = "Googleドライブ";
+  else if (host === "sakurakou-lesson-review.kobotenmitsu.chatgpt.site" && url.pathname.startsWith("/materials/august-2026/")) service = "授業のまとめ";
   return {
     title: resource.label?.trim() || service,
     service,

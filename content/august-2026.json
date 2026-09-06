@@ -1,0 +1,1663 @@
+{
+  "lessons": [
+    {
+      "id": "lesson-20260828-nejimaki",
+      "date": "8/28",
+      "teacher": "ねじまき鳥",
+      "title": "NANA牌譜検討・鳴き判断と聴牌を逃さない手組",
+      "videoUrl": "https://www.youtube.com/watch?v=IogKcSnPscE"
+    },
+    {
+      "id": "lesson-20260824-nejimaki",
+      "date": "8/24",
+      "teacher": "ねじまき鳥",
+      "title": "NANAリーグ牌譜検討・安全牌と押し引き",
+      "videoUrl": "https://www.youtube.com/watch?v=cJ6zv4MH_IA"
+    },
+    {
+      "id": "lesson-20260822-nejimaki",
+      "date": "8/22",
+      "teacher": "ねじまき鳥",
+      "title": "一向聴の受け入れ・孤立1/9の比較",
+      "videoUrl": "https://www.youtube.com/watch?v=0NFphQRVaq8"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-20260828-summary",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "note",
+      "question": "授業の要約：6つのポイント",
+      "answer": "形の名前より、その牌の働きを見る\n8889sの9sはアンチョビ形の一部だが、すでに別の雀頭がある手では、8sを3枚使った弱い孤立9sに近い。別の場面では、5を含む4連形とドラの強孤立牌を残してペンチャンを払う。名前だけで残さず、雀頭の有無・打点・複合形の役割を比較する。\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=15s\n\n超愚形と高打点聴牌は、リーチを自動選択しない\n8mが2枚切れたカン8mは、通常の愚形よりリーチ判断が厳しくなる。講師もNAGAも微差として扱ったため、リーチを一律に誤りとはしない。後半の役あり6400点の単騎聴牌では、リーチによる1600点の上積みより和了率を重視し、ダマを推奨した。\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=100s\n\n5ブロックがあっても、タンヤオへの入れ替えは残す\nドラを含むカンチャンを使い切る5ブロックは見えているが、6sのくっつきでタンヤオ5ブロックに入れ替えられる。鳴けない愚形のドラ1から、鳴けるタンヤオへ変わる価値がある。不要牌を選ぶ際は、相手の染め手への先切りも別の評価軸になる。\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=255s\n\n鳴いた後の雀頭・速度・打点を比べる\n中の暗刻があるからといって、何でも鳴く必要はない。南2局の2sチーは雀頭を消し、門前の高打点リーチの可能性を落とす。すでに副露していて、どう進んでも愚形聴牌になる手なら、雀頭をなくしてヘッドレス2型に広げる例外もある。両面聴牌を残せる手には、その例外をそのまま適用しない。\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=560s\n\n安全な聴牌維持と、河の組み合わせを見落とさない\n南3局終盤は6mを手牌の中へ入れて分解し直すと、通る3mを切って聴牌維持できた。流局時の聴牌料で着順が入れ替わり得る重要な場面。別の守備場面では、中筋6pに加えて立直前の8p切りを読み、白より6pを高く評価した。いずれも「安全そう」という印象で止めず、形と河を具体的に確認する。\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=880s\n\n点差を踏まえ、5ブロックで聴牌直前の受けを厚くする\n最終局は上下の点差が大きく、通常の和了では着順が動きにくい。局収支を重視し、染め色4ブロックから混一色への渡りを残す。副露後は弱い3s対子を整理し、778pのフォローを残して5ブロックへ。一向聴で白・7pのポン聴牌が残る完全形を目指す。復習では微差より、こうした繰り返すと影響が大きい判断を優先する。\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1760s",
+      "sortOrder": -1
+    },
+    {
+      "id": "card-20260828-ba78c5ac586db318bb0c",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "question",
+      "question": "すでに別の雀頭がある手で、8889sの9sを高く評価しすぎない理由は？",
+      "answer": "8sを3枚使った、弱い孤立9sに近い働きになるから。\n\nアンチョビ形は雀頭づくりに役立つが、別に雀頭があると、その利点をすぐには生かせない。9sの隣の8sも3枚使用済み。講義の初打は9sを切り、役牌の重なりを残す判断だった。形の名前だけで優先順位を上げない。\n\n条件・例外：別の雀頭を使わなくなった場合には、7s・9sによる雀頭づくりが再び役立つ。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=20s\n\n一向聴（基礎講義）・□×・アンチョビ形\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 1
+    },
+    {
+      "id": "card-20260828-828c61cb78fdef5bc8fd",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "question",
+      "question": "6sのくっつきからタンヤオを狙う場面。自己都合の1s切りに加え、不要な2pの先切りも候補になった。対面のどんな兆候を考慮した判断だった？",
+      "answer": "対面にピンズの染め手の気配があった。\n\n6sのくっつきを残す方針は共通。不要な2pと1sを比較する際に、対面の染め手へ後から切りにくくなる2pを先に処理する視点が加わる。自己都合の牌効率と、他家への安全度・先切りは分けて考える。\n\n条件・例外：講義は2pと1sの比較を一律の唯一解として扱っていない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=345s\n\nセオリー集（随時更新）・副露対応・染め手／手組㉓先切り\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 5
+    },
+    {
+      "id": "card-20260828-1d3e3ff8caa341e5615e",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "question",
+      "question": "中の対子がある手と、中の暗刻がすでにある手。後者で、ほかの部分を何でも鳴いてよいとはならないのはなぜ？",
+      "answer": "役牌をポンして役を確保する必要がなく、門前リーチの高打点も残っているから。\n\n役牌対子はポンが重要な手が多い。一方、役牌暗刻はすでに1面子と役を備える。南2局の例は雀頭と両面もあり、門前リーチの可能性が十分ある。鳴ける役があることと、鳴く方が得であることは別。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=595s\n\nセオリー集（随時更新）・副露判断・速度と打点\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 8
+    },
+    {
+      "id": "card-20260828-e5d3b773934d326a24e5",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "question",
+      "question": "すでに副露した余剰牌型で、チーして両面聴牌を取れる。受け入れを広げるために雀頭を消すと、鳴いて単騎聴牌になるルートが増える。この比較で講師は何を優先した？",
+      "answer": "元の雀頭を残し、両面聴牌を取れる進行を優先した。\n\n副露手は鳴ける分、聴牌に近い。枚数だけを増やして最終的な待ちを弱くするより、元の良形聴牌を残したい。どう進んでも愚形になる手の例とは、鳴いた後の和了しやすさが違う。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=795s\n\n一向聴（基礎講義）・ヘッドレス2型に取らない例・副露手の最終好形重視\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 12
+    },
+    {
+      "id": "card-20260828-656cd3f90e05190c3d2e",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "question",
+      "question": "6mツモ後に「9mが切れないから聴牌を崩す」と決める前に、今回の見落としを防ぐために行いたい手牌の見方は？",
+      "answer": "ツモ牌を手牌の並びに入れ、面子と待ちを別の分け方でも確認する。\n\n元の分け方だけだと、6789mから9mを切ることに意識が向く。6mを含めて手牌全体を分解し直すと、3mを切るルートとカン5mが見える。安全牌探しだけでなく、安全に切れる牌で聴牌が残るかを再点検する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1138s\n\nセオリー集（随時更新）・手組⑲・安全な形式聴牌\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 15
+    },
+    {
+      "id": "card-20260828-521e3f735edd055d648f",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "question",
+      "question": "役ありダマ6400点の今回の白単騎。リーチでロン8000点にできるが、講師がダマを選んだ主な理由は？",
+      "answer": "1600点の上積みより、ダマで和了率を保つ価値を重視したから。\n\n高打点の聴牌は、すでに和了そのものの価値が高い。リーチで警戒され、他家が白を切らなくなる損と1600点の上昇を比べた。これは今回の判断であり、字牌待ち・早い巡目などでも必ずダマと一般化しない。\n\n条件・例外：資料には、立直しても和了率が大きく下がらない字牌待ち等では立直も可能という補足がある。今回の講師のダマ推奨と区別する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1205s\n\nセオリー集（随時更新）・立直判断③・④\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 17
+    },
+    {
+      "id": "card-20260828-3cd2b91befc8bbf6969b",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "question",
+      "question": "早い8p切りを根拠に「カン6pや6pシャンポンは考えにくい」と読めた。この6pを現物と同じ扱いにしてよい？",
+      "answer": "同じには扱わない。手順からの推測で安全度を高く評価しているだけ。\n\n現物と違い、相手が不自然な手順や特殊な手役を選んでいる可能性は残る。今回の6pは中筋で両面が否定され、さらに8pを切った順序が加わった強い候補だが、放銃率0%の保証ではない。\n\n補足（推論）：講義の「かなり通る」という評価を、確定安全と区別する確認問題。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1655s\n\nセオリー集（随時更新）・立直対応⑤・⑥\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 21
+    },
+    {
+      "id": "card-20260828-a58803ecfe2ba66ee175",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "question",
+      "question": "オーラスでも上下の点差が大きく、通常の和了では着順がほぼ動かない。講義では、どの基準を中心に打つと説明した？",
+      "answer": "着順を無理に動かす狙いより、局収支を中心に打つ。\n\n上との差だけ見て無理な高打点を追うのでも、最終局というだけで安い和了に決めるのでもない。普段の局収支の基準へ戻して判断する。役満などの例外や、実際の逆転条件が残る点況は別途確認する。\n\n条件・例外：順位が確定していると断言するものではなく、講義で扱った大きな点差の局面に限定する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1755s",
+      "sortOrder": 25
+    },
+    {
+      "id": "card-20260828-32c0b2c9286b2cc45913",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "question",
+      "question": "「副露手は特に5ブロック」が基本。それでも6ブロックを残すなら、セオリー集ではどんな理由が必要とされている？",
+      "answer": "6ブロックにしないと追えない打点や手役があること。\n\n理由なく弱いブロックを抱え、必要なフォローを外さない。資料は6ブロックを全否定しておらず、6ブロックを残さないと追えない打点・手役がある場合を例外として挙げている。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=2070s\n\nセオリー集（随時更新）・手組⑰・6ブロックを許容する例外\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 29
+    },
+    {
+      "id": "card-20260828-c82cd77240427635a0cb",
+      "lessonId": "lesson-20260828-nejimaki",
+      "kind": "question",
+      "question": "今回の復習で優先するのは、「NAGAが割れる微差の全暗記」と「雀頭を失う鳴き・安全な聴牌維持・副露手の5ブロック化の見直し」のどちら？",
+      "answer": "後者。繰り返すと影響が大きい判断を、理由と一緒に直す。\n\n講師は小さな好みの差を全部指摘せず、改善効果の大きいところを選んだ。押すべき場面で押せるなど良くなった点も認めている。問題ごとの正誤だけでなく、鳴き・守備・手組のどこで同じ見落としをしたかを振り返る。\n\n補足（推論）：講師の振り返りを、次に復習する優先順位の問いへ整理。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=2135s",
+      "sortOrder": 30
+    },
+    {
+      "id": "card-20260824-summary",
+      "lessonId": "lesson-20260824-nejimaki",
+      "kind": "note",
+      "question": "授業の要約：6つのポイント",
+      "answer": "カンは、自分と他家が受ける利益を比べる\n自分だけ副露し、他家が門前なら、他家にはカンドラだけでなく裏ドラの利益もあり得る。一方で、自分が先制両面聴牌なら自分の和了によってカンドラの利益を得る可能性が高い。ラス目で打点を上げたいという事情も含めて判断する。\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=67s\n\n安全度は現物・壁・早い切り順を合わせて読む\n東4局は4pが4枚見える壁と、下家の早い1p切りを組み合わせ、2p・3pを高く評価する例。「字牌だから」「筋だから」と一つの特徴だけで決めず、残り得るカンチャン・ペンチャン・シャンポンを確認する。ただし推測による安全度と、現物は区別する。\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=194s\n\n仕掛けを怖がりすぎて、立直者へ危険牌を切らない\n対面には対子落としや暗刻落としなど、手を崩しているように見える河がある。対面の仕掛けを理由に下家の現物である発を避け、筋7pを切る判断を見直した。複数の相手への危険を、具体的な河の根拠で比較する。\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1117s\n\nNAGAの点数・ルール前提をそのまま持ち込まない\nNANAリーグは講義で飛び終了なしと説明されている。段位戦前提のNAGAでは、極端な持ち点によって飛び回避の影響が大きくなる。講義では点数を仮に変更し、飛び寸前である影響と大きなラス目である影響を分けて検討した。\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1820s\n\n一度押しても、次の危険牌まで押すとは限らない\n二向聴では現物を選び、手が一向聴・ドラ2へ進んだら押し返しを検討するなど、手の進行と持ち点で判断は変わる。愚形残りの鳴けない一向聴から危険牌を押さない基本を軸に、牌の危険度・打点・順位条件を加える。\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=2185s\n\n良形か高打点かは、待ち・枚数・役を一緒に比較\n3900の両面を崩して満貫を追うのが常に得とは限らない。逆に南2局は、ペン7sの5200より、5m・8sシャンポンの8000〜12000を選ぶ例。対々和がつくか、待ちの牌がどれだけ見えているかで比較が変わる。\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=2780s",
+      "sortOrder": -1
+    },
+    {
+      "id": "card-20260824-8bb3e157e564b2c8a53a",
+      "lessonId": "lesson-20260824-nejimaki",
+      "kind": "question",
+      "question": "講義の東3局で、カンに前向きになる要素として挙げられた「手の状態」と「点数状況」は？",
+      "answer": "先制の両面聴牌であることと、ラス目で打点を上げたいこと。\n\n他家が門前でも、自分が先に良い待ちで聴牌していれば、新しいドラの恩恵を自分が得る可能性が高い。ラス目という事情も後押しする。「鳴いているときは絶対にカンしない」「ラスなら常にカン」のどちらでもない。\n\n条件・例外：他家の進行や待ち、自分の打点・点数状況が違えば再判断する。\n\n![カン判断の検討場面](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ef001478-98d3-44ed-aaf5-91be8a9e696d.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=67s",
+      "sortOrder": 2
+    },
+    {
+      "id": "card-20260824-2011426b2568ba9f601a",
+      "lessonId": "lesson-20260824-nejimaki",
+      "kind": "question",
+      "question": "早い1p切りを、2p・3p周辺の愚形が残りにくい根拠にしたのはなぜ？",
+      "answer": "その愚形があるなら、1pをフォロー牌として残したい形が多いため。\n\n例えば13pのカンチャンや12pのペンチャンなどがある段階では、1pを早々に外すとフォローを失う場合がある。講義では手出しの順序も含めて、愚形の残りやすさを読んだ。単独の早切り1枚だけで断定する読みではない。\n\n条件・例外：ツモの変化、手役、特殊な進行などで愚形が残ることはある。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=300s\n\nセオリー集（随時更新）・手組⑤・弱い所をフォロー\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 7
+    },
+    {
+      "id": "card-20260824-f6276db6ddb2534149cb",
+      "lessonId": "lesson-20260824-nejimaki",
+      "kind": "question",
+      "question": "この東4局で「南は字牌だから2p・3pより安全」と決めてはいけない理由は？",
+      "answer": "南のシャンポンなどは残り得る一方、2p・3pには壁と早い切り順という追加の安全根拠があるから。\n\n牌の種類だけでなく、相手がその待ちに到達できる手順を比べる。講義では対子落としの河から、字牌がシャンポンとして残る進行も説明している。\n\n条件・例外：この結論は提示された河を使った比較。あらゆる字牌と数牌の一般順位ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=522s",
+      "sortOrder": 9
+    },
+    {
+      "id": "card-20260824-ad80135dfc3585e0cbdd",
+      "lessonId": "lesson-20260824-nejimaki",
+      "kind": "question",
+      "question": "東4局、対面は仕掛けている。それでも講師が「対面を過度に怖がらなくてよい」とした河の具体的な根拠は？",
+      "answer": "北の対子落としや西の連打など、手を崩しているように見える切り方。\n\n仕掛けの数だけで聴牌と決めつけず、何を手出ししているかを読む。対面の聴牌可能性を低く見る根拠があるため、下家立直への現物を避ける必要があるかを再検討する。\n\n条件・例外：対子・暗刻を落としていても、常にノーテンと断定できるわけではない。\n\n![降り判断の検討場面](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/920e34b9-d8a5-42dc-a9b7-7c4d4a362ff6.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1117s",
+      "sortOrder": 14
+    },
+    {
+      "id": "card-20260824-f05535583a435689477d",
+      "lessonId": "lesson-20260824-nejimaki",
+      "kind": "question",
+      "question": "NAGAの打牌候補バーの高さを、そのまま正確な放銃率の差として覚えてよい？",
+      "answer": "よくない。バーの好みと、正確な放銃率は同じではない。\n\n講義でも安全度の細かな数字は概算として扱っている。バーから大きな優劣や検討箇所を見つけ、どの待ちが残るかを言葉で説明する。数値を精密な確率として設問の正解にしない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1530s",
+      "sortOrder": 16
+    },
+    {
+      "id": "card-20260824-b76cbb1a5b3e8cddcb2c",
+      "lessonId": "lesson-20260824-nejimaki",
+      "kind": "question",
+      "question": "1600点持ちで親の立直を受けた場面。段位戦前提のNAGAが強く押す結果を、そのままリーグ戦へ採用しない理由は？",
+      "answer": "段位戦では親ツモによる飛び終了を強く意識するため、飛び終了なしのリーグと判断条件が違うから。\n\n講義では、点数を変えて再検討し、飛び寸前という特殊事情の影響を調べた。NAGAを否定するのではなく、解析の前提を実際の対局ルールへ合わせて読む。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1820s",
+      "sortOrder": 19
+    },
+    {
+      "id": "card-20260824-bf99a427def28058b3e6",
+      "lessonId": "lesson-20260824-nejimaki",
+      "kind": "question",
+      "question": "講義後半の押し引き検討では、最初は現物で二向聴を維持し、その後は押し返しを検討した。自分の手にどんな変化があった？",
+      "answer": "5pを引いて一向聴に進み、ドラ2の和了が見える手になった。\n\n同じ相手の立直でも、自分が二向聴のままか、一向聴・高打点へ進んだかでは押す見返りが違う。大きなラス目という点数条件も合わせて検討している。\n\n条件・例外：一向聴ドラ2なら無条件に全押しするという意味ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=2185s\n\nセオリー集（随時更新）・立直対応・向聴数と打点\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 22
+    },
+    {
+      "id": "card-20260824-a71ffe2df247b35c75fa",
+      "lessonId": "lesson-20260824-nejimaki",
+      "kind": "question",
+      "question": "大きなラス目だから、3900の両面より満貫のシャンポンを必ず選ぶべき？",
+      "answer": "必ずではない。打点だけでなく和了率を含め、得られる点数を比較する。\n\n講義の例では、両面の3900を残す方針も評価した。打点を上げるために和了しやすさをどれだけ失うのかを見る。順位条件がある局面では、その条件も別に加える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=2780s\n\nセオリー集（随時更新）・手組・打点上昇と和了率の比較\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 24
+    },
+    {
+      "id": "card-20260824-95ab4db4c3c02c32bc18",
+      "lessonId": "lesson-20260824-nejimaki",
+      "kind": "question",
+      "question": "「良い待ちの低打点」と「悪い待ちの高打点」を比べるとき、待ちの名称と打点のほかに、少なくとも何を確認したい？",
+      "answer": "待ち牌の種類と見えている枚数、成立する役、点数・順位条件。\n\n同じシャンポンでも数牌か字牌かで待ちの質が変わり、見え枚数で残り枚数が変わる。対々和の有無や必要打点も結論を変える。講義の複数の例を、この確認順で比較し直す。\n\n補足（推論）：講義中の複数の比較を、復習用の確認項目として整理。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=3480s\n\nセオリー集（随時更新）・手組・待ちと打点の比較\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 30
+    },
+    {
+      "id": "card-20260822-summary",
+      "lessonId": "lesson-20260822-nejimaki",
+      "kind": "note",
+      "question": "授業の要約：6つのポイント",
+      "answer": "まず一向聴の構成を見分ける\n形の見た目だけで答えを暗記せず、面子・ターツ・雀頭を確認する。ヘッドレス1型と2型は連続形の有無ではなく、ターツが1つか2つかで区別する。答えと一緒に「なぜその牌が受け入れになるか」を説明することが授業の中心。\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=63s\n\n複合形は分解して受け入れを合わせる\n連続形は順子とターツがくっついた5枚形。8枚ほどがつながって見えても、端から端まですべて受け入れとは限らない。12344566pは134567p、1つずらした23455677pは1245678p。順子の抜き方を変え、筋が伸びる法則による追加も確認する。\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=648s\n\n面子が増えても、雀頭が消えたら要注意\n2面子型では面子になる牌を探すが、和了形に必要な雀頭が残ることを必ず確認する。また、245567sの2sは余剰牌で、455679sの9sはカン8s受けを増やす。同じように見える形でも、実際に引いて分解してみると役割が違う。\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=3600s\n\nくっつきと筋が伸びる法則\nくっつきは孤立牌の前後2つと雀頭の刻子化が基本。順子スキップや亜両面では、基本範囲の外に受け入れが増える。待ちから始まる順子がつく場合と、単騎待ちの隣から始まる順子がつく場合を分けて理解する。\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=6540s\n\n孤立1/9は「何のそばか」と変化先を比較\n基本は、順子に近づくほど強く、ターツに近づくほど弱い。ただし134や124の1のように1手で4連形になる形は例外。一手先フォロー牌は、2種類以上のツモでフォロー牌になることが条件で、孤立2/8より強い。単に順子のそばというだけで、すべての1/9が2/8を上回るわけではない。\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=8818s\n\n復習は速さより、間違えた理由の言語化\n正解をなぞるだけでなく、取り違えた形・見落とした受け入れ・比較基準を一つずつ説明する。細かい序列の微差は、距離などの大原則と分けて覚える。\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=11227s",
+      "sortOrder": -1
+    },
+    {
+      "id": "card-20260822-46b9335f7fd0560b1c83",
+      "lessonId": "lesson-20260822-nejimaki",
+      "kind": "question",
+      "question": "2面子型の一向聴で、「余剰牌型」と「完全形」を見分けるには、余った1枚の何を確認する？",
+      "answer": "その1枚が受け入れを増やしているか。\n\nただ余っているなら余剰牌型。ターツなどと組み合わさり、受け入れを増やすなら完全形として見る。枚数や見た目だけでなく、その牌が何を受けているかを確認する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=3730s\n\n一向聴（基礎講義）・2面子型・余剰牌型と完全形\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 3
+    },
+    {
+      "id": "card-20260822-c340b3d7d2d1fc87eed8",
+      "lessonId": "lesson-20260822-nejimaki",
+      "kind": "question",
+      "question": "ヘッドレス1型で、基本として注意する3つの形は？",
+      "answer": "ターツスキップ・リャンカン・面子＋孤立牌の「□×」。\n\n孤立牌がターツに干渉するとターツスキップやリャンカン、面子に干渉すると□×が現れる。□×にはノベタン・亜両面・アンチョビなどがある。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=1967s\n\n一向聴（基礎講義）・ヘッドレス1型の要注意形\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 5
+    },
+    {
+      "id": "card-20260822-89d1797fe88ac902b2e7",
+      "lessonId": "lesson-20260822-nejimaki",
+      "kind": "question",
+      "question": "12344566pを1つずらした23455677p。受け入れを「2〜8pのうち3p以外」としたとき、さらに見落としている牌は？",
+      "answer": "1p。全体では1245678p。\n\n4pの受け入れに対し、4pから左へ始まる234pの順子がついているため、筋の1pまで伸びる。元の端にかかった形を数字だけずらして暗記すると、この1pを落としやすい。\n\n![複合形の受け入れ比較](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/8a99d69d-2506-4c8a-b0d5-3534a20c9611.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=1044s\n\n一向聴（基礎講義）・筋が伸びる法則・複合形\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 9
+    },
+    {
+      "id": "card-20260822-7d878eee69e0b2c8078e",
+      "lessonId": "lesson-20260822-nejimaki",
+      "kind": "question",
+      "question": "くっつき一向聴の3567p。3pのくっつきは基本1〜5pだが、順子スキップによって何が増える？",
+      "answer": "8pが増える。\n\n5pの受け入れに567pの順子がついているので、筋の8pまで伸びる。この部分の受け入れは123458p。6p・7pまで何となく連続して選ぶのは誤り。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=6060s\n\n一向聴（基礎講義）・くっつき・順子スキップ\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 13
+    },
+    {
+      "id": "card-20260822-438eda800c7a3a9f47be",
+      "lessonId": "lesson-20260822-nejimaki",
+      "kind": "question",
+      "question": "5p単騎に678pの順子がついて5678pになった。5pに加えて何待ちが増える？ なぜ？",
+      "answer": "8p。単騎では、待ちの隣から始まる順子でも筋が伸びるため。\n\n5pを雀頭にして678pを使う分け方と、567pを順子にして8pを雀頭にする分け方がある。5p待ちに567pがつく例とは、順子の始まりが異なる。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=6780s\n\n一向聴（基礎講義）・単騎の隣から始まる順子\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 16
+    },
+    {
+      "id": "card-20260822-dd6de01e0134eba1dea3",
+      "lessonId": "lesson-20260822-nejimaki",
+      "kind": "question",
+      "question": "並びシャンポン1122pに3pを引けば123pは作れる。それでも3pを受け入れに数えられないのは、どんな場合？",
+      "answer": "他の部分で雀頭を残せず、聴牌にならない場合。\n\n1122pから順子を作ると、この部分の対子がなくなる。他に雀頭がある・作れる場合と、ここが唯一の雀頭候補の場合では答えが変わる。「並びシャンポンなら必ず端の3pも受け入れ」と丸暗記しない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=3527s\n\n一向聴（基礎講義）・完全形・雀頭の確保\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 18
+    },
+    {
+      "id": "card-20260822-1be11233a93cb8d03ac8",
+      "lessonId": "lesson-20260822-nejimaki",
+      "kind": "question",
+      "question": "134mの1mや124mの1mはターツのそばにある。それでも単独の孤立1mより強いと扱う理由は？",
+      "answer": "1手で1234mという4連形を作れるから。\n\n134mなら2m、124mなら3mで4連形になる。これは孤立1/9比較での例外。ターツが近いという理由だけで、機械的に弱い側へ分類しない。\n\n条件・例外：134と124の細かな順位には講義中に評価基準による差への言及があるため、この問題では両者の順位は問わない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=9016s\n\n【基本序列】・134・124の孤立1/9の例外\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "sortOrder": 23
+    },
+    {
+      "id": "card-20260822-fc7397b5327a2109756b",
+      "lessonId": "lesson-20260822-nejimaki",
+      "kind": "question",
+      "question": "孤立1/9の比較。134mの1mと359pの9pなら、どちらを先に切る？ ドラ・手役・安全度の差はないものとする。",
+      "answer": "9pを先に切る。\n\n134mの1mは2mで4連形になり、単独の孤立1/9より強い。一方、359pの9pはターツと受け入れが干渉し、単独の孤立1/9より弱い。反転した157の1として見る方法も講義で示している。\n\n補足（推論）：異なる色同士の比較条件を明記。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=9148s\n\n【基本序列】・ターツへの近接と134の例外\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "sortOrder": 28
+    },
+    {
+      "id": "card-20260822-c8e3900b8771e555895b",
+      "lessonId": "lesson-20260822-nejimaki",
+      "kind": "question",
+      "question": "256mの2mと257pの2pを比較する。ターツまでの距離が同じこの例で、先に切るのは？",
+      "answer": "257p側の2p。\n\n256mは両面56mが完成すると、2mが順子のそばの牌になりやすい。257pのカンチャン側より2mを残す評価になる。距離が違う別の比較に、両面側を残す結論だけをそのまま当てはめない。\n\n条件・例外：距離が違う場合は、距離や例外形も含めて再比較する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=8818s\n\n【基本序列】・同じ距離のターツとの比較\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "sortOrder": 30
+    }
+  ],
+  "items": [
+    {
+      "id": "check-20260828-15694c199bac58d974dc",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "講義では、カン8mの8mが2枚切れのように、通常4枚の愚形待ちが見えている分を除いて最大2枚になった待ちを［　］と呼んだ。",
+      "choices": [
+        "超愚形",
+        "両面",
+        "完全形",
+        "くっつき一向聴"
+      ],
+      "correctIndex": 0,
+      "explanation": "超愚形\n\n待ち牌の種類だけでなく、何枚残り得るかも見る。画像のカン8mは2枚切れで、通常のカンチャンよりかなり和了しにくい。「超愚形」という講義の呼び名と、残り枚数の条件をセットで覚える。\n\n![超愚形のリーチ判断](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/744e9292-b97e-4c01-a40a-9359bb55b049.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=100s",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 2,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-6c90bc49014433404911",
+      "theoryId": "",
+      "type": "choice",
+      "question": "東1局の例は、ドラ1・手変わりが少ない聴牌だが、カン8mの8mが2枚切れ。講師のリーチ判断を正しくまとめると？",
+      "choices": [
+        "ドラ1なら残り枚数に関係なく必ずリーチ",
+        "リーチも許容するが、ダマ・オリとの比較が微差になる",
+        "2枚切れなのでリーチは明確な悪手",
+        "手変わりが少ないほど、必ず聴牌を崩す"
+      ],
+      "correctIndex": 1,
+      "explanation": "リーチも許容するが、ダマ・オリとの比較が微差になる\n\n講師はしぶしぶリーチでもよいとしつつ、NAGAの判断も割れるほどハードルが上がると説明した。4pがほぼ安全だから一度切ってダマにし、危険牌を引いたらオリる案も比較に入る。通常の愚形と同じ感覚で即決しない。\n\n条件・例外：資料の一般的な愚形基準に対する、残り枚数が極端に少ない講義内の補足。リーチを唯一の誤答にはしない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=122s\n\nセオリー集（随時更新）・立直判断①・愚形の立直条件\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 3,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-3804df2e387fd199c8b5",
+      "theoryId": "",
+      "type": "choice",
+      "question": "ドラ9mを含むカンチャンを使えば5ブロック。別にタンヤオで使える4ブロックがあり、6sにくっつけば5つ目になる。6sをすぐ切りたくない理由は？",
+      "choices": [
+        "5ブロックあれば、6ブロック目は必ず残すから",
+        "6sを残した瞬間にタンヤオが確定するから",
+        "ドラの愚形を入れ替え、鳴けるタンヤオへ進めるから",
+        "ドラ9mは、どんな手でも最後まで切れないから"
+      ],
+      "correctIndex": 2,
+      "explanation": "ドラの愚形を入れ替え、鳴けるタンヤオへ進めるから\n\n鳴けないドラのカンチャンを外し、タンヤオで速度や形を改善できる。講義では自己都合なら1s切りを挙げ、6sのくっつきを残した。単に5ブロックが揃ったかだけでなく、より良い5ブロックへの入れ替えを見る。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=260s\n\nセオリー集（随時更新）・手組①・6ブロック目の役割／㉘タンヤオ正義\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 4,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-80965bd85d5ec73b4b09",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "基本序列の「強孤立牌3〜7 ≦ ペンチャン ＜［　］」を完成させよう。",
+      "choices": [
+        "孤立オタ風",
+        "孤立1・9",
+        "ただの孤立2・8",
+        "超強孤立牌3〜7"
+      ],
+      "correctIndex": 3,
+      "explanation": "超強孤立牌3〜7\n\n5を含む4連形、中膨れ、打点や手役の種になっている強孤立牌は、ペンチャンより価値が高い。単独の強孤立牌との比較と混同しない。資料では左の比較に≦が付き、巡目などで微差になり得る。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=430s\n\n【基本序列】・強孤立牌3〜7≦ペンチャン＜超強孤立牌3〜7\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 6,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-0cc8688f7b16d4efb2be",
+      "theoryId": "",
+      "type": "choice",
+      "question": "東2局の例。5678mの4連形とドラ5pがあり、12sのペンチャンを持っている。講義で選んだ整理は？",
+      "choices": [
+        "1sを切り、ペンチャンを払う",
+        "8mを切り、4連形を普通の順子にする",
+        "ドラ5pを切る",
+        "どれも同じ価値なので無作為に切る"
+      ],
+      "correctIndex": 0,
+      "explanation": "1sを切り、ペンチャンを払う\n\n5678mとドラ5pは、どちらも超強孤立牌として残したい。ペンチャン側を払うと決めたうえで、2sの重なりからタンヤオの雀頭へ入れ替える余地を残すため1sから切る。画像は講師の序列説明を含むので、解説側に置いている。\n\n![ブロックの比較・講師の整理](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/5fc4e2e7-7b07-4e69-92f7-6aa0de310c3a.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=483s\n\n【基本序列】・超強孤立牌の条件・5を含む4連形\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 7,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-95c2a4c11c44ad99a618",
+      "theoryId": "",
+      "type": "choice",
+      "question": "南2局。中の暗刻があり、門前リーチも見える手。雀頭33sの1枚を使って123sを作る2sチーは、講義ではどう判断した？\n\n![南2局6巡目。2sチーを検討する場面。手牌と河を残した切り抜き。](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/956a3b7d-ae93-4edd-9cc7-f17cd1cba1b9.jpg)",
+      "choices": [
+        "チー。鳴ける役があれば、必ず鳴く",
+        "スルー。雀頭が消え、速度・打点とも得とは言いにくい",
+        "チー。雀頭がなくなるほど、必ず手が速くなる",
+        "スルー。役牌暗刻がある手は、一切鳴いてはいけない"
+      ],
+      "correctIndex": 1,
+      "explanation": "スルー。雀頭が消え、速度・打点とも得とは言いにくい\n\n中の暗刻を持つ門前手を安くし、さらに雀頭をなくす鳴き。講義では大きく改善したい判断として挙げた。一方、愚形を処理するカン7pのチーは許容しているため、全ての鳴きを禁止する結論ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=560s\n\nセオリー集（随時更新）・副露判断④ヘッドレスは副露基準を上げろ\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 9,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-9fb407e344f9d51134b5",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "セオリー集の副露判断：「ヘッドレスは副露基準を［　］。」",
+      "choices": [
+        "下げろ",
+        "なくせ",
+        "上げろ",
+        "巡目だけで決めろ"
+      ],
+      "correctIndex": 2,
+      "explanation": "上げろ\n\n雀頭がない手や、鳴くことで雀頭がなくなる手は、鳴いた後の速度・最終形・打点を丁寧に比べる。「鳴けるから鳴く」ではなく、十分な利点を求める。原則は基準を上げることであり、全ての鳴きの禁止ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=565s\n\nセオリー集（随時更新）・副露判断④\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 10,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-16c42fb48fdd6e4be690",
+      "theoryId": "",
+      "type": "choice",
+      "question": "すでに副露し、どちらが埋まっても愚形聴牌になるカン3m・カン3pの余剰牌型。2sチーで雀頭をなくし、24m・24pのヘッドレス2型にできる例で、鳴く利点は？",
+      "choices": [
+        "門前に戻り、リーチが打てるようになる",
+        "すべてのツモで両面聴牌できる",
+        "鳴くだけで混一色が確定する",
+        "聴牌受け入れが3m・3pから、234m・234pへ広がる"
+      ],
+      "correctIndex": 3,
+      "explanation": "聴牌受け入れが3m・3pから、234m・234pへ広がる\n\n元から愚形聴牌になる手で、しかもすでに副露済み。鳴いて手を広げる利益があり、雀頭をなくす鳴きが許される例外となる。ヘッドレス2型はターツを面子にする受けと、対子にする受けがある。\n\n条件・例外：元の手から良形聴牌を残せる場合には、同じ結論をそのまま使わない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=720s\n\n一向聴（基礎講義）・ヘッドレス2型・△→▭or〇\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 11,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-e004251a2f84d18b6140",
+      "theoryId": "",
+      "type": "choice",
+      "question": "南3局の形を整理すると、2面子完成済みで、残りは34789m11p。6mをツモった。3mは通り、9mは切りたくない。この3mを切って聴牌は維持できる？ 残る待ちは？",
+      "choices": [
+        "維持できる。カン5m待ち",
+        "維持できる。69m待ち",
+        "維持できる。1p単騎待ち",
+        "3mを切ると聴牌が崩れる"
+      ],
+      "correctIndex": 0,
+      "explanation": "維持できる。カン5m待ち\n\n3mを切ると46m＋789m＋11p。46mがカン5mのターツ、789mが面子、11pが雀頭となる。講師は「3mの安全度を見落とした」というより、「3mを切っても聴牌が残ることを見落とした」可能性を指摘した。\n\n補足（推論）：映像の説明図で確認した萬子・雀頭だけを抜き出し、他の2面子は完成済みとして明記。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=975s\n\nセオリー集（随時更新）・手組⑲安全に形式テンパイが取れるルート\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 13,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-3a8e1808f16d5c10b25b",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "流局時、対面・下家は聴牌、上家はノーテンとする。自分も聴牌なら、自分は1000点を受け取り上家は3000点を払う。上家との点差は［　］点縮まる。",
+      "choices": [
+        "1000",
+        "4000",
+        "2000",
+        "3000"
+      ],
+      "correctIndex": 1,
+      "explanation": "4000\n\n自分の＋1000と、上家の−3000を合わせて相対差は4000点動く。自分がノーテンなら上家と同じく1500点を払うため、両者の相対差は動かない。この終盤の安全な聴牌維持が、着順にも関わる理由。\n\n補足（推論）：講義の説明を、流局時の他家の聴牌状態を明示した計算問題に整理。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1055s",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 14,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-dafb719354d3584f659a",
+      "theoryId": "",
+      "type": "choice",
+      "question": "子の門前混一色3飜をロン。基本20符＋門前ロン10符＋暗刻8符が2組＋単騎2符＋三元牌の雀頭2符。この手の符・ロン点は？",
+      "choices": [
+        "40符3飜・5200点",
+        "60符3飜・7700点",
+        "50符3飜・6400点",
+        "50符4飜・8000点"
+      ],
+      "correctIndex": 2,
+      "explanation": "50符3飜・6400点\n\n20＋10＋8＋8＋2＋2＝50符。子の50符3飜は6400点になる。単騎待ちと三元牌の雀頭の符を、それぞれ数える。講義では白単騎の混一色聴牌について確認している。\n\n補足（推論）：画像の全手牌を読み直す設問ではなく、講義で数えた符の内訳を問題文に明示。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1180s",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 16,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-88ef34d90cbd29d92a32",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "セオリー集：「ダマ5200点〜の［　］役アリは、基本ダマ。」空欄は？",
+      "choices": [
+        "両面",
+        "すべての",
+        "役なし",
+        "愚形"
+      ],
+      "correctIndex": 3,
+      "explanation": "愚形\n\nこの原則の「愚形」「役アリ」という条件を落とさない。資料では両面や、立直しても和了率が大きく減少しない場況などを別に扱っている。5200点以上なら何でも機械的にダマ、という意味ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1335s\n\nセオリー集（随時更新）・立直判断③\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 18,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-62bc56ba3e9575de1a64",
+      "theoryId": "",
+      "type": "choice",
+      "question": "立直者に3pと9pが通っている。6pについて、フリテンの制約から否定できるのはどの放銃形？",
+      "choices": [
+        "両面の36p待ち・69p待ち",
+        "6p単騎・6pを含むシャンポンもすべて",
+        "カン6pだけ",
+        "字牌とのシャンポンだけ"
+      ],
+      "correctIndex": 0,
+      "explanation": "両面の36p待ち・69p待ち\n\nこれが中筋6pの両面に対する安全性。中筋だけではカン6pや6pを含むシャンポンまでは消せないため、講義では立直前に8pを切っている情報を追加して評価した。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1420s\n\nセオリー集（随時更新）・立直対応⑤・放銃形の種類\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 19,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-b904deab79eeab398d9e",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "カン6pの57pに8pを引けば、5pを切って［　］待ちの両面にできる。なのに立直前に8pをツモ切っていたことが、カン6pを持っていた可能性を下げる。",
+      "choices": [
+        "36p",
+        "69p",
+        "47p",
+        "58p"
+      ],
+      "correctIndex": 1,
+      "explanation": "69p\n\n578pから5pを切れば78pの両面。講義では、役牌の中を残しながら8pを先に切った順序も合わせ、わざわざ愚形に固定した可能性を低く見た。実際に相手の手が透けて見えたのではなく、自然な牌効率からの推測。\n\n条件・例外：特殊な手役や打ち手の選択で例外はある。8p切りだけで6pが完全安全になるわけではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1575s\n\nセオリー集（随時更新）・立直対応⑥・早い切り順を使う安全度評価\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 20,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-a1d588ec04c72ac0fe1b",
+      "theoryId": "",
+      "type": "choice",
+      "question": "オーラスの守備。現物がなく、白と6pが候補。6pは中筋で、立直者は中を抱えた段階で8pを先にツモ切っている。講義ではどちらをより安全とした？",
+      "choices": [
+        "白。字牌は数牌より常に安全",
+        "どちらも現物なので安全度は同じ",
+        "6p。中筋と8pの切り順を合わせて評価する",
+        "6p。中筋なら必ず放銃しないから"
+      ],
+      "correctIndex": 2,
+      "explanation": "6p。中筋と8pの切り順を合わせて評価する\n\n白を安全そうと考えたこと自体は評価しつつ、今回は6pの方がさらに安全度が高いと説明した。両面を消す情報と、愚形を持ちにくい手順の情報を組み合わせる。「字牌だから」という分類だけで候補を固定しない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1390s\n\nセオリー集（随時更新）・立直対応⑤・⑥\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 22,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-7207d3cff858fd28e029",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "セオリー集：「染め色［　］ブロックある時ホンイツへの渡りを見落とすな！」空欄は？",
+      "choices": [
+        "2",
+        "3",
+        "6",
+        "4"
+      ],
+      "correctIndex": 3,
+      "explanation": "4\n\n染め色と字牌で4ブロックを見込めるなら、混一色へ移れる手順を検討する。いま必ず混一色に決め打つという意味ではない。最終局の例でも「とりあえず混一色を見る」選択として説明している。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1785s\n\nセオリー集（随時更新）・手組⑩\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 23,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-e5dece9af59d4acd3e6f",
+      "theoryId": "",
+      "type": "choice",
+      "question": "最終局。上との点差は約27000点、下とは約19000点で、通常の和了では着順が動きにくい。染め色と字牌で4ブロックがある例で、講師は7pと発のどちらを切った？",
+      "choices": [
+        "7pを切り、混一色への渡りを残す",
+        "発を切る。最終局は必ず最速で終わらせる",
+        "どちらも切らず、流局だけを目指す",
+        "7pを切る。点差に関係なく混一色に決め打つ"
+      ],
+      "correctIndex": 0,
+      "explanation": "7pを切り、混一色への渡りを残す\n\nこの点差なら局収支を重視して進める。4ブロックの条件から混一色の可能性を残したい。下からまくられる危険が大きく、和了して3着を確保したい点況なら、発切りを選ぶ場合もあると講師は補足した。\n\n条件・例外：点差・順位条件が変わると選択は変わる。最終局だから必ず染めるという問題ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1770s\n\nセオリー集（随時更新）・手組⑩・混一色への渡り\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 24,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-7830d74c3638ebc75e03",
+      "theoryId": "",
+      "type": "choice",
+      "question": "副露手で6ブロック。両面が2つ、778pの両面対子、3s対子、白対子、完成面子がある。場況による特別な差はなく、白は3sより鳴きやすい。どこを整理する？",
+      "choices": [
+        "7pを切り、778pのフォローを外す",
+        "3s対子を落とし、5ブロックにする",
+        "白対子を先に落とす",
+        "両面を壊し、3s対子を残す"
+      ],
+      "correctIndex": 1,
+      "explanation": "3s対子を落とし、5ブロックにする\n\nこの比較では3s対子が最も弱いブロック。778pを残せば、手が進んだ後も7pや白のポン聴牌を残せる。副露手では特に、弱い6ブロック目を整理してフォロー付きの5ブロックへまとめたい。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1850s\n\nセオリー集（随時更新）・手組⑰・とにかく5ブロック＞6ブロック\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 26,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-8472786336890438ace5",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "3s対子を整理し、778pのフォローを残すと、一向聴で白だけでなく［　］のポン聴牌も残せる。",
+      "choices": [
+        "8p",
+        "3s",
+        "7p",
+        "9p"
+      ],
+      "correctIndex": 2,
+      "explanation": "7p\n\n778pの7pを対子として残すことに意味がある。瞬間の3sポンを残すより、その後の一向聴でポン聴牌できるルートを厚くする。副露手は、チーだけでなく他家3人から可能なポンの受けも重要になる。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1920s\n\n一向聴（基礎講義）・完全形・縦受けのフォロー\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 27,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260828-e08c696040bd0e02cf76",
+      "theoryId": "",
+      "type": "choice",
+      "question": "6ブロックを維持するため先に7pを切ると、手が進んだ後で3sが余剰牌になる。一向聴の価値の比較として正しいのは？",
+      "choices": [
+        "余剰牌を残すほど、聴牌受け入れは必ず増える",
+        "完全形と余剰牌型は、孤立牌の働きまで同じ",
+        "二向聴の受け入れだけ見れば、その後の形は考えなくてよい",
+        "フォローを残して完全形にする方が、余剰牌型より聴牌受けが厚い"
+      ],
+      "correctIndex": 3,
+      "explanation": "フォローを残して完全形にする方が、余剰牌型より聴牌受けが厚い\n\n余剰牌型は孤立牌が聴牌受け入れを増やさず、完全形はターツをフォローしている。一般に聴牌へ近づくほど受け入れが減るため、講義では一向聴で厚い受けを残す進行を重視した。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=IogKcSnPscE&t=1980s\n\n一向聴（基礎講義）・余剰牌型と完全形の違い\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260828-nejimaki"
+      ],
+      "sortOrder": 28,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-7405c667fce2083bf0aa",
+      "theoryId": "",
+      "type": "choice",
+      "question": "自分だけ副露し、他の3人は門前。この状態でカンするとき、特に比較したい打点面の不利は？",
+      "choices": [
+        "自分は裏ドラを使えないが、他家には立直後のカン裏の利益もあり得る",
+        "自分がカンすれば、新しい表ドラは他家だけに加算される",
+        "副露すると自分は表ドラの増加も利用できない",
+        "カンをした人だけに新しい表ドラが加算され、他家には一切影響しない"
+      ],
+      "correctIndex": 0,
+      "explanation": "自分は裏ドラを使えないが、他家には立直後のカン裏の利益もあり得る\n\n自分と他家では新しいドラによる利益が対称ではない。だからカンを機械的に選ぶのではなく、自分の和了しやすさも含めて比較する。\n\n![カン判断の検討場面](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ef001478-98d3-44ed-aaf5-91be8a9e696d.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=67s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 1,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-8d7a31f1cfb27df3808d",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "セオリー集：立直に対して［　］から危険牌は切るな。",
+      "choices": [
+        "あらゆる聴牌",
+        "愚形残りの鳴けない一向聴",
+        "先制の両面聴牌",
+        "すべての高打点手"
+      ],
+      "correctIndex": 1,
+      "explanation": "愚形残りの鳴けない一向聴\n\n原則の文言を条件ごと覚える。「一向聴なら何でも押す」ではない。一方、講義では大きなラス目・牌の危険度・ルール差を含めて、原則から押し返しを検討する場合も扱っている。\n\n条件・例外：この授業の極端な点数状況を、平場の原則と混同しない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1860s\n\nセオリー集（随時更新）・立直対応②\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 3,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-5ce2bb86775a3218a09e",
+      "theoryId": "",
+      "type": "choice",
+      "question": "下家の立直を受けた二向聴。現物の1p→4pを切っても二向聴を維持できる。講師がこの進め方を評価した理由は？",
+      "choices": [
+        "向聴数が同じなら、その後の和了率も必ず同じだから",
+        "下家の現物なら必ず全員に安全だから",
+        "危険牌を押さず、手の進行の余地も残せるから",
+        "一度現物を切れば、その後どんな牌を引いてもオリ切れるから"
+      ],
+      "correctIndex": 2,
+      "explanation": "危険牌を押さず、手の進行の余地も残せるから\n\n向聴数が同じなら、まず安全な経路を使う価値がある。二向聴の最大受け入れだけを追って、立直へ危険牌を押す必要があるかを見直す。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=194s\n\nセオリー集（随時更新）・立直対応・二向聴の対応\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 4,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-2f1540041f5d79939ee3",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "4pが4枚すべて見えている。2p・3pについて、まず否定できるのは［　］待ちへの放銃。",
+      "choices": [
+        "カンチャン",
+        "シャンポン",
+        "すべての",
+        "両面"
+      ],
+      "correctIndex": 3,
+      "explanation": "両面\n\n2pの両面待ちには34p、3pの両面待ちには45pが必要で、いずれも相手の手の内の4pを使う。4pの壁は両面を否定するが、カンチャンなどまで自動的に消すものではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=194s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 5,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-df7d9d6b00cdaf966da2",
+      "theoryId": "",
+      "type": "choice",
+      "question": "東4局、下家立直への安全度比較。4pの4枚見えと、下家の早い1p切りを組み合わせ、講師が特に安全度を高く見た牌は？\n\n![東4局・下家立直。手牌と河を含む動画の画面。](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg)",
+      "choices": [
+        "2p・3p",
+        "8pだけ",
+        "南だけ",
+        "東だけ"
+      ],
+      "correctIndex": 0,
+      "explanation": "2p・3p\n\n壁で両面を否定し、早い1p切りから1p近辺の愚形も残りにくいと読む。この局面の講師による評価であり、2p・3pを無条件の現物として扱う問題ではない。\n\n条件・例外：早い切り順による読みは推測であり、100%の安全を保証しない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=194s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 6,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-53463ceb115f0c2a7cfb",
+      "theoryId": "",
+      "type": "choice",
+      "question": "「壁と早い切り順から、この牌はかなり安全そう」と読めた。扱いとして正しいのは？",
+      "choices": [
+        "以後は必ず現物として扱う",
+        "現物とは区別し、残り得る待ちを確認する",
+        "全員への放銃率が0になる",
+        "カンチャン・シャンポンを確認する必要はない"
+      ],
+      "correctIndex": 1,
+      "explanation": "現物とは区別し、残り得る待ちを確認する\n\n講義の安全度の表現は、その河からの評価。構造的に不可能な待ちと、出現しにくいと推測した待ちを分けることが、別局面への応用につながる。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=480s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 8,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-ec14c412c2ad0bc44bb6",
+      "theoryId": "",
+      "type": "choice",
+      "question": "4pが通っている立直者へ7pを切る。単騎などは別として、筋だけでは否定できないカンチャン・ペンチャン・シャンポンの組は？",
+      "choices": [
+        "カンチャン・シャンポンだけ",
+        "ペンチャン・シャンポンだけ",
+        "カンチャン・ペンチャン・シャンポン",
+        "シャンポンだけ"
+      ],
+      "correctIndex": 2,
+      "explanation": "カンチャン・ペンチャン・シャンポン\n\n4pが通ったことで否定できるのは、56pを使う47p両面。68pのカン7p、89pのペン7p、77pのシャンポンなどはそれだけでは否定できない。単騎などの特殊な形も別途残り得る。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1200s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 10,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-64b34905580be0dc1100",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "筋の1/9が筋の3/7より安全度を評価しやすい理由の一つは、1/9では［　］待ちが作れないこと。",
+      "choices": [
+        "シャンポン・単騎",
+        "国士無双",
+        "すべての",
+        "カンチャン・ペンチャン"
+      ],
+      "correctIndex": 3,
+      "explanation": "カンチャン・ペンチャン\n\n端牌はカンチャンの真ん中にも、ペンチャンの和了牌にもならない。だからといってシャンポン・単騎などまで消えるわけではない。筋の数牌を一括りにしない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1440s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 11,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-70f89a1aad71e09d1612",
+      "theoryId": "",
+      "type": "choice",
+      "question": "2sが通った立直者に対し、5sは片筋。まだ否定できない両面待ちはどれ？",
+      "choices": [
+        "58s",
+        "25s",
+        "25sと58sの両方",
+        "どちらの両面も残らない"
+      ],
+      "correctIndex": 0,
+      "explanation": "58s\n\n2sが通ったことで否定できるのは25s両面。67sを持つ58s両面は残る。片筋と両筋を取り違えない。カン5s・シャンポン5sなども別に考える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1380s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 12,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-ff9745fdbd660b9a03ec",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "「下家の現物」とは、下家への安全根拠であって、［　］とは限らない。",
+      "choices": [
+        "下家への守備に使える牌",
+        "対面・上家にも安全",
+        "下家に対して安全根拠がある牌",
+        "下家への放銃を避けられる牌"
+      ],
+      "correctIndex": 1,
+      "explanation": "対面・上家にも安全\n\n相手ごとに安全根拠を分ける。下家の現物である発を切るかは、対面への危険も見て比較するが、対面の仕掛けがあるというだけで一律に避けるものではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1117s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 13,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-def921800e47926c5c24",
+      "theoryId": "",
+      "type": "choice",
+      "question": "同じ東4局。対面は手を崩しているように見え、発は下家立直の現物。一方、7pは下家に対する筋にすぎない。講師が勧めた打牌は？",
+      "choices": [
+        "7pを切る",
+        "無筋の5pを切る",
+        "発を切る",
+        "対面が仕掛けているので発は絶対に切らない"
+      ],
+      "correctIndex": 2,
+      "explanation": "発を切る\n\n対面の仕掛けを怖がりすぎて、立直者にカンチャン・ペンチャン・シャンポンが残る7pを切るのは比較が逆になりやすい。画面のNAGA推奨も解説後に示し、答えの出た画像を問題面には置かない。\n\n![降り判断の検討場面](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/920e34b9-d8a5-42dc-a9b7-7c4d4a362ff6.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1164s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 15,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-ad6c75a075fd07db29fb",
+      "theoryId": "",
+      "type": "choice",
+      "question": "復習の優先度が最も高いのはどの不一致？",
+      "choices": [
+        "同じ程度に安全な現物同士の選択差",
+        "どちらもほぼ安全な牌の小さなバー差",
+        "根拠を確認せず、NAGAと違った全打牌を同じ重さで扱う",
+        "明確に安全な候補を見落とし、それより危険な牌を選んだ場面"
+      ],
+      "correctIndex": 3,
+      "explanation": "明確に安全な候補を見落とし、それより危険な牌を選んだ場面\n\n安全牌同士の細かな好みの違いと、危険度を大きく取り違えた打牌は分けて復習する。この授業では特にベタオリの比較が改善の中心になった。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1620s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 17,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-278588aab6e96ca3e98a",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "講義で説明されたNANAリーグのルールは［　］。段位戦前提のNAGA結果を見るときに、この違いを確認する。",
+      "choices": [
+        "飛び終了なし",
+        "持ち点0未満で飛び終了",
+        "持ち点0以下で飛び終了",
+        "親番だけ飛び終了なし"
+      ],
+      "correctIndex": 0,
+      "explanation": "飛び終了なし\n\n極端に持ち点が少ない局面では、飛び終了の有無が押し引きの評価に強く関わる。一般のルールを推測せず、この授業で説明された条件として扱う。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1820s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 18,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-ecb63469556b5e0e8b77",
+      "theoryId": "",
+      "type": "choice",
+      "question": "講義で各家の点数を調整し、桜紅さんを「飛び寸前ではないが、大きなラス目」の状態にした。調べたいことは？",
+      "choices": [
+        "実際の対局結果を書き換えること",
+        "飛び回避の影響と、ラス目で押す必要性を分けること",
+        "すべてのモデルの答えを必ず同じにすること",
+        "手牌の向聴数を点棒で変えること"
+      ],
+      "correctIndex": 1,
+      "explanation": "飛び回避の影響と、ラス目で押す必要性を分けること\n\n点数だけを変える仮想比較は、何が判断を変えているかを見るためのもの。仮想局面の推奨を、元の牌譜の確定解と混ぜない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=1980s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 20,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-e300d11a26796dd532a9",
+      "theoryId": "",
+      "type": "choice",
+      "question": "大きなラス目で、比較的通しやすい西を一度押した。次巡に危険度の高い数牌を引いたら？",
+      "choices": [
+        "一度押した以上、和了まで全押しする",
+        "どの数牌も西と同じ安全度になる",
+        "その牌と手の条件で再判断し、オリへ切り替えてよい",
+        "以後は向聴数を確認しない"
+      ],
+      "correctIndex": 2,
+      "explanation": "その牌と手の条件で再判断し、オリへ切り替えてよい\n\n押し引きは一度の宣言ではなく、毎巡の判断。西を押すことと、次の危険牌も押すことは別で、手の進行・打点・安全度を更新して考える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=2100s\n\nセオリー集（随時更新）・立直対応②・愚形残りの鳴けない一向聴\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 21,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-da3400651dee16606746",
+      "theoryId": "",
+      "type": "choice",
+      "question": "持ち点を平らにして検討すると、モデルによってオリ・回し打ち・押しに分かれた。教材化するときに適切なのは？",
+      "choices": [
+        "最初に表示されたモデルだけを絶対の正解にする",
+        "モデルが分かれたら点数条件を削除する",
+        "講師が理由を保留した7mと8pの差を、確定したセオリーとして暗記する",
+        "条件と各方針の違いを説明し、唯一解と断定しない"
+      ],
+      "correctIndex": 3,
+      "explanation": "条件と各方針の違いを説明し、唯一解と断定しない\n\n講師も候補間の細部を言い切っていない箇所がある。ここでは点数状況による方針の変化を学び、根拠のない一枚当てにしない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=2580s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 23,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-801811c87fbf17198291",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "ドラ対子がある手で、別の対子を落として良形を残しても、打点を上げるためにドラを［　］するルートが後から残る場合がある。",
+      "choices": [
+        "ポン",
+        "対子落とし",
+        "両面に固定",
+        "必ず暗槓"
+      ],
+      "correctIndex": 0,
+      "explanation": "ポン\n\n講義では7p対子を落としても、ドラ対子のポンや、その後の対子化による完全形への変化が残ることを説明した。「今ドラポン聴牌に固定しなければ、打点の道が消える」と考えない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=2820s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 25,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-1d7b21cc60edd1c6d5d1",
+      "theoryId": "",
+      "type": "choice",
+      "question": "講義で7pの対子を西の対子に置き換えた仮想比較を行った。両面を落としてシャンポンを残す評価が上がり得る理由は？",
+      "choices": [
+        "西は必ず4枚山に残っているから",
+        "シャンポン側の待ちの質が変わるから",
+        "字牌を含むと両面が禁止されるから",
+        "シャンポンの枚数は必ず両面の2倍だから"
+      ],
+      "correctIndex": 1,
+      "explanation": "シャンポン側の待ちの質が変わるから\n\n同じ「両面対シャンポン」でも、何の牌で待つかが違えば和了率は変わる。字牌なら常に正解という意味ではなく、比較する待ちを具体的に見るための例。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=3000s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 26,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-26bbbab6d365c7caf4cf",
+      "theoryId": "",
+      "type": "choice",
+      "question": "南2局の比較。8s切りならペン7sで5200、9s切りなら5m・8sのシャンポンで安目8000・高目12000。待ち枚数の差も小さいこの場面で、講師が勧めたのは？",
+      "choices": [
+        "8sを切る",
+        "点数は同じなのでどちらでもよい",
+        "9sを切る",
+        "必ず聴牌を崩す"
+      ],
+      "correctIndex": 2,
+      "explanation": "9sを切る\n\n9s切りで対々和を残すと打点が大きく上がる。講義では8sが1枚見えていて待ち枚数の差が1枚にとどまる点も比較した。これは画像だけの何切るではなく、待ち・打点の条件を明示した局面確認問題。\n\n補足（推論）：打牌前の14枚画像ではないため、比較条件を問題文に明記した。\n\n![対々和の手組を振り返る](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/74a0142a-a3da-4f53-860e-8b2e6e3ad934.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=3150s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 27,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-6ac898f21f892cddbc7f",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "この南2局で、9s切りの5m・8sシャンポンを高く評価する際、見落としてはいけない役は［　］。",
+      "choices": [
+        "平和",
+        "一気通貫",
+        "三色同順",
+        "対々和"
+      ],
+      "correctIndex": 3,
+      "explanation": "対々和\n\n待ちの名前だけを見ると、ペンチャンとシャンポンの比較に見える。しかし対々和がつくかどうかで打点差が大きくなる。和了形全体を見て役を数える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=3180s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 28,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260824-af97c5985d7f7c67530e",
+      "theoryId": "",
+      "type": "choice",
+      "question": "副露の一つをチーに変えて対々和がなく、良形3900と高目満貫のシャンポンを比べる仮想例。先ほどの「9s切りで高打点を優先」をそのまま使ってよい？",
+      "choices": [
+        "使わない。対々和が消えた後の打点差と待ちの質を比較し直す",
+        "使う。対々和がなくても満貫なら常に和了率の差を上回る",
+        "使う。待ちの形が変わっても和了率は変わらない",
+        "使う。深いラス目では最終打点だけで優劣が決まる"
+      ],
+      "correctIndex": 0,
+      "explanation": "使わない。対々和が消えた後の打点差と待ちの質を比較し直す\n\n講義では、対々和がない比較なら良形3900を評価する例も示した。形を少し変えると、結論を支えていた打点の前提も変わる。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=cJ6zv4MH_IA&t=3360s",
+      "lessonIds": [
+        "lesson-20260824-nejimaki"
+      ],
+      "sortOrder": 29,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-be10484ad567875bef8a",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "ヘッドレス1型とヘッドレス2型を区別するとき、3面子に加えて確認するのは［　］。",
+      "choices": [
+        "ターツの数",
+        "連続形の有無だけ",
+        "ドラの枚数",
+        "手牌の色数"
+      ],
+      "correctIndex": 0,
+      "explanation": "ターツの数\n\n雀頭がない3面子型で、ターツが1つならヘッドレス1型、2つならヘッドレス2型。連続形は受け入れを探す手掛かりで、1型・2型の定義そのものではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=129s\n\n一向聴（基礎講義）・ヘッドレス1型・ヘッドレス2型の構成\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 1,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-736efebc304cf27ea34a",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "一向聴の基礎講義でいう「連続形」は、順子とターツがくっついた［　］枚形。",
+      "choices": [
+        "4",
+        "5",
+        "6",
+        "8"
+      ],
+      "correctIndex": 1,
+      "explanation": "5\n\nつながっている部分を何枚でも丸ごと連続形と呼んで、受け入れを一括してはいけない。順子とターツの5枚に分けて考える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=713s\n\n一向聴（基礎講義）・連続形の定義\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 2,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-35923d9297056ca61a3b",
+      "theoryId": "",
+      "type": "choice",
+      "question": "2面子型の一向聴。「この牌を引くと面子が1つ増える」ことは確認できた。受け入れに数える前に必要な確認は？",
+      "choices": [
+        "必ず両面待ちの聴牌になるか",
+        "増える面子が暗刻かどうかだけ",
+        "雀頭を残して聴牌できるか",
+        "手牌が見た目上5ブロックに分かれるかだけ"
+      ],
+      "correctIndex": 2,
+      "explanation": "雀頭を残して聴牌できるか\n\n面子が増えても、そのために唯一の雀頭が消え、聴牌を取れないなら受け入れではない。授業では並びシャンポンの例で、他の部分を雀頭にできるかが答えを変えていた。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=3664s\n\n一向聴（基礎講義）・2面子型の聴牌構成\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 4,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-8e54b255c7e2fb82449e",
+      "theoryId": "",
+      "type": "choice",
+      "question": "ヘッドレス1型の一部分が357m。他の部分からの受け入れは除き、このリャンカン部分で聴牌に進む牌の組は？",
+      "choices": [
+        "24m",
+        "46m",
+        "357m",
+        "3467m"
+      ],
+      "correctIndex": 3,
+      "explanation": "3467m\n\n4m・6mでターツが面子になる受け入れに加え、3m・7mの縦受けがある。3m・6mと4m・7mの両面2筋として整理できる。単に「リャンカンのカンチャンを埋める46mだけ」としない。\n\n補足（推論）：講義の部分形を、他部分と干渉しない条件付きの設問に整形。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=2029s\n\n一向聴（基礎講義）・ヘッドレス1型のリャンカン\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 6,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-748a9e45f94f10672d19",
+      "theoryId": "",
+      "type": "choice",
+      "question": "ヘッドレス1型の345679sは三面張スキップ形。この部分の受け入れを「三面張2筋」でまとめると？",
+      "choices": [
+        "258sと369s",
+        "147sと258s",
+        "369sだけ",
+        "123sと789s"
+      ],
+      "correctIndex": 0,
+      "explanation": "258sと369s\n\n基本のターツスキップに順子がつき、258sと369sの2筋になる。1つの分け方だけで受け入れを止めず、別の分解や筋が伸びる法則で見落としを確認する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=1180s\n\n一向聴（基礎講義）・三面張スキップ形\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 7,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-1f2605e321306e3b1d4b",
+      "theoryId": "",
+      "type": "choice",
+      "question": "画像上段の12344566pが、ヘッドレス2型の複合部分にある。この部分の受け入れとして正しい組は？\n\n![上段：12344566p／下段：23455677p。動画の牌姿をそのまま切り抜き。](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/8a99d69d-2506-4c8a-b0d5-3534a20c9611.jpg)",
+      "choices": [
+        "1234567p",
+        "134567p",
+        "34567p",
+        "123456789p"
+      ],
+      "correctIndex": 1,
+      "explanation": "134567p\n\n123pを抜くと44566pから34567p、456pを抜くと12346pから1456p。両方を合わせると134567pで、2pは入らない。見た目が連続していても、全部を選ばない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=779s\n\n一向聴（基礎講義）・複数の連続形の受け入れを合わせる\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 8,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-030b77b991eb836451ab",
+      "theoryId": "",
+      "type": "choice",
+      "question": "ヘッドレス2型の45566789p。456pを抜くと56789pから4〜9p、789pを抜くと45566pから3〜7pが受け入れになる。合わせた受け入れは？",
+      "choices": [
+        "4〜7p",
+        "4〜9p",
+        "3〜9p",
+        "3〜7p"
+      ],
+      "correctIndex": 2,
+      "explanation": "3〜9p\n\n片方だけを採用したり、共通部分だけを取ったりせず、どちらの分け方でも成立する受け入れをすべて合わせる。ここでは3pが見落としやすい。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=261s\n\n一向聴（基礎講義）・ヘッドレス2型・複数の連続形\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 10,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-b55b061b741b26217ae7",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "他の部分と干渉しない5sのくっつきは、5s自身を含む［　］が基本の受け入れ。",
+      "choices": [
+        "4〜6s",
+        "2〜8s",
+        "1〜9s",
+        "3〜7s"
+      ],
+      "correctIndex": 3,
+      "explanation": "3〜7s\n\n孤立牌の前後2つまでを見る。5sなら34567s。順子スキップなどの複合がある場合の追加と、単純なくっつきの基本範囲を分けて覚える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=7920s\n\n一向聴（基礎講義）・くっつき一向聴の受け入れ\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 11,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-e620c22ac271f6237bd0",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "くっつき一向聴で、孤立牌のくっつき以外に忘れてはいけないのは［　］の受け入れ。",
+      "choices": [
+        "雀頭を刻子にする",
+        "安全牌を増やす",
+        "オタ風を役牌にする",
+        "槓子を2つに分ける"
+      ],
+      "correctIndex": 0,
+      "explanation": "雀頭を刻子にする\n\n雀頭を刻子にすると、残った孤立牌側で待ちを作れる。授業では孤立牌のくっつき範囲に雀頭の縦受けを足すことで、その色の1〜9すべてが受け入れになる例を確認した。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=2219s\n\n一向聴（基礎講義）・くっつき・雀頭の刻子化\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 12,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-e71a8e01796ac56e02bb",
+      "theoryId": "",
+      "type": "choice",
+      "question": "くっつき一向聴の1123p。1pのくっつきを1〜3pだけと考えると、亜両面の働きで増える何を見落とす？",
+      "choices": [
+        "5p",
+        "4p",
+        "6p",
+        "9p"
+      ],
+      "correctIndex": 1,
+      "explanation": "4p\n\n1123pのくっつきは1〜4p。4pを引くと11pの対子を残して234pの順子を使える。通常の孤立1pと、順子が干渉した亜両面を区別する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=6540s\n\n一向聴（基礎講義）・亜両面のくっつき\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 14,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-14cc69f2083fa5db3133",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "筋が伸びる法則の基本：待ちから始まる［　］がくっつくと、その筋へ待ちが伸びる。",
+      "choices": [
+        "対子",
+        "字牌",
+        "順子",
+        "孤立牌"
+      ],
+      "correctIndex": 2,
+      "explanation": "順子\n\n例として5p待ちに567pの順子がつくと8pの待ちが増える。講義では両面・シャンポン・カンチャン・単騎で説明し、「単騎だけの法則」ではないことを確認している。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=6660s\n\n一向聴（基礎講義）・筋が伸びる法則\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 15,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-c7456bc71531b98568a7",
+      "theoryId": "",
+      "type": "choice",
+      "question": "他の3面子とは干渉しない4555pの部分を「1面子＋1雀頭」にしたい。この部分の和了牌は？",
+      "choices": [
+        "4pだけ",
+        "45p",
+        "456p",
+        "346p"
+      ],
+      "correctIndex": 3,
+      "explanation": "346p\n\n4pなら44p＋555p、3pなら345p＋55p、6pなら456p＋55p。単騎のそばの暗刻で待ちが増えるアンチョビ形。講義の「4p単騎に555pがある例」を、完成させる部分が明確になるよう整理した。\n\n補足（推論）：他の3面子はこの部分と干渉しない条件を明記。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=6900s\n\n一向聴（基礎講義）・□×・アンチョビ形\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 17,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-fd9e0d351cfc2552d4c8",
+      "theoryId": "",
+      "type": "choice",
+      "question": "2面子型の一向聴で、245567sを両面カンチャンと見て8sを受け入れに加えた。講義の修正として正しいのは？",
+      "choices": [
+        "2sは余剰牌で、この部分の受け入れは36s",
+        "8sだけが受け入れ",
+        "2368sが受け入れ",
+        "2sの縦受けだけを残す"
+      ],
+      "correctIndex": 0,
+      "explanation": "2sは余剰牌で、この部分の受け入れは36s\n\n245567sは45567sの36s受けに2sが加わった形。8sを引いても、この部分で必要な2面子を作れない。正しい両面カンチャン455679sと区別する。\n\n![余剰牌と受け入れ](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ab11c5c8-1d55-4ca4-bac1-2431ef992edd.jpg)\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=3799s\n\n一向聴（基礎講義）・余剰牌型と完全形\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 19,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-e2cc7a6413834d4e5d0a",
+      "theoryId": "",
+      "type": "choice",
+      "question": "受け入れを比較する形の整理問題。2455679sから2sか9sのどちらか1枚を切り、2面子を作る受け入れを広く残すなら？",
+      "choices": [
+        "9sを切る",
+        "2sを切る",
+        "どちらも受け入れは同じ",
+        "どちらを切っても8sは受け入れにならない"
+      ],
+      "correctIndex": 1,
+      "explanation": "2sを切る\n\n2sを切った455679sは36sにカン8s受けが加わる。9sを切った245567sは36sのみ。孤立2sと9sを単体の基本序列で比較せず、複合形で果たす役割を見る。\n\n補足（推論）：打点・安全度を問わず、講義の形の整理に限定した設問。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=3936s\n\n一向聴（基礎講義）・余剰牌と受け入れを増やす牌\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 20,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-32e98b06fcc93e56b4bb",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "「2面子＋孤立牌」の7枚形ドリルでは、何を引けば［　］が完成するかを答える。",
+      "choices": [
+        "1面子＋2雀頭",
+        "3面子",
+        "2面子＋1雀頭",
+        "1面子だけ"
+      ],
+      "correctIndex": 2,
+      "explanation": "2面子＋1雀頭\n\n6枚形で2面子を作る受け入れを探すことと、7枚形で2面子＋1雀頭を完成させることを区別する。「7枚形は例外なくヘッドレス1型だけ」とは出題しない。講義の2時間18分以降で、煙突形の分類について補足がある。\n\n条件・例外：煙突形は2面子型でも現れるという講義内の補足がある。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=519s\n\n一向聴（基礎講義）・□×から□×□へ・7枚形\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 21,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-64ef0c10d93d615d9061",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "基本序列では、孤立牌は順子に近づくほど強くなり、［　］に近づくほど弱くなる。",
+      "choices": [
+        "雀頭だけ",
+        "河",
+        "ドラ表示牌",
+        "ターツ"
+      ],
+      "correctIndex": 3,
+      "explanation": "ターツ\n\nターツと受け入れが被ると、その孤立牌を残す価値が下がる。順子の近くでは良い複合形への変化がある。個別の例外を覚える前に、何のそばなのかを確認する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=8818s\n\n【基本序列】・孤立牌と順子・ターツの距離\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 22,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-b67b6837b59c1ef09d96",
+      "theoryId": "",
+      "type": "choice",
+      "question": "基本序列で、次の「1m」のうち単独の孤立2mより強くなる形はどれ？ ドラ・手役・安全度の差は考えない。",
+      "choices": [
+        "1345mの1m",
+        "1678mの1m",
+        "1567mの1m",
+        "1456mの1m"
+      ],
+      "correctIndex": 0,
+      "explanation": "1345mの1m\n\n現行資料の弱い順は、孤立1＜1678の1＜1567の1＜1456の1＜孤立2＜1345の1＜1234の1。順子が近ければ何でも2を超えるのではなく、1345の1のような位置関係を区別する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=10204s\n\n【基本序列】・孤立1の比較序列\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 24,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-8ac8ea730fa1a178b252",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "一手先フォロー牌は、［　］種類以上の牌を引いたときにフォロー牌になることが条件。",
+      "choices": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctIndex": 1,
+      "explanation": "2\n\n1種類だけの変化を含めると、講義の14556の1まで同じ評価にしてしまう。資料の条件である「2種類以上」を落とさず覚える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=10397s\n\n【基本序列】・一手先フォロー牌の定義\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 25,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-ee20d5cbe07058785b8f",
+      "theoryId": "",
+      "type": "choice",
+      "question": "一手先フォロー牌の基本的な強さは、どの間？",
+      "choices": [
+        "孤立1/9より弱い",
+        "面子より強い",
+        "孤立2/8より強く、孤立3〜7より弱い",
+        "孤立役牌と孤立1/9の間"
+      ],
+      "correctIndex": 2,
+      "explanation": "孤立2/8より強く、孤立3〜7より弱い\n\n単に順子のそばで少し強くなった1/9と、一手先フォロー牌を同列にしない。フォロー牌への複数の変化が、評価を押し上げる。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=9691s\n\n【基本序列】・一手先フォロー牌の序列\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 26,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-b1f6bf8b2ea14686357c",
+      "theoryId": "",
+      "type": "choice",
+      "question": "14556mの1mは、3mを引くとフォロー牌になる。これだけで一手先フォロー牌として孤立2/8より上に置いてよい？",
+      "choices": [
+        "置く。1種類あれば条件を満たす",
+        "置く。中膨れのそばなら必ず条件を満たす",
+        "置かない。1/9は絶対に2/8を超えない",
+        "置かない。フォロー牌になるツモが1種類だけだから"
+      ],
+      "correctIndex": 3,
+      "explanation": "置かない。フォロー牌になるツモが1種類だけだから\n\n講義では、この1mは3mを引いた場合だけフォロー牌になるため、一手先フォロー牌から除外している。形の名前ではなく、何種類のツモで役割が変わるかを数える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=10397s\n\n【基本序列】・一手先フォロー牌の2種類以上という条件\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 27,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260822-bfb2a157f274275bff74",
+      "theoryId": "",
+      "type": "choice",
+      "question": "講義で147mの1mを、14mの1mよりさらに弱いとした説明は？",
+      "choices": [
+        "5m・6mを引いても14567mとなり、1mの受け入れの重なりが解消しにくいから",
+        "147mの1mは単独の孤立1mと同じ働きだから",
+        "数字の種類が多い形ほど、端牌は必ず弱くなるから",
+        "147mではターツまでの距離だけで、14mより弱いと判定できるから"
+      ],
+      "correctIndex": 0,
+      "explanation": "5m・6mを引いても14567mとなり、1mの受け入れの重なりが解消しにくいから\n\n14mに56mが加わる1456mでは、1mが順子のそばの牌として働く。一方、147mに56mが加わる14567mでは、1mはなお受け入れを増やしにくい。最弱クラスという名前だけでなく、その後の変化も比較する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=0NFphQRVaq8&t=9496s\n\n【基本序列】・受け入れの重複\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20260822-nejimaki"
+      ],
+      "sortOrder": 29,
+      "deleted": false,
+      "revision": 1
+    }
+  ],
+  "resources": [
+    {
+      "kind": "link",
+      "label": "授業の要約・6つのポイント",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/materials/august-2026/0828.html",
+      "id": "resource-20260828-5c766347a33679641a1e",
+      "lessonId": "lesson-20260828-nejimaki",
+      "sortOrder": 0
+    },
+    {
+      "kind": "image",
+      "label": "超愚形のリーチ判断",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/744e9292-b97e-4c01-a40a-9359bb55b049.jpg",
+      "id": "resource-20260828-381d6564720a7b17984d",
+      "lessonId": "lesson-20260828-nejimaki",
+      "sortOrder": 1
+    },
+    {
+      "kind": "image",
+      "label": "ブロックの比較・講師の整理",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/5fc4e2e7-7b07-4e69-92f7-6aa0de310c3a.jpg",
+      "id": "resource-20260828-639849aafee699617657",
+      "lessonId": "lesson-20260828-nejimaki",
+      "sortOrder": 2
+    },
+    {
+      "kind": "image",
+      "label": "鳴いた後の雀頭を確認",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/956a3b7d-ae93-4edd-9cc7-f17cd1cba1b9.jpg",
+      "id": "resource-20260828-d8d1ff457a770341d752",
+      "lessonId": "lesson-20260828-nejimaki",
+      "sortOrder": 3
+    },
+    {
+      "kind": "link",
+      "label": "一向聴（基礎講義）",
+      "url": "https://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "id": "resource-20260828-a224dd79e3480c94d91f",
+      "lessonId": "lesson-20260828-nejimaki",
+      "sortOrder": 4
+    },
+    {
+      "kind": "link",
+      "label": "セオリー集（随時更新）",
+      "url": "https://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "id": "resource-20260828-be80fb58761aef3ea6c5",
+      "lessonId": "lesson-20260828-nejimaki",
+      "sortOrder": 5
+    },
+    {
+      "kind": "link",
+      "label": "【基本序列】",
+      "url": "https://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "id": "resource-20260828-f3d9658f40109f02ce6a",
+      "lessonId": "lesson-20260828-nejimaki",
+      "sortOrder": 6
+    },
+    {
+      "kind": "link",
+      "label": "授業の要約・6つのポイント",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/materials/august-2026/0824.html",
+      "id": "resource-20260824-119a42a67cc07d9e5694",
+      "lessonId": "lesson-20260824-nejimaki",
+      "sortOrder": 0
+    },
+    {
+      "kind": "image",
+      "label": "カン判断の検討場面",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ef001478-98d3-44ed-aaf5-91be8a9e696d.jpg",
+      "id": "resource-20260824-442fdedab684c40ab4ff",
+      "lessonId": "lesson-20260824-nejimaki",
+      "sortOrder": 1
+    },
+    {
+      "kind": "image",
+      "label": "安全牌の持ち方",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/504d3228-10c5-4048-82f0-b7d9cd43849f.jpg",
+      "id": "resource-20260824-67b3ec3f7003b135dd9f",
+      "lessonId": "lesson-20260824-nejimaki",
+      "sortOrder": 2
+    },
+    {
+      "kind": "image",
+      "label": "降り判断の検討場面",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/920e34b9-d8a5-42dc-a9b7-7c4d4a362ff6.jpg",
+      "id": "resource-20260824-71e91cde44be3e48bdeb",
+      "lessonId": "lesson-20260824-nejimaki",
+      "sortOrder": 3
+    },
+    {
+      "kind": "image",
+      "label": "対々和の手組を振り返る",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/74a0142a-a3da-4f53-860e-8b2e6e3ad934.jpg",
+      "id": "resource-20260824-3c7085673ce7b27e32e0",
+      "lessonId": "lesson-20260824-nejimaki",
+      "sortOrder": 4
+    },
+    {
+      "kind": "link",
+      "label": "セオリー集（随時更新）",
+      "url": "https://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "id": "resource-20260824-be80fb58761aef3ea6c5",
+      "lessonId": "lesson-20260824-nejimaki",
+      "sortOrder": 5
+    },
+    {
+      "kind": "link",
+      "label": "授業の要約・6つのポイント",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/materials/august-2026/0822.html",
+      "id": "resource-20260822-8121f9e33b80e1333b42",
+      "lessonId": "lesson-20260822-nejimaki",
+      "sortOrder": 0
+    },
+    {
+      "kind": "image",
+      "label": "複合形の受け入れ比較",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/8a99d69d-2506-4c8a-b0d5-3534a20c9611.jpg",
+      "id": "resource-20260822-648957d774ef421eb35c",
+      "lessonId": "lesson-20260822-nejimaki",
+      "sortOrder": 1
+    },
+    {
+      "kind": "image",
+      "label": "余剰牌と受け入れ",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ab11c5c8-1d55-4ca4-bac1-2431ef992edd.jpg",
+      "id": "resource-20260822-7ecb7134d9fc2ecc7a6e",
+      "lessonId": "lesson-20260822-nejimaki",
+      "sortOrder": 2
+    },
+    {
+      "kind": "link",
+      "label": "一向聴（基礎講義）",
+      "url": "https://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "id": "resource-20260822-a224dd79e3480c94d91f",
+      "lessonId": "lesson-20260822-nejimaki",
+      "sortOrder": 3
+    },
+    {
+      "kind": "link",
+      "label": "【基本序列】",
+      "url": "https://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "id": "resource-20260822-f3d9658f40109f02ce6a",
+      "lessonId": "lesson-20260822-nejimaki",
+      "sortOrder": 4
+    }
+  ]
+}

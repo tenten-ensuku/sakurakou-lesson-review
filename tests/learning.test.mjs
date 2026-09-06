@@ -15,6 +15,10 @@ import {
 } from "../worker/learning-api.mjs";
 import { seedCatalog } from "../app/lib/catalog-seed.mjs";
 import { handleAdminApi } from "../worker/admin-api.mjs";
+import august from "../content/august-2026.json" with { type: "json" };
+import { ensureAugustLessons } from "../worker/august-lessons.mjs";
+import { isCheckAvailable } from "../app/lib/check-availability.mjs";
+import { buildQuestionIndex } from "../app/lib/study-index.mjs";
 function database() {
   const sql = new DatabaseSync(":memory:");
   const wrap = (query, values = []) => ({
@@ -41,7 +45,7 @@ function database() {
 }
 const secret = "ensuku-" + "a".repeat(64),
   other = "ensuku-" + "b".repeat(64);
-test("cold catalog initialization uses one batch, coalesces concurrent requests and preserves edits", async () => {
+test("cold catalog initialization uses bounded batches, coalesces concurrent requests and preserves edits", async () => {
   const db = database(),
     original = db.batch;
   let batches = 0;
@@ -54,14 +58,14 @@ test("cold catalog initialization uses one batch, coalesces concurrent requests 
     ensureLearning(db),
     ensureLearning(db),
   ]);
-  assert.equal(batches, 1);
+  assert.equal(batches, 2);
   const row = db.sql.prepare("SELECT id FROM theory_catalog LIMIT 1").get();
   db.sql
     .prepare("UPDATE theory_catalog SET data=? WHERE id=?")
     .run('{"title":"edited","deleted":true}', row.id);
   // A new binding simulates a new worker isolate/cold start against the same DB.
   await ensureLearning({ prepare: db.prepare, batch: db.batch });
-  assert.equal(batches, 2);
+  assert.equal(batches, 4);
   assert.equal(
     JSON.parse(
       db.sql.prepare("SELECT data FROM theory_catalog WHERE id=?").get(row.id)
@@ -80,7 +84,7 @@ test("failed catalog initialization can be retried", async () => {
   };
   await assert.rejects(ensureLearning(db), /offline/);
   await ensureLearning(db);
-  assert.equal(batches, 2);
+  assert.equal(batches, 3);
 });
 async function call(db, path, method = "GET", value, token = secret) {
   const response = await handleLearningApi(
@@ -445,9 +449,90 @@ test("deleting and restoring edited base cards and custom lessons preserves cont
     videoUrl: "",
   });
   await admin("/api/lessons/" + lesson.id, "DELETE");
-  assert.equal((await admin("/api/notebook")).lessons[0].deleted, true);
+  assert.equal((await admin("/api/notebook")).lessons.find((l) => l.id === lesson.id).deleted, true);
   await admin("/api/lessons/" + lesson.id + "/restore", "POST");
-  assert.equal((await admin("/api/notebook")).lessons[0].deleted, false);
+  assert.equal((await admin("/api/notebook")).lessons.find((l) => l.id === lesson.id).deleted, false);
+  db.sql.close();
+});
+
+test("August lessons stay separate with 30 questions each and the corrected 8/28 video", () => {
+  assert.deepEqual(august.lessons.map((l) => l.date), ["8/28", "8/24", "8/22"]);
+  assert.match(august.lessons[0].videoUrl, /IogKcSnPscE/);
+  const ids = [...august.cards, ...august.items, ...august.resources, ...august.lessons].map((x) => x.id);
+  assert.equal(new Set(ids).size, ids.length);
+  for (const l of august.lessons) {
+    assert.equal(l.teacher, "ねじまき鳥");
+    const flash = august.cards.filter((c) => c.lessonId === l.id && c.kind === "question");
+    const checks = august.items.filter((q) => q.lessonIds.includes(l.id));
+    assert.equal(flash.length + checks.length, 30);
+    assert.ok(checks.some((q) => q.type === "choice"));
+    assert.ok(checks.some((q) => q.type === "cloze"));
+    assert.deepEqual([...flash, ...checks].map((q) => q.sortOrder).sort((a,b) => a-b), Array.from({length:30}, (_,i) => i+1));
+    assert.equal(august.cards.filter((c) => c.lessonId === l.id && c.kind === "note").length, 1);
+    const resources = august.resources.filter((r) => r.lessonId === l.id);
+    assert.match(resources[0].label, /授業の要約/);
+    assert.ok(resources.some((r) => r.kind === "image"));
+    for (const r of resources) assert.match(r.url, /^https:\/\//);
+    const index = buildQuestionIndex([l], {[l.id]: flash.map((c) => ({...c, source:"custom"}))}, checks, []);
+    assert.equal(index.length, 30);
+    for (const q of checks) {
+      assert.equal(q.choices.length, 4);
+      assert.equal(new Set(q.choices).size, 4);
+      assert.ok(q.correctIndex >= 0 && q.correctIndex < 4);
+      assert.match(q.explanation, /https:\/\/www.youtube.com\/watch\?v=/);
+      if (q.type === "cloze") assert.equal((q.question.match(/［　］/g) ?? []).length, 1);
+    }
+  }
+});
+
+test("August import is idempotent and preserves lesson/card edits, tombstones and deleted resources", async () => {
+  const db = database();
+  const request = () => new Request("https://example.test/api/notebook");
+  const initial = await (await handleAdminApi(request(), { DB: db })).json();
+  assert.equal(initial.lessons.length, 3);
+  assert.equal(initial.cards.length, 31);
+  const l = august.lessons[0], c = august.cards[1], r = august.resources[0];
+  db.sql.prepare("UPDATE notebook_lessons SET title=?, deleted=1 WHERE lesson_id=?").run("edited title", l.id);
+  db.sql.prepare("UPDATE notebook_cards SET answer=?, deleted=1 WHERE card_id=?").run("edited answer", c.id);
+  db.sql.prepare("DELETE FROM lesson_resources WHERE resource_id=?").run(r.id);
+  await ensureAugustLessons({ prepare: db.prepare, batch: db.batch });
+  const again = await (await handleAdminApi(request(), { DB: db })).json();
+  assert.equal(again.lessons.length, initial.lessons.length);
+  assert.equal(again.cards.length, initial.cards.length);
+  assert.equal(again.lessons.find((x) => x.id === l.id).title, "edited title");
+  assert.equal(again.lessons.find((x) => x.id === l.id).deleted, true);
+  assert.equal(again.cards.find((x) => x.id === c.id).answer, "edited answer");
+  assert.equal(again.cards.find((x) => x.id === c.id).deleted, true);
+  assert.ok(!again.resources.some((x) => x.id === r.id));
+  db.sql.close();
+});
+
+test("standalone lesson checks can be edited, graded, reviewed and restored without inventing a theory", async () => {
+  const db = database(), q = {...august.items[0]};
+  let result = await call(db, "/api/catalog/items/" + q.id, "PUT", {...q, explanation: "編集済み解説"});
+  assert.equal(result.status, 200);
+  const read = () => JSON.parse(db.sql.prepare("SELECT data FROM review_checks WHERE id=?").get(q.id).data);
+  assert.equal(read().explanation, "編集済み解説");
+  assert.equal(read().revision, 2);
+  result = await call(db, "/api/catalog/items/" + q.id, "PUT", {...read(), lessonIds: []});
+  assert.equal(result.status, 400);
+  const catalog = {theories: [], items: [read()]};
+  const wrong = sanitizeEvent({id:"attempt1", type:"attempt", itemId:q.id, revision:2, sessionId:"session-test", choiceIndex:(q.correctIndex+1)%4, at:at(1)}, catalog, Date.parse(at(2)));
+  assert.equal(wrong.correct, false);
+  assert.deepEqual(wrong.theoryIds, []);
+  const state = progressFrom([wrong]);
+  assert.deepEqual(state.reviewIds, ["check:" + q.id]);
+  assert.deepEqual(state.theories, {});
+  assert.equal(isCheckAvailable(read(), []), true);
+  assert.equal(isCheckAvailable({...read(), theoryId:"missing"}, []), false);
+  for (const deleted of [true, false]) {
+    assert.equal((await call(db, "/api/catalog/items/" + q.id, "PUT", {...read(), deleted})).status, 200);
+    assert.equal(isCheckAvailable(read(), []), !deleted);
+  }
+  await call(db, "/api/catalog/items/" + q.id, "PUT", {...read(), deleted:true});
+  await ensureLearning({ prepare:db.prepare, batch:db.batch });
+  assert.equal(read().deleted, true);
+  assert.equal(read().explanation, "編集済み解説");
   db.sql.close();
 });
 

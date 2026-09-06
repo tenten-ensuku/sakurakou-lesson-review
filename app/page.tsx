@@ -41,6 +41,7 @@ import {
   questionNumber,
 } from "./lib/lesson.mjs";
 import { seedCatalog } from "./lib/catalog-seed.mjs";
+import { isCheckAvailable } from "./lib/check-availability.mjs";
 import { canRate } from "./lib/progress.mjs";
 import {
   buildQuestionIndex,
@@ -284,7 +285,7 @@ function NotebookHome() {
         (q) =>
           !q.deleted &&
           q.lessonIds.includes(lessonId) &&
-          visibleTheories.some((t) => t.id === q.theoryId),
+          isCheckAvailable(q, visibleTheories),
       )
       .sort(
         (a, b) =>
@@ -332,7 +333,7 @@ function NotebookHome() {
                 (q) =>
                   q.id === k &&
                   !q.deleted &&
-                  visibleTheories.some((t) => t.id === q.theoryId),
+                  isCheckAvailable(q, visibleTheories),
               ),
         ),
     )
@@ -421,7 +422,7 @@ function NotebookHome() {
             .filter(
               (q) =>
                 !q.deleted &&
-                visibleTheories.some((t) => t.id === q.theoryId) &&
+                isCheckAvailable(q, visibleTheories) &&
                 (theoryId
                   ? q.theoryId === theoryId
                   : q.lessonIds.includes(l.id)) &&
@@ -547,7 +548,7 @@ function NotebookHome() {
       revision: currentCheck.revision,
       choiceIndex: index,
       correct,
-      theoryIds: [currentCheck.theoryId],
+      theoryIds: currentCheck.theoryId ? [currentCheck.theoryId] : [],
     });
     updateRun({ ...run, picks: { ...run.picks, [currentCheck.id]: index } });
   };
@@ -1113,6 +1114,9 @@ function NotebookHome() {
                         <small>{l.teacher}</small>
                         <strong>{l.title}</strong>
                         <small className="lesson-status-line">
+                          {questions.length > 0 && checks.length > 0 && (
+                            <span>計{questions.length + checks.length}問</span>
+                          )}
                           {questions.length > 0 && (
                             <span>カード {questions.length}問</span>
                           )}
@@ -2072,6 +2076,30 @@ function NotebookHome() {
           <p className="muted">
             変更は全員に共有されます。削除した項目はここで復元できます。
           </p>
+          <label>
+            授業の確認問題（図鑑に未関連）
+            <select
+              value={editCheck && !editCheck.theoryId ? editCheck.id : ""}
+              onChange={(e) => {
+                setEditTheory(null);
+                setEditCheck(catalog.items.find((q) => q.id === e.target.value) ?? null);
+              }}
+            >
+              <option value="">問題を選択</option>
+              {catalog.items.filter((q) => !q.theoryId).map((q) => (
+                <option key={q.id} value={q.id}>
+                  {q.deleted ? "【削除済み】" : ""}
+                  {lessons.find((l) => q.lessonIds.includes(l.id))?.date}　{q.question.split("\n")[0]}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button onClick={() => {
+            setEditTheory(null);
+            setEditCheck({ id: "check-" + crypto.randomUUID(), theoryId: "", type: "choice", question: "", choices: ["", "", "", ""], correctIndex: 0, explanation: "", lessonIds: [lesson.id], sortOrder: 999, deleted: false, revision: 0 });
+          }}>
+            <Plus />授業に確認問題を追加
+          </button>
           <label>
             図鑑項目
             <select
