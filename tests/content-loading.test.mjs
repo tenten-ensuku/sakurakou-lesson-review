@@ -130,7 +130,7 @@ test("resources display actual names, safe service labels and clear actions with
   assert.equal(materialDetails({ url: "javascript:alert(1)" }), null);
   const component = readFileSync("app/LessonMaterials.tsx", "utf8");
   assert.match(component, /if \(!visible.length\) return null/);
-  assert.match(component, /visible.slice\(0, 2\)/);
-  assert.match(component, /visible.length > 2/);
+  assert.match(component, /isFeaturedMaterial\(r\)/);
+  assert.doesNotMatch(component, /すべての資料を見る/);
   assert.match(component, /href=\{resource.url\}/);
 });

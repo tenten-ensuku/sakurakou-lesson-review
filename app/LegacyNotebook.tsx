@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useConfirm } from "./ConfirmAction";
 import { linkLabel, tokenizeRichText } from "./lib/rich-text.mjs";
 import { tokenizeMahjongText } from "./lib/mahjong-tiles.mjs";
+import { orderMaterials } from "./lib/materials.mjs";
 import {
   APP_VERSION,
   BASE_CARDS,
@@ -303,9 +304,7 @@ export default function LegacyNotebook({
     [activeLesson.id, notebook],
   );
   const resourcesFor = (lessonId: string) =>
-    (notebook.resources ?? [])
-      .filter((resource) => resource.lessonId === lessonId)
-      .sort((a, b) => a.sortOrder - b.sortOrder);
+    orderMaterials((notebook.resources ?? []).filter((resource) => resource.lessonId === lessonId));
   const activeQuestions = activeCards.filter(
     (card) => card.kind === "question",
   );

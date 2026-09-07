@@ -12,7 +12,6 @@ import {
   Check as CheckIcon,
   PencilSimple,
   GearSix,
-  YoutubeLogo,
   Images,
   ListBullets,
   X,
@@ -26,7 +25,9 @@ import {
 import LegacyNotebook from "./LegacyNotebook";
 import ConfirmProvider, { useConfirm } from "./ConfirmAction";
 import RichContent from "./RichContent";
-import LessonMaterials, { MaterialLink } from "./LessonMaterials";
+import { MaterialLink } from "./LessonMaterials";
+import LessonEntry from "./LessonEntry";
+import { orderMaterials } from "./lib/materials.mjs";
 import {
   loadContentSnapshot,
   readContentSnapshot,
@@ -121,10 +122,11 @@ function NotebookHome() {
     "lessons" | "encyclopedia" | "review" | "settings"
   >("lessons");
   const [view, setView] = useState<
-    "main" | "session" | "result" | "list" | "editor" | "catalog-editor"
+    "main" | "lesson" | "session" | "result" | "list" | "editor" | "catalog-editor"
   >("main");
   useEffect(() => {
     window.scrollTo({ top: 0 });
+    if (view === "lesson") document.querySelector<HTMLElement>(".lesson-study-screen h2")?.focus({ preventScroll: true });
   }, [view, tab]);
   const [notebook, setNotebook] = useState<Notebook>(empty),
     [catalog, setCatalog] = useState<Catalog>(seedCatalog() as Catalog);
@@ -139,7 +141,6 @@ function NotebookHome() {
   const [activeLessonId, setActiveLessonId] = useState<string>(
       DEFAULT_LESSON.id,
     ),
-    [expanded, setExpanded] = useState(""),
     [resourceId, setResourceId] = useState("");
   const [selectedTheory, setSelectedTheory] = useState(""),
     [search, setSearch] = useState(""),
@@ -297,9 +298,7 @@ function NotebookHome() {
           )?.sortOrder ?? 100000 + b.sortOrder),
       );
   const resourcesFor = (id: string) =>
-    notebook.resources
-      .filter((r) => r.lessonId === id)
-      .sort((a, b) => a.sortOrder - b.sortOrder);
+    orderMaterials(notebook.resources.filter((r) => r.lessonId === id));
   const questionIndex = buildQuestionIndex(
     lessons,
     Object.fromEntries(lessons.map((l) => [l.id, cardsFor(l.id)])),
@@ -483,10 +482,10 @@ function NotebookHome() {
   };
   const startPrimary = () => {
     if (latestSession) resumeSession(latestSession);
-    else if (cardsFor(primaryLesson.id).length)
-      openSession(primaryLesson, "flash");
-    else if (itemsFor(primaryLesson.id).length)
-      openSession(primaryLesson, "check");
+    else if (cardsFor(primaryLesson.id).length || itemsFor(primaryLesson.id).length) {
+      setActiveLessonId(primaryLesson.id);
+      setView("lesson");
+    }
     else setResourceId(primaryLesson.id);
   };
   const advance = (delta = 1, ratings = run?.ratings) => {
@@ -709,21 +708,6 @@ function NotebookHome() {
         }}
       />
     </label>
-  );
-  const links = (l: Lesson) => (
-    <div className="lesson-links">
-      {l.videoUrl && (
-        <a
-          className="round-button youtube"
-          aria-label={l.title + "の授業動画をYouTubeで見る"}
-          href={l.videoUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <YoutubeLogo size={23} weight="fill" />
-        </a>
-      )}
-    </div>
   );
   const theoryRow = (t: Theory, i: number, progress = state) => (
     <button
@@ -1028,36 +1012,11 @@ function NotebookHome() {
                 !cardsFor(primaryLesson.id).length &&
                 !itemsFor(primaryLesson.id).length
                   ? "資料を読む"
-                  : "復習をつづける"}
+                  : latestSession ? "途中から再開する" : "問題を解く"}
               </strong>
               <CaretRight size={27} />
             </button>
           </section>
-          <div className="review-shortcuts">
-            <button
-              onClick={() => {
-                setTab("review");
-                setQuestionSearch("");
-                setQuestionLesson("");
-              }}
-            >
-              <ArrowClockwise size={23} />
-              <span>
-                解き直し <b>{reviewEntries.length}</b>問
-              </span>
-              <CaretRight />
-            </button>
-            <button
-              onClick={() => {
-                searchRef.current?.focus();
-                searchRef.current?.scrollIntoView({ block: "center" });
-              }}
-            >
-              <ListBullets size={23} />
-              <span>問題を探す</span>
-              <CaretRight />
-            </button>
-          </div>
           <label className="search-field question-search">
             授業・問題を検索
             <input
@@ -1102,133 +1061,48 @@ function NotebookHome() {
                 );
               const saved = savedSessions.find((s) => s.lessonId === l.id);
               return (
-                <article className="lesson-line" key={l.id}>
-                  <div className="lesson-line-top">
-                    <button
-                      className="lesson-toggle"
-                      aria-expanded={expanded === l.id}
-                      onClick={() => setExpanded(expanded === l.id ? "" : l.id)}
-                    >
-                      <span className="lesson-date-badge">{l.date}</span>
-                      <span>
-                        <small>{l.teacher}</small>
-                        <strong>{l.title}</strong>
-                        <small className="lesson-status-line">
-                          {questions.length > 0 && checks.length > 0 && (
-                            <span>計{questions.length + checks.length}問</span>
-                          )}
-                          {questions.length > 0 && (
-                            <span>カード {questions.length}問</span>
-                          )}
-                          {checks.length > 0 && (
-                            <span>確認 {checks.length}問</span>
-                          )}
-                          {!questions.length && !checks.length && (
-                            <span>資料・学習メモ</span>
-                          )}
-                          {saved && <span>途中あり</span>}
-                          {reviews.length > 0 && (
-                            <span>解き直し {reviews.length}問</span>
-                          )}
-                        </small>
-                      </span>
-                      <CaretRight
-                        className={expanded === l.id ? "turned" : ""}
-                      />
-                    </button>
-                    {links(l)}
-                  </div>
-                  <LessonMaterials
-                    resources={resourcesFor(l.id)}
-                    title={l.title}
-                    onOpen={() => setResourceId(l.id)}
-                  />
-                  {expanded === l.id && (
-                    <div className="lesson-expanded">
-                      <p>
-                        {questions.length}問
-                        {cards.length > questions.length
-                          ? "・説明カード " +
-                            (cards.length - questions.length) +
-                            "枚"
-                          : ""}
-                        {checks.length ? "・確認 " + checks.length + "問" : ""}
-                      </p>
-                      <div className="action-grid">
-                        {saved && (
-                          <button
-                            className="primary"
-                            onClick={() => resumeSession(saved)}
-                          >
-                            途中から再開
-                          </button>
-                        )}
-                        {cards.length > 0 && (
-                          <button onClick={() => openSession(l, "flash")}>
-                            カードで復習
-                          </button>
-                        )}
-                        {checks.length > 0 && (
-                          <button onClick={() => openSession(l, "check")}>
-                            四択・穴埋め
-                          </button>
-                        )}
-                        {!cards.length && !checks.length && (
-                          <button
-                            className="primary"
-                            onClick={() => setResourceId(l.id)}
-                          >
-                            資料を読む
-                          </button>
-                        )}
-                        {reviews.length > 0 && (
-                          <>
-                            <button
-                              onClick={() =>
-                                openSession(
-                                  l,
-                                  cards.some((c) =>
-                                    state.reviewIds.includes(keyFor(l.id, c)),
-                                  )
-                                    ? "flash"
-                                    : "check",
-                                  true,
-                                )
-                              }
-                            >
-                              解き直し {reviews.length}件
-                            </button>
-                            {cards.some((c) =>
-                              state.reviewIds.includes(keyFor(l.id, c)),
-                            ) &&
-                              checks.some((q) =>
-                                state.reviewIds.includes("check:" + q.id),
-                              ) && (
-                                <button
-                                  onClick={() => openSession(l, "check", true)}
-                                >
-                                  確認問題の解き直し
-                                </button>
-                              )}
-                          </>
-                        )}
-                        <button
-                          onClick={() => {
-                            setActiveLessonId(l.id);
-                            setView("list");
-                          }}
-                        >
-                          <ListBullets />
-                          問題一覧
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </article>
+                <LessonEntry key={l.id} lesson={l}
+                  questionCount={questions.length + checks.length}
+                  noteCount={cards.length - questions.length}
+                  reviewCount={reviews.length} hasSaved={Boolean(saved)}
+                  resources={resourcesFor(l.id)}
+                  onStudy={() => { setActiveLessonId(l.id); setView("lesson"); }}
+                  onResources={() => setResourceId(l.id)}
+                />
               );
             })}
           </section>
         </>
+      )}
+      {view === "lesson" && (
+        <section className="lesson-study-screen" aria-label="問題を解く">
+          <button className="plain-button" onClick={closeToMenu}><ArrowLeft />授業一覧に戻る</button>
+          <header className="study-menu-heading">
+            <p>{lesson.date}　{lesson.teacher}</p>
+            <h2 tabIndex={-1}>{lesson.title}</h2>
+          </header>
+          <h3>問題を解く</h3>
+          <div className="study-start-options">
+            {savedSessions.filter((s) => s.lessonId === lesson.id).slice(0, 1).map((s) => (
+              <button className="primary" key={s.id} onClick={() => resumeSession(s)}>
+                <ArrowClockwise /><span><strong>途中から再開する</strong><small>{s.mode === "flash" ? "フラッシュカード" : "四択・穴埋め"}　{s.index + 1} / {s.keys.length}</small></span><CaretRight />
+              </button>
+            ))}
+            {lessonCards.length > 0 && <button onClick={() => openSession(lesson, "flash")}>
+              <BookOpen /><span><strong>{lessonCards.some((c) => c.kind === "question") ? "フラッシュカードを始める" : "学習メモを読む"}</strong>
+                <small>{lessonCards.filter((c) => c.kind === "question").length}問{lessonCards.some((c) => c.kind !== "question") ? `・学習メモ ${lessonCards.filter((c) => c.kind !== "question").length}枚` : ""} · 答えをめくって確認</small>
+              </span><CaretRight />
+            </button>}
+            {lessonItems.length > 0 && <button onClick={() => openSession(lesson, "check")}>
+              <CheckIcon /><span><strong>四択・穴埋めを始める</strong><small>{lessonItems.length}問 · 選んで答える</small></span><CaretRight />
+            </button>}
+          </div>
+          <div className="study-secondary-actions">
+            <button onClick={() => setView("list")}><ListBullets />問題・解説を一覧で読む</button>
+            {lessonCards.some((c) => state.reviewIds.includes(keyFor(lesson.id, c))) && <button onClick={() => openSession(lesson, "flash", true)}><ArrowClockwise />カードの解き直し</button>}
+            {lessonItems.some((q) => state.reviewIds.includes("check:" + q.id)) && <button onClick={() => openSession(lesson, "check", true)}><ArrowClockwise />四択・穴埋めの解き直し</button>}
+          </div>
+        </section>
       )}
       {view === "main" && tab === "encyclopedia" && (
         <section className="encyclopedia">
@@ -1350,7 +1224,7 @@ function NotebookHome() {
                     key={l.id}
                     onClick={() => {
                       setTab("lessons");
-                      setExpanded(l.id);
+                      setView("lesson");
                       setActiveLessonId(l.id);
                       setSelectedTheory("");
                     }}
@@ -1882,7 +1756,8 @@ function NotebookHome() {
             </h2>
           </div>
           <div className="action-grid">
-            {run && !run.completed && (
+            <button onClick={() => setView("lesson")}><BookOpen />問題を解く</button>
+            {run && run.lessonId === lesson.id && !run.completed && (
               <button className="primary" onClick={() => setView("session")}>
                 学習へ戻る
               </button>
@@ -1897,13 +1772,10 @@ function NotebookHome() {
               ノートを編集
             </button>
           </div>
-          <h3>
-            フラッシュカード{" "}
-            {lessonCards.filter((c) => c.kind === "question").length}問
-          </h3>
-          <p className="muted">
-            ドラッグ、または上下ボタンで順番を変えられます。
-          </p>
+          {lessonCards.length > 0 && <>
+            <h3>フラッシュカード {lessonCards.filter((c) => c.kind === "question").length}問</h3>
+            <p className="muted">ドラッグ、または上下ボタンで順番を変えられます。</p>
+          </>}
           {lessonCards.map((c, i) => {
             const key = keyFor(lesson.id, c);
             return (
@@ -1987,7 +1859,7 @@ function NotebookHome() {
               </details>
             );
           })}
-          <h3>確認問題 {lessonItems.length}問</h3>
+          {lessonItems.length > 0 && <h3>確認問題 {lessonItems.length}問</h3>}
           {lessonItems.map((q, i) => (
             <details
               className="list-card"
@@ -2523,7 +2395,7 @@ function NotebookHome() {
               </button>
             </div>
             <p className="materials-lesson-title">
-              {lessons.find((l) => l.id === resourceId)?.title}
+              {lessons.find((l) => l.id === resourceId)?.date}　{lessons.find((l) => l.id === resourceId)?.teacher}　{lessons.find((l) => l.id === resourceId)?.title}
             </p>
             {resourcesFor(resourceId).length ? (
               resourcesFor(resourceId).map((r) => (

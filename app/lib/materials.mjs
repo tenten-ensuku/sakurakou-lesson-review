@@ -1,3 +1,16 @@
+import featured from "../../content/featured-materials.json" with { type: "json" };
+
+export function isFeaturedMaterial(resource) {
+  return featured.some((f) => f.lessonId === resource.lessonId && f.resourceId === resource.id);
+}
+
+// Editorial priority changes presentation only: IDs, stored order, URLs and edits stay intact.
+export function orderMaterials(resources) {
+  return [...resources].sort((a, b) =>
+    Number(isFeaturedMaterial(b)) - Number(isFeaturedMaterial(a)) || a.sortOrder - b.sortOrder,
+  );
+}
+
 export function materialDetails(resource) {
   let url;
   try {
