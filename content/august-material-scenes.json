@@ -1,0 +1,26 @@
+{
+  "0828": [
+    {"summary":0,"scenes":[{"file":"0828/00-07-37-ranking.jpg","at":457.08,"caption":"東2局6巡目：4連形・ドラとペンチャンを比較","sentences":[1,2]}],"supplement":[0]},
+    {"summary":1,"scenes":[{"file":"0828/00-01-47-super-weak.jpg","at":107.64,"caption":"東1局：残り2枚のカン8m待ちを検討","sentences":[0,1]},{"file":"board-frames/0828-1185.jpg","at":1185.174739,"caption":"南3局6巡目：役あり6400点の白単騎","sentences":[2]}]},
+    {"summary":2,"scenes":[{"file":"board-frames/0828-0255.jpg","at":255.716532,"caption":"東1局4巡目：6sのくっつきと、対面の染め手の気配","sentences":[0,1,2]}]},
+    {"summary":3,"scenes":[{"file":"0828/00-09-38-headless.jpg","at":578.10,"caption":"南2局：中の暗刻がある手で、雀頭を消す2sチーを比較","sentences":[0,1]},{"file":"board-frames/0828-0720-shape.jpg","at":720.321105,"caption":"講師の比較図：両方カンチャンの24m・24pを残す形","sentences":[2]},{"file":"board-frames/0828-0825-shape.jpg","at":826.567277,"caption":"講師の比較図：両面の23m・23pを残す形","sentences":[3]}]},
+    {"summary":4,"scenes":[{"file":"board-frames/0828-0895.jpg","at":895.207564,"caption":"南3局16巡目：6mツモ後、安全な牌で聴牌を維持できるか","sentences":[0,1]},{"file":"board-frames/0828-1390.jpg","at":1391.337726,"caption":"南4局9巡目：白と6pの安全度を河から比較","sentences":[2,3]}]},
+    {"summary":5,"scenes":[{"file":"board-frames/0828-1835.jpg","at":1835.346983,"caption":"南4局1巡目：上下の点差と、混一色への渡りを確認","sentences":[0,1]},{"file":"board-frames/0828-1870.jpg","at":1870.142167,"caption":"南4局5巡目：副露した6ブロックの手を整理","sentences":[2,3,4]}]}
+  ],
+  "0824": [
+    {"summary":0,"scenes":[{"file":"0824/00-01-23-kan.jpg","at":83.35,"caption":"東3局：先制両面聴牌でカンを比較する場面","sentences":[0,1,2]}]},
+    {"summary":1,"scenes":[{"file":"0824/00-03-24-safety.jpg","at":204.04,"caption":"東4局：4pの壁と、下家の早い1p切りを確認","sentences":[0,1,2]}]},
+    {"summary":2,"scenes":[{"file":"0824/00-19-24-fold.jpg","at":1164.13,"caption":"東4局：対面の河と下家への安全度を検討した画面","sentences":[0,1,2]}]},
+    {"summary":3,"scenes":[{"file":"board-frames/0824-1845.jpg","at":1846.440172,"caption":"南1局10巡目：1600点持ちで親の立直を受けた元の局面","sentences":[0,1,2]}]},
+    {"summary":4,"scenes":[],"supplement":[0,1]},
+    {"summary":5,"scenes":[{"file":"board-frames/0824-2790.jpg","at":2799.365884,"caption":"南2局8巡目：3900の両面と、高打点の待ちを比較","sentences":[0]},{"file":"0824/00-53-04-toitoi.jpg","at":3184.14,"caption":"別の南2局：対々和の比較（画像は8sを切った後の検討画面）","sentences":[1,2]}]}
+  ],
+  "0822": [
+    {"summary":1,"scenes":[{"file":"0822/00-15-19-combined.jpg","at":919.24,"caption":"講師の比較図：上段12344566p、下段23455677p","sentences":[0,1,2,3]}]},
+    {"summary":2,"scenes":[{"file":"0822/01-06-02-surplus.jpg","at":3962.77,"caption":"講師の比較図：余剰牌と、受け入れを増やす牌の働き","sentences":[0,1,2]}]},
+    {"summary":0,"scenes":[],"supplement":[0,1,2]},
+    {"summary":3,"scenes":[],"supplement":[0,1,2]},
+    {"summary":4,"scenes":[],"supplement":[0,1,2,3]},
+    {"summary":5,"scenes":[],"supplement":[0,1]}
+  ]
+}

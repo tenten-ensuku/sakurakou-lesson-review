@@ -4,8 +4,8 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { createHash } from "node:crypto";
-import { tokenizeMahjongText } from "../app/lib/mahjong-tiles.mjs";
 import { augmentAugustBoardImages } from "./augment-august-board-images.mjs";
+import { renderAugustMaterials } from "./render-august-materials.mjs";
 
 const root = resolve(process.argv[2] ?? "");
 if (!process.argv[2]) throw new Error("A reviewed draft directory is required");
@@ -49,9 +49,6 @@ const image = (path, caption) => {
 };
 const hash = (id) => createHash("sha256").update(id).digest("hex").slice(0, 20);
 const seconds = (at) => at.split(":").reduce((a, n) => a * 60 + Number(n), 0);
-const esc = (text) => String(text).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-const rich = (text) => tokenizeMahjongText(text).map((t) => t.type === "text" ? esc(t.value) :
-  `<span class="tiles">${t.digits.map((n) => `<img src="../../tiles/${({ m:"man", p:"pin", s:"sou", ji:"ji" })[t.suit]}${n}-66-90-l.png" alt="${esc(t.source ?? "麻雀牌")}" width="66" height="90">`).join("")}</span>`).join("");
 const output = { lessons: [], cards: [], items: [], resources: [] };
 const provenance = { sourcePackage: "reviewed-video-drafts", sourceMethod: evidence.method, canonicalDocuments: evidence.canonicalDocuments, lessons: [], images: uploads };
 const materialDir = resolve("public/materials/august-2026");
@@ -99,8 +96,6 @@ for (const l of source.lessons) {
     ...[...refs.values()].map((r) => ({ kind: "link", label: r.title, url: r.url })),
   ];
   resources.forEach((r, i) => output.resources.push({ ...r, id: `resource-${compact}-${hash(r.url)}`, lessonId, sortOrder: i }));
-  const html = `<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>${esc(date + " ねじまき鳥先生｜" + l.title)}</title><link rel="stylesheet" href="summary.css"></head><body><main><header><a class="back" href="${origin}/">授業ノートへ</a><p>${esc(date)}　ねじまき鳥先生</p><h1>${esc(l.title)}</h1><a class="video" href="${videoUrl}" target="_blank" rel="noreferrer">YouTubeで授業を見る</a></header><h2>授業の要約</h2>${l.summary.map((s, i) => `<section><h3>${i + 1}. ${esc(s.title)}</h3><p>${rich(s.text)}</p><a class="source" href="${videoUrl}&t=${seconds(s.at)}s" target="_blank" rel="noreferrer">${esc(s.at)}の場面を見る</a></section>`).join("")}<h2>場面画像</h2><p class="muted">解説や検討後の画像を含みます。先に問題を解きたいときは、授業ノートから始めてください。</p>${lessonImages.map(([path, label]) => `<figure><a href="${uploads[path].url}" target="_blank" rel="noreferrer"><img src="${uploads[path].url}" alt="${esc(label)}" loading="lazy"></a><figcaption>${esc(label)}（画像を押すと拡大）</figcaption></figure>`).join("")}<h2>照合した資料</h2><nav>${[...refs.values()].map((r) => `<a class="source" href="${esc(r.url)}" target="_blank" rel="noreferrer">${esc(r.title)}</a>`).join("")}</nav><footer><p>講義の復習用要約です。個々の判断では、問題に書かれた条件と該当場面もあわせて確認してください。</p><a class="back" href="${origin}/">授業ノートへ戻る</a></footer></main></body></html>\n`;
-  await writeFile(join(materialDir, day + ".html"), html);
   provenance.lessons.push({ id: lessonId, sourceDate: l.date, videoUrl, title: l.title, questions: mapping });
 }
 await mkdir(resolve("content"), { recursive: true });
@@ -108,3 +103,4 @@ await writeFile(resolve("content/august-2026.json"), JSON.stringify(output, null
 await writeFile(resolve("docs/august-2026-provenance.json"), JSON.stringify(provenance, null, 2) + "\n");
 console.log(JSON.stringify({ lessons: output.lessons.length, flashcards: output.cards.filter((c) => c.kind === "question").length, checks: output.items.length, summaries: 3, images: selectedImages.size }));
 await augmentAugustBoardImages(root, process.argv.includes("--upload-images"));
+await renderAugustMaterials();

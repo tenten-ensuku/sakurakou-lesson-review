@@ -3,6 +3,8 @@ import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import august from "../content/august-2026.json" with { type: "json" };
 import provenance from "../docs/august-2026-provenance.json" with { type: "json" };
+import scenePlan from "../content/august-material-scenes.json" with { type: "json" };
+import { APP_VERSION } from "../app/lib/lesson.mjs";
 
 const origin = process.argv[2] || "http://localhost:3000";
 async function get(path) {
@@ -32,9 +34,19 @@ for (const expected of august.lessons) {
   assert.match(summary.headers.get("content-type"), /text\/html/);
   const html = await summary.text();
   assert.ok(html.includes(expected.title));
-  assert.equal((html.match(/<section>/g) ?? []).length, 6);
+  assert.equal((html.match(/<section\b/g) ?? []).length, 6);
+  const day = expected.id.match(/lesson-2026(\d{4})-/)[1];
+  const scenes = scenePlan[day].flatMap((g) => g.scenes);
+  const renderedScenes = [...html.matchAll(/<article class="scene"[^>]*>([\s\S]*?)<\/article>/g)];
+  assert.equal(renderedScenes.length, scenes.length);
+  renderedScenes.forEach(([, article], i) => {
+    assert.ok(article.indexOf("<figure>") < article.indexOf('class="scene-explanation"'));
+    assert.ok(article.includes(provenance.images[scenes[i].file].url));
+    assert.ok(article.includes(`&amp;t=${Math.floor(scenes[i].at)}s`));
+  });
+  assert.ok(html.includes(`data-app-version="${APP_VERSION}"`));
   assert.ok(!html.includes("headless-full"));
-  verified.push({date:l.date, teacher:l.teacher, questions:30, summarySections:6});
+  verified.push({date:l.date, teacher:l.teacher, questions:30, summarySections:6, pairedScenes:scenes.length});
 }
 await Promise.all(Object.values(provenance.images).map(async ({url, sha256}) => {
   const r = await get(url);
