@@ -2,9 +2,10 @@
 
 授業・解き直しを行き来できる、スマホ優先の授業ノートです。育成・着せ替え・星・ランク演出は使わず、復習する内容の探しやすさを優先します。
 
-- 公開画面: https://tenten-ensuku.github.io/sakurakou-lesson-review/
+- Cloudflare公開画面: https://sakurakou-lesson-review.pages.dev/
+- 既存公開画面: https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/ と https://tenten-ensuku.github.io/sakurakou-lesson-review/
 - このリポジトリは桜紅さん専用です。瀬利さりなさん版とは別の教材・DBです。
-- 表示版と内部版は `app/lib/lesson.mjs` の `APP_VERSION`（ver26）に統一しています。
+- 表示版と内部版は `app/lib/lesson.mjs` の `APP_VERSION`（ver27）に統一しています。
 - 授業一覧は教材・確認問題の取得完了後にまとめて表示し、再訪時は保存済みの一覧を即時表示します。通信失敗時も完全なキャッシュを維持します。
 - 授業ごとに「問題を解く」「資料を見る」を表示し、8/18のおすすめ教材は一覧上でも直接開けます。
 
@@ -44,3 +45,12 @@ npm run build:pages
 バックエンドの対象は `.openai/hosting.json` の既存project_idです。バックエンド更新後、GitHubの `main` にソース、`gh-pages` に検証済みの `out/` を公開します。バックエンド更新なしでPagesだけを公開しないでください。
 
 引継ぎコードやサービスの認証情報はコミットしないでください。保護範囲は `docs/personal-records.md`、教材照合記録は `docs/canonical-review.md` を参照してください。
+
+## Cloudflare Pages
+
+- Direct Uploadプロジェクト名は `sakurakou-lesson-review`、本番ブランチは `main` です。別の教材用Pagesプロジェクトへ上書きしないでください。
+- `npm run build:cloudflare` はルートパス用の静的ファイルを `out/` に生成します。`npm run deploy:cloudflare` で再ビルドして公開します。GitHub Pages用の出力はサブパスが異なるので流用しません。
+- 教材編集・画像・個人記録のAPIは既存Sitesを共用します。DB/R2の移行ではありません。既存Sitesを停止するとCloudflare側でも同期や編集が使えなくなります。
+- APIの許可元は本番の `https://sakurakou-lesson-review.pages.dev` のみ追加しています。Cloudflareの一時プレビューURLではAPI接続を許可しません。
+- URLごとにブラウザ保存領域は独立します。個人記録を移す場合、旧URLの設定で引継ぎコードを確認し、新URLの設定から復元してください。コードを他人へ共有しないでください。
+- リリース順は、検証とソース公開 → Sitesバックエンド更新 → GitHub Pages用ビルドと公開 → Cloudflare Pages用ビルドと公開です。2種類の静的ビルドは同じ `out/` を使うため、並列実行しないでください。

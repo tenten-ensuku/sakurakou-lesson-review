@@ -4,6 +4,7 @@
 
 - このリポジトリは `tenten-ensuku/sakurakou-lesson-review`。瀬利さりなさん版は変更しない。
 - 主な公開先は https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/ 。既存の https://tenten-ensuku.github.io/sakurakou-lesson-review/ も維持する。
+- ユーザーの依頼により、Cloudflare Pagesの https://sakurakou-lesson-review.pages.dev/ も公開先に追加。プロジェクト名は `sakurakou-lesson-review`。教材・画像・個人記録のAPIは既存Sitesを共用する。修正時は3つの公開先を維持する。
 
 ## 修正後の公開方針
 

@@ -25,6 +25,7 @@ function trustedOrigin(origin) {
     !origin ||
     /^https:\/\/[a-z0-9-]+\.kobotenmitsu\.chatgpt\.site$/i.test(origin) ||
     origin === "https://tenten-ensuku.github.io" ||
+    origin === "https://sakurakou-lesson-review.pages.dev" ||
     /^http:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/i.test(origin)
   );
 }

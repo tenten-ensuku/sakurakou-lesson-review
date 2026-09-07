@@ -15,6 +15,7 @@ export async function hashSecret(secret) {
 const origins = (o) =>
   !o ||
   o === "https://tenten-ensuku.github.io" ||
+  o === "https://sakurakou-lesson-review.pages.dev" ||
   /^http:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/.test(o) ||
   /^https:\/\/[a-z0-9-]+\.kobotenmitsu\.chatgpt\.site$/.test(o);
 function response(req, data, status = 200) {
