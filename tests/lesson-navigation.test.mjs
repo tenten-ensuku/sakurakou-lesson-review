@@ -4,6 +4,14 @@ import { readFileSync } from "node:fs";
 import { orderMaterials, isFeaturedMaterial } from "../app/lib/materials.mjs";
 import highlights from "../content/featured-materials.json" with { type: "json" };
 
+test("lesson list has its own named heading band and a data-driven count", () => {
+  const page = readFileSync("app/page.tsx", "utf8");
+  const css = readFileSync("app/notebook.css", "utf8");
+  assert.match(page, /<section className="lesson-section" aria-labelledby="lesson-list-title">/);
+  assert.match(page, /<header className="section-title lesson-list-heading">[\s\S]*?<h2 id="lesson-list-title">授業一覧<\/h2>[\s\S]*?<span>\{lessons.length\}授業<\/span>/);
+  assert.match(css, /\.notebook \.lesson-list-heading\s*\{[^}]*background: #e1eee5;/);
+});
+
 test("lesson boundaries use a stronger rule than the inner status dividers", () => {
   const css = readFileSync("app/notebook.css", "utf8");
   assert.match(css, /\.lesson-line\s*\{\s*border-bottom: 4px solid #8eac9c;/);

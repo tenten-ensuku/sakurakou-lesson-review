@@ -973,12 +973,12 @@ function NotebookHome() {
               )}
             </section>
           )}
-          <section className="lesson-section">
-            <div className="section-title">
-              <CalendarDots size={26} />
-              <h2>授業一覧</h2>
+          <section className="lesson-section" aria-labelledby="lesson-list-title">
+            <header className="section-title lesson-list-heading">
+              <CalendarDots size={28} aria-hidden="true" />
+              <h2 id="lesson-list-title">授業一覧</h2>
               <span>{lessons.length}授業</span>
-            </div>
+            </header>
             {lessons.map((l) => {
               const cards = cardsFor(l.id),
                 questions = cards.filter((c) => c.kind === "question"),

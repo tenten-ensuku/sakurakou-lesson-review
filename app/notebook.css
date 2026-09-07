@@ -450,6 +450,29 @@ body {
 .lesson-section {
   margin-top: 32px;
 }
+.notebook .lesson-list-heading {
+  margin: 0 0 12px;
+  padding: 16px;
+  gap: 10px;
+  background: #e1eee5;
+  border-left: 5px solid #3e7764;
+  border-radius: 0 10px 10px 0;
+  color: var(--ink);
+}
+.notebook .lesson-list-heading h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 850;
+  line-height: 1.4;
+}
+.lesson-list-heading > svg { flex-shrink: 0; }
+.lesson-list-heading > span {
+  padding: 4px 9px;
+  background: #fffef8;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-weight: 650;
+}
 .lesson-line {
   border-bottom: 4px solid #8eac9c;
   padding: 20px 0;
