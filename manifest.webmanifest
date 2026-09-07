@@ -9,13 +9,13 @@
   "lang": "ja",
   "icons": [
     {
-      "src": "icons/ensuku-192.png",
+      "src": "icons/sakura-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icons/ensuku-512.png",
+      "src": "icons/sakura-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
