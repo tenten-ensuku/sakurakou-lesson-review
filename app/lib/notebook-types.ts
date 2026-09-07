@@ -105,6 +105,7 @@ export type TheoryProgress = {
 export type LearningState = {
   theories: Record<string, TheoryProgress>;
   reviewIds: string[];
+  answeredIds: string[];
   sessions: Record<string, Session>;
   outfit: string;
   room: boolean;

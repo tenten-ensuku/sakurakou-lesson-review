@@ -144,10 +144,10 @@ export function useLearner(enabled = true) {
         )
       )
         return;
-      // Only the newest local checkpoint per session is needed; answers are separate immutable events.
+      // Keep previous runs too: an offline restart must not erase earlier flashcard ratings.
       if (type === "session")
         cache.current.pending = cache.current.pending.filter(
-          (v) => v.type !== "session" || v.session?.slot !== data.session?.slot,
+          (v) => v.type !== "session" || v.session?.id !== data.session?.id,
         );
       cache.current.pending.push(e);
       publish();

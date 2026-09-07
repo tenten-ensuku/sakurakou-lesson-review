@@ -71,3 +71,16 @@ export function knowledgeStatus(progress) {
   if (progress?.collected) return { kind: "confirmed", label: "確認済み" };
   return { kind: "unseen", label: "未確認" };
 }
+
+// Count current questions only. Notes/deleted cards are excluded by the shared index.
+// Review markers alone are not proof of an answer (they can be added from the list).
+export function lessonStudyStatus(entries, lessonId, state) {
+  const keys = new Set(entries.filter((q) => q.lessonIds.includes(lessonId)).map((q) => q.key));
+  const answered = new Set(state.answeredIds ?? []);
+  const review = new Set(state.reviewIds ?? []);
+  return {
+    total: keys.size,
+    unanswered: [...keys].filter((key) => !answered.has(key)).length,
+    review: [...keys].filter((key) => review.has(key)).length,
+  };
+}

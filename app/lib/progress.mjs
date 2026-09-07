@@ -20,6 +20,7 @@ export function mergeEvents(...groups) {
 export function progressFrom(events) {
   const theories = {},
     reviews = new Set(),
+    answered = new Set(),
     reviewTheories = new Map(),
     sessions = {};
   let outfit = "base",
@@ -44,6 +45,11 @@ export function progressFrom(events) {
       }
     }
     if (e.type === "session") {
+      // Accumulate answers from every checkpoint, not just the latest run in a slot.
+      for (const [key, value] of Object.entries(e.session.ratings ?? {}))
+        if (value === "known" || value === "again") answered.add(key);
+      for (const [id, value] of Object.entries(e.session.picks ?? {}))
+        if (Number.isInteger(value) && value >= 0) answered.add("check:" + id);
       sessions[e.session.slot] = { ...e.session, updatedAt: e.at };
     }
     if (e.type === "outfit") {
@@ -58,6 +64,8 @@ export function progressFrom(events) {
         room = e.room;
     }
     if (e.type !== "known" && e.type !== "attempt") continue;
+    if (e.type === "known" && e.target) answered.add(e.target);
+    if (e.type === "attempt" && e.itemId) answered.add("check:" + e.itemId);
     lastReviewedAt = e.at;
     if (e.type === "attempt")
       reviewTheories.set("check:" + e.itemId, e.theoryIds ?? []);
@@ -105,6 +113,7 @@ export function progressFrom(events) {
   return {
     theories,
     reviewIds: [...reviews],
+    answeredIds: [...answered],
     sessions,
     outfit,
     room,

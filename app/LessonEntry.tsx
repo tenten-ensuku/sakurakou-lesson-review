@@ -3,11 +3,13 @@ import LessonMaterials from "./LessonMaterials";
 import { materialDetails } from "./lib/materials.mjs";
 import type { Lesson, Resource } from "./lib/notebook-types";
 
-export default function LessonEntry({ lesson, questionCount, noteCount, reviewCount, hasSaved, resources, onStudy, onResources }: {
+export default function LessonEntry({ lesson, questionCount, noteCount, unansweredCount, reviewCount, progressReady, hasSaved, resources, onStudy, onResources }: {
   lesson: Lesson;
   questionCount: number;
   noteCount: number;
+  unansweredCount: number;
   reviewCount: number;
+  progressReady: boolean;
   hasSaved: boolean;
   resources: Resource[];
   onStudy: () => void;
@@ -24,10 +26,15 @@ export default function LessonEntry({ lesson, questionCount, noteCount, reviewCo
           {questionCount > 0 && <span>アプリ内 {questionCount}問</span>}
           {noteCount > 0 && <span>学習メモ {noteCount}枚</span>}
           {hasSaved && <span>途中保存あり</span>}
-          {reviewCount > 0 && <span>解き直し {reviewCount}問</span>}
         </p>
       </div>
     </div>
+    {questionCount > 0 && <div className="lesson-learning-status" aria-label="この授業の復習状況">
+      {progressReady ? <>
+        <span className={unansweredCount > 0 ? "status-unanswered" : "status-clear"}>未回答 <strong>{unansweredCount}</strong>問</span>
+        <span className={reviewCount > 0 ? "status-review" : "status-clear"}>解き直し <strong>{reviewCount}</strong>問</span>
+      </> : <span>学習記録を確認中…</span>}
+    </div>}
     <LessonMaterials resources={materials} title={lesson.title} />
     <div className="lesson-entry-actions">
       {(questionCount > 0 || noteCount > 0) && <button className="lesson-study-entry" onClick={onStudy}>

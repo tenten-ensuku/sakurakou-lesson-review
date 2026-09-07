@@ -459,6 +459,10 @@ body {
 .notebook .lesson-heading h3 { margin: 2px 0 5px; font-size: 18px; line-height: 1.5; }
 .lesson-teacher { color: #507168; font-size: 14px; }
 .lesson-heading .lesson-status-line { display: flex; flex-wrap: wrap; gap: 3px 12px; color: #507168; font-size: 14px; }
+.lesson-learning-status { display: flex; flex-wrap: wrap; gap: 6px 24px; margin: 12px 0; padding: 9px 0; border-top: 1px solid #dde6db; border-bottom: 1px solid #dde6db; font-size: 16px; color: #345d52; }
+.lesson-learning-status strong { font-size: 20px; font-variant-numeric: tabular-nums; }
+.lesson-learning-status .status-review { color: #865126; }
+.lesson-learning-status .status-clear { color: #5c7068; }
 .lesson-entry-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
 .notebook .lesson-entry-actions button { min-height: 48px; font-size: 15px; padding: 10px 8px; }
 .lesson-entry-actions button > span { display: block; white-space: nowrap; }
@@ -1137,7 +1141,7 @@ body {
   transform: translateX(-50%);
   width: min(100%, 760px);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   background: #fffef8;
   border-top: 2px solid #dbe3d1;
   padding-bottom: env(safe-area-inset-bottom);
