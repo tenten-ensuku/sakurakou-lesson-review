@@ -4,6 +4,12 @@ import { readFileSync } from "node:fs";
 import { orderMaterials, isFeaturedMaterial } from "../app/lib/materials.mjs";
 import highlights from "../content/featured-materials.json" with { type: "json" };
 
+test("lesson boundaries use a stronger rule than the inner status dividers", () => {
+  const css = readFileSync("app/notebook.css", "utf8");
+  assert.match(css, /\.lesson-line\s*\{\s*border-bottom: 4px solid #8eac9c;/);
+  assert.match(css, /\.lesson-learning-status\s*\{[^}]*border-bottom: 1px solid #dde6db;/);
+});
+
 test("the requested 8/18 material stays first without altering shared IDs, order or edits", () => {
   const { lessonId, resourceId } = highlights[0];
   const resources = [

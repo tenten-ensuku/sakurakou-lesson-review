@@ -451,7 +451,7 @@ body {
   margin-top: 32px;
 }
 .lesson-line {
-  border-bottom: 1.5px solid #d5decb;
+  border-bottom: 4px solid #8eac9c;
   padding: 20px 0;
 }
 .lesson-heading { display: flex; align-items: flex-start; gap: 12px; }
