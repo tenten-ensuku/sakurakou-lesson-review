@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { APP_VERSION } from "./lib/lesson.mjs";
 import "./globals.css";
 
 const title = "エンスク授業ノート | 桜紅さん";
@@ -15,11 +16,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title,
   description,
-  manifest: `${basePath}/manifest.webmanifest`,
+  manifest: `${basePath}/manifest.webmanifest?v=${APP_VERSION}`,
   icons: {
-    icon: `${basePath}/icons/ensuku-192.png`,
-    shortcut: `${basePath}/icons/ensuku-192.png`,
-    apple: `${basePath}/icons/ensuku-180.png`,
+    icon: [
+      { url: `${basePath}/icons/sakura-32.png`, type: "image/png", sizes: "32x32" },
+      { url: `${basePath}/icons/sakura-192.png`, type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: `${basePath}/icons/sakura-32.png`,
+    apple: `${basePath}/icons/sakura-180.png`,
   },
   openGraph: {
     title,
