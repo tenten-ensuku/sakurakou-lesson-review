@@ -81,6 +81,18 @@ test("summary uses screenshot then matching explanation, with original-size imag
   assert.equal(materialDetails(r).service, "授業のまとめ");
 });
 
+test("the follow-tile summary includes the user's exact Tenten quote without changing questions", () => {
+  const html = renderSeptemberMaterial(evidence);
+  const sections = [...html.matchAll(/<article class="scene"[^>]*>([\s\S]*?)<\/article>/g)];
+  const quote = "1種受けの為だけの危険牌＜安牌";
+  assert.equal(summary[2].teachingNote.quote, quote);
+  assert.ok(sections[2][1].includes(`てんてん先生の定番フレーズ：<br><strong>「${quote}」</strong>`));
+  assert.ok(sections[2][1].indexOf('class="teaching-note"') > sections[2][1].indexOf("安全牌を持つ価値を比較する。"));
+  assert.ok(sections[2][1].indexOf('class="teaching-note"') < sections[2][1].indexOf('class="source"'));
+  assert.equal((html.match(/class="teaching-note"/g) ?? []).length, 1);
+  assert.equal(questions.length, 30);
+});
+
 function database() {
   const sql = new DatabaseSync(":memory:");
   for (const statement of [...NOTEBOOK_SCHEMA_SQL, ...LEARNING_SCHEMA_SQL]) sql.exec(statement);
