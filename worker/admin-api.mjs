@@ -3,6 +3,7 @@ import {
   NOTEBOOK_SCHEMA_SQL,
 } from "../db/schema.mjs";
 import { ensureAugustLessons } from "./august-lessons.mjs";
+import { ensureSeptemberLessons } from "./september-lessons.mjs";
 
 const DEFAULT_LESSON_ID = "sakurakou-2026-07-21";
 const MAX_BASE_CARD_ID = 27;
@@ -183,6 +184,7 @@ export async function handleAdminApi(request, env) {
     return json(request, { error: "保存データベースを利用できません。" }, 503);
   await ensureSchema(env.DB);
   await ensureAugustLessons(env.DB);
+  await ensureSeptemberLessons(env.DB);
 
   if (url.pathname === "/api/notebook" && request.method === "GET") {
     const [legacy, metadata, lessons, cards, resources] = await Promise.all([

@@ -1,0 +1,595 @@
+{
+  "video": {
+    "id": "vc1JwAm6Is4",
+    "title": "桜紅さん牌譜検討前半",
+    "channel": "ねじまき鳥",
+    "date": "2026-09-27",
+    "durationSeconds": 4831,
+    "url": "https://www.youtube.com/watch?v=vc1JwAm6Is4"
+  },
+  "method": "Full downloaded video and audio; Japanese faster-whisper small/int8 CPU transcription, checked against source frames and current canonical documents. Transcription is an index, not a verbatim authority.",
+  "tools": {
+    "downloader": "yt-dlp 2026.08.19",
+    "frames": "ffmpeg 8.1.2",
+    "transcription": "faster-whisper 1.2.1 / small / ja / int8"
+  },
+  "canonicalDocuments": [
+    {
+      "title": "【基本序列】",
+      "documentId": "1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM",
+      "revisionId": "ANLCKQm4vducjd-pVaYkP77v3q1fiqnc7IhzPwGCZNARnfVpukASXizElwmwvdhxUAlmRFiESnLIWTaszd9ydw",
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "title": "セオリー集（随時更新）",
+      "documentId": "1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA",
+      "revisionId": "ANLCKQnTrLXeigkUOw_Vw_i3ThsAgiHIl6N3xhq40FcPAO3LeNRzZ-Z1BgaN6tkHBxGpriiamC9bNQgFcMtnGA",
+      "checkedAt": "2026-09-27"
+    },
+    {
+      "title": "一向聴（基礎講義）",
+      "documentId": "1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA",
+      "revisionId": "ANLCKQmjUNkuOE43BkQfZchm3HPAILacmBKMQC6E4OFHG5t2SJqTggdk7NaD6GFEYXz2C6ipOrI3aIAxyBQeZQ",
+      "checkedAt": "2026-09-27"
+    }
+  ],
+  "transcriptSha256": "5d7ac6251190516a47100e401188d5a359d0201171183f71162e1938b0e73c25",
+  "editorialNotes": [
+    "講師の途中訂正を採用：おひたしの『お』は相手が親（75:28以降）。",
+    "微差・分岐は理由を問う形式にし、唯一の何切る解として採点しない。",
+    "天気の比喩と主観的な警戒度の数値は採用しない。",
+    "2pのフォロー比較は24566789p、後のヘッドレス2型は45667789p。動画フレームで区別。",
+    "シャンポンの点数は本場・供託を除く。",
+    "人物の非公開連絡先や一時表示されたデスクトップは画像資料に使用しない。"
+  ],
+  "questions": [
+    {
+      "sourceId": "isolated-near-taatsu",
+      "appId": "check-20260927-isolated-near-taatsu",
+      "displayNumber": 1,
+      "type": "choice",
+      "at": 86,
+      "scene": "0088",
+      "canonicalSources": [
+        "order"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "dora-iipeikou",
+      "appId": "card-20260927-dora-iipeikou",
+      "displayNumber": 2,
+      "type": "flashcard",
+      "at": 130,
+      "scene": "0134",
+      "canonicalSources": [
+        "order"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "wing-heads",
+      "appId": "check-20260927-wing-heads",
+      "displayNumber": 3,
+      "type": "cloze",
+      "at": 360,
+      "scene": "0365",
+      "canonicalSources": [
+        "shape"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "wing-acceptance",
+      "appId": "card-20260927-wing-acceptance",
+      "displayNumber": 4,
+      "type": "flashcard",
+      "at": 405,
+      "scene": "0365",
+      "canonicalSources": [
+        "shape"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "wing-to-complete",
+      "appId": "check-20260927-wing-to-complete",
+      "displayNumber": 5,
+      "type": "choice",
+      "at": 468,
+      "scene": "0450",
+      "canonicalSources": [
+        "shape",
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "wing-other-block",
+      "appId": "check-20260927-wing-other-block",
+      "displayNumber": 6,
+      "type": "cloze",
+      "at": 680,
+      "scene": null,
+      "canonicalSources": [
+        "shape"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "missed-chi",
+      "appId": "card-20260927-missed-chi",
+      "displayNumber": 7,
+      "type": "flashcard",
+      "at": 711,
+      "scene": "0710",
+      "canonicalSources": [
+        "shape",
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "ai-split",
+      "appId": "check-20260927-ai-split",
+      "displayNumber": 8,
+      "type": "choice",
+      "at": 910,
+      "scene": null,
+      "canonicalSources": [],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "simple-safety",
+      "appId": "check-20260927-simple-safety",
+      "displayNumber": 9,
+      "type": "choice",
+      "at": 1388,
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "134-order",
+      "appId": "check-20260927-134-order",
+      "displayNumber": 10,
+      "type": "cloze",
+      "at": 1446,
+      "scene": null,
+      "canonicalSources": [
+        "order"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "follow-does-not-add",
+      "appId": "card-20260927-follow-does-not-add",
+      "displayNumber": 11,
+      "type": "flashcard",
+      "at": 1592,
+      "scene": "1595",
+      "canonicalSources": [
+        "theory",
+        "shape"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "continuous-definition",
+      "appId": "check-20260927-continuous-definition",
+      "displayNumber": 12,
+      "type": "cloze",
+      "at": 1797,
+      "scene": null,
+      "canonicalSources": [
+        "shape"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "headless-range",
+      "appId": "card-20260927-headless-range",
+      "displayNumber": 13,
+      "type": "flashcard",
+      "at": 1810,
+      "scene": "1805",
+      "canonicalSources": [
+        "shape"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "east-back-read",
+      "appId": "check-20260927-east-back-read",
+      "displayNumber": 14,
+      "type": "choice",
+      "at": 2015,
+      "scene": "2018",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "dead-east-honitsu",
+      "appId": "card-20260927-dead-east-honitsu",
+      "displayNumber": 15,
+      "type": "flashcard",
+      "at": 2465,
+      "scene": "2480",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "wait-quality",
+      "appId": "check-20260927-wait-quality",
+      "displayNumber": 16,
+      "type": "choice",
+      "at": 2268,
+      "scene": "2265",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "shabo-score",
+      "appId": "card-20260927-shabo-score",
+      "displayNumber": 17,
+      "type": "flashcard",
+      "at": 2300,
+      "scene": "2265",
+      "canonicalSources": [],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "nakabukure-skip",
+      "appId": "card-20260927-nakabukure-skip",
+      "displayNumber": 18,
+      "type": "flashcard",
+      "at": 2725,
+      "scene": "2747",
+      "canonicalSources": [
+        "shape"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "dealer-push-border",
+      "appId": "check-20260927-dealer-push-border",
+      "displayNumber": 19,
+      "type": "choice",
+      "at": 2858,
+      "scene": "2865",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "super-weak-wait",
+      "appId": "check-20260927-super-weak-wait",
+      "displayNumber": 20,
+      "type": "cloze",
+      "at": 2995,
+      "scene": "2990",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "push-not-declaration",
+      "appId": "check-20260927-push-not-declaration",
+      "displayNumber": 21,
+      "type": "choice",
+      "at": 3135,
+      "scene": "3105",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "genbari-benefit",
+      "appId": "card-20260927-genbari-benefit",
+      "displayNumber": 22,
+      "type": "flashcard",
+      "at": 3300,
+      "scene": "3105",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "far-call-value",
+      "appId": "check-20260927-far-call-value",
+      "displayNumber": 23,
+      "type": "choice",
+      "at": 3875,
+      "scene": "3890",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "penchan-isolated-two",
+      "appId": "check-20260927-penchan-isolated-two",
+      "displayNumber": 24,
+      "type": "cloze",
+      "at": 3976,
+      "scene": null,
+      "canonicalSources": [
+        "order"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "overlap-before-tanyao",
+      "appId": "check-20260927-overlap-before-tanyao",
+      "displayNumber": 25,
+      "type": "choice",
+      "at": 4080,
+      "scene": "3958",
+      "canonicalSources": [
+        "order"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "visible-one-weakens-two",
+      "appId": "card-20260927-visible-one-weakens-two",
+      "displayNumber": 26,
+      "type": "flashcard",
+      "at": 4162,
+      "scene": "3958",
+      "canonicalSources": [
+        "order"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "two-threats-two-away",
+      "appId": "check-20260927-two-threats-two-away",
+      "displayNumber": 27,
+      "type": "choice",
+      "at": 4253,
+      "scene": "4290",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "ohitashi-owner",
+      "appId": "check-20260927-ohitashi-owner",
+      "displayNumber": 28,
+      "type": "cloze",
+      "at": 4525,
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "combined-threat",
+      "appId": "card-20260927-combined-threat",
+      "displayNumber": 29,
+      "type": "flashcard",
+      "at": 4730,
+      "scene": "4290",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "no-result-bias",
+      "appId": "check-20260927-no-result-bias",
+      "displayNumber": 30,
+      "type": "choice",
+      "at": 4410,
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    }
+  ],
+  "images": {
+    "1595": {
+      "at": 1595,
+      "caption": "東1局11巡目：東を切った後。2pが何を増やしているかを確認",
+      "sha256": "514e919df5c311bddd336b3d10686258a652d46ce12b8434ac753ca0604c095b",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/714416b0-d65d-4da0-8d23-1cdb8c843aa7.jpg",
+      "sourceFile": "scenes/1595.jpg",
+      "sourceSecond": 1595,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "1805": {
+      "at": 1805,
+      "caption": "東1局12巡目：講師が連続形を図示。ピンズは45667789p",
+      "sha256": "14bef46ee702731aeeee6348274706c477f9d8060ee6fc40c3cb9705d8464cfe",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/de1be0ed-31f8-4990-a2de-60c4decad9aa.jpg",
+      "sourceFile": "scenes/1805.jpg",
+      "sourceSecond": 1805,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "2018": {
+      "at": 2018,
+      "caption": "東1局1本場：上家の9sポンと河を見て、東対子の扱いを検討",
+      "sha256": "6566e036acaf6435b3e4a5702bbfc4e088d982e2278d46bd4b3cc671478a2a0a",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/7edffff0-8a53-4894-8fb1-4592717d5213.jpg",
+      "sourceFile": "scenes/2018.jpg",
+      "sourceSecond": 2018,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "2265": {
+      "at": 2265,
+      "caption": "東1局2本場8巡目：白ポン・789pチー。2mツモ後の待ち選択",
+      "sha256": "5575d511960e6fd4dea5d0d8cbd3b5a4b22b98c2153fff5a0c285456c4ccfcfa",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/9432415a-fcd0-4aa5-8425-984f4b404b7d.jpg",
+      "sourceFile": "scenes/2265.jpg",
+      "sourceSecond": 2265,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "2480": {
+      "at": 2480,
+      "caption": "東2局3巡目：東が重なったが、場に残る東はない",
+      "sha256": "927a7ff69b797b04788eb88a16e995e2ccde49dfabba1e9c85773649e99c0332",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/916fa5af-64fc-4276-86f6-cb7d2c168067.jpg",
+      "sourceFile": "scenes/2480.jpg",
+      "sourceSecond": 2480,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "2747": {
+      "at": 2747,
+      "caption": "講師の整理図：45568sに7sを加えた変化を比較",
+      "sha256": "462c252d29fc43ed6bf8200c171c973a073ab2f45df8ab3ee6ad2f39a2249c83",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/3e90d984-aeb4-47f5-926e-fd924a19e38f.jpg",
+      "sourceFile": "scenes/2747-crop.jpg",
+      "sourceSecond": 2747,
+      "transformation": "Crop of the lecturer's complete tile diagram; no tiles redrawn or removed.",
+      "width": 960,
+      "height": 600
+    },
+    "2865": {
+      "at": 2865,
+      "caption": "東3局13巡目：親の完全形一向聴。下家のリーチに3mを引いた場面",
+      "sha256": "425b6f3e7d270a2d66853699ea04ae5ac10d8ac44954453bdda0aefb29e57c87",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/13db3238-3207-47f1-9ae7-f34efe902f18.jpg",
+      "sourceFile": "scenes/2865.jpg",
+      "sourceSecond": 2865,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "2990": {
+      "at": 2990,
+      "caption": "東4局6巡目：役ありのカン4p聴牌。4pは2枚見えている",
+      "sha256": "fe6ab103e308775cc7fee2fc8fc149c7759ec1e01f60c9e5f67f7943306e625f",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/507320a4-34a9-4bf9-8713-c1b36aeb1b57.jpg",
+      "sourceFile": "scenes/2990.jpg",
+      "sourceSecond": 2990,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "3105": {
+      "at": 3105,
+      "caption": "東4局10巡目：下家のリーチ後も、カン4pのダマ聴牌を維持",
+      "sha256": "866d88c0c5a9247dcf77967149788c2d7f7f9fa3c427ee0847fc849db59e9312",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/d48473ff-d886-45f8-959c-7c21f6660aff.jpg",
+      "sourceFile": "scenes/3105.jpg",
+      "sourceSecond": 3105,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "3890": {
+      "at": 3890,
+      "caption": "東4局1本場：点数を追う配牌から、中ポンの是非を検討",
+      "sha256": "29529ce6c9d8b89574dfa75ca2745fba25258fe0205abe4a396f2e20e3abf835",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/a16442ca-031c-41d5-95ce-9a7bddb1204c.jpg",
+      "sourceFile": "scenes/3890.jpg",
+      "sourceSecond": 3890,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "3958": {
+      "at": 3958,
+      "caption": "東4局2本場5巡目：ツモ9mで89mのペンチャン。25m・2568pと比較",
+      "sha256": "f34022f0d9663cff5236bd2084c110b0a75f45056d308f8bae79215068416555",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/f49b96c2-2528-4e92-b9db-78d6f2e2640a.jpg",
+      "sourceFile": "scenes/3958.jpg",
+      "sourceSecond": 3958,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "4290": {
+      "at": 4290,
+      "caption": "東4局2本場7巡目：下家の親と対面が仕掛け、自分は二向聴",
+      "sha256": "7b4c32beb0d3875dbc6c5bb280dc677f4d8b98ccc049a381fd44a74258975921",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/dc9f01ce-4eaa-4b77-873d-37e70727391f.jpg",
+      "sourceFile": "scenes/4290.jpg",
+      "sourceSecond": 4290,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "0088": {
+      "at": 88,
+      "caption": "東1局5巡目：478mの4mと、ツモった4pを比較。4mを持ち上げている場面",
+      "sha256": "9c5df834be845368e75f5b7998d20f2a88dfba76745116e5af721563665ca0ad",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ed262a31-33e5-4342-9140-56617f5c82bb.jpg",
+      "sourceFile": "scenes/0088.jpg",
+      "sourceSecond": 88,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "0134": {
+      "at": 134,
+      "caption": "東1局7巡目：ドラは7p。4mとツモ8pの価値を比較",
+      "sha256": "d7d306cab7033c47cbb9963dbe2ae7e9d695d800298e0f9c5b493520b3910779",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/237136bd-c5b2-456e-bc75-d1669019bc5d.jpg",
+      "sourceFile": "scenes/0134.jpg",
+      "sourceSecond": 134,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "0365": {
+      "at": 365,
+      "caption": "講師の整理図：24456778s。4s・7sのどちらも雀頭候補",
+      "sha256": "0bc345ffeb0f1d0fb3f0de20a6e8453b980d41edc351ffb11d0868f059685348",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/15f0954e-9db4-4f49-bd48-415db06d327f.jpg",
+      "sourceFile": "scenes/0365-crop.jpg",
+      "sourceSecond": 365,
+      "transformation": "Crop of the lecturer's complete tile diagram; no tiles redrawn or removed.",
+      "width": 960,
+      "height": 320
+    },
+    "0450": {
+      "at": 450,
+      "caption": "東1局11巡目：ウィング形に2sを引いた場面",
+      "sha256": "08d502c134cd0e46b6ad41b2c2bac49a7f5644b310089d6c83116aaf71a16734",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/00ee6f47-0f65-4ac5-9d67-894f45696944.jpg",
+      "sourceFile": "scenes/0450.jpg",
+      "sourceSecond": 450,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "0710": {
+      "at": 710,
+      "caption": "東1局15巡目：見逃した3sチーを振り返るための手牌。画面のツモは北",
+      "sha256": "5fd9c60b55206a763e6809edb008a653be22b5006788b4aa588f63cbddd60a57",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/f6114e8e-08f2-4683-bfa8-b523fa9e6fc6.jpg",
+      "sourceFile": "scenes/0710.jpg",
+      "sourceSecond": 710,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    }
+  }
+}

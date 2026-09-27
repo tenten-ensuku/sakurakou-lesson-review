@@ -489,8 +489,9 @@ test("August import is idempotent and preserves lesson/card edits, tombstones an
   const db = database();
   const request = () => new Request("https://example.test/api/notebook");
   const initial = await (await handleAdminApi(request(), { DB: db })).json();
-  assert.equal(initial.lessons.length, 3);
-  assert.equal(initial.cards.length, 31);
+  const augustIds = new Set(august.lessons.map((l) => l.id));
+  assert.equal(initial.lessons.filter((l) => augustIds.has(l.id)).length, 3);
+  assert.equal(initial.cards.filter((c) => augustIds.has(c.lessonId)).length, 31);
   const l = august.lessons[0], c = august.cards[1], r = august.resources[0];
   db.sql.prepare("UPDATE notebook_lessons SET title=?, deleted=1 WHERE lesson_id=?").run("edited title", l.id);
   db.sql.prepare("UPDATE notebook_cards SET answer=?, deleted=1 WHERE card_id=?").run("edited answer", c.id);

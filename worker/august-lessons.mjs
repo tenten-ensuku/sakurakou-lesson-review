@@ -33,7 +33,11 @@ export async function ensureAugustLessons(db) {
 
 export async function seedAugustChecks(db) {
   // Check deletion is logical: never overwrite an existing row, including tombstones.
-  await db.batch(august.items.map((q) => db.prepare(
+  await db.batch(augustCheckStatements(db));
+}
+
+export function augustCheckStatements(db) {
+  return august.items.map((q) => db.prepare(
     "INSERT OR IGNORE INTO review_checks(id,data) VALUES (?,?)",
-  ).bind(q.id, JSON.stringify(q))));
+  ).bind(q.id, JSON.stringify(q)));
 }

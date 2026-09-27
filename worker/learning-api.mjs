@@ -1,7 +1,8 @@
 import { LEARNING_SCHEMA_SQL } from "../db/learning-schema.mjs";
 import { seedCatalog } from "../app/lib/catalog-seed.mjs";
 import { isCheckAvailable } from "../app/lib/check-availability.mjs";
-import { seedAugustChecks } from "./august-lessons.mjs";
+import { augustCheckStatements } from "./august-lessons.mjs";
+import { septemberCheckStatements } from "./september-lessons.mjs";
 import { progressFrom, teacherView, newSecret } from "../app/lib/progress.mjs";
 export const validSecret = (v) => /^ensuku-[a-f0-9]{64}$/.test(v ?? "");
 export async function hashSecret(secret) {
@@ -74,7 +75,7 @@ export async function ensureLearning(db) {
             .bind(q.id, JSON.stringify(q)),
         ),
       ])
-      .then(() => seedAugustChecks(db))
+      .then(() => db.batch([...augustCheckStatements(db), ...septemberCheckStatements(db)]))
       .catch((error) => {
         initialized.delete(db);
         throw error;
