@@ -81,7 +81,7 @@ test("summary uses screenshot then matching explanation, with original-size imag
   assert.equal(materialDetails(r).service, "授業のまとめ");
 });
 
-test("the follow-tile summary includes the user's exact Tenten quote without changing questions", () => {
+test("the summaries include the user's exact supplementary phrases without changing questions", () => {
   const html = renderSeptemberMaterial(evidence);
   const sections = [...html.matchAll(/<article class="scene"[^>]*>([\s\S]*?)<\/article>/g)];
   const quote = "1種受けの為だけの危険牌＜安牌";
@@ -89,7 +89,12 @@ test("the follow-tile summary includes the user's exact Tenten quote without cha
   assert.ok(sections[2][1].includes(`てんてん先生の定番フレーズ：<br><strong>「${quote}」</strong>`));
   assert.ok(sections[2][1].indexOf('class="teaching-note"') > sections[2][1].indexOf("安全牌を持つ価値を比較する。"));
   assert.ok(sections[2][1].indexOf('class="teaching-note"') < sections[2][1].indexOf('class="source"'));
-  assert.equal((html.match(/class="teaching-note"/g) ?? []).length, 1);
+  const damaQuote = "役アリ愚形を黙っていた所に立直が来たら、猶の事ダマである。";
+  assert.equal(summary[5].teachingNote.quote, damaQuote);
+  assert.ok(sections[5][1].includes(`覚えておきたいフレーズ：<br><strong>「${damaQuote}」</strong>`));
+  assert.ok(sections[5][1].indexOf('class="teaching-note"') > sections[5][1].indexOf("現物を切って和了できる余地が残る。"));
+  assert.ok(sections[5][1].indexOf('class="teaching-note"') < sections[5][1].indexOf('class="source"'));
+  assert.equal((html.match(/class="teaching-note"/g) ?? []).length, 2);
   assert.equal(questions.length, 30);
 });
 
