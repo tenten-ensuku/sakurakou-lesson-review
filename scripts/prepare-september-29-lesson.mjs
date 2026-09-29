@@ -62,6 +62,7 @@ const provenance = {
   canonicalDocuments: Object.values(docs).map((d) => ({ title: d.title, documentId: d.documentId, revisionId: d.revisionId, checkedAt: "2026-09-29" })),
   transcriptSha256: hash(await readFile(join(root, "captions-clean.json"))),
   editorialNotes: ["ver34: 30問の固定ノルマを廃止し、雀豪向けの判断6問へ統合。基本用語・単純計数・一般論・重複問題24問は論理削除。", "てんてん2号の指南方針に沿って、結論と候補間の差を短く説明。ねじまき鳥先生の発言をてんてん本人の発言に変えない。", "8:20以降の西切り評価の訂正を優先。AI内部の理由を断定しない。", "微差は唯一解にしない。1m押しとオリ、南4局の両候補を許容。", "元のカードIDと全13画像を保持。盤面は全景、打牌後はその旨を明記。", "9/27以前の教材・学習記録は変更しない。"],
+  corrections: [{ version: 35, sourceId: "west-pon-route", sourceSecond: 314, sourceHand: "236789m5678p55s西西", oldDiscard: "6p", correctedDiscard: "8p", verification: "Source frame enlarged and inspected: pins are 5678p. After 9m discard and West pon, discarding 8p leaves 567p and 1m/4m tenpai; discarding 6p does not." }],
   questions: mapping, images,
 };
 await mkdir(resolve("public/materials/september-2026"), { recursive: true });

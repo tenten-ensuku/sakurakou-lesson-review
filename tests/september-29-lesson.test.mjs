@@ -133,8 +133,24 @@ test("headless and final-round wait answers match tile decomposition",()=>{
   assert.deepEqual(waits(hand("12377889","234","33")),[5,8]);
   assert.deepEqual(waits(hand("123677889","234","3")),[20]); // 3s single
   assert.deepEqual(waits(hand("123778899","2347")),[15]); // 7p single
-  assert.deepEqual(waits(hand("23678","678","55","333")),[0,3]); // West pon: 1m,4m
+  assert.deepEqual(waits(hand("23678","567","55","333")),[0,3]); // West pon, discard 8p: 1m,4m
   assert.deepEqual(waits(hand("34578","23488","444")),[5,8]);
   assert.deepEqual(waits(hand("45678","23488","444")),[2,5,8]);
   assert.deepEqual(waits(hand("999","44","33455","222")),[21]); // pon hand: 4s
+});
+
+test("West pon route discards 8p from the source frame's 5678p, not 6p",()=>{
+  // 5:10/5:14 frame: 236789m 5678p 55s 西西 after drawing 5s.
+  // First discard 9m, then call West and compare the resulting discard.
+  const afterPon=hand("23678","5678","55","333");
+  const cut8p=[...afterPon];cut8p[9+7]--;
+  const cut6p=[...afterPon];cut6p[9+5]--;
+  assert.deepEqual(waits(cut8p),[0,3]);
+  assert.deepEqual(waits(cut6p),[]);
+  const question=source.questions.find(q=>q.id==="west-pon-route");
+  const summary=source.summary.find(s=>s.scene==="0310");
+  for(const text of [question.explanation,summary.text]){
+    assert.ok(text.includes("西ポン→8p切り"));
+    assert.ok(!text.includes("西ポン→6p切り"));
+  }
 });

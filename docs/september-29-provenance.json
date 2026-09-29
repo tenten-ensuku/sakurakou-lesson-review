@@ -42,6 +42,17 @@
     "元のカードIDと全13画像を保持。盤面は全景、打牌後はその旨を明記。",
     "9/27以前の教材・学習記録は変更しない。"
   ],
+  "corrections": [
+    {
+      "version": 35,
+      "sourceId": "west-pon-route",
+      "sourceSecond": 314,
+      "sourceHand": "236789m5678p55s西西",
+      "oldDiscard": "6p",
+      "correctedDiscard": "8p",
+      "verification": "Source frame enlarged and inspected: pins are 5678p. After 9m discard and West pon, discarding 8p leaves 567p and 1m/4m tenpai; discarding 6p does not."
+    }
+  ],
   "questions": [
     {
       "sourceId": "headless-final-waits",
