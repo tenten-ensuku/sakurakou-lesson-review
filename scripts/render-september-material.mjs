@@ -20,7 +20,7 @@ export function renderSeptemberMaterial(provenance, content = { lesson, summary,
 <html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>${esc(lesson.date)} ${esc(lesson.teacher)}先生｜${esc(lesson.title)}</title><link rel="stylesheet" href="../august-2026/summary.css?v=${APP_VERSION}"></head>
 <body><main data-app-version="${APP_VERSION}"><header><a class="back" href="https://sakurakou-lesson-review.pages.dev/">授業ノートへ</a><p>${esc(lesson.date)}　${esc(lesson.teacher)}先生</p><h1>${esc(lesson.title)}</h1><a class="video" href="${esc(lesson.videoUrl)}" target="_blank" rel="noreferrer">YouTubeで授業を見る</a></header><h2>場面ごとの振り返り</h2>
 ${sections}
-<h2>照合した資料</h2><nav>${Object.values(references).map((r) => `<a class="source" href="${esc(r.url)}" target="_blank" rel="noreferrer">${esc(r.title)}</a>`).join("")}</nav><footer><p>講義の条件を保って整理した復習用要約です。微差の場面は唯一解とせず、判断理由と適用条件を確認してください。30問は授業ノートの${esc(lesson.date)}から解けます。</p><a class="back" href="https://sakurakou-lesson-review.pages.dev/">授業ノートへ戻る</a></footer></main></body></html>\n`;
+<h2>照合した資料</h2><nav>${Object.values(references).map((r) => `<a class="source" href="${esc(r.url)}" target="_blank" rel="noreferrer">${esc(r.title)}</a>`).join("")}</nav><footer><p>講義の条件を保って整理した復習用要約です。微差の場面は唯一解とせず、判断理由と適用条件を確認してください。${provenance.questions.length}問は授業ノートの${esc(lesson.date)}から解けます。</p><a class="back" href="https://sakurakou-lesson-review.pages.dev/">授業ノートへ戻る</a></footer></main></body></html>\n`;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const p = JSON.parse(await readFile(resolve("docs/september-2026-provenance.json"), "utf8"));

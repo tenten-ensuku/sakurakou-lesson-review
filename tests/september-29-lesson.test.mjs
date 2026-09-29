@@ -16,21 +16,24 @@ import { buildQuestionIndex } from "../app/lib/study-index.mjs";
 import { isFeaturedMaterial } from "../app/lib/materials.mjs";
 import { resolveSiteUrl } from "../app/lib/site-origin.mjs";
 
-test("9/29 is independent, newest and has 30 distinct questions numbered 1..30", () => {
+test("9/29 is independent, newest and has six substantive questions numbered 1..6", () => {
   const { lesson, questions } = source;
   assert.equal(lesson.date, "9/29"); assert.equal(lesson.teacher, "ねじまき鳥");
   assert.match(lesson.videoUrl, /CNCAKOAMyqU$/);
   assert.equal(sortLessons([...oldData.lessons, lesson])[0].id, lesson.id);
-  assert.equal(questions.length, 30);
-  assert.equal(new Set(questions.map((q) => q.id)).size, 30);
-  assert.equal(new Set(questions.map((q) => q.question)).size, 30);
+  assert.equal(questions.length, 6);
+  assert.equal(new Set(questions.map((q) => q.id)).size, 6);
+  assert.equal(new Set(questions.map((q) => q.question)).size, 6);
   const cards = data.cards.filter((c) => c.kind === "question");
-  assert.equal(cards.length, 10);
-  assert.equal(data.items.filter((q) => q.type === "choice").length, 11);
-  assert.equal(data.items.filter((q) => q.type === "cloze").length, 9);
+  assert.equal(cards.length, 6);
+  assert.equal(data.items.length, 0);
   assert.equal(data.cards.filter((q) => q.kind === "note").length, 1);
-  assert.deepEqual([...cards, ...data.items].map((q) => q.sortOrder).sort((a,b) => a-b), Array.from({length:30}, (_,i)=>i+1));
-  assert.equal(buildQuestionIndex([lesson], {[lesson.id]:cards.map((c)=>({...c,source:"custom"}))}, data.items, []).length, 30);
+  assert.deepEqual(cards.map((q) => q.sortOrder), [1,2,3,4,5,6]);
+  assert.deepEqual(buildQuestionIndex([lesson], {[lesson.id]:cards.map((c)=>({...c,source:"custom"}))}, data.items, []).map(q=>q.number), [1,2,3,4,5,6]);
+  for (const q of questions) {
+    assert.ok(q.scene, "Every applied decision needs its board");
+    assert.ok(q.answer.length + q.explanation.length <= 150, "Keep the answer focused for advanced students");
+  }
   const oldIds = new Set([...oldData.cards, ...oldData.items, ...oldData.resources].map((r)=>r.id));
   for (const row of [...data.cards, ...data.items, ...data.resources]) assert.ok(!oldIds.has(row.id));
   for (const q of data.items) {
@@ -61,22 +64,23 @@ test("application questions use complete verified frames and current document re
   assert.equal(evidence.canonicalDocuments.length,3);
   assert.ok(evidence.canonicalDocuments.every((r)=>r.revisionId && r.checkedAt === "2026-09-29"));
   assert.match(evidence.method,/No separate audio transcription/);
-  assert.ok(source.questions.find((q)=>q.id==="ai-rule-correction").explanation.includes("断定されていない"));
-  assert.ok(source.questions.find((q)=>q.id==="chii-tanyao-choice").explanation.includes("6p切りも認め"));
+  assert.ok(source.questions.find((q)=>q.id==="west-pon-route").explanation.includes("大悪手とは断定しない"));
+  assert.ok(source.questions.find((q)=>q.id==="seven-man-acceptance").explanation.includes("6pも可"));
 });
 
-test("seven summary sections show screenshot before description, using the current app version", () => {
+test("six concise summary sections show screenshot before description, using the current app version", () => {
   const html=renderSeptemberMaterial(evidence,source);
   assert.equal(readFileSync("public/materials/september-2026/0929.html","utf8"),html);
   const sections=[...html.matchAll(/<article class="scene"[^>]*>([\s\S]*?)<\/article>/g)];
-  assert.equal(sections.length,7);
+  assert.equal(sections.length,6);
   sections.forEach(([,s],i)=>{
     assert.ok(s.indexOf("<figure>") < s.indexOf('class="scene-explanation"'));
     assert.ok(s.includes(resolveSiteUrl(evidence.images[source.summary[i].scene].url)));
     assert.ok(s.includes(source.summary[i].title));
   });
   assert.ok(html.includes(`data-app-version="${APP_VERSION}"`));
-  assert.ok(html.includes("30問は授業ノートの9/29から解けます"));
+  assert.ok(html.includes("6問は授業ノートの9/29から解けます"));
+  assert.ok(source.summary.every(s=>s.text.length<=150));
   assert.ok(isFeaturedMaterial(data.resources[0]));
 });
 
@@ -94,8 +98,8 @@ test("9/29 seeding does not alter older material or overwrite later public edits
   await Promise.all([ensureSeptember29Lessons(db),ensureSeptember29Lessons(db)]);
   await db.batch(september29CheckStatements(db));
   assert.equal(snapshot(),before);
-  assert.equal(db.sql.prepare("SELECT COUNT(*) n FROM notebook_cards WHERE lesson_id=?").get(source.lesson.id).n,11);
-  const c=data.cards[1],r=data.resources[0],q=data.items[0];
+  assert.equal(db.sql.prepare("SELECT COUNT(*) n FROM notebook_cards WHERE lesson_id=?").get(source.lesson.id).n,7);
+  const c=data.cards[1],r=data.resources[0],q=oldData.items[0];
   db.sql.prepare("UPDATE notebook_cards SET answer='edited',deleted=1,sort_order=99 WHERE card_id=?").run(c.id);
   db.sql.prepare("UPDATE notebook_lessons SET title='edited',deleted=1 WHERE lesson_id=?").run(source.lesson.id);
   db.sql.prepare("DELETE FROM lesson_resources WHERE resource_id=?").run(r.id);
