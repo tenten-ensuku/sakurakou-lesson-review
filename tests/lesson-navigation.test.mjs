@@ -57,5 +57,5 @@ test("all resource views share the same priority and feature presentation", () =
   const component=readFileSync("app/LessonMaterials.tsx","utf8");
   assert.match(component,/material-link--featured/);
   assert.match(component,/おすすめの復習教材/);
-  assert.match(component,/href=\{resource.url\}/);
+  assert.match(component,/href=\{resolveSiteUrl\(resource.url\)\}/);
 });

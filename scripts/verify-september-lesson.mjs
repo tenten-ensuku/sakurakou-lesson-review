@@ -5,9 +5,10 @@ import { createHash } from "node:crypto";
 import data from "../content/september-2026.json" with { type: "json" };
 import evidence from "../docs/september-2026-provenance.json" with { type: "json" };
 import { APP_VERSION } from "../app/lib/lesson.mjs";
+import { SITE_ORIGIN, resolveSiteUrl } from "../app/lib/site-origin.mjs";
 const args = process.argv.slice(2);
-const origin = args.find((a) => /^https?:/.test(a)) || "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site";
-async function get(path) { const r = await fetch(new URL(path, origin)); assert.equal(r.status, 200, path); return r; }
+const origin = args.find((a) => /^https?:/.test(a)) || SITE_ORIGIN;
+async function get(path) { const r = await fetch(resolveSiteUrl(new URL(path, origin).href)); assert.equal(r.status, 200, path); return r; }
 const snapshot = { notebook: await (await get("/api/notebook")).json(), catalog: await (await get("/api/catalog")).json() };
 if (args.includes("--capture")) {
   await writeFile(args[args.indexOf("--capture")+1], JSON.stringify(snapshot, null, 2) + "\n");

@@ -2,6 +2,7 @@
 import {DatabaseSync} from "node:sqlite";
 import {readdir} from "node:fs/promises";
 import {resolve,join} from "node:path";
+import {SITE_ORIGIN} from "../app/lib/site-origin.mjs";
 import {FLASHCARD_OVERRIDES_SCHEMA_SQL,NOTEBOOK_SCHEMA_SQL} from "../db/schema.mjs";
 const dir=resolve(".wrangler/state/v3/d1");
 async function walk(d){return(await Promise.all((await readdir(d,{withFileTypes:true})).map(x=>x.isDirectory()?walk(join(d,x.name)):[join(d,x.name)]))).flat();}
@@ -9,7 +10,7 @@ const files=(await walk(dir)).filter(x=>x.endsWith(".sqlite")&&!x.endsWith("meta
 if(files.length!==1)throw new Error("Expected one LOCAL Miniflare D1 database");
 const db=new DatabaseSync(files[0]);
 db.exec(FLASHCARD_OVERRIDES_SCHEMA_SQL);for(const s of NOTEBOOK_SCHEMA_SQL)db.exec(s);
-const r=await fetch("https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/notebook");
+const r=await fetch(SITE_ORIGIN+"/api/notebook");
 if(!r.ok)throw new Error("Production content read failed");const n=await r.json();
 for(const t of ["learning_profiles","learning_events","teacher_shares"]){/* These private tables are never read from production or seeded here. */void t;}
 db.exec("BEGIN");

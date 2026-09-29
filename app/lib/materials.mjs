@@ -1,4 +1,5 @@
 import featured from "../../content/featured-materials.json" with { type: "json" };
+import { SITE_ORIGIN, resolveSiteUrl } from "./site-origin.mjs";
 
 export function isFeaturedMaterial(resource) {
   return featured.some((f) => f.lessonId === resource.lessonId && f.resourceId === resource.id);
@@ -14,7 +15,7 @@ export function orderMaterials(resources) {
 export function materialDetails(resource) {
   let url;
   try {
-    url = new URL(resource.url);
+    url = new URL(resolveSiteUrl(resource.url));
   } catch {
     return null;
   }
@@ -37,7 +38,7 @@ export function materialDetails(resource) {
           ? "Googleスライド"
           : "Google資料";
   } else if (host === "drive.google.com") service = "Googleドライブ";
-  else if (host === "sakurakou-lesson-review.kobotenmitsu.chatgpt.site" && /^\/materials\/(august|september)-2026\//.test(url.pathname)) service = "授業のまとめ";
+  else if (url.origin === SITE_ORIGIN && /^\/materials\/(august|september)-2026\//.test(url.pathname)) service = "授業のまとめ";
   return {
     title: resource.label?.trim() || service,
     service,

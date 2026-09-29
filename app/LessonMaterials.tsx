@@ -1,6 +1,7 @@
 import { ArrowUpRight, Images } from "@phosphor-icons/react";
 import { isFeaturedMaterial, materialDetails, orderMaterials } from "./lib/materials.mjs";
 import type { Resource } from "./lib/notebook-types";
+import { resolveSiteUrl } from "./lib/site-origin.mjs";
 
 export function MaterialLink({
   resource,
@@ -15,7 +16,7 @@ export function MaterialLink({
   return (
     <a
       className={"material-link" + (featured ? " material-link--featured" : "")}
-      href={resource.url}
+      href={resolveSiteUrl(resource.url)}
       target="_blank"
       rel="noreferrer"
       aria-label={`${featured ? "おすすめの復習教材：" : ""}${detail.title}を${featured ? "開く" : detail.action}（新しいタブ）`}
@@ -23,7 +24,7 @@ export function MaterialLink({
       {preview && detail.image && (
         <img
           className="material-preview"
-          src={resource.url}
+          src={resolveSiteUrl(resource.url)}
           alt={detail.title}
           loading="lazy"
         />

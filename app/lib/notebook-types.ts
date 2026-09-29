@@ -1,3 +1,4 @@
+import { resolveSiteUrl } from "./site-origin.mjs";
 export type Card = {
   id: string | number;
   kind: "question" | "section" | "note";
@@ -129,7 +130,7 @@ export type LearnEvent = {
   outfit?: string;
   room?: boolean;
 };
-export const API_BASE = process.env.NEXT_PUBLIC_ADMIN_API_URL ?? "";
+export const API_BASE = resolveSiteUrl(process.env.NEXT_PUBLIC_ADMIN_API_URL ?? "");
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export const keyFor = (lessonId: string, c: Pick<Card, "source" | "id">) =>
   lessonId + ":" + c.source + ":" + c.id;

@@ -1,4 +1,5 @@
 import test from "node:test";
+import { resolveSiteUrl } from "../app/lib/site-origin.mjs";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { createRequire } from "node:module";
@@ -22,7 +23,7 @@ test("all 30 scene-dependent questions show a verified source image before the q
     assert.ok(q);
     assert.ok(q.question.startsWith(m.prefix));
     assert.equal(tokenizeRichText(q.question)[0].type, "image");
-    assert.equal(tokenizeRichText(q.question)[0].url, m.url);
+    assert.equal(tokenizeRichText(q.question)[0].url, resolveSiteUrl(m.url));
     assert.equal(provenance.images[m.file].url, m.url);
     assert.ok(m.seconds > 0);
     assert.ok(!m.file.includes("-full"));

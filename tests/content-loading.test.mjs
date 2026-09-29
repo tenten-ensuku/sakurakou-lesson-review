@@ -132,5 +132,5 @@ test("resources display actual names, safe service labels and clear actions with
   assert.match(component, /if \(!visible.length\) return null/);
   assert.match(component, /isFeaturedMaterial\(r\)/);
   assert.doesNotMatch(component, /すべての資料を見る/);
-  assert.match(component, /href=\{resource.url\}/);
+  assert.match(component, /href=\{resolveSiteUrl\(resource.url\)\}/);
 });

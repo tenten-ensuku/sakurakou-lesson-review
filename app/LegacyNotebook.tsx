@@ -6,6 +6,7 @@ import { useConfirm } from "./ConfirmAction";
 import { linkLabel, tokenizeRichText } from "./lib/rich-text.mjs";
 import { tokenizeMahjongText } from "./lib/mahjong-tiles.mjs";
 import { orderMaterials } from "./lib/materials.mjs";
+import { resolveSiteUrl } from "./lib/site-origin.mjs";
 import {
   APP_VERSION,
   BASE_CARDS,
@@ -73,7 +74,7 @@ type Result = { known: number; again: number; elapsed: number };
 type InlineEdit = { field: "question" | "answer"; value: string } | null;
 
 const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-const API_BASE = process.env.NEXT_PUBLIC_ADMIN_API_URL ?? "";
+const API_BASE = resolveSiteUrl(process.env.NEXT_PUBLIC_ADMIN_API_URL ?? "");
 const EMPTY_NOTEBOOK: Notebook = {
   overrides: [],
   metadata: [],
@@ -1623,7 +1624,7 @@ export default function LegacyNotebook({
                   <article key={resource.id}>
                     <div>
                       {resource.kind === "image" ? (
-                        <img src={resource.url} alt="" />
+                        <img src={resolveSiteUrl(resource.url)} alt="" />
                       ) : (
                         <span className="resource-kind-mark">↗</span>
                       )}
@@ -1879,19 +1880,19 @@ export default function LegacyNotebook({
                 resource.kind === "image" ? (
                   <a
                     className="reference-image-card"
-                    href={resource.url}
+                    href={resolveSiteUrl(resource.url)}
                     target="_blank"
                     rel="noreferrer"
                     key={resource.id}
                   >
-                    <img src={resource.url} alt={resource.label} />
+                    <img src={resolveSiteUrl(resource.url)} alt={resource.label} />
                     <strong>{resource.label}</strong>
                     <span>画像を開く ↗</span>
                   </a>
                 ) : (
                   <a
                     className="reference-link-card"
-                    href={resource.url}
+                    href={resolveSiteUrl(resource.url)}
                     target="_blank"
                     rel="noreferrer"
                     key={resource.id}

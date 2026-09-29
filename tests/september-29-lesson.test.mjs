@@ -14,6 +14,7 @@ import { renderSeptemberMaterial } from "../scripts/render-september-material.mj
 import { APP_VERSION, sortLessons } from "../app/lib/lesson.mjs";
 import { buildQuestionIndex } from "../app/lib/study-index.mjs";
 import { isFeaturedMaterial } from "../app/lib/materials.mjs";
+import { resolveSiteUrl } from "../app/lib/site-origin.mjs";
 
 test("9/29 is independent, newest and has 30 distinct questions numbered 1..30", () => {
   const { lesson, questions } = source;
@@ -71,7 +72,7 @@ test("seven summary sections show screenshot before description, using the curre
   assert.equal(sections.length,7);
   sections.forEach(([,s],i)=>{
     assert.ok(s.indexOf("<figure>") < s.indexOf('class="scene-explanation"'));
-    assert.ok(s.includes(evidence.images[source.summary[i].scene].url));
+    assert.ok(s.includes(resolveSiteUrl(evidence.images[source.summary[i].scene].url)));
     assert.ok(s.includes(source.summary[i].title));
   });
   assert.ok(html.includes(`data-app-version="${APP_VERSION}"`));

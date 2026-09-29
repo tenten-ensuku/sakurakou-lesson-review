@@ -4,10 +4,11 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { APP_VERSION } from "../app/lib/lesson.mjs";
+import { SITE_ORIGIN, resolveSiteUrl } from "../app/lib/site-origin.mjs";
 import { tokenizeMahjongText } from "../app/lib/mahjong-tiles.mjs";
 import scenePlan from "../content/august-material-scenes.json" with { type: "json" };
 
-const origin = "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site";
+const origin = SITE_ORIGIN;
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
 const stamp = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 export const summarySentences = (s) => s.match(/[^。]+。?/gu) ?? [];
@@ -42,8 +43,8 @@ export function renderMaterial(lesson, data, provenance) {
     };
     const heading = `<h3 id="point-${group.summary + 1}">${index + 1}. ${esc(summary.title)}</h3>`;
     const scenes = group.scenes.map((scene, i) => {
-      const image = provenance.images[scene.file];
-      if (!image || scene.file.includes("-full")) throw new Error("Unreviewed scene: " + scene.file);
+      const image = { ...provenance.images[scene.file], url: resolveSiteUrl(provenance.images[scene.file]?.url) };
+      if (!image.url || scene.file.includes("-full")) throw new Error("Unreviewed scene: " + scene.file);
       const url = new URL(image.url);
       if (url.origin !== origin || !url.pathname.startsWith("/api/images/")) throw new Error("Invalid image origin");
       const loading = imageCount++ === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';

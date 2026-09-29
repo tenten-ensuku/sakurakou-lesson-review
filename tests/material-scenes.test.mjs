@@ -5,6 +5,7 @@ import data from "../content/august-2026.json" with { type: "json" };
 import provenance from "../docs/august-2026-provenance.json" with { type: "json" };
 import plan from "../content/august-material-scenes.json" with { type: "json" };
 import { APP_VERSION } from "../app/lib/lesson.mjs";
+import { resolveSiteUrl } from "../app/lib/site-origin.mjs";
 import { renderMaterial, readSummary, summarySentences } from "../scripts/render-august-materials.mjs";
 
 test("material pages alternate each reviewed scene with its matching explanation", async () => {
@@ -22,7 +23,7 @@ test("material pages alternate each reviewed scene with its matching explanation
       const paragraph = article.indexOf("<p>");
       const video = article.indexOf('class="source"');
       assert.ok(image >= 0 && image < explanation && explanation < paragraph && paragraph < video);
-      assert.ok(article.includes(provenance.images[expected[i].file].url));
+      assert.ok(article.includes(resolveSiteUrl(provenance.images[expected[i].file].url)));
       assert.ok(article.includes(`&amp;t=${Math.floor(expected[i].at)}s`));
       assert.match(article, /画像を押すと拡大/);
     }

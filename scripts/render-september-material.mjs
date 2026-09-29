@@ -2,6 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { APP_VERSION } from "../app/lib/lesson.mjs";
+import { SITE_ORIGIN, resolveSiteUrl } from "../app/lib/site-origin.mjs";
 import { tokenizeMahjongText } from "../app/lib/mahjong-tiles.mjs";
 import { lesson, summary, references } from "../content/september-2026-source.mjs";
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -9,8 +10,8 @@ const rich = (text) => tokenizeMahjongText(text).map((t) => t.type === "text" ? 
 export function renderSeptemberMaterial(provenance, content = { lesson, summary, references }) {
   const { lesson, summary, references } = content;
   const sections = summary.map((s, index) => {
-    const im = provenance.images[s.scene];
-    if (!im || !im.url.startsWith("https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/")) throw new Error("Unreviewed image");
+    const im = { ...provenance.images[s.scene], url: resolveSiteUrl(provenance.images[s.scene]?.url) };
+    if (!im.url?.startsWith(SITE_ORIGIN + "/api/images/")) throw new Error("Unreviewed image");
     const time = `${Math.floor(im.at / 60)}:${String(im.at % 60).padStart(2, "0")}`;
     const note = s.teachingNote ? `<p class="teaching-note">${esc(s.teachingNote.attribution)}：<br><strong>「${esc(s.teachingNote.quote)}」</strong></p>` : "";
     return `<section aria-labelledby="point-${index + 1}"><article class="scene" data-scene="${s.scene}"><figure><a class="scene-image" href="${esc(im.url)}" target="_blank" rel="noreferrer" aria-label="${esc(im.caption)}を拡大（別タブで開く）"><img src="${esc(im.url)}" alt="${esc(im.caption)}" width="${im.width}" height="${im.height}" loading="${index ? "lazy" : "eager"}"></a><figcaption>${esc(im.caption)}<span class="image-hint">画像を押すと拡大</span></figcaption></figure><div class="scene-explanation"><h3 id="point-${index + 1}">${index + 1}. ${esc(s.title)}</h3><p>${rich(s.text)}</p>${note}<a class="source" href="${esc(lesson.videoUrl)}&amp;t=${im.at}s" target="_blank" rel="noreferrer">${time}の場面をYouTubeで見る</a></div></article></section>`;

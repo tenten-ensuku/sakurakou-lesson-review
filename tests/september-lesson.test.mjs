@@ -12,6 +12,7 @@ import { renderSeptemberMaterial } from "../scripts/render-september-material.mj
 import { sortLessons, APP_VERSION } from "../app/lib/lesson.mjs";
 import { buildQuestionIndex } from "../app/lib/study-index.mjs";
 import { materialDetails, isFeaturedMaterial } from "../app/lib/materials.mjs";
+import { resolveSiteUrl } from "../app/lib/site-origin.mjs";
 
 const lesson = data.lessons[0];
 test("September 27 is a separate newest lesson with exactly 30 reviewed mixed questions", () => {
@@ -70,7 +71,7 @@ test("summary uses screenshot then matching explanation, with original-size imag
   assert.equal(sections.length, 8);
   sections.forEach(([, s], i) => {
     assert.ok(s.indexOf("<figure>") < s.indexOf('class="scene-explanation"'));
-    assert.ok(s.includes(evidence.images[summary[i].scene].url));
+    assert.ok(s.includes(resolveSiteUrl(evidence.images[summary[i].scene].url)));
     assert.ok(s.includes(summary[i].title));
     assert.ok(s.includes("画像を押すと拡大"));
   });

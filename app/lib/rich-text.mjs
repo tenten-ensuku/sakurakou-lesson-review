@@ -1,3 +1,4 @@
+import { resolveSiteUrl } from "./site-origin.mjs";
 const URL_PATTERN = /https?:\/\/[^\s<>"']+/giu;
 const IMAGE_PATTERN = /!\[([^\]]*)\]\((https?:\/\/[^\s)]+)\)/giu;
 const TRAILING_PUNCTUATION = /[.,!?;:。、，．！？；：）)\]】}」』〉》]+$/u;
@@ -39,13 +40,13 @@ export function tokenizeRichText(text) {
     }
 
     if (match[2]) {
-      tokens.push({ type: "image", alt: match[1], url: match[2] });
+      tokens.push({ type: "image", alt: match[1], url: resolveSiteUrl(match[2]) });
       cursor = pattern.lastIndex;
       continue;
     }
 
     const trailing = match[0].match(TRAILING_PUNCTUATION)?.[0] ?? "";
-    const url = trailing ? match[0].slice(0, -trailing.length) : match[0];
+    const url = resolveSiteUrl(trailing ? match[0].slice(0, -trailing.length) : match[0]);
     const metadata = linkLabel(url);
     tokens.push({ type: "link", url, ...metadata });
     if (trailing) tokens.push({ type: "text", value: trailing });

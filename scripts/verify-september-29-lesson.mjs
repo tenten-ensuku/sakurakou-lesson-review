@@ -5,8 +5,9 @@ import { createHash } from "node:crypto";
 import data from "../content/september-29.json" with { type: "json" };
 import evidence from "../docs/september-29-provenance.json" with { type: "json" };
 import { APP_VERSION } from "../app/lib/lesson.mjs";
-const origin="https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site";
-async function get(url){const r=await fetch(url,{signal:AbortSignal.timeout(30000)});assert.equal(r.status,200,url);return r;}
+import { SITE_ORIGIN, resolveSiteUrl } from "../app/lib/site-origin.mjs";
+const origin=SITE_ORIGIN;
+async function get(url){const r=await fetch(resolveSiteUrl(String(url)),{signal:AbortSignal.timeout(30000)});assert.equal(r.status,200,String(url));return r;}
 const snapshot={notebook:await(await get(origin+"/api/notebook")).json(),catalog:await(await get(origin+"/api/catalog")).json()};
 const lesson=snapshot.notebook.lessons.find((l)=>l.id===data.lessons[0].id);
 assert.ok(lesson&&!lesson.deleted);

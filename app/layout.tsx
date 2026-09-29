@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { APP_VERSION } from "./lib/lesson.mjs";
+import { SITE_ORIGIN } from "./lib/site-origin.mjs";
 import "./globals.css";
 
 const title = "エンスク授業ノート | 桜紅さん";
@@ -9,7 +10,7 @@ const description =
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/";
+  SITE_ORIGIN + "/";
 const siteOrigin = new URL(siteUrl).origin;
 
 export const metadata: Metadata = {
