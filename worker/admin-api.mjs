@@ -4,6 +4,7 @@ import {
 } from "../db/schema.mjs";
 import { ensureAugustLessons } from "./august-lessons.mjs";
 import { ensureSeptemberLessons } from "./september-lessons.mjs";
+import { ensureSeptember29Lessons } from "./september-29-lessons.mjs";
 
 const DEFAULT_LESSON_ID = "sakurakou-2026-07-21";
 const MAX_BASE_CARD_ID = 27;
@@ -185,6 +186,7 @@ export async function handleAdminApi(request, env) {
   await ensureSchema(env.DB);
   await ensureAugustLessons(env.DB);
   await ensureSeptemberLessons(env.DB);
+  await ensureSeptember29Lessons(env.DB);
 
   if (url.pathname === "/api/notebook" && request.method === "GET") {
     const [legacy, metadata, lessons, cards, resources] = await Promise.all([

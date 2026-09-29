@@ -1,0 +1,641 @@
+{
+  "lessons": [
+    {
+      "id": "lesson-20260929-nejimaki",
+      "date": "9/29",
+      "teacher": "ねじまき鳥",
+      "title": "NANAリーグ検討・後半｜点差に合わせた手組と安全度",
+      "videoUrl": "https://www.youtube.com/watch?v=CNCAKOAMyqU"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-20260929-summary",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "note",
+      "question": "授業の要約：7つのポイント",
+      "answer": "一向聴でも、聴牌率と最終的な待ちを分けて考える\n南1局の親リーチに対する1m切りは、講師が許容した選択。ただし受け入れは狭く、6m・9mを引いた後は7pか3sの単騎になる。7p・3sが重なったときの6m・9m待ちとは、聴牌後の押しやすさが違う。1mが比較的通りそうでも、薄い一向聴から危険を負うだけの見返りがあるか確認し、オリも比較する。\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=15s\n\n役牌の基本序列と、AIが想定するルールを確認する\n南場の西家では、南は他家のダブ南になり得る。講師は発より南を先に切る方に寄せ、役牌が1枚見えたかどうかだけでは基本の切り順を変えないと説明した。また後半の再確認では、NANAは持ち点がマイナスでもリーチできる一方、AIが別の条件を想定している可能性に言及。推奨の差をそのまま実戦の大きなミスとは扱わない。\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=175s\n\n遠いトップより、現実的な着順目標から必要打点を決める\n南1局1本場は自分が−1700点、3着が5800点で、差は7500点。まず3着に届く道を考えるなら、無理に跳満だけを目指さず3900点の和了も重要になる。講師の9m切り案は、西をポンして1m・4m待ちに進む道と、門前でリーチする道を残す。一方、西を切って高打点を目指す方針なら、その後に4mをチーしない選択にも一貫性がある。動画後半の補足を踏まえ、西切りを唯一の大悪手とはしない。\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=239s\n\n副露が増えたら、自分の価値・相手の打点・通った牌を更新する\n南2局は、上家の発カンとソーズの仕掛け・河から染め手を警戒する場面。自分の安く遠い手で危険牌を押す必要があるかを見直す。さらに対面の2副露で警戒相手が増えたら、安全度も再評価する。講師は途中で8sが通っていることに気づいて候補を補足した。最初の読みを固定せず、新しい公開情報で判断を更新する。染め手や聴牌は確定情報とは区別する。\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=575s\n\n大きな点差では、対子を残す意味が変わる\n南2局1本場は南家で南の暗刻があり、南はダブ南。平たい点棒なら赤五索を使った早い和了も有力だが、この局は大きな点差を追うため七対子・四暗刻の道も見る。8sを引いた後の6s切りは、対子を崩さずに七対子と通常形を両立させる選択。その後の9mポンはカン4sで聴牌し、トイトイへの変化も残す。高打点を狙うことと、門前に固執することは同じではない。\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=788s\n\n弱いフォロー牌を先に外し、あとから押せる形にする\n南3局は最後の親番で、和了に向かう必要が高い局面。ただし7sが3枚見えており、68sのカンチャンは弱い。実戦の8s切りに対し、講師は6sを先に切る方を検討した。6sを残して5sを引いても7sが薄い両面にしかならず、6sを外しても13sに5sを足すリャンカン変化は残る。小さな上積みのために危険になりやすい牌を抱えず、相手の攻撃後も進めやすくする。\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=990s\n\n受け入れ枚数と、聴牌後の待ちの質を両方比べる\n南4局は現実的な着順アップ条件がないため、この局の収支を重視する。4pを引いた手は、7m切りなら7pの4枚を受けられ、6p切りなら7mを残して3m・6m引きの良い待ちを見込める。タンヤオで鳴く道を重視するなら7pチーもあるため7m切りに寄せるが、講師はどちらも認めた。和了できなかった結果だけで、選択を悪手にしない。\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1158s",
+      "sortOrder": -1
+    },
+    {
+      "id": "card-20260929-headless-final-waits",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "question",
+      "question": "![南1局9巡目：1mを切った後の13枚。聴牌の先に残る待ちを比較（動画 0:30）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/3d241aa2-70a7-4997-992b-588e2d8a81b2.jpg)\n\n1mを切った後の手牌。7p・3sの重なりで聴牌する場合と、6m・9mを引いて聴牌する場合では、残る待ちはどう違う？",
+      "answer": "7p・3sが重なると6m・9m待ち。6m・9mを引くと、7pか3sの単騎待ち。\n\n123m・789m・234pの3面子に78mと孤立牌7p・3sがある、ヘッドレス1型として見る。孤立牌が雀頭になる聴牌と、ターツが面子になる聴牌で、残る待ちが違う。受け入れの種類だけでなく、その先の待ちまで確認する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=61s\n\n一向聴（基礎講義）\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 2
+    },
+    {
+      "id": "card-20260929-one-visible-honor",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "question",
+      "question": "役牌が『1枚切れか、生牌か』という違いだけで、今回の講師は基本の役牌切り順を大きく変えると説明した？",
+      "answer": "変えないという方針を説明した。\n\n南と発の比較で、1枚見えたかどうかだけでは基本序列を変えないという講師の説明。あらゆる状況で見え枚数を無視するという意味ではない。自分の手役・鳴かれたときの打点・残り枚数など、別の条件が加わる場面は分けて考える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=194s\n\n基本序列\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "sortOrder": 5
+    },
+    {
+      "id": "card-20260929-west-pon-route",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "question",
+      "question": "![南1局1本場8巡目：5sツモ。西対子を残す9m切りと、西切りを比較（動画 5:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/100d0b25-7d09-40ba-b760-f64937efd687.jpg)\n\nこの手から9mを切り、西対子を残す案。あとで西をポンして6pを1枚切ると、どの待ちで聴牌する？",
+      "answer": "1m・4m待ち。\n\n9m切り後は23m・678m・6678p・55s・西西。西ポン後に6pを1枚切ると、678m・678p・西の3面子と55sの雀頭ができ、23mが待ちになる。ツモの受けだけでなく、鳴いて聴牌する道まで数える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=313s\n\n一向聴（基礎講義）\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 7
+    },
+    {
+      "id": "card-20260929-dead-pair",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "question",
+      "question": "![南2局7巡目：上家の発カン・ソーズのチーと河を見て対応を検討（動画 9:50）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/79c4f955-1b7a-40bd-b971-7dfb37620970.jpg)\n\n1sが自分の手に2枚、場に残り2枚見えている。この1s対子の『縦の受け』には何が起きている？",
+      "answer": "残りの1sがないので、重ねて暗刻にする受けがなくなっている。\n\n講師が1sを整理候補にした理由の一つ。対子は形だけ見れば雀頭候補だが、場に出た枚数によって育ちやすさが変わる。ただし、この局面の捨て牌候補は複数あり、1sだけを唯一解とする問題ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=591s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 11
+    },
+    {
+      "id": "card-20260929-gap-changes-plan",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "question",
+      "question": "![南2局1本場3巡目：赤五索を引いて3pを切った後。南の暗刻と複数の対子（動画 13:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/baf52fdf-0143-4b95-8e06-9d5596872331.jpg)\n\n南2局1本場、赤五索を引いた後の手。点棒が平たいときの9s切りより、講師が実戦の3p切りを認めた点差上の理由は？",
+      "answer": "大きな点差を追うため、七対子・四暗刻などの高打点になる道を残したいから。\n\n平たい点棒なら、ダブ南と赤を生かした早い和了を優先する道が有力。この局は大差があるため、単に最速の5ブロックを作るだけでなく、対子を多く残す価値が上がる。画像は3pを切った後で、赤五索は実際の牌画像で確認できる。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=790s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 14
+    },
+    {
+      "id": "card-20260929-pon-to-tenpai",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "question",
+      "question": "![南2局1本場12巡目：9mをポンし、9sを切ってカン4sの聴牌（動画 14:44）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/b45ac867-629b-47c8-9c66-18130b6b62a8.jpg)\n\nこの局では門前の高打点も見ていたが、9mポンも講師は認めた。何を得られ、どんな打点変化が残る？",
+      "answer": "カン4sで聴牌でき、さらにトイトイへの変化が残る。\n\n画像は9mポン後に9sを切った聴牌形。七対子に固執すると南の暗刻を崩す必要が出るため、完成の難しさも比べる。高打点を狙うという目的と、必ず門前で進めるという手段を混同しない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=878s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 17
+    },
+    {
+      "id": "card-20260929-thin-kanchan",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "question",
+      "question": "![南3局10巡目：6pを引き8sを切った後。先に6sを切る考え方と比較（動画 16:36）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ccb700ca-e947-4868-ab6a-6454b90fceff.jpg)\n\n68sのカンチャンを見直す場面。7sが3枚見えているなら、見えていない7sは最大何枚？　形の評価はどう変わる？",
+      "answer": "最大1枚。カン7sの受けが薄くなり、68sを残す価値が下がる。\n\n同じ牌は4枚なので、3枚見えなら残りは最大1枚。その1枚が山にある保証もない。形の名前だけで評価せず、実際に残り得る枚数まで数える。画像は実戦で8sを切った後で、元の68sを振り返る場面。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=986s\n\n一向聴（基礎講義）\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 20
+    },
+    {
+      "id": "card-20260929-five-not-lost",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "question",
+      "question": "![南3局10巡目：6pを引き8sを切った後。先に6sを切る考え方と比較（動画 16:36）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ccb700ca-e947-4868-ab6a-6454b90fceff.jpg)\n\n『5sを引くと両面になるから6sを残したい』という比較。6sを外しても13sが残っているなら、5sを引いたときに何という形ができる？　受けは？",
+      "answer": "135sのリャンカン。2s・4sを受けられる。\n\n6sを残した56sは4s・7s受けだが、この局面では7sが3枚見えている。6sを切ると5sの受けが丸ごとなくなる、と数えてはいけない。別のブロック側でも5sを使えることを比べる。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1093s\n\n一向聴（基礎講義）\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 22
+    },
+    {
+      "id": "card-20260929-seven-man-acceptance",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "question",
+      "question": "![南4局7巡目：4pツモ。7m切りの受け入れと6p切りの待ちの質を比較（動画 19:36）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/50ded512-a60f-40ab-b55d-ba684c652079.jpg)\n\n4pツモ後、6p切りより7m切りの方が広くなる直接の受け入れは、どの牌の何枚分？　場の見え枚数を引く前で答えて。",
+      "answer": "7pの4枚分。\n\n6pを残した688pには7p引きで678p＋8pと分ける道がある。一方、7mを切っても45mがあるため6m引きそのものは失わない。『7mを切ると6mも全部失う』と数えず、実際の形に分けて比較する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1180s\n\n一向聴（基礎講義）\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 26
+    },
+    {
+      "id": "card-20260929-two-axes",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "question",
+      "question": "![南4局7巡目：4pツモ。7m切りの受け入れと6p切りの待ちの質を比較（動画 19:36）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/50ded512-a60f-40ab-b55d-ba684c652079.jpg)\n\n南4局の7m切り・6p切りを比較するとき、『聴牌しやすさ』のほかに必ず見たいもう一つの軸は？",
+      "answer": "聴牌した後の待ちの質、つまり和了しやすさ。\n\n直接受けの枚数と、聴牌後に良い待ちを残せるかは別の評価軸。セオリー集も、一向聴では二次変化よりダイレクトに聴牌したときの待ちの強さを重視するとしている。今回はそこにタンヤオでの鳴きやすさも加えて比べる。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1200s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 29
+    }
+  ],
+  "items": [
+    {
+      "id": "check-20260929-thin-one-shanten",
+      "theoryId": "",
+      "type": "choice",
+      "question": "![南1局9巡目：親のリーチに対し、7pを引いて1mを切るか考える場面（動画 0:21）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e40fc00c-c335-4fed-aede-4120fde60fcf.jpg)\n\n親リーチに1mを切って一向聴を維持できる。ただし、講師がオリも比較した理由は？",
+      "choices": [
+        "一向聴なら形や打点に関係なく親リーチにはオリるべきだから",
+        "受け入れが狭く、聴牌しても押しにくい単騎待ちが残る場合がある",
+        "聴牌すればどんな待ちでも押せるので、聴牌率だけを見ればよいから",
+        "1mが通りそうなら、残りの受け入れ枚数を調べる必要はないから"
+      ],
+      "correctIndex": 1,
+      "explanation": "受け入れが狭く、聴牌しても押しにくい単騎待ちが残る場合がある。\n\n1m切り自体を否定した場面ではない。通りやすさだけでなく、そのリスクを負ってどれほど和了に近づくかを比べる。『一向聴だから押す』という向聴数だけの判断をしない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=48s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 1,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-riichi-principle",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "セオリー集のリーチ対応：『立直に対して［　］一向聴から危険牌は切るな。』",
+      "choices": [
+        "愚形残りの鳴けない",
+        "どんな形であっても",
+        "満貫以上が見えるすべての",
+        "両面だけが残った鳴ける"
+      ],
+      "correctIndex": 0,
+      "explanation": "愚形残りの鳴けない。\n\n原文は『立直に対して愚形残りの鳴けない一向聴から危険牌は切るな。（愚形無しなら無筋を押していいケースもそこそこある）』。条件を省いて『一向聴は押さない』に変えない。今回のように聴牌後の待ちが弱くなる手を振り返るときも、見返りを点検する基準になる。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=95s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 3,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-honor-order",
+      "theoryId": "",
+      "type": "choice",
+      "question": "![南1局1本場の配牌を再確認。自分は西家で持ち点はマイナス（動画 8:25）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/a75c33fa-9d5c-4459-ac1b-b28cf22954ad.jpg)\n\n南場の西家。画像の南・発を切る順について、講師が南を先に切る方に寄せた基本的な理由は？",
+      "choices": [
+        "南は自分のダブ南だから",
+        "三元牌は他の役牌より常に後に切る決まりだから",
+        "南は他家の連風牌になり、鳴かれたときの打点を警戒するから",
+        "南の方が発より、自分が重ねたときの翻数が高いから"
+      ],
+      "correctIndex": 2,
+      "explanation": "南は他家の連風牌になり、鳴かれたときの打点を警戒するから。\n\n基本序列の役牌内の切り順は『他家連風＜三元牌＜自風＜自連風』。南家にとって南は場風と自風の両方になる。画像は冒頭の配牌を8:25付近で再表示したもの。自分の席が西家であることも確認する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=184s\n\n基本序列\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 4,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-realistic-placement",
+      "theoryId": "",
+      "type": "choice",
+      "question": "![南1局1本場8巡目：5sツモ。西対子を残す9m切りと、西切りを比較（動画 5:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/100d0b25-7d09-40ba-b760-f64937efd687.jpg)\n\n自分−1700点、3着5800点。上位2人とは大差がある。講師が手組の出発点にした考え方は？",
+      "choices": [
+        "上位2人を一度で抜く打点を、毎回最優先する",
+        "マイナス点なので門前リーチの道を除外する",
+        "3900点では点差に届かないので、和了する価値はないとする",
+        "まず3着に届く道を考え、3900点の和了も大切にする"
+      ],
+      "correctIndex": 3,
+      "explanation": "まず3着に届く道を考え、3900点の和了も大切にする。\n\n3着との差は7500点。上位を一度で抜く跳満だけに目標を固定せず、現実的な着順目標から速度と打点を比べる。3900点なら誰から和了しても即逆転、という意味ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=260s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 6,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-plan-and-call",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "![南1局1本場8巡目：5sツモ。西対子を残す9m切りと、西切りを比較（動画 5:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/100d0b25-7d09-40ba-b760-f64937efd687.jpg)\n\n先に西対子を落として高打点を目指す方針を選んだなら、後の4mをチーしないことには［　］がある。",
+      "choices": [
+        "フリテンになるという理由",
+        "選んだ手組方針との一貫性",
+        "鳴くと役満になるという根拠",
+        "一向聴が必ず二向聴になるという根拠"
+      ],
+      "correctIndex": 1,
+      "explanation": "選んだ手組方針との一貫性。\n\n講師の9m切り案なら、西を生かして3900点の聴牌に進む4mチーを考える。一方、実戦の西切り後は打点重視の方針なので、同じ4mでもスルーの意味が変わる。前の手組を無視して、鳴きだけを単独で採点しない。画像は方針を分けた5sツモ時の場面。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=467s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 8,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-ai-rule-correction",
+      "theoryId": "",
+      "type": "choice",
+      "question": "![南1局1本場の配牌を再確認。自分は西家で持ち点はマイナス（動画 8:25）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/a75c33fa-9d5c-4459-ac1b-b28cf22954ad.jpg)\n\n講師は後から、西切りをAIの評価だけで大きな悪手とする見方を補足した。確認すべきだったルールの違いは？",
+      "choices": [
+        "赤牌をドラとして数えるかどうか",
+        "リーチ棒を和了者が受け取るかどうか",
+        "持ち点がマイナスでもリーチできるかどうか",
+        "場風と自風が重なるときに2翻になるかどうか"
+      ],
+      "correctIndex": 2,
+      "explanation": "持ち点がマイナスでもリーチできるかどうか。\n\n講師はNANAでは箱下リーチが可能と確認し、AIがリーチできない条件として見ている可能性を挙げた。AI内部の理由は断定されていない。講師自身は9m切りに寄せつつも、西切りの評価差をそのまま大きなミスと扱わないよう補足している。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=507s",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 9,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-open-hand-warning",
+      "theoryId": "",
+      "type": "choice",
+      "question": "![南2局7巡目：上家の発カン・ソーズのチーと河を見て対応を検討（動画 9:50）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/79c4f955-1b7a-40bd-b971-7dfb37620970.jpg)\n\n上家の発カン・ソーズの仕掛け・河を見たこの場面。講師の対応に近いのは？",
+      "choices": [
+        "高打点の染め手を警戒し、自分の安く遠い手で押す価値を見直す",
+        "リーチが来ていないので、相手の打点をまだ考慮しない",
+        "ソーズの染め手が確定したので、他の色なら安全とする",
+        "点数を追っているので、自分の手が安くても受け入れ最大を優先する"
+      ],
+      "correctIndex": 0,
+      "explanation": "高打点の染め手を警戒し、自分の安く遠い手で押す価値を見直す。\n\n副露対応は相手の打点や自分の手牌価値を合わせて判断する。染め手は公開情報からの警戒であり、相手の手牌を透視した確定判断ではない。点数を追う局面でも、安く遠い手からの放銃リスクを無条件に受け入れない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=580s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 10,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-second-opponent",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "![南2局9巡目：対面も2副露。自分の手だけでなく相手の進行も再確認（動画 11:50）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/b234ad2a-107c-4c5d-8c29-d70f2345c8cc.jpg)\n\n上家だけでなく対面も2副露した。安全牌を選ぶときは、［　］必要がある。",
+      "choices": [
+        "最初に警戒した上家だけを見る",
+        "自分の向聴数だけを見る",
+        "対面の手牌をすべて断定する",
+        "対面にも放銃したくないかを含め、安全度を見直す"
+      ],
+      "correctIndex": 3,
+      "explanation": "対面にも放銃したくないかを含め、安全度を見直す。\n\n講師は対面の2副露で聴牌の可能性が高まったことも考慮した。ある1人に安全な牌が、他の相手にも安全とは限らない。誰に対して何を根拠に安全と見ているのかを更新する。2副露だけで聴牌確定とはしない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=707s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 12,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-update-safe-information",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "![南2局10巡目：8sを切った直後。講師が通った牌を確認し直した場面（動画 12:04）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/6f0b1399-e029-4f82-87cf-b5f054a702b8.jpg)\n\n講師が途中で『8sが通っている』と気づいて候補を補足した。この場面で更新したのは［　］。",
+      "choices": [
+        "牌の種類ごとの点数",
+        "新しく得られた安全度の情報",
+        "赤牌の枚数というルール",
+        "自分の席順"
+      ],
+      "correctIndex": 1,
+      "explanation": "新しく得られた安全度の情報。\n\n最初に立てた候補を固定せず、相手が切った牌・通った牌を確認し直す。誰にいつ通ったかが大切であり、『一度通れば全員に永遠に安全』ではない。画像は8sを切った直後の河。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=725s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 13,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-double-south",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "![南2局1本場3巡目：赤五索を引いて3pを切った後。南の暗刻と複数の対子（動画 13:10）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/baf52fdf-0143-4b95-8e06-9d5596872331.jpg)\n\n南場の南家で南を3枚持っている。この南は場風と自風を兼ねるため、［　］と呼ばれる。",
+      "choices": [
+        "ダブ南",
+        "オタ風",
+        "一盃口",
+        "三色同順"
+      ],
+      "correctIndex": 0,
+      "explanation": "ダブ南。\n\n同じ南でも、南1局で西家だったときとは自分にとっての価値が違う。南場の南家では場風・自風の2翻になる。役牌は文字だけでなく、場と自分の席を合わせて判断する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=795s\n\n基本序列\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 15,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-keep-pair-route",
+      "theoryId": "",
+      "type": "choice",
+      "question": "![南2局1本場8巡目：8sを残し6sを切った後。七対子の道も残している（動画 13:50）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/f5acae15-ec86-4996-8019-a1e7295c9123.jpg)\n\n8sを引いた後、講師は6s切りを検討した。3sや4pの対子を崩して通常形だけに寄せるより、残せる道は？",
+      "choices": [
+        "七対子を見切り、通常形の5ブロックだけに確定する道",
+        "南の暗刻を崩し、両面だけの手にする道",
+        "七対子と、南を使う通常形の両方",
+        "対子をすべて崩し、孤立牌のくっつきを待つ道"
+      ],
+      "correctIndex": 2,
+      "explanation": "七対子と、南を使う通常形の両方。\n\n対子を残せば七対子の進行を保てる一方、南の暗刻などを使った通常形も捨てずに済む。点差から高打点を求める手では、通常形のブロック数だけで早々に対子を壊さない。画像は6sを切った後の状態。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=824s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 16,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-triplet-chiitoi-exception",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "セオリー集の『単独暗刻は聴牌まで絶対に切るな。』には、［　］という例外が記されている。",
+      "choices": [
+        "字牌なら常に壊してよい",
+        "対子が1組でもできたら壊す",
+        "配牌なら必ず壊す",
+        "七対子一向聴やベタオリ時"
+      ],
+      "correctIndex": 3,
+      "explanation": "七対子一向聴やベタオリ時。\n\n原文の補足は『（七対子一向聴やベタオリ時のみ切って良い）』。この講義でも、南の暗刻がある手を七対子に向かわせる難しさが比較された。暗刻を見たら何も考えないのではなく、例外の条件まで一緒に覚える。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=910s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 18,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-last-dealer",
+      "theoryId": "",
+      "type": "choice",
+      "question": "![南3局10巡目：6pを引き8sを切った後。先に6sを切る考え方と比較（動画 16:36）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ccb700ca-e947-4868-ab6a-6454b90fceff.jpg)\n\n南3局、大きな点差を追う最後の親番。講師が前に出る方針自体を認めた理由は？",
+      "choices": [
+        "親なら手の価値を問わず危険牌を押すのが原則だから",
+        "ここで和了し、親番をつなぐ必要性が高いから",
+        "守備を考えると必ず和了できなくなるから",
+        "他家からまだリーチが来ていなければ、危険牌を持つ欠点がないから"
+      ],
+      "correctIndex": 1,
+      "explanation": "ここで和了し、親番をつなぐ必要性が高いから。\n\n局面の目標が、平たい点棒のときより攻撃寄りになる。ただし講師は同時に、残すフォロー牌の価値と安全度を比較している。『和了したい』ことは、不要な危険牌まで抱える理由にはならない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=968s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 19,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-discard-riskier-follow",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "![南3局10巡目：6pを引き8sを切った後。先に6sを切る考え方と比較（動画 16:36）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ccb700ca-e947-4868-ab6a-6454b90fceff.jpg)\n\n68sを整理するなら、実戦の8s切りより講師は［　］を先に切る案に寄せた。",
+      "choices": [
+        "雀頭候補の4p",
+        "完成面子の1m",
+        "6s",
+        "ドラ表示牌"
+      ],
+      "correctIndex": 2,
+      "explanation": "6s。\n\n7sが3枚見えているため、8s側は相対的に危険度が下がっている。一方6sは3s・6sの両面にも当たり得る。6sのフォロー価値が低いなら、あとで危険になりやすい方を先に処理したい。8sが誰にでも絶対安全という意味ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1006s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 21,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-safety-before-riichi",
+      "theoryId": "",
+      "type": "choice",
+      "question": "![南3局12巡目：上家のリーチ後。残った6sの扱いが難しくなった場面（動画 17:45）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/c47f2dce-e4ca-4349-a899-1724d2f853f5.jpg)\n\n上家のリーチ後、6sが残って押しにくくなった。講師がその前の段階で検討した改善は？",
+      "choices": [
+        "働きの薄い6sを整理し、より安全な牌に持ち替える",
+        "5s引きの変化がある限り、6sを最後まで残す",
+        "リーチ前は牌の安全度を一切比較しない",
+        "安全牌を1枚持つために、先に完成面子を壊す"
+      ],
+      "correctIndex": 0,
+      "explanation": "働きの薄い6sを整理し、より安全な牌に持ち替える。\n\n講師は途中で引いた9sへの持ち替えなどを検討した。攻撃を続けたい手ほど、上積みの小さいフォロー牌と安全牌を早めに比較する意味がある。どの牌が安全かは、対象の相手と河の情報に基づいて判断する。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1055s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 23,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-weak-follow-principle",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "セオリー集の手組の格言：『［　］をフォローして強い所はフォローはいらず』",
+      "choices": [
+        "すでに十分強い所",
+        "弱い所",
+        "相手の手牌",
+        "自分の捨て牌"
+      ],
+      "correctIndex": 1,
+      "explanation": "弱い所。\n\n原文の判断軸は、フォローによる上積みがどこで大きいか。南3局でも6sを残すことによる5s引きの上積みを数え直していた。単に隣に牌があるから保持するのではなく、それが本当に受けや待ちを改善するかを確かめる。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1100s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 24,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-oorasu-objective",
+      "theoryId": "",
+      "type": "choice",
+      "question": "![南4局7巡目：4pツモ。7m切りの受け入れと6p切りの待ちの質を比較（動画 19:36）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/50ded512-a60f-40ab-b55d-ba684c652079.jpg)\n\nこのオーラスでは、現実的な着順アップの条件がないと講師は整理した。そこで勧めた考え方は？",
+      "choices": [
+        "着順が変わらなくても高打点への変化だけを優先する",
+        "和了しても順位が変わらないので、最初からオリに決める",
+        "順位が変わらないので、手順の比較を省略する",
+        "東1局のように、この局の収支を重視して打つ"
+      ],
+      "correctIndex": 3,
+      "explanation": "東1局のように、この局の収支を重視して打つ。\n\n順位を変えるための無理な条件を作るのではなく、残りの点数を大切にしながら通常の得失点で選択する。大差だから適当に打つ、あるいは必ずオリるという説明ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1146s",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 25,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-keep-seven-wait",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "![南4局7巡目：4pツモ。7m切りの受け入れと6p切りの待ちの質を比較（動画 19:36）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/50ded512-a60f-40ab-b55d-ba684c652079.jpg)\n\n同じ手で6pを切って7mを残す利点は、3m・6mを引いたときの［　］を見込めること。",
+      "choices": [
+        "両面・三面張の待ち",
+        "国士無双の13面待ち",
+        "必ず役満になること",
+        "すべての他家の現物待ち"
+      ],
+      "correctIndex": 0,
+      "explanation": "両面・三面張の待ち。\n\n7m切りは7pの直接受けが増える一方、6p切りはマンズの連続した形を残し、3m・6m引き後の待ちの質に利点がある。講師は受け入れの枚数だけでなく、聴牌後の待ちを比較した。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1193s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit\n\n一向聴（基礎講義）\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 27,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-chii-tanyao-choice",
+      "theoryId": "",
+      "type": "choice",
+      "question": "![南4局7巡目：4pツモ。7m切りの受け入れと6p切りの待ちの質を比較（動画 19:36）](https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/50ded512-a60f-40ab-b55d-ba684c652079.jpg)\n\nタンヤオで鳴く進行を重視するなら、講師が7m切りに少し寄せた理由は？",
+      "choices": [
+        "7mを残すとタンヤオの役がなくなるから",
+        "7pをチーして進む道も使えるから",
+        "6pを切ると3m・6mの受け入れが消えるから",
+        "タンヤオでは聴牌後の待ちを比較する必要がないから"
+      ],
+      "correctIndex": 1,
+      "explanation": "7pをチーして進む道も使えるから。\n\n門前のツモだけでなく、7pチーで聴牌に進む道まで含めて受けを評価する。ただし講師は6p切りも認めている。微差の比較を『7m切り以外は不正解』と固定するための問題ではない。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1220s\n\nセオリー集（随時更新）\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 28,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20260929-process-not-result",
+      "theoryId": "",
+      "type": "choice",
+      "question": "最終的に和了できず、大きな失点の半荘になった。講師の総括に合う復習の仕方は？",
+      "choices": [
+        "和了できなかった手順を、結果からすべて悪手とする",
+        "全体をほめられたので、細かな改善点は探さない",
+        "結果と選択の質を分け、当時の情報で改善できる判断を探す",
+        "牌譜で後から見えた相手の手牌を、判断当時も分かっていた前提にする"
+      ],
+      "correctIndex": 2,
+      "explanation": "結果と選択の質を分け、当時の情報で改善できる判断を探す。\n\n講師は全体としてよく打てていたと評価した。改善点は残すフォロー牌や方針の比較などであり、相手の高打点の和了まで自分の失敗に置き換えない。あとから見えた相手の手ではなく、その時点で分かっていた情報を基準に振り返る。\n\n授業の該当場面\nhttps://www.youtube.com/watch?v=CNCAKOAMyqU&t=1264s",
+      "lessonIds": [
+        "lesson-20260929-nejimaki"
+      ],
+      "sortOrder": 30,
+      "deleted": false,
+      "revision": 1
+    }
+  ],
+  "resources": [
+    {
+      "id": "resource-20260929-summary",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "link",
+      "label": "授業の要約・盤面で振り返る7つのポイント",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/materials/september-2026/0929.html",
+      "sortOrder": 0
+    },
+    {
+      "id": "resource-20260929-order",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "link",
+      "label": "基本序列",
+      "url": "https://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "sortOrder": 1
+    },
+    {
+      "id": "resource-20260929-theory",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "link",
+      "label": "セオリー集（随時更新）",
+      "url": "https://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 2
+    },
+    {
+      "id": "resource-20260929-shape",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "link",
+      "label": "一向聴（基礎講義）",
+      "url": "https://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 3
+    },
+    {
+      "id": "resource-20260929-scene-1065",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南3局12巡目：上家のリーチ後。残った6sの扱いが難しくなった場面",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/c47f2dce-e4ca-4349-a899-1724d2f853f5.jpg",
+      "sortOrder": 4
+    },
+    {
+      "id": "resource-20260929-scene-1176",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南4局7巡目：4pツモ。7m切りの受け入れと6p切りの待ちの質を比較",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/50ded512-a60f-40ab-b55d-ba684c652079.jpg",
+      "sortOrder": 5
+    },
+    {
+      "id": "resource-20260929-scene-0021",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南1局9巡目：親のリーチに対し、7pを引いて1mを切るか考える場面",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/e40fc00c-c335-4fed-aede-4120fde60fcf.jpg",
+      "sortOrder": 6
+    },
+    {
+      "id": "resource-20260929-scene-0030",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南1局9巡目：1mを切った後の13枚。聴牌の先に残る待ちを比較",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/3d241aa2-70a7-4997-992b-588e2d8a81b2.jpg",
+      "sortOrder": 7
+    },
+    {
+      "id": "resource-20260929-scene-0505",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南1局1本場の配牌を再確認。自分は西家で持ち点はマイナス",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/a75c33fa-9d5c-4459-ac1b-b28cf22954ad.jpg",
+      "sortOrder": 8
+    },
+    {
+      "id": "resource-20260929-scene-0310",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南1局1本場8巡目：5sツモ。西対子を残す9m切りと、西切りを比較",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/100d0b25-7d09-40ba-b760-f64937efd687.jpg",
+      "sortOrder": 9
+    },
+    {
+      "id": "resource-20260929-scene-0590",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南2局7巡目：上家の発カン・ソーズのチーと河を見て対応を検討",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/79c4f955-1b7a-40bd-b971-7dfb37620970.jpg",
+      "sortOrder": 10
+    },
+    {
+      "id": "resource-20260929-scene-0710",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南2局9巡目：対面も2副露。自分の手だけでなく相手の進行も再確認",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/b234ad2a-107c-4c5d-8c29-d70f2345c8cc.jpg",
+      "sortOrder": 11
+    },
+    {
+      "id": "resource-20260929-scene-0724",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南2局10巡目：8sを切った直後。講師が通った牌を確認し直した場面",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/6f0b1399-e029-4f82-87cf-b5f054a702b8.jpg",
+      "sortOrder": 12
+    },
+    {
+      "id": "resource-20260929-scene-0790",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南2局1本場3巡目：赤五索を引いて3pを切った後。南の暗刻と複数の対子",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/baf52fdf-0143-4b95-8e06-9d5596872331.jpg",
+      "sortOrder": 13
+    },
+    {
+      "id": "resource-20260929-scene-0830",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南2局1本場8巡目：8sを残し6sを切った後。七対子の道も残している",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/f5acae15-ec86-4996-8019-a1e7295c9123.jpg",
+      "sortOrder": 14
+    },
+    {
+      "id": "resource-20260929-scene-0884",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南2局1本場12巡目：9mをポンし、9sを切ってカン4sの聴牌",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/b45ac867-629b-47c8-9c66-18130b6b62a8.jpg",
+      "sortOrder": 15
+    },
+    {
+      "id": "resource-20260929-scene-0996",
+      "lessonId": "lesson-20260929-nejimaki",
+      "kind": "image",
+      "label": "南3局10巡目：6pを引き8sを切った後。先に6sを切る考え方と比較",
+      "url": "https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/api/images/note-images/ccb700ca-e947-4868-ab6a-6454b90fceff.jpg",
+      "sortOrder": 16
+    }
+  ]
+}
