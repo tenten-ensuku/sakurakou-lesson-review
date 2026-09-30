@@ -34,9 +34,3 @@ export function normalizeNagaEvaluation(value, options) {
 export function nagaSourceUrl(evaluation) {
   return `https://naga.dmv.nico/htmls/report_viewer.html?report_id=${encodeURIComponent(evaluation.reportId)}&tw=${evaluation.tw}&ts=${evaluation.ts}&tv=${evaluation.tv}`;
 }
-export function nagaDisplayRows(evaluation, selected) {
-  const keys = Object.keys(evaluation.models[0].rates);
-  if (evaluation.kind === "call") return keys;
-  return keys.filter(k => k === selected || Math.max(...evaluation.models.map(m => m.rates[k])) >= 0.5)
-    .sort((a, b) => Math.max(...evaluation.models.map(m => m.rates[b])) - Math.max(...evaluation.models.map(m => m.rates[a])));
-}

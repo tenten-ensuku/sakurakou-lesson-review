@@ -27,6 +27,7 @@ import ConfirmProvider, { useConfirm } from "./ConfirmAction";
 import RichContent from "./RichContent";
 import TileQuestion, { TileHand, TileResult } from "./TileQuestion";
 import { savedTilePick, tileAnswer, tileQuestionSignature } from "./lib/tile-question.mjs";
+import { retryTileQuestion } from "./lib/theory-evaluation.mjs";
 import { MaterialLink } from "./LessonMaterials";
 import LessonEntry from "./LessonEntry";
 import { isFeaturedMaterial, orderMaterials } from "./lib/materials.mjs";
@@ -544,6 +545,16 @@ function NotebookHome() {
     if (result.correct) record("known", { target: activeKey, theoryIds });
     updateRun({ ...r, revealed: true, tilePicks: { ...r.tilePicks, [activeKey]: index }, tileSignatures: { ...r.tileSignatures, [activeKey]: tileQuestionSignature(currentCard.tileQuestion) }, ratings: { ...r.ratings, [activeKey]: result.correct ? "known" : "again" } });
   };
+  const changeTileModel = (name: string) => {
+    const r = runRef.current;
+    if (!r || r.keys[r.index] !== activeKey || !currentCard?.tileQuestion?.naga?.models.some(m => m.name === name)) return;
+    updateRun({ ...r, tileModels: { ...r.tileModels, [activeKey]: name } });
+  };
+  const retryTile = () => {
+    const r = runRef.current;
+    if (!r || r.keys[r.index] !== activeKey || currentTilePick === undefined) return;
+    updateRun(retryTileQuestion(r, activeKey));
+  };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (view !== "session" || editing || !run) return;
@@ -909,7 +920,7 @@ function NotebookHome() {
       </div>
     );
   return (
-    <main className="notebook">
+    <main className={`notebook${view === "session" && currentCard?.tileQuestion?.naga ? " notebook--naga" : ""}`}>
       <header className="notebook-header">
         <span className="student-mark" aria-hidden="true">
           桜
@@ -1210,10 +1221,9 @@ function NotebookHome() {
                   </div>
                 ) : (
                   currentCard.tileQuestion ? <>
-                    <TileQuestion key={activeKey} data={currentCard.tileQuestion} question={currentCard.question} pick={currentTilePick} onSubmit={answerTile} />
+                    <TileQuestion key={activeKey} data={currentCard.tileQuestion} question={currentCard.question} pick={currentTilePick} onSubmit={answerTile} explanation={currentCard.answer} model={run.tileModels?.[activeKey]} onModelChange={changeTileModel} onRetry={retryTile} navigation={{ index: run.index, total: run.keys.length, previous: () => advance(-1), next: () => advance() }} />
                     {currentTilePick !== undefined && <section className="tile-feedback" aria-label="何切るの解説">
-                      <TileResult data={currentCard.tileQuestion} pick={currentTilePick} />
-                      <div className="rich-content"><RichContent text={currentCard.answer} /></div>
+                      {!(currentCard.tileQuestion.naga && currentCard.tileQuestion.board) && <><TileResult data={currentCard.tileQuestion} pick={currentTilePick} /><div className="rich-content"><RichContent text={currentCard.answer} /></div></>}
                       <div className="action-grid">
                         <button className="review-action" aria-pressed={state.reviewIds.includes(activeKey)} onClick={() => record("review", { target: activeKey, active: !state.reviewIds.includes(activeKey) })}><ArrowClockwise />{state.reviewIds.includes(activeKey) ? "解き直しから外す" : "解き直しに追加"}</button>
                         <button className="primary" onClick={() => advance()}>{run.index === run.keys.length - 1 ? "結果を見る" : "次の問題へ"}<CaretRight /></button>

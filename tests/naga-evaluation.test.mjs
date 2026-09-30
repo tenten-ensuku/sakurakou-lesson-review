@@ -1,11 +1,15 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { DatabaseSync } from "node:sqlite";
 import data from "../content/september-30.json" with { type: "json" };
 import evaluations from "../content/september-30-naga.json" with { type: "json" };
 import evidence from "../docs/september-30-naga-provenance.json" with { type: "json" };
-import { nagaDisplayRows, nagaSourceUrl, normalizeNagaEvaluation } from "../app/lib/naga-evaluation.mjs";
+import { nagaSourceUrl, normalizeNagaEvaluation } from "../app/lib/naga-evaluation.mjs";
+import { nagaModelIndex, retryTileQuestion, sourceBoardEvaluation } from "../app/lib/theory-evaluation.mjs";
+import { sanitizeEvent } from "../worker/learning-api.mjs";
+import { progressFrom } from "../app/lib/progress.mjs";
 import { normalizeTileQuestion, savedTilePick, tileAnswer, tileOptions, tileQuestionSignature } from "../app/lib/tile-question.mjs";
 import { handleAdminApi } from "../worker/admin-api.mjs";
 import { NOTEBOOK_SCHEMA_SQL } from "../db/schema.mjs";
@@ -107,15 +111,71 @@ test("only the verified red/ordinary-five correction preserves older saved tile 
   assert.equal(savedTilePick({ ...session, tilePicks: { [key]: 14 } }, key, q), undefined);
 });
 
-test("recommendations include the selected low-rate tile, and call rows never masquerade as discards", () => {
-  const q = evaluations["safe-five-pin"];
-  assert.deepEqual(nagaDisplayRows(q, "5m"), ["5p", "6s", "9m", "5m"]);
-  assert.deepEqual(nagaDisplayRows(evaluations["four-pin-pon"], "6p"), ["pon", "pass"]);
+test("reference renderer is reused verbatim, with proportional bars anchored to each measured source tile", () => {
+  assert.equal(createHash("sha256").update(readFileSync("app/lib/theory-board-renderer.js", "utf8").replace(/\r\n/g, "\n")).digest("hex"), "37f1108a8e862dcc580951bf31a1315c304eff91406cb8262becaa39c2afe377");
+  const q = card("safe-five-pin").tileQuestion, e = sourceBoardEvaluation(q, 0);
+  assert.equal(e.modelName, "ニシキ");
+  assert.equal(e.recommended, "5p");
+  assert.equal(e.tiles.length, q.board.regions.length);
+  for (const tile of e.tiles) {
+    assert.equal(tile.x, q.board.regions[tile.index].x);
+    assert.equal(tile.y, q.board.regions[tile.index].y);
+    assert.equal(tile.width, q.board.regions[tile.index].width);
+    assert.equal(tile.height, q.board.regions[tile.index].height);
+  }
+  const five = e.tiles[tileOptions(q).indexOf("5p")];
+  const bars = [...five.markup.matchAll(/<rect data-recommendation-bar="(\d+)"[^>]+>/g)].map(m => ({ index: Number(m[1]), attrs: Object.fromEntries([...m[0].matchAll(/([\w-]+)="([^"]+)"/g)].map(a => [a[1], a[2]])) }));
+  assert.equal(bars.length, 2);
+  assert.equal(bars[0].attrs.fill, "#7c3be6");
+  assert.equal(bars[1].attrs.fill, "#5a5c4e");
+  assert.ok(Math.abs(Number(bars[0].attrs.height) - 28.952) < 1e-10); // 40px * 72.38%, not an arbitrary CSS height
+  assert.ok(Math.abs(Number(bars[0].attrs.y) + Number(bars[0].attrs.height) - 40) < 1e-10);
+  assert.ok(Math.abs(Number(bars[0].attrs.width) / Number(bars[1].attrs.width) - 1.7) < 1e-10);
+  assert.match(e.tiles[0].markup, /data-recommendation-frame="player"/);
+  assert.doesNotMatch(e.tiles[0].markup, /data-recommendation-frame="naga"/);
+  assert.match(five.markup, /data-recommendation-frame="naga"/);
+  const switched = sourceBoardEvaluation(q, 0, "カガシ");
+  assert.equal(switched.tiles[five.index].value, 68.06);
+  assert.match(switched.tiles[five.index].markup, /data-recommendation-bar="1"[^>]*fill="#7c3be6"/);
+  assert.deepEqual(sourceBoardEvaluation(card("four-pin-pon").tileQuestion, 0).tiles, []);
+  assert.equal(sourceBoardEvaluation(q, undefined), null);
+  assert.equal(sourceBoardEvaluation({ ...q, hand: ["1m"] }, 0), null);
+});
+
+test("model defaults use the name, recommendation follows it without changing the teacher's answer", () => {
+  const q = card("pon-preserve-head").tileQuestion;
+  assert.equal(sourceBoardEvaluation(q, 0).recommended, "1s");
+  assert.equal(sourceBoardEvaluation(q, 0, "カガシ").recommended, "4z");
+  assert.equal(sourceBoardEvaluation(q, 0, "unknown").modelName, "ニシキ");
+  assert.equal(nagaModelIndex({ models: [...q.naga.models].reverse() }), 1);
+  assert.equal(nagaModelIndex({ models: [{ name: "カガシ" }] }), 0);
+  assert.equal(tileAnswer(q, tileOptions(q).indexOf("1s")).correct, false);
+  assert.equal(tileAnswer(q, tileOptions(q).indexOf("4z")).correct, true);
+});
+
+test("evaluation is gated by answering, with no separate hand or numeric table", () => {
   const tile = readFileSync("app/TileQuestion.tsx", "utf8"), css = readFileSync("app/notebook.css", "utf8");
-  assert.match(tile, /answered && !failedImage && data\.naga\?\.kind === "discard"/);
-  assert.match(tile, /answered && data\.naga && <NagaRecommendation/);
-  assert.match(css, /\.source-naga-bars[^}]*pointer-events: none/);
+  assert.match(tile, /answered && !failedImage && data\.naga && <NagaRecommendation/);
+  assert.match(css, /\.source-naga-overlay[^}]*pointer-events: none/);
+  assert.doesNotMatch(readFileSync("app/NagaRecommendation.tsx", "utf8"), /<table/);
   assert.doesNotMatch(tile, /source-hand-canvas|source-hand-scroll/);
+});
+
+test("retry and model selection are scoped to stable question IDs and survive server synchronization", () => {
+  const key = "lesson-20260930-tenten:custom:card-20260930-safe-five-pin", other = "lesson-20260930-tenten:custom:card-20260930-two-riichi-west";
+  const session = { id: "session-test", slot: "lesson-20260930-tenten:mixed:all", lessonId: "lesson-20260930-tenten", mode: "mixed", keys: [key, other], index: 0, elapsed: 50, revealed: true, picks: {}, tilePicks: { [key]: 5, [other]: 8 }, tileSignatures: { [key]: "sig1", [other]: "sig2" }, tileModels: { [key]: "カガシ", [other]: "ニシキ" }, ratings: { [key]: "known", [other]: "again" }, completed: false, reviewOnly: false };
+  const reset = retryTileQuestion(session, key);
+  assert.deepEqual(session.tilePicks, { [key]: 5, [other]: 8 });
+  assert.deepEqual(reset.tilePicks, { [other]: 8 });
+  assert.deepEqual(reset.tileSignatures, { [other]: "sig2" });
+  assert.deepEqual(reset.ratings, { [other]: "again" });
+  assert.deepEqual(reset.tileModels, session.tileModels);
+  assert.equal(reset.revealed, false);
+  const event = { id: "event-test", type: "session", at: "2026-09-30T08:00:00Z", session: reset }, catalog = { items: [], theories: [] };
+  const sanitized = sanitizeEvent(event, catalog, Date.parse("2026-09-30T09:00:00Z"));
+  assert.deepEqual(sanitized.session.tileModels, session.tileModels);
+  assert.deepEqual(progressFrom([sanitized, sanitized]).sessions[session.slot].tileModels, session.tileModels);
+  for (const tileModels of [{ unknown: "カガシ" }, { [key]: "" }, { [key]: 123 }, { [key]: "a".repeat(41) }]) assert.equal(sanitizeEvent({ ...event, session: { ...reset, tileModels } }, catalog), null);
 });
 
 function database() {

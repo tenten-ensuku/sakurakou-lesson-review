@@ -86,6 +86,7 @@ export type Session = {
   picks: Record<string, number>;
   tilePicks?: Record<string, number>;
   tileSignatures?: Record<string, string>;
+  tileModels?: Record<string, string>;
   ratings: Record<string, "known" | "again">;
   completed: boolean;
   reviewOnly: boolean;

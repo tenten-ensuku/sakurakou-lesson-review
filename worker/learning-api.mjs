@@ -283,6 +283,11 @@ export function sanitizeEvent(e, catalog, now = Date.now()) {
       if (!s.keys.includes(key) || tilePicks[key] === undefined || typeof value !== "string" || value.length > 2048) return null;
       tileSignatures[key] = value;
     }
+    const tileModels = {};
+    for (const [key, value] of Object.entries(s.tileModels ?? {})) {
+      if (!idOK(key) || !s.keys.includes(key) || typeof value !== "string" || !value.trim() || value.length > 40) return null;
+      tileModels[key] = value;
+    }
     for (const [key, value] of Object.entries(s.ratings ?? {})) {
       if (idOK(key) && ["known", "again"].includes(value)) ratings[key] = value;
     }
@@ -300,6 +305,7 @@ export function sanitizeEvent(e, catalog, now = Date.now()) {
         picks,
         ...(Object.keys(tilePicks).length ? { tilePicks } : {}),
         ...(Object.keys(tileSignatures).length ? { tileSignatures } : {}),
+        ...(Object.keys(tileModels).length ? { tileModels } : {}),
         ratings,
         completed: !!s.completed,
         reviewOnly: !!s.reviewOnly,
