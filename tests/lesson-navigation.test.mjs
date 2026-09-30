@@ -41,11 +41,11 @@ test("lesson titles are static and the visible actions name their destinations",
   assert.match(entry, /資料を見る/);
   assert.match(entry, /授業動画を見る/);
   assert.match(entry, /materials.length > 0/);
-  assert.match(entry, /questionCount > 0 \|\| noteCount > 0/);
+  assert.match(entry, /questionCount > 0 && <button className="lesson-study-entry"/);
   assert.doesNotMatch(page, /lesson-toggle|setExpanded|review-shortcuts/);
-  assert.match(page, /view === "lesson"/);
-  assert.match(page, /フラッシュカードを始める/);
-  assert.match(page, /四択・穴埋めを始める/);
+  assert.match(page, /view === "notes"/);
+  assert.doesNotMatch(page, /フラッシュカードを始める|四択・穴埋めを始める|setView\("lesson"\)/);
+  assert.match(page, /onStudy=\{\(\) => \{ if \(status.total\) studyLesson\(l\)/);
   assert.match(page, /問題・解説を一覧で読む/);
   assert.match(page, /run.lessonId === lesson.id/);
 });

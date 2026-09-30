@@ -18,6 +18,7 @@ const origins = (o) =>
   !o ||
   o === "https://tenten-ensuku.github.io" ||
   o === "https://sakurakou-lesson-review.pages.dev" ||
+  o === "https://sakurakou-lesson-review.tentensuku.chatgpt.site" ||
   /^http:\/\/(localhost|127\.0\.0\.1|\[::1\])(:\d+)?$/.test(o) ||
   /^https:\/\/[a-z0-9-]+\.kobotenmitsu\.chatgpt\.site$/.test(o);
 function response(req, data, status = 200) {
@@ -252,7 +253,7 @@ export function sanitizeEvent(e, catalog, now = Date.now()) {
       !idOK(s.slot) ||
       !idOK(s.id) ||
       !idOK(s.lessonId) ||
-      !["flash", "check", "theory"].includes(s.mode) ||
+      !["mixed", "flash", "check", "theory"].includes(s.mode) ||
       !ids(s.keys) ||
       !s.keys.length ||
       !Number.isInteger(s.index) ||

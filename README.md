@@ -5,11 +5,12 @@
 - Cloudflare公開画面: https://sakurakou-lesson-review.pages.dev/
 - 既存公開画面: https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/ と https://tenten-ensuku.github.io/sakurakou-lesson-review/
 - このリポジトリは桜紅さん専用です。瀬利さりなさん版とは別の教材・DBです。
-- 表示版と内部版は `app/lib/lesson.mjs` の `APP_VERSION`（ver36）に統一しています。
+- 表示版と内部版は `app/lib/lesson.mjs` の `APP_VERSION`（ver37）に統一しています。
 - Sitesの現行URLは `https://sakurakou-lesson-review.tentensuku.chatgpt.site/`。旧kobotenmitsu URLは404のため、旧URLを含む教材は保存値を変えず表示時に現行URLへ補正します。Cloudflare Pages・GitHub PagesのアプリURLは変更ありません。
 - タブ・ホーム画面のアイコンは、左上と同じミント色の丸に濃緑の「桜」です。他のエンスクアプリのアイコンは変更しません。
 - 授業一覧は教材・確認問題の取得完了後にまとめて表示し、再訪時は保存済みの一覧を即時表示します。通信失敗時も完全なキャッシュを維持します。
 - 授業ごとに「問題を解く」「資料を見る」を表示し、8/18のおすすめ教材は一覧上でも直接開けます。
+- 「問題を解く」から形式選択を挟まず開始・途中再開。何切る・四択・穴埋め・カード式を1つの進行にまとめ、要約・セクション・学習メモは出題せず別に読めます。旧形式の途中保存も、問題のID・回答・経過時間を保って引き継ぎます。牌選択は承認済みの牌画像を隙間なく1列に並べ、狭い画面では横スクロールで選べます。
 
 ## 機能
 

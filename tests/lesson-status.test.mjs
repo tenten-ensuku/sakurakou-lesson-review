@@ -72,7 +72,8 @@ test("lesson status is visible without a duplicate hero or encyclopedia; resume 
   const entry = readFileSync("app/LessonEntry.tsx", "utf8");
   assert.doesNotMatch(page, /continue-section|latestSession|primaryLesson|encyclopedia|図鑑/);
   assert.match(page, /lessonStudyStatus\(questionIndex, l.id, state\)/);
-  assert.match(page, /途中から再開する/);
+  assert.match(page, /if \(saved\) resumeSession\(saved\)/);
+  assert.match(entry, /途中から再開できます/);
   assert.match(page, /知識・確認問題を編集/);
   assert.match(entry, /未回答 <strong>\{unansweredCount\}/);
   assert.match(entry, /解き直し <strong>\{reviewCount\}/);

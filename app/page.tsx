@@ -45,6 +45,7 @@ import {
 import { seedCatalog } from "./lib/catalog-seed.mjs";
 import { isCheckAvailable } from "./lib/check-availability.mjs";
 import { canRate } from "./lib/progress.mjs";
+import { lessonStudyEntries, resumeStudySession, resumableStudySessions, studyResults } from "./lib/study-session.mjs";
 import {
   buildQuestionIndex,
   filterQuestionIndex,
@@ -124,11 +125,10 @@ function NotebookHome() {
     "lessons" | "review" | "settings"
   >("lessons");
   const [view, setView] = useState<
-    "main" | "lesson" | "session" | "result" | "list" | "editor" | "catalog-editor"
+    "main" | "notes" | "session" | "result" | "list" | "editor" | "catalog-editor"
   >("main");
   useEffect(() => {
     window.scrollTo({ top: 0 });
-    if (view === "lesson") document.querySelector<HTMLElement>(".lesson-study-screen h2")?.focus({ preventScroll: true });
   }, [view, tab]);
   const [notebook, setNotebook] = useState<Notebook>(empty),
     [catalog, setCatalog] = useState<Catalog>(seedCatalog() as Catalog);
@@ -315,24 +315,15 @@ function NotebookHome() {
   const lesson = lessons.find((l) => l.id === activeLessonId) ?? lessons[0];
   const lessonCards = cardsFor(lesson.id),
     lessonItems = itemsFor(lesson.id);
-  const savedSessions = Object.values(state.sessions)
-    .filter(
-      (s) =>
-        !s.completed &&
-        lessons.some((l) => l.id === s.lessonId) &&
-        s.keys.some((k) =>
-          s.mode === "flash"
-            ? cardsFor(s.lessonId).some((c) => keyFor(s.lessonId, c) === k)
-            : catalog.items.some(
-                (q) =>
-                  q.id === k &&
-                  !q.deleted &&
-                  isCheckAvailable(q, visibleTheories),
-              ),
-        ),
-    )
-    .sort((a, b) => (b.updatedAt ?? "").localeCompare(a.updatedAt ?? ""));
-  const flash = run?.mode === "flash",
+  const studyEntriesFor = (id: string) => lessonStudyEntries(id, cardsFor(id), itemsFor(id), catalog.orders);
+  const lessonStudyEntriesNow = studyEntriesFor(lesson.id);
+  const savedSessions = (resumableStudySessions(Object.values(state.sessions)) as Session[])
+    .filter((s) => lessons.some((l) => l.id === s.lessonId))
+    .map((s) => resumeStudySession(s, studyEntriesFor(s.lessonId)
+      .filter((entry) => !s.reviewOnly || state.reviewIds.includes(entry.key)).map((entry) => entry.key), "mixed") as Session | null)
+    .filter((s): s is Session => Boolean(s));
+  const activeKey = run?.keys[run.index] ?? "";
+  const flash = Boolean(run && (run.mode === "flash" || (run.mode === "mixed" && !activeKey.startsWith("check:")))),
     runLesson = lessons.find((l) => l.id === run?.lessonId) ?? lesson;
   const runCards = run ? cardsFor(run.lessonId) : [];
   const currentCard =
@@ -341,11 +332,10 @@ function NotebookHome() {
       : undefined;
   const currentCheck =
     run && !flash
-      ? catalog.items.find((c) => c.id === run.keys[run.index] && !c.deleted)
+      ? catalog.items.find((c) => c.id === (run.mode === "mixed" ? activeKey.slice(6) : activeKey) && !c.deleted)
       : undefined;
   const currentPick =
     currentCheck && run ? run.picks[currentCheck.id] : undefined;
-  const activeKey = run?.keys[run.index] ?? "";
   const closeToMenu = () => {
     if (timerRef.current) clearTimeout(timerRef.current);
     advancingRef.current = false;
@@ -392,7 +382,7 @@ function NotebookHome() {
   );
   const openSession = (
     l: Lesson,
-    mode: "flash" | "check" | "theory",
+    mode: Session["mode"],
     reviewOnly = false,
     theoryId?: string,
     resume?: Session,
@@ -401,11 +391,13 @@ function NotebookHome() {
     setMessage("");
     setEditing(null);
     setActiveLessonId(l.id);
-    let keys =
-      mode === "flash"
+    const keys =
+      mode === "mixed"
+        ? studyEntriesFor(l.id).filter((entry) => !reviewOnly || state.reviewIds.includes(entry.key)).map((entry) => entry.key)
+        : mode === "flash"
         ? cardsFor(l.id)
             .filter(
-              (c) => !reviewOnly || state.reviewIds.includes(keyFor(l.id, c)),
+              (c) => c.kind === "question" && (!reviewOnly || state.reviewIds.includes(keyFor(l.id, c))),
             )
             .map((c) => keyFor(l.id, c))
         : (theoryId ? catalog.items : itemsFor(l.id))
@@ -419,7 +411,6 @@ function NotebookHome() {
                 (!reviewOnly || state.reviewIds.includes("check:" + q.id)),
             )
             .map((q) => q.id);
-    if (resume) keys = resume.keys.filter((k) => keys.includes(k));
     if (!keys.length) {
       setMessage("対象の問題はありません。");
       return;
@@ -430,16 +421,13 @@ function NotebookHome() {
       l.id +
       (theoryId ? ":" + theoryId : "") +
       (reviewOnly ? ":review" : "");
-    const next = resume
-      ? {
-          ...resume,
-          keys,
-          index: keys.includes(resume.keys[resume.index])
-            ? keys.indexOf(resume.keys[resume.index])
-            : Math.min(resume.index, keys.length - 1),
-          revealed: keys.includes(resume.keys[resume.index]) && resume.revealed,
-          completed: false,
-        }
+    const resumed = resume ? resumeStudySession(resume, keys, mode) as Session | null : null;
+    if (resume && !resumed) {
+      setMessage("対象の問題はありません。要約は学習メモから読めます。");
+      return;
+    }
+    const next: Session = resumed
+      ? { ...resumed, completed: false }
       : {
           id: crypto.randomUUID(),
           slot,
@@ -470,6 +458,16 @@ function NotebookHome() {
           : undefined,
         s,
       );
+  };
+  const studyLesson = (l: Lesson, restart = false) => {
+    const saved = !restart && savedSessions.find((s) => s.lessonId === l.id && !s.reviewOnly);
+    if (saved) resumeSession(saved);
+    else openSession(l, "mixed");
+  };
+  const studyReview = (l: Lesson) => {
+    const saved = savedSessions.find((s) => s.lessonId === l.id && s.reviewOnly);
+    if (saved) resumeSession(saved);
+    else openSession(l, "mixed", true);
   };
   const advance = (delta = 1, ratings = run?.ratings) => {
     const r = runRef.current;
@@ -694,18 +692,14 @@ function NotebookHome() {
   );
   const openEntry = (entry: StudyEntry) => {
     const l = entry.lesson;
-    const keys =
-      entry.type === "flash"
-        ? cardsFor(l.id).map((c) => keyFor(l.id, c))
-        : itemsFor(l.id).map((q) => q.id);
-    const target = entry.type === "flash" ? entry.key : entry.key.slice(6);
-    openSession(l, entry.type, false, undefined, {
+    const keys = studyEntriesFor(l.id).map((entry) => entry.key);
+    openSession(l, "mixed", false, undefined, {
       id: crypto.randomUUID(),
-      slot: entry.type + ":" + l.id,
+      slot: "mixed:" + l.id,
       lessonId: l.id,
-      mode: entry.type,
+      mode: "mixed",
       keys,
-      index: Math.max(0, keys.indexOf(target)),
+      index: Math.max(0, keys.indexOf(entry.key)),
       elapsed: 0,
       revealed: false,
       picks: {},
@@ -984,7 +978,7 @@ function NotebookHome() {
               const cards = cardsFor(l.id),
                 questions = cards.filter((c) => c.kind === "question"),
                 status = lessonStudyStatus(questionIndex, l.id, state);
-              const saved = savedSessions.find((s) => s.lessonId === l.id);
+              const saved = savedSessions.find((s) => s.lessonId === l.id && !s.reviewOnly);
               return (
                 <LessonEntry key={l.id} lesson={l}
                   questionCount={status.total}
@@ -992,7 +986,10 @@ function NotebookHome() {
                   unansweredCount={status.unanswered} reviewCount={status.review}
                   progressReady={learner.ready} hasSaved={Boolean(saved)}
                   resources={resourcesFor(l.id)}
-                  onStudy={() => { setActiveLessonId(l.id); setView("lesson"); }}
+                  onStudy={() => { if (status.total) studyLesson(l); else { setActiveLessonId(l.id); setView("notes"); } }}
+                  onList={() => { setActiveLessonId(l.id); setView("list"); }}
+                  onNotes={() => { setActiveLessonId(l.id); setView("notes"); }}
+                  onReview={() => studyReview(l)}
                   onResources={() => setResourceId(l.id)}
                 />
               );
@@ -1000,33 +997,23 @@ function NotebookHome() {
           </section>
         </>
       )}
-      {view === "lesson" && (
-        <section className="lesson-study-screen" aria-label="問題を解く">
+      {view === "notes" && (
+        <section className="lesson-study-screen" aria-label="要約・学習メモ">
           <button className="plain-button" onClick={closeToMenu}><ArrowLeft />授業一覧に戻る</button>
           <header className="study-menu-heading">
             <p>{lesson.date}　{lesson.teacher}</p>
             <h2 tabIndex={-1}>{lesson.title}</h2>
           </header>
-          <h3>問題を解く</h3>
-          <div className="study-start-options">
-            {savedSessions.filter((s) => s.lessonId === lesson.id).slice(0, 1).map((s) => (
-              <button className="primary" key={s.id} onClick={() => resumeSession(s)}>
-                <ArrowClockwise /><span><strong>途中から再開する</strong><small>{s.mode === "flash" ? "フラッシュカード" : "四択・穴埋め"}　{s.index + 1} / {s.keys.length}</small></span><CaretRight />
-              </button>
-            ))}
-            {lessonCards.length > 0 && <button onClick={() => openSession(lesson, "flash")}>
-              <BookOpen /><span><strong>{lessonCards.some((c) => c.kind === "question") ? "フラッシュカードを始める" : "学習メモを読む"}</strong>
-                <small>{lessonCards.filter((c) => c.kind === "question").length}問{lessonCards.some((c) => c.kind !== "question") ? `・学習メモ ${lessonCards.filter((c) => c.kind !== "question").length}枚` : ""} · 答えをめくって確認</small>
-              </span><CaretRight />
-            </button>}
-            {lessonItems.length > 0 && <button onClick={() => openSession(lesson, "check")}>
-              <CheckIcon /><span><strong>四択・穴埋めを始める</strong><small>{lessonItems.length}問 · 選んで答える</small></span><CaretRight />
-            </button>}
-          </div>
+          <h3>要約・学習メモ</h3>
+          {lessonCards.filter((c) => c.kind !== "question").map((c) => (
+            <article className="study-card lesson-note" key={keyFor(lesson.id, c)}>
+              <h3><RichContent text={c.question} /></h3>
+              <div className="rich-content"><RichContent text={c.answer} /></div>
+            </article>
+          ))}
           <div className="study-secondary-actions">
+            {lessonStudyEntriesNow.length > 0 && <button className="primary" onClick={() => studyLesson(lesson)}><BookOpen />問題を解く</button>}
             <button onClick={() => setView("list")}><ListBullets />問題・解説を一覧で読む</button>
-            {lessonCards.some((c) => state.reviewIds.includes(keyFor(lesson.id, c))) && <button onClick={() => openSession(lesson, "flash", true)}><ArrowClockwise />カードの解き直し</button>}
-            {lessonItems.some((q) => state.reviewIds.includes("check:" + q.id)) && <button onClick={() => openSession(lesson, "check", true)}><ArrowClockwise />四択・穴埋めの解き直し</button>}
           </div>
         </section>
       )}
@@ -1124,7 +1111,7 @@ function NotebookHome() {
           </div>
           <div className="session-progress">
             <span>
-              カード {run.index + 1} / {run.keys.length}
+              問題 {run.index + 1} / {run.keys.length}
             </span>
             <button
               onClick={() => {
@@ -1151,9 +1138,7 @@ function NotebookHome() {
               >
                 <div className="card-toolbar">
                   <span>
-                    {currentCard.kind === "question"
-                      ? "Q" + questionNumber(runCards, currentCard.id)
-                      : "学習メモ"}
+                    Q{run.index + 1}{currentCard.tileQuestion ? " · 何切る" : ""}
                   </span>
                   <button
                     className="plain-button"
@@ -1402,29 +1387,14 @@ function NotebookHome() {
           <BookOpen size={36} />
           <h2>今回の復習</h2>
           {(() => {
-            const values = flash
-              ? Object.values(run.ratings).map((r) => r === "known")
-              : Object.entries(run.picks).map(
-                  ([id, pick]) =>
-                    catalog.items.find((q) => q.id === id)?.correctIndex ===
-                    pick,
-                );
-            const known = values.filter(Boolean).length;
-            const totalQuestions = flash
-              ? run.keys.filter(
-                  (key) =>
-                    runCards.find((c) => keyFor(run.lessonId, c) === key)
-                      ?.kind === "question",
-                ).length
-              : run.keys.length;
-            const remaining = Math.max(0, totalQuestions - values.length);
+            const { known, answered, remaining } = studyResults(run, catalog.items);
             return (
               <>
                 <div className="summary-strip">
                   <span>
-                    {flash ? "わかった" : "正解"} {known}件
+                    わかった・正解 {known}件
                   </span>
-                  <span>回答 {values.length}件</span>
+                  <span>回答 {answered}件</span>
                   {remaining > 0 && <span>未回答 {remaining}問</span>}
                   <span>{time(run.elapsed)}</span>
                 </div>
@@ -1476,7 +1446,7 @@ function NotebookHome() {
           </div>
           {reviewEntries.some((entry) =>
             run.keys.includes(
-              entry.type === "flash" ? entry.key : entry.key.slice(6),
+              run.mode === "mixed" || entry.type === "flash" ? entry.key : entry.key.slice(6),
             ),
           ) && (
             <section className="result-review-list">
@@ -1484,7 +1454,7 @@ function NotebookHome() {
               {reviewEntries
                 .filter((entry) =>
                   run.keys.includes(
-                    entry.type === "flash" ? entry.key : entry.key.slice(6),
+                    run.mode === "mixed" || entry.type === "flash" ? entry.key : entry.key.slice(6),
                   ),
                 )
                 .map((entry) => entryRow(entry, true))}
@@ -1507,7 +1477,9 @@ function NotebookHome() {
             </h2>
           </div>
           <div className="action-grid">
-            <button onClick={() => setView("lesson")}><BookOpen />問題を解く</button>
+            {lessonStudyEntriesNow.length > 0 && <button onClick={() => studyLesson(lesson)}><BookOpen />問題を解く</button>}
+            {lessonStudyEntriesNow.length > 0 && <button onClick={() => studyLesson(lesson, true)}>最初から解く</button>}
+            {lessonCards.some((c) => c.kind !== "question") && <button onClick={() => setView("notes")}><BookOpen />要約・学習メモ</button>}
             {run && run.lessonId === lesson.id && !run.completed && (
               <button className="primary" onClick={() => setView("session")}>
                 学習へ戻る
@@ -1524,7 +1496,7 @@ function NotebookHome() {
             </button>
           </div>
           {lessonCards.length > 0 && <>
-            <h3>フラッシュカード {lessonCards.filter((c) => c.kind === "question").length}問</h3>
+            <h3>カード式・何切る {lessonCards.filter((c) => c.kind === "question").length}問</h3>
             <p className="muted">ドラッグ、または上下ボタンで順番を変えられます。</p>
           </>}
           {lessonCards.map((c, i) => {
@@ -1544,7 +1516,7 @@ function NotebookHome() {
                 <summary>
                   <span>
                     {c.kind === "question"
-                      ? "Q" + questionNumber(lessonCards, c.id)
+                      ? "Q" + (lessonStudyEntriesNow.findIndex((entry) => entry.key === key) + 1)
                       : "メモ"}
                   </span>
                   <strong>
@@ -1569,7 +1541,7 @@ function NotebookHome() {
                       <PencilSimple />
                       編集
                     </button>
-                    <button
+                    {c.kind === "question" && <button
                       aria-pressed={state.reviewIds.includes(key)}
                       onClick={() =>
                         record("review", {
@@ -1581,7 +1553,7 @@ function NotebookHome() {
                       {state.reviewIds.includes(key)
                         ? "解き直しを解除"
                         : "解き直しに追加"}
-                    </button>
+                    </button>}
                     <button
                       aria-label={
                         "Q" + questionNumber(lessonCards, c.id) + "を上へ"
@@ -1626,7 +1598,7 @@ function NotebookHome() {
               }}
             >
               <summary>
-                <span>Q{i + 1}</span>
+                <span>Q{lessonStudyEntriesNow.findIndex((entry) => entry.key === "check:" + q.id) + 1}</span>
                 <strong>
                   <RichContent text={q.question} links={false} />
                 </strong>

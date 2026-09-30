@@ -75,7 +75,7 @@ export type Session = {
   id: string;
   slot: string;
   lessonId: string;
-  mode: "flash" | "check" | "theory";
+  mode: "mixed" | "flash" | "check" | "theory";
   keys: string[];
   index: number;
   elapsed: number;
