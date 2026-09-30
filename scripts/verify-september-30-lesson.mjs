@@ -55,7 +55,7 @@ if (repairIndex >= 0) {
     assert.equal(snapshot[group][key].length, rows.length, `${group}/${key} count changed`);
     for (const row of rows) {
       const desired = group === "notebook" && ["cards", "resources"].includes(key) ? data[key].find(v=>v.id===row.id) : null;
-      const actual = snapshot[group][key].find(v=>v.id===row.id || (!row.id && isDeepStrictEqual(v,row)));
+      const actual = snapshot[group][key].find(v => row.id ? v.id === row.id : isDeepStrictEqual(v, row));
       assert.ok(actual, `Existing ${group}/${key} row missing`);
       if (!desired) assert.deepEqual(actual,row,`Unrelated ${group}/${key} row changed`);
       else {
