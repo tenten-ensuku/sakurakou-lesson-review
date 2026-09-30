@@ -26,9 +26,10 @@ import LegacyNotebook from "./LegacyNotebook";
 import ConfirmProvider, { useConfirm } from "./ConfirmAction";
 import RichContent from "./RichContent";
 import TileQuestion, { TileHand, TileResult } from "./TileQuestion";
+import { savedTilePick, tileAnswer, tileQuestionSignature } from "./lib/tile-question.mjs";
 import { MaterialLink } from "./LessonMaterials";
 import LessonEntry from "./LessonEntry";
-import { orderMaterials } from "./lib/materials.mjs";
+import { isFeaturedMaterial, orderMaterials } from "./lib/materials.mjs";
 import {
   loadContentSnapshot,
   readContentSnapshot,
@@ -336,6 +337,7 @@ function NotebookHome() {
       : undefined;
   const currentPick =
     currentCheck && run ? run.picks[currentCheck.id] : undefined;
+  const currentTilePick = currentCard?.tileQuestion ? savedTilePick(run, activeKey, currentCard.tileQuestion) : undefined;
   const closeToMenu = () => {
     if (timerRef.current) clearTimeout(timerRef.current);
     advancingRef.current = false;
@@ -532,12 +534,22 @@ function NotebookHome() {
     });
     updateRun({ ...run, picks: { ...run.picks, [currentCheck.id]: index } });
   };
+  const answerTile = (index: number) => {
+    const r = runRef.current;
+    if (!r || !currentCard?.tileQuestion || r.keys[r.index] !== activeKey || savedTilePick(r, activeKey, currentCard.tileQuestion) !== undefined) return;
+    const result = tileAnswer(currentCard.tileQuestion, index);
+    if (!result) return;
+    const theoryIds = visibleTheories.filter((t) => t.cardKeys.includes(activeKey)).map((t) => t.id);
+    record("review", { target: activeKey, active: !result.correct, theoryIds });
+    if (result.correct) record("known", { target: activeKey, theoryIds });
+    updateRun({ ...r, revealed: true, tilePicks: { ...r.tilePicks, [activeKey]: index }, tileSignatures: { ...r.tileSignatures, [activeKey]: tileQuestionSignature(currentCard.tileQuestion) }, ratings: { ...r.ratings, [activeKey]: result.correct ? "known" : "again" } });
+  };
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (view !== "session" || editing || !run) return;
       if (
         (e.target as HTMLElement)?.closest(
-          "input,textarea,select,button,a,summary",
+          "input,textarea,select,button,a,summary,.source-hand-scroll",
         )
       )
         return;
@@ -547,7 +559,10 @@ function NotebookHome() {
       }
       if ([" ", "Enter"].includes(e.key)) {
         e.preventDefault();
-        if (flash && currentCard?.kind === "question")
+        if (flash && currentCard?.tileQuestion) {
+          if (currentTilePick !== undefined) advance();
+          else document.querySelector<HTMLButtonElement>(".source-hand-canvas button,.tile-choice-row button")?.focus();
+        } else if (flash && currentCard?.kind === "question")
           updateRun({ ...run, revealed: !run.revealed });
         else if (flash || currentPick !== undefined) advance();
       }
@@ -1005,6 +1020,7 @@ function NotebookHome() {
             <h2 tabIndex={-1}>{lesson.title}</h2>
           </header>
           <h3>要約・学習メモ</h3>
+          {orderMaterials(notebook.resources.filter((r) => r.lessonId === lesson.id)).filter(isFeaturedMaterial).map((resource) => <MaterialLink key={resource.id} resource={resource} />)}
           {lessonCards.filter((c) => c.kind !== "question").map((c) => (
             <article className="study-card lesson-note" key={keyFor(lesson.id, c)}>
               <h3><RichContent text={c.question} /></h3>
@@ -1133,7 +1149,7 @@ function NotebookHome() {
               <article
                 className={
                   "study-card " +
-                  (run.revealed ? "card-face--answer" : "card-face--question")
+                  (currentCard.tileQuestion ? "tile-study-card" : run.revealed ? "card-face--answer" : "card-face--question")
                 }
               >
                 <div className="card-toolbar">
@@ -1145,16 +1161,17 @@ function NotebookHome() {
                     onClick={() =>
                       setEditing({
                         card: currentCard,
-                        field: run.revealed ? "answer" : "question",
-                        value: run.revealed
+                        field: currentCard.tileQuestion ? "question" : run.revealed ? "answer" : "question",
+                        value: !currentCard.tileQuestion && run.revealed
                           ? currentCard.answer
                           : currentCard.question,
                       })
                     }
                   >
                     <PencilSimple />
-                    {run.revealed ? "解説を編集" : "問題を編集"}
+                    {!currentCard.tileQuestion && run.revealed ? "解説を編集" : "問題を編集"}
                   </button>
+                  {currentCard.tileQuestion && currentTilePick !== undefined && <button className="plain-button" onClick={() => setEditing({ card: currentCard, field: "answer", value: currentCard.answer })}><PencilSimple />解説を編集</button>}
                 </div>
                 {editing ? (
                   <div className="inline-editor">
@@ -1192,8 +1209,17 @@ function NotebookHome() {
                     </div>
                   </div>
                 ) : (
-                  <>
-                    {run.revealed && currentCard.tileQuestion && run.tilePicks?.[activeKey] !== undefined && <TileResult data={currentCard.tileQuestion} pick={run.tilePicks[activeKey]} />}
+                  currentCard.tileQuestion ? <>
+                    <TileQuestion key={activeKey} data={currentCard.tileQuestion} question={currentCard.question} pick={currentTilePick} onSubmit={answerTile} />
+                    {currentTilePick !== undefined && <section className="tile-feedback" aria-label="何切るの解説">
+                      <TileResult data={currentCard.tileQuestion} pick={currentTilePick} />
+                      <div className="rich-content"><RichContent text={currentCard.answer} /></div>
+                      <div className="action-grid">
+                        <button className="review-action" aria-pressed={state.reviewIds.includes(activeKey)} onClick={() => record("review", { target: activeKey, active: !state.reviewIds.includes(activeKey) })}><ArrowClockwise />{state.reviewIds.includes(activeKey) ? "解き直しから外す" : "解き直しに追加"}</button>
+                        <button className="primary" onClick={() => advance()}>{run.index === run.keys.length - 1 ? "結果を見る" : "次の問題へ"}<CaretRight /></button>
+                      </div>
+                    </section>}
+                  </> : <>
                     <div
                       className={
                         "study-text rich-content " +
@@ -1214,7 +1240,6 @@ function NotebookHome() {
                         <RichContent text={currentCard.answer} />
                       </div>
                     )}
-                    {currentCard.kind === "question" && currentCard.tileQuestion && !run.revealed && <TileQuestion key={activeKey} data={currentCard.tileQuestion} pick={run.tilePicks?.[activeKey]} onSubmit={(index) => updateRun({ ...run, revealed: true, tilePicks: { ...run.tilePicks, [activeKey]: index } })} />}
                     {currentCard.kind === "question" && (
                       <button
                         className={
@@ -1225,13 +1250,13 @@ function NotebookHome() {
                         }
                       >
                         <ArrowClockwise size={22} />
-                        {run.revealed ? "問題を見る" : currentCard.tileQuestion ? "解説だけ見る" : "答えを見る"}
+                        {run.revealed ? "問題を見る" : "答えを見る"}
                       </button>
                     )}
                   </>
                 )}
               </article>
-              {currentCard.kind === "question" ? (
+              {currentCard.tileQuestion ? null : currentCard.kind === "question" ? (
                 <div className="rating-row">
                   <button
                     disabled={!canRate(run.revealed, !!editing, advancing)}

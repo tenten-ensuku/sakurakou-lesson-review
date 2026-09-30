@@ -1,28 +1,59 @@
 "use client";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { BASE_PATH, type TileQuestionData } from "./lib/notebook-types";
-import { tileAnswer, tileFile, tileName, tileOptions } from "./lib/tile-question.mjs";
+import { boardHandBounds, tileAnswer, tileFile, tileName, tileOptions } from "./lib/tile-question.mjs";
+import RichContent from "./RichContent";
+
 export function TileHand({ data }: { data: TileQuestionData }) {
+  if (data.board) return <figure className="tile-board-preview"><img src={data.board.imageUrl} alt="問題の元盤面" loading="lazy" /></figure>;
   return <div className="tile-hand-preview">{tileOptions(data).map((code: string, i: number) => <img key={i} src={`${BASE_PATH}/tiles/${tileFile(code)}`} width={66} height={90} alt={tileName(code)} />)}</div>;
 }
-export default function TileQuestion({ data, pick, onSubmit }: { data: TileQuestionData; pick?: number; onSubmit: (index: number) => void }) {
-  const [selected, setSelected] = useState<number | undefined>(pick);
+
+export default function TileQuestion({ data, question, pick, onSubmit }: { data: TileQuestionData; question?: string; pick?: number; onSubmit: (index: number) => void }) {
+  const [failedImage, setFailedImage] = useState(false);
   const options = tileOptions(data);
-  return <div className="tile-question">
-    <p className="tile-question-label">{data.label ?? "手牌"}から切る牌を選択</p>
-    <div className="tile-choice-scroll"><div className="tile-choice-row" role="group" aria-label="切る牌を選択">
-      {options.map((code: string, i: number) => <button key={i} type="button" aria-label={`${i === data.hand.length ? "ツモ牌 " : `${i + 1}枚目 `}${tileName(code)}`} aria-pressed={selected === i} className={(selected === i ? "selected " : "") + (i === data.hand.length ? "draw-tile" : "")} onClick={() => setSelected(i)}>
-        <img src={`${BASE_PATH}/tiles/${tileFile(code)}`} width={66} height={90} alt={tileName(code)} />
-        {i === data.hand.length && <small>ツモ</small>}
-      </button>)}
-    </div></div>
-    <p className="tile-scroll-hint">手牌は横にスクロールできます。</p>
-    <p className="tile-selection" aria-live="polite">{selected === undefined ? "牌をタップ。確定前は選び直せます。" : `${tileName(options[selected])}を選択中`}</p>
-    <button className="primary full" disabled={selected === undefined} onClick={() => selected !== undefined && onSubmit(selected)}>この牌で答える</button>
+  const answered = pick !== undefined;
+  const choose = (index: number) => { if (!answered && !failedImage) onSubmit(index); };
+  const label = (i: number) => `${i === data.hand.length && data.draw ? "ツモ牌 " : `${i + 1}枚目 `}${tileName(options[i])}`;
+  const resultClass = (i: number) => !answered ? "" : i === pick ? (tileAnswer(data, i)?.correct ? " selected correct" : " selected incorrect") : "";
+  const board = data.board;
+  const renderBoard = () => {
+    if (!board) return null;
+    const bounds = boardHandBounds(board);
+    const scale = 54 / Math.min(...board.regions.map((r) => r.width));
+    return <figure className="source-board">
+      <div className="source-board-full" style={{ aspectRatio: `${board.width} / ${board.height}` }}>
+        <img src={board.imageUrl} alt="出題場面の元盤面。自分の手牌だけを選択できます" onError={() => setFailedImage(true)} />
+        {!failedImage && board.regions.map((r, i) => <button key={i} type="button" tabIndex={-1} aria-hidden="true" disabled={answered} className={`source-tile-hit preview-hit${resultClass(i)}`} style={{ left: `${r.x / board.width * 100}%`, top: `${r.y / board.height * 100}%`, width: `${r.width / board.width * 100}%`, height: `${r.height / board.height * 100}%` }} onClick={() => choose(i)} />)}
+      </div>
+      {failedImage ? <p className="error" role="alert">盤面画像を読み込めませんでした。再読み込みするか、<a href={board.imageUrl} target="_blank" rel="noreferrer">元画像を開く</a>から確認してください。</p> : <>
+        <figcaption>{answered ? "選んだ牌を枠で表示しています" : "自分の手牌をタップして回答"}<a href={board.imageUrl} target="_blank" rel="noreferrer">盤面を拡大</a></figcaption>
+        <div className="source-hand-scroll" tabIndex={0} aria-label="元画像の手牌拡大。横にスクロールできます">
+          <div className="source-hand-canvas" role="group" aria-label="切る牌を選択" style={{ width: bounds.width * scale, height: bounds.height * scale }}>
+            <img src={board.imageUrl} alt="" aria-hidden="true" draggable={false} style={{ width: board.width * scale, height: board.height * scale, left: -bounds.x * scale, top: -bounds.y * scale }} />
+            {board.regions.map((r, i) => <button key={i} type="button" aria-label={label(i)} aria-pressed={i === pick} disabled={answered} className={`source-tile-hit${resultClass(i)}`} style={{ left: (r.x - bounds.x) * scale, top: (r.y - bounds.y) * scale, width: r.width * scale, height: r.height * scale } as CSSProperties} onClick={() => choose(i)} />)}
+          </div>
+        </div>
+        {!answered && <p className="tile-scroll-hint">元の画像を拡大しています。手牌は横に動かせます。</p>}
+      </>}
+    </figure>;
+  };
+  return <div className={board ? "tile-question tile-question--source" : "tile-question"}>
+    {question && <div className="tile-question-text rich-content"><RichContent text={question} {...(board ? { renderImage: (im) => im.url === board.imageUrl ? renderBoard() : <figure className="note-image"><a href={im.url} target="_blank" rel="noreferrer"><img src={im.url} alt={im.alt || "教材画像"} /></a></figure> } : {})} /></div>}
+    {board ? (!question?.includes(board.imageUrl) && renderBoard()) : <>
+      <p className="tile-question-label">{data.label ?? "手牌"}の牌をタップして回答</p>
+      <div className="tile-choice-scroll"><div className="tile-choice-row" role="group" aria-label="切る牌を選択">
+        {options.map((code: string, i: number) => <button key={i} type="button" aria-label={label(i)} aria-pressed={pick === i} disabled={answered} className={resultClass(i) + (i === data.hand.length ? " draw-tile" : "")} onClick={() => choose(i)}>
+          <img src={`${BASE_PATH}/tiles/${tileFile(code)}`} width={66} height={90} alt={tileName(code)} />
+          {i === data.hand.length && <small>ツモ</small>}
+        </button>)}
+      </div></div>
+      {!answered && <p className="tile-scroll-hint">手牌は横にスクロールできます。</p>}
+    </>}
   </div>;
 }
 export function TileResult({ data, pick }: { data: TileQuestionData; pick: number }) {
   const result = tileAnswer(data, pick);
   if (!result) return null;
-  return <p className={`tile-result ${result.correct ? "correct" : "incorrect"}`} role="status">{result.correct ? "正解" : "解説で確認"} · 選んだ牌：{tileName(result.tile)}<span>正解候補：{data.correctTiles.map(tileName).join("・")}</span></p>;
+  return <p className={`tile-result ${result.correct ? "correct" : "incorrect"}`} role="status">{result.correct ? "正解" : "不正解"} · 選んだ牌：{tileName(result.tile)}<span>正解候補：{data.correctTiles.map(tileName).join("・")}</span></p>;
 }

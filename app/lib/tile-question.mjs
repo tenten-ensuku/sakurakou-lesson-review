@@ -14,6 +14,25 @@ export function tileFile(code) {
   return (n === "0" ? RED[s] : SUITS[s] + n) + "-66-90-l.png";
 }
 export const tileOptions = (q) => [...q.hand, ...(q.draw ? [q.draw] : [])];
+// Each source-image region corresponds to a tileOptions entry. Never re-draw
+// a source hand; invalid coordinate maps are rejected rather than guessed.
+export function normalizeTileBoard(value, count) {
+  if (!value || typeof value !== "object") return null;
+  const { imageUrl, width, height, regions } = value;
+  if (typeof imageUrl !== "string" || imageUrl.length > 2048 || !Number.isInteger(width) || !Number.isInteger(height) || width < 1 || height < 1 || width > 8192 || height > 8192 || !Array.isArray(regions) || regions.length !== count) return null;
+  try { if (!["https:", "http:"].includes(new URL(imageUrl).protocol)) return null; } catch { return null; }
+  const clean = [];
+  for (const r of regions) {
+    if (!r || ![r.x, r.y, r.width, r.height].every(Number.isFinite) || r.x < 0 || r.y < 0 || r.width < 1 || r.height < 1 || r.x + r.width > width || r.y + r.height > height) return null;
+    if (clean.some((p) => r.x < p.x + p.width && r.x + r.width > p.x && r.y < p.y + p.height && r.y + r.height > p.y)) return null;
+    clean.push({ x: r.x, y: r.y, width: r.width, height: r.height });
+  }
+  return { imageUrl, width, height, regions: clean };
+}
+export function boardHandBounds(board) {
+  const x = Math.min(...board.regions.map((r) => r.x)), y = Math.min(...board.regions.map((r) => r.y));
+  return { x, y, width: Math.max(...board.regions.map((r) => r.x + r.width)) - x, height: Math.max(...board.regions.map((r) => r.y + r.height)) - y };
+}
 export function normalizeTileQuestion(value) {
   if (!value || typeof value !== "object" || !Array.isArray(value.hand) || !Array.isArray(value.correctTiles)) return null;
   const { hand, draw, correctTiles } = value;
@@ -26,12 +45,19 @@ export function normalizeTileQuestion(value) {
     counts.set(c, (counts.get(c) ?? 0) + 1);
     if (counts.get(c) > 4) return null;
   }
-  return { hand: [...hand], ...(draw ? { draw } : {}), correctTiles: [...new Set(correctTiles)], ...(value.label === "候補牌" ? { label: "候補牌" } : {}) };
+  const board = value.board === undefined ? undefined : normalizeTileBoard(value.board, options.length);
+  if (value.board !== undefined && !board) return null;
+  return { hand: [...hand], ...(draw ? { draw } : {}), correctTiles: [...new Set(correctTiles)], ...(value.label === "候補牌" ? { label: "候補牌" } : {}), ...(board ? { board } : {}) };
 }
 export function tileAnswer(q, index) {
   const tiles = tileOptions(q);
   if (!Number.isInteger(index) || index < 0 || index >= tiles.length) return null;
   return { tile: tiles[index], correct: q.correctTiles.includes(tiles[index]) };
+}
+export const tileQuestionSignature = (q) => JSON.stringify([tileOptions(q), q.correctTiles, q.board?.imageUrl ?? ""]);
+export function savedTilePick(session, key, q) {
+  const pick = session?.tilePicks?.[key];
+  return session?.tileSignatures?.[key] === tileQuestionSignature(q) && tileAnswer(q, pick) ? pick : undefined;
 }
 export function parseTileCodes(text) {
   const source = String(text).replace(/\s/g, "");

@@ -1560,6 +1560,35 @@ body {
 .tile-editor .tile-editor-toggle { display: flex; flex-direction: row; align-items: center; }
 .tile-editor-toggle input { width: auto; min-height: 24px; }
 @media (max-width: 360px) { .tile-question { padding: 10px; } }
+.tile-question--source { margin: 14px 0 0; padding: 0; border: 0; background: transparent; }
+.tile-question-text { font-size: clamp(20px, 3vw, 27px); font-weight: 700; line-height: 1.65; }
+.tile-question-text .rich-image-slot { display: block; margin-top: 14px; }
+.source-board { margin: 14px 0 0; min-width: 0; }
+.source-board-full { position: relative; width: 100%; background: #143750; border-radius: 12px; overflow: hidden; }
+.source-board-full > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.source-board figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin: 8px 0 12px; font-size: 14px; font-weight: 600; color: #396b5b; }
+.source-hand-scroll { width: 100%; overflow-x: auto; overscroll-behavior-x: contain; border-radius: 10px; background: #10334a; padding: 9px 0; }
+.source-hand-canvas { position: relative; overflow: hidden; isolation: isolate; }
+.source-hand-canvas > img { position: absolute; max-width: none; pointer-events: none; user-select: none; }
+.notebook button.source-tile-hit { position: absolute; display: block; min-width: 0; min-height: 0; margin: 0; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; transform: none; cursor: pointer; opacity: 1; }
+.notebook button.source-tile-hit:hover:not(:disabled) { background: rgba(245, 154, 57, 0.22); box-shadow: inset 0 0 0 2px #e58728; }
+.notebook button.source-tile-hit:focus-visible { outline: 3px solid #fa9b39; outline-offset: -3px; z-index: 1; }
+.notebook button.source-tile-hit.selected { box-shadow: inset 0 0 0 3px #007d57; background: rgba(17, 135, 99, 0.12); }
+.notebook button.source-tile-hit.selected.incorrect { box-shadow: inset 0 0 0 3px #ce6b2b; background: rgba(236, 138, 45, 0.14); }
+.notebook button.source-tile-hit.preview-hit { box-shadow: inset 0 0 0 1px rgba(151, 221, 189, 0.55); }
+.notebook button.source-tile-hit.preview-hit.selected { box-shadow: inset 0 0 0 2px #ff9d39; }
+.notebook button.source-tile-hit:disabled { cursor: default; }
+.tile-feedback { margin: 18px 0 0; padding-top: 12px; border-top: 2px solid #c7dbc8; }
+.tile-feedback .rich-content { font-size: clamp(17px, 2.1vw, 20px); line-height: 1.75; }
+.tile-feedback .action-grid { margin-top: 16px; }
+.tile-board-preview { margin: 10px 0; }
+.tile-board-preview img { display: block; width: 100%; border-radius: 10px; }
+.tile-editor .board-regions { min-height: 180px; font: 13px/1.5 monospace; }
+.tile-study-card .card-toolbar { flex-wrap: wrap; }
+.lesson-study-screen > .material-link { margin: 0 0 20px; }
+.notebook .tile-choice-row button:disabled { opacity: 1; }
+.notebook .tile-choice-row button.incorrect { box-shadow: inset 0 0 0 3px #ce6b2b; }
+@media (prefers-reduced-motion: reduce) { .source-hand-scroll { scroll-behavior: auto; } }
 .lesson-reading-actions { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 8px 0; }
 .notebook .lesson-reading-actions button { padding: 7px 0; border: 0; background: transparent; color: #517663; font-size: 14px; min-height: 44px; }
 .lesson-note { margin: 16px 0; }

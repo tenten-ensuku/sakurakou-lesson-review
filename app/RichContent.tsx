@@ -1,12 +1,15 @@
 import { tokenizeRichText } from "./lib/rich-text.mjs";
 import { tokenizeMahjongText } from "./lib/mahjong-tiles.mjs";
 import { BASE_PATH } from "./lib/notebook-types";
+import type { ReactNode } from "react";
 export default function RichContent({
   text,
   links = true,
+  renderImage,
 }: {
   text: string;
   links?: boolean;
+  renderImage?: (image: { url: string; alt?: string }) => ReactNode;
 }) {
   const tiles = (s: string) =>
     tokenizeMahjongText(s).map((t, i) =>
@@ -40,7 +43,7 @@ export default function RichContent({
         t.type === "text" ? (
           <span key={i}>{tiles(t.value)}</span>
         ) : t.type === "image" ? (
-          <figure className="note-image" key={i}>
+          renderImage ? <span className="rich-image-slot" key={i}>{renderImage(t)}</span> : <figure className="note-image" key={i}>
             <a
               className="note-image-open"
               href={t.url}

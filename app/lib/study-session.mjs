@@ -31,6 +31,7 @@ export function resumeStudySession(session, availableKeys, mode = session.mode) 
     revealed: target === current && session.revealed,
     // Removed/deleted questions must not make an otherwise valid checkpoint fail.
     tilePicks: Object.fromEntries(Object.entries(session.tilePicks ?? {}).filter(([key]) => available.has(key))),
+    ...(session.tileSignatures ? { tileSignatures: Object.fromEntries(Object.entries(session.tileSignatures).filter(([key]) => available.has(key))) } : {}),
   };
 }
 

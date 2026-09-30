@@ -31,7 +31,7 @@ for (const resource of data.resources) {
 }
 const cards = snapshot.notebook.cards.filter(row => row.lessonId === lesson.id && !row.deleted);
 assert.equal(cards.filter(row => row.kind === "question").length, 19);
-assert.equal(cards.filter(row => row.tileQuestion).length, 8);
+assert.equal(cards.filter(row => row.tileQuestion).length, 7);
 assert.equal(cards.filter(row => row.kind === "note").length, 1);
 let preserved = false;
 const baselineIndex = process.argv.indexOf("--baseline");
@@ -43,6 +43,27 @@ if (baselineIndex >= 0) {
       for (const row of rows) assert.ok(snapshot[group][key].some(value => isDeepStrictEqual(value, row)), `Existing ${group}/${key} row changed`);
       const added = group === "notebook" ? ({ lessons: 1, cards: data.cards.length, resources: data.resources.length }[key] ?? 0) : 0;
       assert.equal(snapshot[group][key].length, rows.length + added, `${group}/${key} row count`);
+    }
+  }
+  preserved = true;
+}
+const repairIndex = process.argv.indexOf("--repair-baseline");
+if (repairIndex >= 0) {
+  const before = JSON.parse(await readFile(process.argv[repairIndex + 1], "utf8"));
+  for (const group of ["notebook", "catalog"]) for (const [key, rows] of Object.entries(before[group])) {
+    if (!Array.isArray(rows)) continue;
+    assert.equal(snapshot[group][key].length, rows.length, `${group}/${key} count changed`);
+    for (const row of rows) {
+      const desired = group === "notebook" && ["cards", "resources"].includes(key) ? data[key].find(v=>v.id===row.id) : null;
+      const actual = snapshot[group][key].find(v=>v.id===row.id || (!row.id && isDeepStrictEqual(v,row)));
+      assert.ok(actual, `Existing ${group}/${key} row missing`);
+      if (!desired) assert.deepEqual(actual,row,`Unrelated ${group}/${key} row changed`);
+      else {
+        const expected = { ...row, ...desired }, clean = { ...actual };
+        if (key==="cards" && !desired.tileQuestion) delete expected.tileQuestion;
+        delete expected.updatedAt; delete clean.updatedAt;
+        assert.deepEqual(clean,expected,`Unexpected corrected ${key} field changed: ${row.id}`);
+      }
     }
   }
   preserved = true;
@@ -73,4 +94,4 @@ for (const base of publicUrls) {
   assert.ok(older.includes("1種受けの為だけの危険牌＜安牌"));
   assert.ok(older.includes("役アリ愚形を黙っていた所に立直が来たら、猶の事ダマである。"));
 }
-console.log(JSON.stringify({ version: APP_VERSION, lesson: lesson.date, questions: 19, tileQuestions: 8, summaryScenes: 10, verifiedImages: 19, existingPublicDataUnchanged: preserved, publicUrls }, null, 2));
+console.log(JSON.stringify({ version: APP_VERSION, lesson: lesson.date, questions: 19, tileQuestions: 7, summaryScenes: 10, verifiedImages: Object.keys(evidence.images).length, unrelatedPublicDataUnchanged: preserved, publicUrls }, null, 2));

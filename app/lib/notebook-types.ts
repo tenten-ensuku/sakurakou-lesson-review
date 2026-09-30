@@ -1,5 +1,7 @@
 import { resolveSiteUrl } from "./site-origin.mjs";
-export type TileQuestionData = { hand: string[]; draw?: string; correctTiles: string[]; label?: "候補牌" };
+export type TileRegion = { x: number; y: number; width: number; height: number };
+export type TileBoard = { imageUrl: string; width: number; height: number; regions: TileRegion[] };
+export type TileQuestionData = { hand: string[]; draw?: string; correctTiles: string[]; label?: "候補牌"; board?: TileBoard };
 export type Card = {
   id: string | number;
   kind: "question" | "section" | "note";
@@ -82,6 +84,7 @@ export type Session = {
   revealed: boolean;
   picks: Record<string, number>;
   tilePicks?: Record<string, number>;
+  tileSignatures?: Record<string, string>;
   ratings: Record<string, "known" | "again">;
   completed: boolean;
   reviewOnly: boolean;

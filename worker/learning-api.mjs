@@ -278,6 +278,11 @@ export function sanitizeEvent(e, catalog, now = Date.now()) {
       if (!idOK(key) || !s.keys.includes(key) || !Number.isInteger(value) || value < 0 || value > 13) return null;
       tilePicks[key] = value;
     }
+    const tileSignatures = {};
+    for (const [key, value] of Object.entries(s.tileSignatures ?? {})) {
+      if (!s.keys.includes(key) || tilePicks[key] === undefined || typeof value !== "string" || value.length > 2048) return null;
+      tileSignatures[key] = value;
+    }
     for (const [key, value] of Object.entries(s.ratings ?? {})) {
       if (idOK(key) && ["known", "again"].includes(value)) ratings[key] = value;
     }
@@ -294,6 +299,7 @@ export function sanitizeEvent(e, catalog, now = Date.now()) {
         revealed: !!s.revealed,
         picks,
         ...(Object.keys(tilePicks).length ? { tilePicks } : {}),
+        ...(Object.keys(tileSignatures).length ? { tileSignatures } : {}),
         ratings,
         completed: !!s.completed,
         reviewOnly: !!s.reviewOnly,

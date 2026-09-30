@@ -463,11 +463,12 @@ export async function handleAdminApi(request, env) {
           { error: "http または https の参考資料URLを入力してください。" },
           400,
         );
-      await env.DB.prepare(
-        "UPDATE lesson_resources SET kind=?,label=?,url=?,updated_at=CURRENT_TIMESTAMP WHERE lesson_id=? AND resource_id=?",
-      )
-        .bind(kind, label, urlValue, lessonId, resourceId)
-        .run();
+      const expected = body?.expected;
+      if (expected && (typeof expected.label !== "string" || typeof expected.url !== "string" || !["link", "image"].includes(expected.kind))) return json(request, { error: "更新前の資料を確認してください。" }, 400);
+      const result = await env.DB.prepare(
+        "UPDATE lesson_resources SET kind=?,label=?,url=?,updated_at=CURRENT_TIMESTAMP WHERE lesson_id=? AND resource_id=?" + (expected ? " AND kind=? AND label=? AND url=?" : ""),
+      ).bind(kind, label, urlValue, lessonId, resourceId, ...(expected ? [expected.kind, expected.label, expected.url] : [])).run();
+      if (expected && (result.meta?.changes ?? result.changes ?? 0) !== 1) return json(request, { error: "資料が他の端末で更新されています。再取得して確認してください。" }, 409);
       return json(request, { ok: true });
     }
     if (request.method === "DELETE") {
@@ -541,7 +542,11 @@ export async function handleAdminApi(request, env) {
       if (body?.tileQuestion && (!tileQuestion || kind !== "question")) return json(request, { error: "手牌と正解牌の入力を確認してください。" }, 400);
       // Older clients and the inline text editor omit this field: preserve it.
       const values = [kind, question, answer, ...(hasTiles ? [tileQuestion ? JSON.stringify(tileQuestion) : ""] : []), lessonId, cardId];
-      await env.DB.prepare(`UPDATE notebook_cards SET kind=?,question=?,answer=?,${hasTiles ? "tile_question=?," : ""}deleted=0,updated_at=CURRENT_TIMESTAMP WHERE lesson_id=? AND card_id=?`).bind(...values).run();
+      const expected = body?.expected;
+      if (expected && (typeof expected.question !== "string" || typeof expected.answer !== "string" || !["question", "section", "note"].includes(expected.kind))) return json(request, { error: "更新前の問題と解説を確認してください。" }, 400);
+      const guard = expected ? " AND kind=? AND question=? AND answer=? AND tile_question=? AND deleted=0" : "";
+      const result = await env.DB.prepare(`UPDATE notebook_cards SET kind=?,question=?,answer=?,${hasTiles ? "tile_question=?," : ""}deleted=0,updated_at=CURRENT_TIMESTAMP WHERE lesson_id=? AND card_id=?${guard}`).bind(...values, ...(expected ? [expected.kind, expected.question, expected.answer, expected.tileQuestion ? JSON.stringify(expected.tileQuestion) : ""] : [])).run();
+      if (expected && (result.meta?.changes ?? result.changes ?? 0) !== 1) return json(request, { error: "問題が他の端末で更新されています。再取得して確認してください。" }, 409);
       return json(request, { ok: true });
     }
     if (request.method === "DELETE") {

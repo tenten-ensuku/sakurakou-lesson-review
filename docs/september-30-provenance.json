@@ -40,10 +40,15 @@
     "No fixed 30-question quota. Keep distinct lecturer-emphasized decisions, concise explanations for 雀豪, and precise conditional definitions.",
     "At 8:30, 3p no-chance and passed 8p remove the two ryanmen waits on 5p; three visible 5p remove shabo. Unlike the verbal shorthand, these facts alone do not logically exclude kan5p. Keep the lecturer's low-risk 5p recommendation without calling it absolute safety.",
     "At 16–18 minutes prioritize the lecturer's correction to West, not the initial 5s suggestion. Red 5s and red 5m retain dedicated approved assets.",
-    "At 28:30 the viewer displays 3m separated and only 13 visible tiles. Use explicitly labeled candidate tiles, not an invented complete hand.",
+    "Q7 tests 6889s versus an isolated honor as a theory card. The 13-tile viewer scene is shown after answering, not used as an invented immediate discard hand.",
+    "Q1 now uses 7:24, where the second meld is actually present; Q6 uses 21:39, where 13s is actually displayed.",
+    "Q9 and Q10 source-frame enlargement confirms 3s, not the previously misread 4s. Every tile choice now maps to that source image's own concealed hand; no re-drawn hand is shown.",
+    "Q5 visible West arithmetic corrected to one discard plus two in hand, leaving one. Q14 also accepts 發, as the lecturer explicitly allows both North and 發 after the 中 pon.",
     "Honitsu discussion's 23m dora-ryanmen is a hypothetical comparison, not the displayed 114s hand. The actual image has 11s head and 4s isolated tile.",
     "89p block deletion accepts either tile. East or North accepts both as allowed by the lecturer. The last-round 6s push is not universally wrong.",
-    "4p pon question displays the eight concealed tiles AFTER the hypothetical pon, before discarding. Independent winning-hand enumeration verifies 5s tanki vs depleted 6p/9p waits.",
+    "Q15 uses the actual ten-tile PRE-pon hand with two 4p still present. Its prompt explicitly fixes the hypothetical 4p pon. Independent winning-hand enumeration removes those 4p before verifying 5s tanki vs depleted 6p/9p waits.",
+    "Q18 has no question image; Q19 and Q8 reveal their source tables only with the explanation, preventing answer leakage. The in-app summary contains ten original screenshot-then-explanation points and features the same material-page entry as the previous lessons.",
+    "Question board crops retain x=0..760,y=0..614 of the source frame, covering all concealed hands, calls, dora, score and rivers while removing the answer-bearing lower-third. The enlarged choice strip uses these exact pixels with transparent hit regions.",
     "Keiten 2500-point swing holds with one or two other tenpai players; with zero or three it is 3000. Preserve the condition rather than generalizing the spoken shorthand.",
     "Canonical honitsu 9/10/11 excerpts preserve the live document wording. Older lessons, stable IDs, personal records, and public edits are not changed."
   ],
@@ -53,20 +58,24 @@
       "appId": "card-20260930-fold-recheck",
       "displayNumber": 1,
       "type": "flashcard",
-      "at": 236,
-      "scene": "0230",
+      "at": 444,
+      "scene": "0444",
+      "questionImage": true,
+      "answerImage": false,
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "safe-five-pin",
       "appId": "card-20260930-safe-five-pin",
       "displayNumber": 2,
-      "type": "tile-select",
+      "type": "source-image-tile-select",
       "at": 503,
-      "scene": "0495",
+      "scene": "0495-board",
+      "questionImage": true,
+      "answerImage": false,
       "tileQuestion": {
         "hand": [
           "5m",
@@ -86,12 +95,103 @@
         "draw": "9m",
         "correctTiles": [
           "5p"
-        ]
+        ],
+        "board": {
+          "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c5fca0cf-51fc-4227-84dc-28fed81320c3.jpg",
+          "width": 760,
+          "height": 614,
+          "regions": [
+            {
+              "x": 219,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 246,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 273,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 300,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 327,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 354,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 381,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 408,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 435,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 462,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 489,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 516,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 543,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 585,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            }
+          ]
+        }
       },
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "late-one-shanten",
@@ -100,11 +200,13 @@
       "type": "flashcard",
       "at": 599,
       "scene": "0589",
+      "questionImage": true,
+      "answerImage": false,
       "canonicalSources": [
         "theory",
         "shanten"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "west-pon",
@@ -113,18 +215,22 @@
       "type": "flashcard",
       "at": 736,
       "scene": "0733",
+      "questionImage": true,
+      "answerImage": false,
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "two-riichi-west",
       "appId": "card-20260930-two-riichi-west",
       "displayNumber": 5,
-      "type": "tile-select",
-      "at": 1028,
-      "scene": "1005",
+      "type": "source-image-tile-select",
+      "at": 1037,
+      "scene": "1005-board",
+      "questionImage": true,
+      "answerImage": false,
       "tileQuestion": {
         "hand": [
           "4m",
@@ -144,12 +250,103 @@
         "draw": "0s",
         "correctTiles": [
           "3z"
-        ]
+        ],
+        "board": {
+          "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/88ac0a54-05be-4261-ac4b-18c3397eb233.jpg",
+          "width": 760,
+          "height": 614,
+          "regions": [
+            {
+              "x": 219,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 246,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 273,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 300,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 327,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 354,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 381,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 408,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 435,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 462,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 489,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 516,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 543,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 585,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            }
+          ]
+        }
       },
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "avoid-riinomi",
@@ -157,35 +354,27 @@
       "displayNumber": 6,
       "type": "flashcard",
       "at": 1300,
-      "scene": "1267",
+      "scene": "1299",
+      "questionImage": true,
+      "answerImage": false,
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "weak-double-uke",
       "appId": "card-20260930-weak-double-uke",
       "displayNumber": 7,
-      "type": "tile-select",
+      "type": "flashcard",
       "at": 1732,
       "scene": "1710",
-      "tileQuestion": {
-        "hand": [
-          "6s",
-          "8s",
-          "9s",
-          "7z"
-        ],
-        "correctTiles": [
-          "9s"
-        ],
-        "label": "候補牌"
-      },
+      "questionImage": false,
+      "answerImage": true,
       "canonicalSources": [
         "ranking"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "follow-definition",
@@ -194,18 +383,22 @@
       "type": "flashcard",
       "at": 1817,
       "scene": "1824",
+      "questionImage": false,
+      "answerImage": true,
       "canonicalSources": [
         "ranking"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "nine-pin-speed",
       "appId": "card-20260930-nine-pin-speed",
       "displayNumber": 9,
-      "type": "tile-select",
+      "type": "source-image-tile-select",
       "at": 2215,
-      "scene": "2210",
+      "scene": "2210-board",
+      "questionImage": true,
+      "answerImage": false,
       "tileQuestion": {
         "hand": [
           "2m",
@@ -215,7 +408,7 @@
           "2p",
           "1s",
           "2s",
-          "4s",
+          "3s",
           "8s",
           "8s",
           "9s",
@@ -225,20 +418,113 @@
         "draw": "9p",
         "correctTiles": [
           "9p"
-        ]
+        ],
+        "board": {
+          "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/751137c1-8d94-4e92-927a-ab53a8d89185.jpg",
+          "width": 760,
+          "height": 614,
+          "regions": [
+            {
+              "x": 219,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 246,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 273,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 300,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 327,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 354,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 381,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 408,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 435,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 462,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 489,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 516,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 543,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 585,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            }
+          ]
+        }
       },
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "keep-only-head",
       "appId": "card-20260930-keep-only-head",
       "displayNumber": 10,
-      "type": "tile-select",
+      "type": "source-image-tile-select",
       "at": 2295,
-      "scene": "2300",
+      "scene": "2300-board",
+      "questionImage": true,
+      "answerImage": false,
       "tileQuestion": {
         "hand": [
           "2m",
@@ -248,7 +534,7 @@
           "9p",
           "1s",
           "2s",
-          "4s",
+          "3s",
           "8s",
           "8s",
           "9s",
@@ -259,12 +545,103 @@
         "correctTiles": [
           "8p",
           "9p"
-        ]
+        ],
+        "board": {
+          "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/63accc0a-3379-4cf9-8ae3-d04417f04bb9.jpg",
+          "width": 760,
+          "height": 614,
+          "regions": [
+            {
+              "x": 219,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 246,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 273,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 300,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 327,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 354,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 381,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 408,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 435,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 462,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 489,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 516,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 543,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 585,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            }
+          ]
+        }
       },
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "declaration-suji",
@@ -273,10 +650,12 @@
       "type": "flashcard",
       "at": 2479,
       "scene": "2510",
+      "questionImage": false,
+      "answerImage": false,
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "honitsu-conditions",
@@ -285,18 +664,22 @@
       "type": "flashcard",
       "at": 2730,
       "scene": "2586",
+      "questionImage": false,
+      "answerImage": false,
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "honitsu-not-force",
       "appId": "card-20260930-honitsu-not-force",
       "displayNumber": 13,
-      "type": "tile-select",
+      "type": "source-image-tile-select",
       "at": 2870,
-      "scene": "2586",
+      "scene": "2586-board",
+      "questionImage": true,
+      "answerImage": false,
       "tileQuestion": {
         "hand": [
           "4p",
@@ -317,20 +700,113 @@
         "correctTiles": [
           "1z",
           "4z"
-        ]
+        ],
+        "board": {
+          "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/5827d948-d771-456a-a616-8ba6c084ae2e.jpg",
+          "width": 760,
+          "height": 614,
+          "regions": [
+            {
+              "x": 219,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 246,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 273,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 300,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 327,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 354,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 381,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 408,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 435,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 462,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 489,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 516,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 543,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 585,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            }
+          ]
+        }
       },
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "pon-preserve-head",
       "appId": "card-20260930-pon-preserve-head",
       "displayNumber": 14,
-      "type": "tile-select",
-      "at": 2978,
-      "scene": "2985",
+      "type": "source-image-tile-select",
+      "at": 2988,
+      "scene": "2985-board",
+      "questionImage": true,
+      "answerImage": false,
       "tileQuestion": {
         "hand": [
           "4p",
@@ -346,24 +822,102 @@
           "5z"
         ],
         "correctTiles": [
-          "4z"
-        ]
+          "4z",
+          "5z"
+        ],
+        "board": {
+          "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/91b64dc9-041d-4498-ba77-c73edcc8f96d.jpg",
+          "width": 760,
+          "height": 614,
+          "regions": [
+            {
+              "x": 219,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 246,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 273,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 300,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 327,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 354,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 381,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 408,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 435,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 462,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 489,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            }
+          ]
+        }
       },
       "canonicalSources": [
         "shanten",
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "four-pin-pon",
       "appId": "card-20260930-four-pin-pon",
       "displayNumber": 15,
-      "type": "tile-select",
-      "at": 3145,
-      "scene": "3146",
+      "type": "source-image-tile-select",
+      "at": 3149,
+      "scene": "3146-board",
+      "questionImage": true,
+      "answerImage": false,
       "tileQuestion": {
         "hand": [
+          "4p",
+          "4p",
           "6p",
           "6p",
           "7p",
@@ -375,12 +929,79 @@
         ],
         "correctTiles": [
           "6p"
-        ]
+        ],
+        "board": {
+          "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/f97134b5-17c6-4211-b92c-ceb7c5c16db6.jpg",
+          "width": 760,
+          "height": 614,
+          "regions": [
+            {
+              "x": 219,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 246,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 273,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 300,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 327,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 354,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 381,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 408,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 435,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            },
+            {
+              "x": 462,
+              "y": 530,
+              "width": 27,
+              "height": 37
+            }
+          ]
+        }
       },
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "assist-order",
@@ -389,10 +1010,12 @@
       "type": "flashcard",
       "at": 3294,
       "scene": "3320",
+      "questionImage": true,
+      "answerImage": false,
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "two-riichi-final",
@@ -401,10 +1024,12 @@
       "type": "flashcard",
       "at": 3975,
       "scene": "3929",
+      "questionImage": true,
+      "answerImage": false,
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "keiten-value",
@@ -413,10 +1038,12 @@
       "type": "flashcard",
       "at": 4238,
       "scene": "4238",
+      "questionImage": false,
+      "answerImage": false,
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     },
     {
       "sourceId": "call-response-table",
@@ -425,10 +1052,12 @@
       "type": "flashcard",
       "at": 4380,
       "scene": "4380",
+      "questionImage": false,
+      "answerImage": true,
       "canonicalSources": [
         "theory"
       ],
-      "reviewStatus": "verified"
+      "reviewStatus": "manually-source-checked"
     }
   ],
   "images": {
@@ -445,11 +1074,22 @@
     },
     "1267": {
       "at": 1267,
-      "caption": "東3局：ドラ中を含む手。13sを残した先のカン2sリーノミを比較",
+      "caption": "東3局：ドラ中を含む手。13sの形になる前の場面",
       "sha256": "cd4b88cd57565885e990a87659b5229c1a486f548458a07b89fb6f77f8490a0b",
       "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/25838443-5063-46ff-87d4-d3cba9b466c6.jpg",
       "sourceFile": "frames/1267.jpg",
       "sourceSecond": 1267,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "1299": {
+      "at": 1299,
+      "caption": "東3局：3m切り後の一向聴。13s・67p・南対子・ドラ中が残る",
+      "sha256": "82b481e7d5bf24670873799542af583eff2a84176d64e0c3b6c8c81a8fbb65a7",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/b9d361a1-35c4-4b51-af4c-74cf7ba2272e.jpg",
+      "sourceFile": "frames/1299.jpg",
+      "sourceSecond": 1299,
       "transformation": "Full 1280x720 source frame; no crop or redrawing.",
       "width": 1280,
       "height": 720
@@ -608,6 +1248,17 @@
       "width": 1280,
       "height": 720
     },
+    "0444": {
+      "at": 444,
+      "caption": "東1局：鳴きとツモで2面子の一向聴に進んだ場面",
+      "sha256": "daf54295cb6e2c412f229e3117e180620b248ffefc79071b98fc5cf902fa7863",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/a4d0bc1f-f7ae-477f-9e53-01f69b6211c5.jpg",
+      "sourceFile": "frames/0444.jpg",
+      "sourceSecond": 444,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
     "0495": {
       "at": 495,
       "caption": "東1局：9mツモ。3pの4枚見え・8pの通過・5pの見え枚数を確認",
@@ -640,6 +1291,83 @@
       "transformation": "Full 1280x720 source frame; no crop or redrawing.",
       "width": 1280,
       "height": 720
+    },
+    "0495-board": {
+      "at": 495,
+      "caption": "出題場面の盤面・自分の手牌",
+      "width": 760,
+      "height": 614,
+      "sha256": "4016f9e83ee11731da82c8e6d323cf4f586ac4fcb3cdeba5701e59d0fdbad141",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c5fca0cf-51fc-4227-84dc-28fed81320c3.jpg",
+      "sourceFile": "frames/0495-board.jpg",
+      "sourceSecond": 495,
+      "transformation": "Original source board crop x=0,y=0,width=760,height=614. All board, own hand and rivers retained; explanatory lower-third and toolbar excluded. No redrawing."
+    },
+    "1005-board": {
+      "at": 1005,
+      "caption": "出題場面の盤面・自分の手牌",
+      "width": 760,
+      "height": 614,
+      "sha256": "3f8e0f693d5b4b2514adce2af59515cda0bb65363713efbd21c7cc699990a0c2",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/88ac0a54-05be-4261-ac4b-18c3397eb233.jpg",
+      "sourceFile": "frames/1005-board.jpg",
+      "sourceSecond": 1005,
+      "transformation": "Original source board crop x=0,y=0,width=760,height=614. All board, own hand and rivers retained; explanatory lower-third and toolbar excluded. No redrawing."
+    },
+    "2210-board": {
+      "at": 2210,
+      "caption": "出題場面の盤面・自分の手牌",
+      "width": 760,
+      "height": 614,
+      "sha256": "8ddb343a51831f093085f2da9f9c07699c4fd0e2c960fcfd06e03cd1812afef2",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/751137c1-8d94-4e92-927a-ab53a8d89185.jpg",
+      "sourceFile": "frames/2210-board.jpg",
+      "sourceSecond": 2210,
+      "transformation": "Original source board crop x=0,y=0,width=760,height=614. All board, own hand and rivers retained; explanatory lower-third and toolbar excluded. No redrawing."
+    },
+    "2300-board": {
+      "at": 2300,
+      "caption": "出題場面の盤面・自分の手牌",
+      "width": 760,
+      "height": 614,
+      "sha256": "9c1cd8ebb18d02e0d8ce9b77c1b950601253733a1422d1b10c36eac74d81ca4b",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/63accc0a-3379-4cf9-8ae3-d04417f04bb9.jpg",
+      "sourceFile": "frames/2300-board.jpg",
+      "sourceSecond": 2300,
+      "transformation": "Original source board crop x=0,y=0,width=760,height=614. All board, own hand and rivers retained; explanatory lower-third and toolbar excluded. No redrawing."
+    },
+    "2586-board": {
+      "at": 2586,
+      "caption": "出題場面の盤面・自分の手牌",
+      "width": 760,
+      "height": 614,
+      "sha256": "55113ab0d51554a6333126b9e18c21d2df85402defce4acea7b3578f52cd2ece",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/5827d948-d771-456a-a616-8ba6c084ae2e.jpg",
+      "sourceFile": "frames/2586-board.jpg",
+      "sourceSecond": 2586,
+      "transformation": "Original source board crop x=0,y=0,width=760,height=614. All board, own hand and rivers retained; explanatory lower-third and toolbar excluded. No redrawing."
+    },
+    "2985-board": {
+      "at": 2985,
+      "caption": "出題場面の盤面・自分の手牌",
+      "width": 760,
+      "height": 614,
+      "sha256": "ec16733aa158adcbc5df07784a2ca9469e4b029cf073f083d28344809ddf106b",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/91b64dc9-041d-4498-ba77-c73edcc8f96d.jpg",
+      "sourceFile": "frames/2985-board.jpg",
+      "sourceSecond": 2985,
+      "transformation": "Original source board crop x=0,y=0,width=760,height=614. All board, own hand and rivers retained; explanatory lower-third and toolbar excluded. No redrawing."
+    },
+    "3146-board": {
+      "at": 3146,
+      "caption": "出題場面の盤面・自分の手牌",
+      "width": 760,
+      "height": 614,
+      "sha256": "a9782ec2969c8eeaacbae5f35fb168b47429061eb0200596e6c478052b9326f2",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/f97134b5-17c6-4211-b92c-ceb7c5c16db6.jpg",
+      "sourceFile": "frames/3146-board.jpg",
+      "sourceSecond": 3146,
+      "transformation": "Original source board crop x=0,y=0,width=760,height=614. All board, own hand and rivers retained; explanatory lower-third and toolbar excluded. No redrawing."
     }
   }
 }
