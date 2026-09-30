@@ -25,6 +25,7 @@ import {
 import LegacyNotebook from "./LegacyNotebook";
 import ConfirmProvider, { useConfirm } from "./ConfirmAction";
 import RichContent from "./RichContent";
+import TileQuestion, { TileHand, TileResult } from "./TileQuestion";
 import { MaterialLink } from "./LessonMaterials";
 import LessonEntry from "./LessonEntry";
 import { orderMaterials } from "./lib/materials.mjs";
@@ -1207,6 +1208,7 @@ function NotebookHome() {
                   </div>
                 ) : (
                   <>
+                    {run.revealed && currentCard.tileQuestion && run.tilePicks?.[activeKey] !== undefined && <TileResult data={currentCard.tileQuestion} pick={run.tilePicks[activeKey]} />}
                     <div
                       className={
                         "study-text rich-content " +
@@ -1227,6 +1229,7 @@ function NotebookHome() {
                         <RichContent text={currentCard.answer} />
                       </div>
                     )}
+                    {currentCard.kind === "question" && currentCard.tileQuestion && !run.revealed && <TileQuestion key={activeKey} data={currentCard.tileQuestion} pick={run.tilePicks?.[activeKey]} onSubmit={(index) => updateRun({ ...run, revealed: true, tilePicks: { ...run.tilePicks, [activeKey]: index } })} />}
                     {currentCard.kind === "question" && (
                       <button
                         className={
@@ -1237,7 +1240,7 @@ function NotebookHome() {
                         }
                       >
                         <ArrowClockwise size={22} />
-                        {run.revealed ? "問題を見る" : "答えを見る"}
+                        {run.revealed ? "問題を見る" : currentCard.tileQuestion ? "解説だけ見る" : "答えを見る"}
                       </button>
                     )}
                   </>
@@ -1552,6 +1555,7 @@ function NotebookHome() {
                   )}
                 </summary>
                 <div className="list-card-body">
+                  {c.tileQuestion && <><p className="muted">牌を選ぶ問題</p><TileHand data={c.tileQuestion} /></>}
                   <div className="rich-content">
                     <RichContent text={c.answer} />
                   </div>

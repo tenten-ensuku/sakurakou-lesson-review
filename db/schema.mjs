@@ -35,6 +35,7 @@ export const NOTEBOOK_SCHEMA_SQL = [
     kind TEXT NOT NULL CHECK (kind IN ('question', 'section', 'note')),
     question TEXT NOT NULL,
     answer TEXT NOT NULL,
+    tile_question TEXT NOT NULL DEFAULT '',
     deleted INTEGER NOT NULL DEFAULT 0 CHECK (deleted IN (0, 1)),
     created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP

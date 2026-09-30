@@ -5,6 +5,8 @@ import {
 import { ensureAugustLessons } from "./august-lessons.mjs";
 import { ensureSeptemberLessons } from "./september-lessons.mjs";
 import { ensureSeptember29Lessons } from "./september-29-lessons.mjs";
+import { ensureSeptember30Lessons } from "./september-30-lessons.mjs";
+import { normalizeTileQuestion } from "../app/lib/tile-question.mjs";
 
 const DEFAULT_LESSON_ID = "sakurakou-2026-07-21";
 const MAX_BASE_CARD_ID = 27;
@@ -85,6 +87,11 @@ function videoUrl(value) {
 async function ensureSchema(db) {
   await db.prepare(FLASHCARD_OVERRIDES_SCHEMA_SQL).run();
   for (const sql of NOTEBOOK_SCHEMA_SQL) await db.prepare(sql).run();
+  try {
+    await db.prepare("ALTER TABLE notebook_cards ADD COLUMN tile_question TEXT NOT NULL DEFAULT ''").run();
+  } catch (error) {
+    if (!/duplicate column/i.test(String(error))) throw error;
+  }
   await db
     .prepare(
       "ALTER TABLE lesson_metadata_overrides ADD COLUMN teacher TEXT NOT NULL DEFAULT ''",
@@ -187,6 +194,7 @@ export async function handleAdminApi(request, env) {
   await ensureAugustLessons(env.DB);
   await ensureSeptemberLessons(env.DB);
   await ensureSeptember29Lessons(env.DB);
+  await ensureSeptember30Lessons(env.DB);
 
   if (url.pathname === "/api/notebook" && request.method === "GET") {
     const [legacy, metadata, lessons, cards, resources] = await Promise.all([
@@ -200,7 +208,7 @@ export async function handleAdminApi(request, env) {
         "SELECT lesson_id, lesson_date, teacher, title, video_url, deleted, updated_at FROM notebook_lessons ORDER BY created_at DESC",
       ).all(),
       env.DB.prepare(
-        "SELECT card_id, lesson_id, sort_order, kind, question, answer, deleted, updated_at FROM notebook_cards ORDER BY lesson_id, sort_order, created_at",
+        "SELECT card_id, lesson_id, sort_order, kind, question, answer, tile_question, deleted, updated_at FROM notebook_cards ORDER BY lesson_id, sort_order, created_at",
       ).all(),
       env.DB.prepare(
         "SELECT resource_id, lesson_id, sort_order, kind, label, url, updated_at FROM lesson_resources ORDER BY lesson_id, sort_order, created_at",
@@ -239,6 +247,7 @@ export async function handleAdminApi(request, env) {
         kind: row.kind,
         question: row.question,
         answer: row.answer,
+        ...(row.tile_question ? { tileQuestion: normalizeTileQuestion(JSON.parse(row.tile_question)) } : {}),
         deleted: row.deleted === 1,
         updatedAt: row.updated_at,
       })),
@@ -484,16 +493,18 @@ export async function handleAdminApi(request, env) {
     const answer = text(body?.answer, MAX_ANSWER_LENGTH);
     if (!question || !answer)
       return json(request, { error: "問題文と解説を入力してください。" }, 400);
+    const tileQuestion = body?.tileQuestion ? normalizeTileQuestion(body.tileQuestion) : null;
+    if (body?.tileQuestion && (!tileQuestion || kind !== "question")) return json(request, { error: "手牌と正解牌の入力を確認してください。" }, 400);
     const id = `card-${crypto.randomUUID()}`;
     const sortOrder = await nextSortOrder(env.DB, lessonId);
     await env.DB.prepare(
-      "INSERT INTO notebook_cards (card_id,lesson_id,sort_order,kind,question,answer) VALUES (?,?,?,?,?,?)",
+      "INSERT INTO notebook_cards (card_id,lesson_id,sort_order,kind,question,answer,tile_question) VALUES (?,?,?,?,?,?,?)",
     )
-      .bind(id, lessonId, sortOrder, kind, question, answer)
+      .bind(id, lessonId, sortOrder, kind, question, answer, tileQuestion ? JSON.stringify(tileQuestion) : "")
       .run();
     return json(request, {
       ok: true,
-      card: { id, lessonId, sortOrder, kind, question, answer },
+      card: { id, lessonId, sortOrder, kind, question, answer, ...(tileQuestion ? { tileQuestion } : {}) },
     });
   }
 
@@ -525,11 +536,12 @@ export async function handleAdminApi(request, env) {
           { error: "問題文と解説を入力してください。" },
           400,
         );
-      await env.DB.prepare(
-        "UPDATE notebook_cards SET kind=?,question=?,answer=?,deleted=0,updated_at=CURRENT_TIMESTAMP WHERE lesson_id=? AND card_id=?",
-      )
-        .bind(kind, question, answer, lessonId, cardId)
-        .run();
+      const hasTiles = Object.hasOwn(body ?? {}, "tileQuestion") || kind !== "question";
+      const tileQuestion = body?.tileQuestion ? normalizeTileQuestion(body.tileQuestion) : null;
+      if (body?.tileQuestion && (!tileQuestion || kind !== "question")) return json(request, { error: "手牌と正解牌の入力を確認してください。" }, 400);
+      // Older clients and the inline text editor omit this field: preserve it.
+      const values = [kind, question, answer, ...(hasTiles ? [tileQuestion ? JSON.stringify(tileQuestion) : ""] : []), lessonId, cardId];
+      await env.DB.prepare(`UPDATE notebook_cards SET kind=?,question=?,answer=?,${hasTiles ? "tile_question=?," : ""}deleted=0,updated_at=CURRENT_TIMESTAMP WHERE lesson_id=? AND card_id=?`).bind(...values).run();
       return json(request, { ok: true });
     }
     if (request.method === "DELETE") {

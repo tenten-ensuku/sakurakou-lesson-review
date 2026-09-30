@@ -7,6 +7,8 @@ import { linkLabel, tokenizeRichText } from "./lib/rich-text.mjs";
 import { tokenizeMahjongText } from "./lib/mahjong-tiles.mjs";
 import { orderMaterials } from "./lib/materials.mjs";
 import { resolveSiteUrl } from "./lib/site-origin.mjs";
+import type { TileQuestionData } from "./lib/notebook-types";
+import TileQuestionEditor from "./TileQuestionEditor";
 import {
   APP_VERSION,
   BASE_CARDS,
@@ -27,6 +29,7 @@ type Card = {
   source: "base" | "custom";
   deleted?: boolean;
   sortOrder?: number;
+  tileQuestion?: TileQuestionData | null;
 };
 type Lesson = {
   id: string;
@@ -60,6 +63,7 @@ type RemoteCard = {
   question: string;
   answer: string;
   deleted?: boolean;
+  tileQuestion?: TileQuestionData | null;
 };
 type Notebook = {
   overrides: LegacyOverride[];
@@ -237,8 +241,9 @@ export default function LegacyNotebook({
     videoUrl: "",
   });
   const [cardDrafts, setCardDrafts] = useState<
-    Record<string, { kind: Kind; question: string; answer: string }>
+    Record<string, { kind: Kind; question: string; answer: string; tileQuestion?: TileQuestionData | null }>
   >({});
+  const [invalidTileDrafts, setInvalidTileDrafts] = useState<Record<string, boolean>>({});
   const [resourceLessonId, setResourceLessonId] = useState("");
   const [resourceDraft, setResourceDraft] = useState({ label: "", url: "" });
   const cardOpened = useRef(false);
@@ -394,16 +399,18 @@ export default function LegacyNotebook({
     });
     const next: Record<
       string,
-      { kind: Kind; question: string; answer: string }
+      { kind: Kind; question: string; answer: string; tileQuestion?: TileQuestionData | null }
     > = {};
     adminCards(adminLessonId).forEach((card) => {
       next[cardKey(adminLessonId, card)] = {
         kind: card.kind,
         question: card.question,
         answer: card.answer,
+        ...(card.tileQuestion ? { tileQuestion: card.tileQuestion } : {}),
       };
     });
     setCardDrafts(next);
+    setInvalidTileDrafts({});
   }, [adminLessonId, notebook, lessons.length]);
 
   function adminCards(lessonId: string): Card[] {
@@ -772,6 +779,7 @@ export default function LegacyNotebook({
     const key = cardKey(adminLessonId, card);
     const draft = cardDrafts[key];
     if (!draft) return;
+    if (draft.kind === "question" && invalidTileDrafts[key]) return;
     setBusy(key);
     setError("");
     try {
@@ -779,13 +787,13 @@ export default function LegacyNotebook({
         await call(
           `/api/admin/cards/${DEFAULT_LESSON.id}/${card.id}`,
           "PUT",
-          draft,
+          { ...draft, ...(draft.kind !== "question" ? { tileQuestion: null } : {}) },
         );
       else
         await call(
           `/api/lessons/${adminLessonId}/cards/${card.id}`,
           "PUT",
-          draft,
+          { ...draft, ...(draft.kind !== "question" ? { tileQuestion: null } : {}) },
         );
       await refresh();
       setNotice("カードを保存しました。");
@@ -1673,6 +1681,7 @@ export default function LegacyNotebook({
                 kind: card.kind,
                 question: card.question,
                 answer: card.answer,
+                ...(card.tileQuestion ? { tileQuestion: card.tileQuestion } : {}),
               };
               return (
                 <details
@@ -1819,11 +1828,13 @@ export default function LegacyNotebook({
                         <p className="image-help">
                           画像は文字の間にも入れられます。ここへドラッグ＆ドロップ、または画像をコピーして貼り付けた後にカードを保存してください。
                         </p>
+                        {card.source === "custom" && draft.kind === "question" && <TileQuestionEditor key={key + JSON.stringify(card.tileQuestion ?? null)} value={draft.tileQuestion} onChange={(tileQuestion) => setCardDrafts((previous) => ({ ...previous, [key]: { ...draft, tileQuestion } }))} onValidityChange={(valid) => setInvalidTileDrafts((previous) => ({ ...previous, [key]: !valid }))} />}
                         <div className="admin-card-actions">
                           <button
                             className="primary-button"
                             disabled={
                               busy === key ||
+                              (draft.kind === "question" && invalidTileDrafts[key]) ||
                               !draft.question.trim() ||
                               !draft.answer.trim()
                             }

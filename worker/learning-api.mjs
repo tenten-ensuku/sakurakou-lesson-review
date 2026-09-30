@@ -270,6 +270,11 @@ export function sanitizeEvent(e, catalog, now = Date.now()) {
         picks[key] = value;
     }
     const ratings = {};
+    const tilePicks = {};
+    for (const [key, value] of Object.entries(s.tilePicks ?? {})) {
+      if (!idOK(key) || !s.keys.includes(key) || !Number.isInteger(value) || value < 0 || value > 13) return null;
+      tilePicks[key] = value;
+    }
     for (const [key, value] of Object.entries(s.ratings ?? {})) {
       if (idOK(key) && ["known", "again"].includes(value)) ratings[key] = value;
     }
@@ -285,6 +290,7 @@ export function sanitizeEvent(e, catalog, now = Date.now()) {
         elapsed: Math.floor(s.elapsed),
         revealed: !!s.revealed,
         picks,
+        ...(Object.keys(tilePicks).length ? { tilePicks } : {}),
         ratings,
         completed: !!s.completed,
         reviewOnly: !!s.reviewOnly,

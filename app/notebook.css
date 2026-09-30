@@ -1536,3 +1536,24 @@ body {
     scroll-behavior: auto !important;
   }
 }
+.tile-question { margin: 18px 0 12px; padding: 16px; border: 1px solid var(--line, #b7d2c5); border-radius: 16px; background: #eef6ee; }
+.tile-question-label { margin: 0 0 10px; font-size: 15px; font-weight: 700; }
+.tile-choice-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: flex-start; }
+.tile-choice-row button { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 0 0 44px; min-width: 44px; min-height: 64px; padding: 3px; border: 2px solid transparent; border-radius: 8px; background: #fffdf5; color: #004e58; box-shadow: 0 2px 3px #183c291c; }
+.tile-choice-row button img { width: 36px; height: auto; max-width: 100%; }
+.tile-choice-row button.selected { border-color: #007966; background: #cceddd; box-shadow: 0 0 0 2px #00796633; }
+.tile-choice-row button:focus-visible { outline: 3px solid #ed7d26; outline-offset: 2px; }
+.tile-choice-row button.draw-tile { margin-left: 8px; }
+.tile-choice-row small { font-size: 10px; line-height: 1.2; }
+.tile-selection { min-height: 24px; margin: 10px 0; font-size: 14px; }
+.tile-result { padding: 12px 16px; margin: 10px 0; border-radius: 12px; font-size: 17px; font-weight: 700; background: #ddf0e4; color: #095d48; }
+.tile-result.incorrect { background: #fff0dd; color: #7b481b; }
+.tile-result span { display: block; margin-top: 4px; font-size: 14px; font-weight: 500; }
+.tile-hand-preview { display: flex; flex-wrap: wrap; gap: 3px; margin: 10px 0; }
+.tile-hand-preview img { width: 33px; height: 45px; }
+.tile-editor { border: 1px solid #b7d2c5; border-radius: 12px; padding: 16px; margin: 16px 0; min-width: 0; }
+.tile-editor legend { font-weight: 700; }
+.tile-editor label { display: grid; gap: 5px; margin: 12px 0; }
+.tile-editor .tile-editor-toggle { display: flex; flex-direction: row; align-items: center; }
+.tile-editor-toggle input { width: auto; min-height: 24px; }
+@media (max-width: 360px) { .tile-question { padding: 10px; } .tile-choice-row { gap: 4px; } }

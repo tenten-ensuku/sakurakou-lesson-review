@@ -1,0 +1,645 @@
+{
+  "video": {
+    "id": "9Vrexb5RLaM",
+    "title": "桜花　動画検討　★3",
+    "channel": "てんてん",
+    "date": "2026-09-30",
+    "durationSeconds": 4793.254,
+    "url": "https://www.youtube.com/watch?v=9Vrexb5RLaM",
+    "publishedAtUTC": "2026-09-29T23:38:21Z",
+    "publishedAtJST": "2026-09-30T08:38:21+09:00"
+  },
+  "method": "Full Japanese auto-caption track indexed and read through lesson conclusion, with individually inspected full source frames and enlarged hand/river crops. Captions are an index, not verbatim authority; no separate audio transcription or continuous audio playback claimed.",
+  "tools": {
+    "downloader": "yt-dlp 2026.08.19",
+    "frames": "ffmpeg 8.1.2",
+    "captions": "YouTube ja-orig / rolling-caption deduplication"
+  },
+  "canonicalDocuments": [
+    {
+      "title": "【基本序列】",
+      "documentId": "1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM",
+      "revisionId": "ANLCKQm4vducjd-pVaYkP77v3q1fiqnc7IhzPwGCZNARnfVpukASXizElwmwvdhxUAlmRFiESnLIWTaszd9ydw",
+      "checkedAt": "2026-09-30"
+    },
+    {
+      "title": "セオリー集（随時更新）",
+      "documentId": "1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA",
+      "revisionId": "ANLCKQnTrLXeigkUOw_Vw_i3ThsAgiHIl6N3xhq40FcPAO3LeNRzZ-Z1BgaN6tkHBxGpriiamC9bNQgFcMtnGA",
+      "checkedAt": "2026-09-30"
+    },
+    {
+      "title": "一向聴（基礎講義）",
+      "documentId": "1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA",
+      "revisionId": "ANLCKQmjUNkuOE43BkQfZchm3HPAILacmBKMQC6E4OFHG5t2SJqTggdk7NaD6GFEYXz2C6ipOrI3aIAxyBQeZQ",
+      "checkedAt": "2026-09-30"
+    }
+  ],
+  "transcriptSha256": "8c69836bde8be8c60f13d936f7155afba5ea51815ce0778e60bcb209ffca893b",
+  "editorialNotes": [
+    "No fixed 30-question quota. Keep distinct lecturer-emphasized decisions, concise explanations for 雀豪, and precise conditional definitions.",
+    "At 8:30, 3p no-chance and passed 8p remove the two ryanmen waits on 5p; three visible 5p remove shabo. Unlike the verbal shorthand, these facts alone do not logically exclude kan5p. Keep the lecturer's low-risk 5p recommendation without calling it absolute safety.",
+    "At 16–18 minutes prioritize the lecturer's correction to West, not the initial 5s suggestion. Red 5s and red 5m retain dedicated approved assets.",
+    "At 28:30 the viewer displays 3m separated and only 13 visible tiles. Use explicitly labeled candidate tiles, not an invented complete hand.",
+    "Honitsu discussion's 23m dora-ryanmen is a hypothetical comparison, not the displayed 114s hand. The actual image has 11s head and 4s isolated tile.",
+    "89p block deletion accepts either tile. East or North accepts both as allowed by the lecturer. The last-round 6s push is not universally wrong.",
+    "4p pon question displays the eight concealed tiles AFTER the hypothetical pon, before discarding. Independent winning-hand enumeration verifies 5s tanki vs depleted 6p/9p waits.",
+    "Keiten 2500-point swing holds with one or two other tenpai players; with zero or three it is 3000. Preserve the condition rather than generalizing the spoken shorthand.",
+    "Canonical honitsu 9/10/11 excerpts preserve the live document wording. Older lessons, stable IDs, personal records, and public edits are not changed."
+  ],
+  "questions": [
+    {
+      "sourceId": "fold-recheck",
+      "appId": "card-20260930-fold-recheck",
+      "displayNumber": 1,
+      "type": "flashcard",
+      "at": 236,
+      "scene": "0230",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "safe-five-pin",
+      "appId": "card-20260930-safe-five-pin",
+      "displayNumber": 2,
+      "type": "tile-select",
+      "at": 503,
+      "scene": "0495",
+      "tileQuestion": {
+        "hand": [
+          "5m",
+          "0m",
+          "7m",
+          "8m",
+          "9m",
+          "5p",
+          "5p",
+          "6p",
+          "2s",
+          "3s",
+          "4s",
+          "0s",
+          "6s"
+        ],
+        "draw": "9m",
+        "correctTiles": [
+          "5p"
+        ]
+      },
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "late-one-shanten",
+      "appId": "card-20260930-late-one-shanten",
+      "displayNumber": 3,
+      "type": "flashcard",
+      "at": 599,
+      "scene": "0589",
+      "canonicalSources": [
+        "theory",
+        "shanten"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "west-pon",
+      "appId": "card-20260930-west-pon",
+      "displayNumber": 4,
+      "type": "flashcard",
+      "at": 736,
+      "scene": "0733",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "two-riichi-west",
+      "appId": "card-20260930-two-riichi-west",
+      "displayNumber": 5,
+      "type": "tile-select",
+      "at": 1028,
+      "scene": "1005",
+      "tileQuestion": {
+        "hand": [
+          "4m",
+          "0m",
+          "6m",
+          "6m",
+          "9m",
+          "9m",
+          "7p",
+          "7p",
+          "4s",
+          "4s",
+          "2z",
+          "3z",
+          "3z"
+        ],
+        "draw": "0s",
+        "correctTiles": [
+          "3z"
+        ]
+      },
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "avoid-riinomi",
+      "appId": "card-20260930-avoid-riinomi",
+      "displayNumber": 6,
+      "type": "flashcard",
+      "at": 1300,
+      "scene": "1267",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "weak-double-uke",
+      "appId": "card-20260930-weak-double-uke",
+      "displayNumber": 7,
+      "type": "tile-select",
+      "at": 1732,
+      "scene": "1710",
+      "tileQuestion": {
+        "hand": [
+          "6s",
+          "8s",
+          "9s",
+          "7z"
+        ],
+        "correctTiles": [
+          "9s"
+        ],
+        "label": "候補牌"
+      },
+      "canonicalSources": [
+        "ranking"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "follow-definition",
+      "appId": "card-20260930-follow-definition",
+      "displayNumber": 8,
+      "type": "flashcard",
+      "at": 1817,
+      "scene": "1824",
+      "canonicalSources": [
+        "ranking"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "nine-pin-speed",
+      "appId": "card-20260930-nine-pin-speed",
+      "displayNumber": 9,
+      "type": "tile-select",
+      "at": 2215,
+      "scene": "2210",
+      "tileQuestion": {
+        "hand": [
+          "2m",
+          "2m",
+          "3m",
+          "1p",
+          "2p",
+          "1s",
+          "2s",
+          "4s",
+          "8s",
+          "8s",
+          "9s",
+          "7z",
+          "7z"
+        ],
+        "draw": "9p",
+        "correctTiles": [
+          "9p"
+        ]
+      },
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "keep-only-head",
+      "appId": "card-20260930-keep-only-head",
+      "displayNumber": 10,
+      "type": "tile-select",
+      "at": 2295,
+      "scene": "2300",
+      "tileQuestion": {
+        "hand": [
+          "2m",
+          "3m",
+          "1p",
+          "2p",
+          "9p",
+          "1s",
+          "2s",
+          "4s",
+          "8s",
+          "8s",
+          "9s",
+          "7z",
+          "7z"
+        ],
+        "draw": "8p",
+        "correctTiles": [
+          "8p",
+          "9p"
+        ]
+      },
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "declaration-suji",
+      "appId": "card-20260930-declaration-suji",
+      "displayNumber": 11,
+      "type": "flashcard",
+      "at": 2479,
+      "scene": "2510",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "honitsu-conditions",
+      "appId": "card-20260930-honitsu-conditions",
+      "displayNumber": 12,
+      "type": "flashcard",
+      "at": 2730,
+      "scene": "2586",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "honitsu-not-force",
+      "appId": "card-20260930-honitsu-not-force",
+      "displayNumber": 13,
+      "type": "tile-select",
+      "at": 2870,
+      "scene": "2586",
+      "tileQuestion": {
+        "hand": [
+          "4p",
+          "7p",
+          "9p",
+          "9p",
+          "9p",
+          "1s",
+          "1s",
+          "4s",
+          "1z",
+          "4z",
+          "5z",
+          "7z",
+          "7z"
+        ],
+        "draw": "6p",
+        "correctTiles": [
+          "1z",
+          "4z"
+        ]
+      },
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "pon-preserve-head",
+      "appId": "card-20260930-pon-preserve-head",
+      "displayNumber": 14,
+      "type": "tile-select",
+      "at": 2978,
+      "scene": "2985",
+      "tileQuestion": {
+        "hand": [
+          "4p",
+          "6p",
+          "7p",
+          "8p",
+          "9p",
+          "9p",
+          "9p",
+          "1s",
+          "1s",
+          "4z",
+          "5z"
+        ],
+        "correctTiles": [
+          "4z"
+        ]
+      },
+      "canonicalSources": [
+        "shanten",
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "four-pin-pon",
+      "appId": "card-20260930-four-pin-pon",
+      "displayNumber": 15,
+      "type": "tile-select",
+      "at": 3145,
+      "scene": "3146",
+      "tileQuestion": {
+        "hand": [
+          "6p",
+          "6p",
+          "7p",
+          "8p",
+          "9p",
+          "9p",
+          "9p",
+          "5s"
+        ],
+        "correctTiles": [
+          "6p"
+        ]
+      },
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "assist-order",
+      "appId": "card-20260930-assist-order",
+      "displayNumber": 16,
+      "type": "flashcard",
+      "at": 3294,
+      "scene": "3320",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "two-riichi-final",
+      "appId": "card-20260930-two-riichi-final",
+      "displayNumber": 17,
+      "type": "flashcard",
+      "at": 3975,
+      "scene": "3929",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "keiten-value",
+      "appId": "card-20260930-keiten-value",
+      "displayNumber": 18,
+      "type": "flashcard",
+      "at": 4238,
+      "scene": "4238",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    },
+    {
+      "sourceId": "call-response-table",
+      "appId": "card-20260930-call-response-table",
+      "displayNumber": 19,
+      "type": "flashcard",
+      "at": 4380,
+      "scene": "4380",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "verified"
+    }
+  ],
+  "images": {
+    "1005": {
+      "at": 1005,
+      "caption": "東2局：二件リーチに5sツモ。西と南の残り枚数、宣言牌の筋を比較",
+      "sha256": "6071c9684a834692e056f7da20ff4e7ae17f1ec9ad20c7d80bd7196c6de99463",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/748bc59e-3f94-43b6-a725-6ca7c6d33790.jpg",
+      "sourceFile": "frames/1005.jpg",
+      "sourceSecond": 1005,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "1267": {
+      "at": 1267,
+      "caption": "東3局：ドラ中を含む手。13sを残した先のカン2sリーノミを比較",
+      "sha256": "cd4b88cd57565885e990a87659b5229c1a486f548458a07b89fb6f77f8490a0b",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/25838443-5063-46ff-87d4-d3cba9b466c6.jpg",
+      "sourceFile": "frames/1267.jpg",
+      "sourceSecond": 1267,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "1710": {
+      "at": 1710,
+      "caption": "東4局序盤：6889sと発対子。9sを残す価値を検討（3mが離れて表示）",
+      "sha256": "400232096c781bbb22a9c7b9344fc21ff982ccfda236878665354737c6b99b05",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/fec1cb00-3ec0-49c8-8e79-10e70e0531f1.jpg",
+      "sourceFile": "frames/1710.jpg",
+      "sourceSecond": 1710,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "1824": {
+      "at": 1824,
+      "caption": "講師が示した『一手先フォロー牌』の定義。二種以上という条件を確認",
+      "sha256": "cae4dcaac9bc69dd4e916c368daa9ceddabd62e7ea697826b8aa1b5488a0318b",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c2c3f228-fa6e-490f-8cb0-99363ce2a83e.jpg",
+      "sourceFile": "frames/1824.jpg",
+      "sourceSecond": 1824,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "2210": {
+      "at": 2210,
+      "caption": "南1局：9pツモ。純チャン・三色の打点と、対子を使う速度を比較",
+      "sha256": "d2ce7dc53f27899b07018a3d5aac3dcc117104242a59f4eaaf499190e404599d",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/7dd9b04a-d7a4-41e9-b2e5-0032a5ea256b.jpg",
+      "sourceFile": "frames/2210.jpg",
+      "sourceSecond": 2210,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "2300": {
+      "at": 2300,
+      "caption": "南1局：8pツモ。中をポン材と考え、唯一雀頭の88sを残す",
+      "sha256": "8b080c059fe73c159575245732fce36bb7770326c1395ba9aaf445c1e83773fa",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c81b4d5d-a257-46ec-9083-d4bd1f779a34.jpg",
+      "sourceFile": "frames/2300.jpg",
+      "sourceSecond": 2300,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "2510": {
+      "at": 2510,
+      "caption": "南1局：講師が宣言牌の筋を説明。宣言前の先切りと区別する",
+      "sha256": "5648c86eedfdd481e0b49e0cb69268ff9df1508e01bdf29588f29d4adb214f12",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/5b02d54d-762a-4fbb-85e5-095c7a27f44e.jpg",
+      "sourceFile": "frames/2510.jpg",
+      "sourceSecond": 2510,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "2586": {
+      "at": 2586,
+      "caption": "南2局序盤：6pツモ。中の役と11sの雀頭を残し、東・北の処理を検討",
+      "sha256": "27d706d63a125c280b525064f63618f0d351d3117a24773c69e9594da54a1766",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/1cebb746-89be-4d46-831d-da08946474af.jpg",
+      "sourceFile": "frames/2586.jpg",
+      "sourceSecond": 2586,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "2985": {
+      "at": 2985,
+      "caption": "南2局：中ポン直後。雀頭の11sを残したくっつき一向聴の手順を確認",
+      "sha256": "bf6cab4915d3e89de2580316b2ea366969837b9268748abc15aa151e3b779fe2",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/eabebb29-753a-41ee-a9ea-f077628251d8.jpg",
+      "sourceFile": "frames/2985.jpg",
+      "sourceSecond": 2985,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "3146": {
+      "at": 3146,
+      "caption": "南2局：下家から4pが出た場面。4pポン後の6p切りと5s切りを比較",
+      "sha256": "47436989589933a64be66747ea007f868fc41a256b2511d3e344b75cebd40db0",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/62a33769-8972-4025-b8ac-33c38f4f94bb.jpg",
+      "sourceFile": "frames/3146.jpg",
+      "sourceSecond": 3146,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "3320": {
+      "at": 3320,
+      "caption": "南3局：3着目の自分、ラス目の親、下家の染め手。親への現物2sも確認",
+      "sha256": "9f1025226367a5257484706535094f5ae501a794c257b8d194dfefbc5f495896",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/61bcb172-a858-4e96-bafe-055d6f828282.jpg",
+      "sourceFile": "frames/3320.jpg",
+      "sourceSecond": 3320,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "3769": {
+      "at": 3769,
+      "caption": "南3局終盤：3pツモ。2pの4枚見えと6pの通過で安全に一向聴を維持",
+      "sha256": "30776a0d958aee8fd122df1024d9ec43bc5bc3b68c25f90c46dc72f4f71611e9",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/897f723c-552b-4739-8263-e044a1b18723.jpg",
+      "sourceFile": "frames/3769.jpg",
+      "sourceSecond": 3769,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "3929": {
+      "at": 3929,
+      "caption": "南3局2本場：二件リーチの局。満貫愚形聴牌に取る6s押しを検討",
+      "sha256": "ff3c8cde916f312959090064bbf6a0b2fe0c7fe872159768fa04cbbf717c912f",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c4858156-1927-4901-94fb-1e4d3b04f803.jpg",
+      "sourceFile": "frames/3929.jpg",
+      "sourceSecond": 3929,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "4238": {
+      "at": 4238,
+      "caption": "終盤の形式聴牌の価値を説明。聴牌収入とノーテン支出の差を数える",
+      "sha256": "fb862b48a7e2bcd8a7f5295a987c856102cf874711217c48bb0349b162f49c14",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c6c5c316-bacf-4636-a205-d03330c91dcf.jpg",
+      "sourceFile": "frames/4238.jpg",
+      "sourceSecond": 4238,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "4380": {
+      "at": 4380,
+      "caption": "副露対応の基準表。親・高打点・待ち・自手価値の四条件を確認",
+      "sha256": "89e0e353885d296dcee5cec5a4a3e9fa423a24aa997f0b5b2b40e2af9e89158d",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/0e56f000-76c7-4f95-967c-8d4a3d3ce676.jpg",
+      "sourceFile": "frames/4380.jpg",
+      "sourceSecond": 4380,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "0230": {
+      "at": 230,
+      "caption": "東1局：早いリーチを受けた1面子の手。オリながら面子数の変化も見る",
+      "sha256": "c3b178f8208e116e9de7ca3025346400557362967cbd585e4e5f9162266e0757",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/d0687eea-2a66-4579-84f5-d53fcfd7f636.jpg",
+      "sourceFile": "frames/0230.jpg",
+      "sourceSecond": 230,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "0495": {
+      "at": 495,
+      "caption": "東1局：9mツモ。3pの4枚見え・8pの通過・5pの見え枚数を確認",
+      "sha256": "af3d6e6c634034783545dd26ac4636848110d6f684dce277473534a88ba276f7",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/a7c6e7cc-c58c-42e4-a4bd-2ca1ebeb212d.jpg",
+      "sourceFile": "frames/0495.jpg",
+      "sourceSecond": 495,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "0589": {
+      "at": 589,
+      "caption": "東1局終盤：残り山19枚。完全形一向聴を維持する価値を再評価",
+      "sha256": "326d76535aeaf7a0fadb6c90cba417e2bb5af1f5fe1c518b234ef67a92aaabf0",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/0f89fd51-92d9-40a9-8622-652439abdd96.jpg",
+      "sourceFile": "frames/0589.jpg",
+      "sourceSecond": 589,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    },
+    "0733": {
+      "at": 733,
+      "caption": "東2局序盤：自風の西が出た場面。雀頭と両面があり、西対子を鳴ける",
+      "sha256": "f977599abf2187c16518ad96aaebdf3102b48e1f23d1c3ac3f445419d56edaae",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/270a5337-e8d3-491c-833a-89fb1d7768d9.jpg",
+      "sourceFile": "frames/0733.jpg",
+      "sourceSecond": 733,
+      "transformation": "Full 1280x720 source frame; no crop or redrawing.",
+      "width": 1280,
+      "height": 720
+    }
+  }
+}
