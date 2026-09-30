@@ -5,11 +5,11 @@ import { normalizeTileQuestion, parseTileCodes, tileCodesText } from "./lib/tile
 import { TileHand } from "./TileQuestion";
 export default function TileQuestionEditor({ value, onChange, onValidityChange }: { value?: TileQuestionData | null; onChange: (value: TileQuestionData | null) => void; onValidityChange: (valid: boolean) => void }) {
   const [enabled, setEnabled] = useState(!!value);
-  const [fields, setFields] = useState({ hand: tileCodesText(value?.hand), draw: value?.draw ?? "", correct: tileCodesText(value?.correctTiles), label: value?.label ?? "手牌", board: value?.board ? JSON.stringify(value.board, null, 2) : "" });
+  const [fields, setFields] = useState({ hand: tileCodesText(value?.hand), draw: value?.draw ?? "", correct: tileCodesText(value?.correctTiles), label: value?.label ?? "手牌", board: value?.board ? JSON.stringify(value.board, null, 2) : "", naga: value?.naga ? JSON.stringify(value.naga, null, 2) : "" });
   const parse = (next: typeof fields): TileQuestionData | null => {
-    let board;
-    try { board = next.board.trim() ? JSON.parse(next.board) : undefined; } catch { return null; }
-    return normalizeTileQuestion({ hand: parseTileCodes(next.hand), ...(next.draw.trim() ? { draw: parseTileCodes(next.draw)?.length === 1 ? parseTileCodes(next.draw)?.[0] : "invalid" } : {}), correctTiles: parseTileCodes(next.correct), label: next.label, ...(board !== undefined ? { board } : {}) }) as TileQuestionData | null;
+    let board, naga;
+    try { board = next.board.trim() ? JSON.parse(next.board) : undefined; naga = next.naga.trim() ? JSON.parse(next.naga) : undefined; } catch { return null; }
+    return normalizeTileQuestion({ hand: parseTileCodes(next.hand), ...(next.draw.trim() ? { draw: parseTileCodes(next.draw)?.length === 1 ? parseTileCodes(next.draw)?.[0] : "invalid" } : {}), correctTiles: parseTileCodes(next.correct), label: next.label, ...(board !== undefined ? { board } : {}), ...(naga !== undefined ? { naga } : {}) }) as TileQuestionData | null;
   };
   const parsed = parse(fields);
   const update = (field: keyof typeof fields, text: string) => {
@@ -30,7 +30,13 @@ export default function TileQuestionEditor({ value, onChange, onValidityChange }
         <p className="muted">元画像URL・サイズ・各牌の座標です。画像内の左から順に、手牌とツモ牌の数だけ範囲を登録します。順番・枚数を変えたら座標も確認してください。空欄にすると従来の牌画像表示になります。</p>
         <label>画像と選択範囲（JSON）<textarea className="board-regions" value={fields.board} onChange={(e) => update("board", e.target.value)} /></label>
       </details>
-      {parsed ? <TileHand data={parsed as TileQuestionData} /> : <p className="error" role="alert">手牌・正解牌・選択範囲を確認してください。合計14枚以下、同種4枚以下。元画像を使う場合は牌の数と範囲の数を揃え、画像内の重ならない座標にします。</p>}
+      <details>
+        <summary>NAGA解析 {fields.naga ? "（設定あり）" : "（任意）"}</summary>
+        <p className="muted">元の解析で確認した局面・手牌・モデル別推奨率です。問題文や解説だけの編集では保持されます。手牌や局面を変える場合は、解析も更新するか外してください。</p>
+        <label>NAGA解析データ（JSON）<textarea value={fields.naga} onChange={(e) => update("naga", e.target.value)} /></label>
+        {fields.naga && <button type="button" onClick={() => update("naga", "")}>解析情報を外す</button>}
+      </details>
+      {parsed ? <TileHand data={parsed as TileQuestionData} /> : <p className="error" role="alert">手牌・正解牌・選択範囲・NAGA解析を確認してください。合計14枚以下、同種4枚以下。元画像を使う場合は牌の数と範囲の数を揃え、画像内の重ならない座標にします。</p>}
     </>}
   </fieldset>;
 }

@@ -1,7 +1,8 @@
 import { resolveSiteUrl } from "./site-origin.mjs";
 export type TileRegion = { x: number; y: number; width: number; height: number };
 export type TileBoard = { imageUrl: string; width: number; height: number; regions: TileRegion[] };
-export type TileQuestionData = { hand: string[]; draw?: string; correctTiles: string[]; label?: "候補牌"; board?: TileBoard };
+export type NagaEvaluation = { kind: "discard" | "call"; reportId: string; tw: number; ts: number; tv: number; handSnapshot: string[]; previousHandSnapshot?: string[]; models: { name: string; rates: Record<string, number> }[] };
+export type TileQuestionData = { hand: string[]; draw?: string; correctTiles: string[]; label?: "候補牌"; board?: TileBoard; naga?: NagaEvaluation };
 export type Card = {
   id: string | number;
   kind: "question" | "section" | "note";

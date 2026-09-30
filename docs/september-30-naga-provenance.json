@@ -1,0 +1,211 @@
+{
+  "inputUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=728f34ad41d0d216acf92934d58abe3595682164d1f39c85b22f2891b556f246v2_2&tw=0",
+  "reportId": "728f34ad41d0d216acf92934d58abe3595682164d1f39c85b22f2891b556f246v2_2",
+  "targetSeat": 3,
+  "reportSha256": "dd9973467c777a93cf7d7d9490a51d46d28849e09062d15407718d692a866d53",
+  "reportBytes": 2759415,
+  "generationRuleVersion": "meld-replay-v237",
+  "sharedGeneratorSha256": "000d8677b590bce088ef2615249f86317810abb2c4d855cf892b5120acdc17ed",
+  "networkBudget": {
+    "requests": 1,
+    "maxBytes": 10485760,
+    "usedCachedReport": true
+  },
+  "checkedAt": "2026-09-30",
+  "questions": [
+    {
+      "appId": "card-20260930-safe-five-pin",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=728f34ad41d0d216acf92934d58abe3595682164d1f39c85b22f2891b556f246v2_2&tw=3&ts=0&tv=89",
+      "kind": "discard",
+      "doraMarker": "1s",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "predictionType": "tsumo",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "instructorAnswers": [
+        "5p"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "ニシキ",
+          "recommendation": "pin5"
+        },
+        {
+          "name": "カガシ",
+          "recommendation": "pin5"
+        }
+      ],
+      "correction": "Source event confirms ordinary 5s, not red 5s; original board, slot positions and accepted answers unchanged."
+    },
+    {
+      "appId": "card-20260930-two-riichi-west",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=728f34ad41d0d216acf92934d58abe3595682164d1f39c85b22f2891b556f246v2_2&tw=3&ts=1&tv=81",
+      "kind": "discard",
+      "doraMarker": "9s",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "predictionType": "tsumo",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "instructorAnswers": [
+        "3z"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "ニシキ",
+          "recommendation": "ji3"
+        },
+        {
+          "name": "カガシ",
+          "recommendation": "ji3"
+        }
+      ]
+    },
+    {
+      "appId": "card-20260930-nine-pin-speed",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=728f34ad41d0d216acf92934d58abe3595682164d1f39c85b22f2891b556f246v2_2&tw=3&ts=4&tv=39",
+      "kind": "discard",
+      "doraMarker": "3s",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "predictionType": "tsumo",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "instructorAnswers": [
+        "9p"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "ニシキ",
+          "recommendation": "pin9"
+        },
+        {
+          "name": "カガシ",
+          "recommendation": "pin9"
+        }
+      ]
+    },
+    {
+      "appId": "card-20260930-keep-only-head",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=728f34ad41d0d216acf92934d58abe3595682164d1f39c85b22f2891b556f246v2_2&tw=3&ts=4&tv=47",
+      "kind": "discard",
+      "doraMarker": "3s",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "predictionType": "tsumo",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "instructorAnswers": [
+        "8p",
+        "9p"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "ニシキ",
+          "recommendation": "pin8"
+        },
+        {
+          "name": "カガシ",
+          "recommendation": "pin8"
+        }
+      ]
+    },
+    {
+      "appId": "card-20260930-honitsu-not-force",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=728f34ad41d0d216acf92934d58abe3595682164d1f39c85b22f2891b556f246v2_2&tw=3&ts=5&tv=5",
+      "kind": "discard",
+      "doraMarker": "1m",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "predictionType": "tsumo",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "instructorAnswers": [
+        "1z",
+        "4z"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "ニシキ",
+          "recommendation": "ji1"
+        },
+        {
+          "name": "カガシ",
+          "recommendation": "ji1"
+        }
+      ]
+    },
+    {
+      "appId": "card-20260930-pon-preserve-head",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=728f34ad41d0d216acf92934d58abe3595682164d1f39c85b22f2891b556f246v2_2&tw=3&ts=5&tv=27",
+      "kind": "discard",
+      "doraMarker": "1m",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "predictionType": "pon",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 11
+      },
+      "instructorAnswers": [
+        "4z",
+        "5z"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "ニシキ",
+          "recommendation": "sou1"
+        },
+        {
+          "name": "カガシ",
+          "recommendation": "ji4"
+        }
+      ]
+    },
+    {
+      "appId": "card-20260930-four-pin-pon",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=728f34ad41d0d216acf92934d58abe3595682164d1f39c85b22f2891b556f246v2_2&tw=3&ts=5&tv=88",
+      "kind": "call",
+      "doraMarker": "1m",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "predictionType": "call",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 10
+      },
+      "instructorAnswers": [
+        "6p"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "ニシキ",
+          "recommendation": "鳴く"
+        },
+        {
+          "name": "カガシ",
+          "recommendation": "鳴く"
+        }
+      ],
+      "limitation": "The report ends at another player's 4p discard. These are pre-pon call rates; no hypothetical post-pon discard probabilities exist."
+    }
+  ]
+}

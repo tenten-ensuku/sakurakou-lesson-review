@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BASE_PATH, type TileQuestionData } from "./lib/notebook-types";
 import { tileAnswer, tileFile, tileName, tileOptions } from "./lib/tile-question.mjs";
 import RichContent from "./RichContent";
+import NagaRecommendation, { NAGA_COLORS } from "./NagaRecommendation";
 
 export function TileHand({ data }: { data: TileQuestionData }) {
   if (data.board) return <figure className="tile-board-preview"><img src={data.board.imageUrl} alt="問題の元盤面" loading="lazy" /></figure>;
@@ -23,6 +24,9 @@ export default function TileQuestion({ data, question, pick, onSubmit }: { data:
       <div className="source-board-full" role="group" aria-label="切る牌を選択" style={{ aspectRatio: `${board.width} / ${board.height}` }}>
         <img src={board.imageUrl} alt="出題場面の元盤面。自分の手牌だけを選択できます" onError={() => setFailedImage(true)} />
         {!failedImage && board.regions.map((r, i) => <button key={i} type="button" aria-label={label(i)} aria-pressed={i === pick} disabled={answered} className={`source-tile-hit preview-hit${resultClass(i)}`} style={{ left: `${r.x / board.width * 100}%`, top: `${r.y / board.height * 100}%`, width: `${r.width / board.width * 100}%`, height: `${r.height / board.height * 100}%` }} onClick={() => choose(i)} />)}
+        {answered && !failedImage && data.naga?.kind === "discard" && board.regions.map((r, i) => <div key={i} className="source-naga-bars" aria-hidden="true" style={{ left: `${r.x / board.width * 100}%`, top: `${Math.max(0, r.y - 42) / board.height * 100}%`, width: `${r.width / board.width * 100}%`, height: `${Math.min(42, r.y) / board.height * 100}%` }}>
+          {data.naga!.models.map((m, j) => <span key={m.name}><span style={{ height: `${m.rates[options[i]]}%`, background: NAGA_COLORS[j] }} /></span>)}
+        </div>)}
       </div>
       {failedImage ? <p className="error" role="alert">盤面画像を読み込めませんでした。再読み込みするか、<a href={board.imageUrl} target="_blank" rel="noreferrer">元画像を開く</a>から確認してください。</p> : <>
         <figcaption>{answered ? "選んだ牌を枠で表示しています" : "自分の手牌をタップして回答"}<a href={board.imageUrl} target="_blank" rel="noreferrer">盤面を拡大</a></figcaption>
@@ -41,10 +45,11 @@ export default function TileQuestion({ data, question, pick, onSubmit }: { data:
       </div></div>
       {!answered && <p className="tile-scroll-hint">手牌は横にスクロールできます。</p>}
     </>}
+    {answered && data.naga && <NagaRecommendation data={data.naga} selected={options[pick!]} />}
   </div>;
 }
 export function TileResult({ data, pick }: { data: TileQuestionData; pick: number }) {
   const result = tileAnswer(data, pick);
   if (!result) return null;
-  return <p className={`tile-result ${result.correct ? "correct" : "incorrect"}`} role="status">{result.correct ? "正解" : "不正解"} · 選んだ牌：{tileName(result.tile)}<span>正解候補：{data.correctTiles.map(tileName).join("・")}</span></p>;
+  return <p className={`tile-result ${result.correct ? "correct" : "incorrect"}`} role="status">{result.correct ? "正解" : "不正解"} · 選んだ牌：{tileName(result.tile)}<span>{data.naga ? "授業の正解候補" : "正解候補"}：{data.correctTiles.map(tileName).join("・")}</span></p>;
 }

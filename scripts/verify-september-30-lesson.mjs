@@ -32,6 +32,12 @@ for (const resource of data.resources) {
 const cards = snapshot.notebook.cards.filter(row => row.lessonId === lesson.id && !row.deleted);
 assert.equal(cards.filter(row => row.kind === "question").length, 19);
 assert.equal(cards.filter(row => row.tileQuestion).length, 7);
+assert.equal(cards.filter(row => row.tileQuestion?.naga?.kind === "discard").length, 6);
+assert.equal(cards.filter(row => row.tileQuestion?.naga?.kind === "call").length, 1);
+for (const card of cards.filter(row => row.tileQuestion)) {
+  assert.deepEqual(card.tileQuestion.naga.models.map(m => m.name), ["ニシキ", "カガシ"]);
+  assert.equal(card.tileQuestion.naga.tw, 3);
+}
 assert.equal(cards.filter(row => row.kind === "note").length, 1);
 let preserved = false;
 const baselineIndex = process.argv.indexOf("--baseline");
@@ -94,4 +100,4 @@ for (const base of publicUrls) {
   assert.ok(older.includes("1種受けの為だけの危険牌＜安牌"));
   assert.ok(older.includes("役アリ愚形を黙っていた所に立直が来たら、猶の事ダマである。"));
 }
-console.log(JSON.stringify({ version: APP_VERSION, lesson: lesson.date, questions: 19, tileQuestions: 7, summaryScenes: 10, verifiedImages: Object.keys(evidence.images).length, unrelatedPublicDataUnchanged: preserved, publicUrls }, null, 2));
+console.log(JSON.stringify({ version: APP_VERSION, lesson: lesson.date, questions: 19, tileQuestions: 7, nagaDiscardEvaluations: 6, nagaPrePonEvaluation: 1, summaryScenes: 10, verifiedImages: Object.keys(evidence.images).length, unrelatedPublicDataUnchanged: preserved, publicUrls }, null, 2));

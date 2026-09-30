@@ -3,6 +3,7 @@ import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { createHash } from "node:crypto";
 import * as content from "../content/september-30-source.mjs";
+import nagaEvaluations from "../content/september-30-naga.json" with { type: "json" };
 import { normalizeTileQuestion } from "../app/lib/tile-question.mjs";
 import { renderSeptemberMaterial } from "./render-september-material.mjs";
 import { SITE_ORIGIN } from "../app/lib/site-origin.mjs";
@@ -45,7 +46,8 @@ for (const [i, q] of questions.entries()) {
   const question = q.questionImage === false ? q.question : q.tileQuestion ? [q.question, image(scene)].join("\n\n") : [image(scene), q.question].join("\n\n");
   const answer = [q.answer, q.explanation, ...(q.answerImage ? [image(q.scene)] : []), video(q.at), ...q.refs.map((k) => references[k].url)].join("\n\n");
   if (question.length > 2000 || answer.length > 5000) throw new Error(`Editor limit: ${q.id}`);
-  const tileQuestion = q.tileQuestion ? normalizeTileQuestion({ ...q.tileQuestion, board: { ...q.tileQuestion.sourceBoard, imageUrl: images[scene].url } }) : null;
+  if (q.tileQuestion && !nagaEvaluations[q.id]) throw new Error(`Verified NAGA source missing: ${q.id}`);
+  const tileQuestion = q.tileQuestion ? normalizeTileQuestion({ ...q.tileQuestion, board: { ...q.tileQuestion.sourceBoard, imageUrl: images[scene].url }, naga: nagaEvaluations[q.id] }) : null;
   if (q.tileQuestion && !tileQuestion) throw new Error(`Invalid tile answer: ${q.id}`);
   output.cards.push({ id, lessonId: lesson.id, kind: "question", question, answer, sortOrder: i + 1, ...(tileQuestion ? { tileQuestion } : {}) });
   mapping.push({ sourceId: q.id, appId: id, displayNumber: i + 1, type: tileQuestion ? "source-image-tile-select" : "flashcard", at: q.at, scene, questionImage: q.questionImage !== false, answerImage: !!q.answerImage, ...(tileQuestion ? { tileQuestion } : {}), canonicalSources: q.refs, reviewStatus: "manually-source-checked" });
@@ -66,6 +68,8 @@ const provenance = {
   canonicalDocuments: Object.values(docs).map((d) => ({ title: d.title, documentId: d.documentId, revisionId: d.revisionId, checkedAt: "2026-09-30" })),
   transcriptSha256: hash(await readFile(join(root, "captions-clean.json"))),
   editorialNotes: [
+    "User-supplied NAGA report matched with the shared generator at the actual student's seat 3. Six exact discard evaluations are shown only after answering; the hypothetical 4p pon question shows pre-pon call evaluation separately, without invented post-pon discard rates.",
+    "Q2 NAGA event 0/89 confirms ordinary 5s rather than red 5s. Original board, tile coordinates and accepted answers are unchanged; the verified previous hand signature preserves existing picks for this red/ordinary correction only.",
     "No fixed 30-question quota. Keep distinct lecturer-emphasized decisions, concise explanations for 雀豪, and precise conditional definitions.",
     "At 8:30, 3p no-chance and passed 8p remove the two ryanmen waits on 5p; three visible 5p remove shabo. Unlike the verbal shorthand, these facts alone do not logically exclude kan5p. Keep the lecturer's low-risk 5p recommendation without calling it absolute safety.",
     "At 16–18 minutes prioritize the lecturer's correction to West, not the initial 5s suggestion. Red 5s and red 5m retain dedicated approved assets.",

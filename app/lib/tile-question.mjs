@@ -1,3 +1,4 @@
+import { normalizeNagaEvaluation } from "./naga-evaluation.mjs";
 const CODE = /^(?:[0-9][mps]|[1-7]z)$/;
 const SUITS = { m: "man", p: "pin", s: "sou", z: "ji" };
 const RED = { m: "aka1", p: "aka2", s: "aka3" };
@@ -47,7 +48,9 @@ export function normalizeTileQuestion(value) {
   }
   const board = value.board === undefined ? undefined : normalizeTileBoard(value.board, options.length);
   if (value.board !== undefined && !board) return null;
-  return { hand: [...hand], ...(draw ? { draw } : {}), correctTiles: [...new Set(correctTiles)], ...(value.label === "候補牌" ? { label: "候補牌" } : {}), ...(board ? { board } : {}) };
+  const naga = value.naga === undefined ? undefined : normalizeNagaEvaluation(value.naga, options);
+  if (value.naga !== undefined && !naga) return null;
+  return { hand: [...hand], ...(draw ? { draw } : {}), correctTiles: [...new Set(correctTiles)], ...(value.label === "候補牌" ? { label: "候補牌" } : {}), ...(board ? { board } : {}), ...(naga ? { naga } : {}) };
 }
 export function tileAnswer(q, index) {
   const tiles = tileOptions(q);
@@ -57,7 +60,12 @@ export function tileAnswer(q, index) {
 export const tileQuestionSignature = (q) => JSON.stringify([tileOptions(q), q.correctTiles, q.board?.imageUrl ?? ""]);
 export function savedTilePick(session, key, q) {
   const pick = session?.tilePicks?.[key];
-  return session?.tileSignatures?.[key] === tileQuestionSignature(q) && tileAnswer(q, pick) ? pick : undefined;
+  const previous = q.naga?.previousHandSnapshot;
+  const oldSignature = previous && normalizeNagaEvaluation(q.naga, tileOptions(q))
+    ? JSON.stringify([previous, q.correctTiles, q.board?.imageUrl ?? ""]) : null;
+  const matches = session?.tileSignatures?.[key] === tileQuestionSignature(q) ||
+    (oldSignature && session?.tileSignatures?.[key] === oldSignature);
+  return matches && tileAnswer(q, pick) ? pick : undefined;
 }
 export function parseTileCodes(text) {
   const source = String(text).replace(/\s/g, "");

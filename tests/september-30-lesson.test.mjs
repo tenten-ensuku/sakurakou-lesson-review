@@ -19,7 +19,7 @@ test("9/30 is a separate newest lesson with 19 focused questions, including seve
 });
 test("inspected source hands preserve red fives and actual numbered tiles, not caption guesses",()=>{
   const q=(id)=>source.questions.find(q=>q.id===id).tileQuestion;
-  assert.deepEqual(q("safe-five-pin").hand,["5m","0m","7m","8m","9m","5p","5p","6p","2s","3s","4s","0s","6s"]);
+  assert.deepEqual(q("safe-five-pin").hand,["5m","0m","7m","8m","9m","5p","5p","6p","2s","3s","4s","5s","6s"]);
   assert.deepEqual(q("two-riichi-west").hand.slice(8),["4s","4s","2z","3z","3z"]);assert.equal(q("two-riichi-west").draw,"0s");
   assert.deepEqual(q("nine-pin-speed").hand.slice(0,3),["2m","2m","3m"]);
   assert.deepEqual(q("nine-pin-speed").hand.slice(5,8),["1s","2s","3s"]);

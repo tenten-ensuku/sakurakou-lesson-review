@@ -49,7 +49,7 @@ export const summary = [
 ];
 export const questions = [
   { id: "fold-recheck", scene: "0444", at: 444, question: "オリていた手が2面子の一向聴に進んだ。方針はどう見直す？", answer: "ローリスクに粘れるか、手牌価値を判定し直す。", explanation: "『二面子ある➡ローリスクならば粘りも意識』。当初のオリ方針を固定しない。ただし危険牌を無条件に押す意味ではない。", refs: ["theory"] },
-  { id: "safe-five-pin", scene: "0495", at: 503, question: "何を切る？", tileQuestion: sourceTiles("50789m556p23406s", "5p", "9m"), answer: "5p。両面・シャボを否定できる低リスク牌。", explanation: "3pが4枚見えで25p両面、8p通過で58p両面を否定。5pは3枚見えでシャボもない。ただしカン5p・単騎を完全には消せない。講師の『ほぼ安牌』を『絶対安全』と一般化しない。", refs: ["theory"] },
+  { id: "safe-five-pin", scene: "0495", at: 503, question: "何を切る？", tileQuestion: sourceTiles("50789m556p23456s", "5p", "9m"), answer: "5p。両面・シャボを否定できる低リスク牌。", explanation: "3pが4枚見えで25p両面、8p通過で58p両面を否定。5pは3枚見えでシャボもない。ただしカン5p・単騎を完全には消せない。講師の『ほぼ安牌』を『絶対安全』と一般化しない。", refs: ["theory"] },
   { id: "late-one-shanten", scene: "0589", at: 599, question: "同じ完全形一向聴でも、河が3段目・残り山19枚になると、維持する価値はどう変わる？", answer: "下がる。聴牌してから和了するまでの残り機会が少ない。", explanation: "『広い一向聴だから押す』で止めない。安全な5pで維持できるなら粘るが、序盤と同じ見返りで危険牌を押せるわけではない。", refs: ["theory", "shanten"] },
   { id: "west-pon", scene: "0733", at: 736, question: "自風の西が出た。1000点でも西をポンする理由は？", answer: "愚形をさばいて向聴数を進められ、雀頭と両面も残るから。", explanation: "『愚形捌いてシャンテンが進むなら鳴いてOK！』。役牌対子を鳴いても別の雀頭がある。この手を、遠い安手だからと一律にスルーしない。", refs: ["theory"] },
   { id: "two-riichi-west", scene: "1005", at: 1037, question: "二件リーチ。何を切る？", tileQuestion: sourceTiles("406699m77p44s233z", "3z", "0s"), answer: "西。南や、宣言牌の筋5sより優先。", explanation: "西は1枚切れ＋手中2枚で残り1枚、南は1枚切れ＋手中1枚で残り2枚。5sも246sから6s→2s宣言ならカン5sに当たる。筋だけで安全扱いしない。", refs: ["theory"] },
