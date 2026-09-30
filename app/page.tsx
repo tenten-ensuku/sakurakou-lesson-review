@@ -549,7 +549,7 @@ function NotebookHome() {
       if (view !== "session" || editing || !run) return;
       if (
         (e.target as HTMLElement)?.closest(
-          "input,textarea,select,button,a,summary,.source-hand-scroll",
+          "input,textarea,select,button,a,summary",
         )
       )
         return;
@@ -561,7 +561,7 @@ function NotebookHome() {
         e.preventDefault();
         if (flash && currentCard?.tileQuestion) {
           if (currentTilePick !== undefined) advance();
-          else document.querySelector<HTMLButtonElement>(".source-hand-canvas button,.tile-choice-row button")?.focus();
+          else document.querySelector<HTMLButtonElement>(".source-board-full button,.tile-choice-row button")?.focus();
         } else if (flash && currentCard?.kind === "question")
           updateRun({ ...run, revealed: !run.revealed });
         else if (flash || currentPick !== undefined) advance();

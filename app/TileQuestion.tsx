@@ -1,7 +1,7 @@
 "use client";
-import { useState, type CSSProperties } from "react";
+import { useState } from "react";
 import { BASE_PATH, type TileQuestionData } from "./lib/notebook-types";
-import { boardHandBounds, tileAnswer, tileFile, tileName, tileOptions } from "./lib/tile-question.mjs";
+import { tileAnswer, tileFile, tileName, tileOptions } from "./lib/tile-question.mjs";
 import RichContent from "./RichContent";
 
 export function TileHand({ data }: { data: TileQuestionData }) {
@@ -19,22 +19,13 @@ export default function TileQuestion({ data, question, pick, onSubmit }: { data:
   const board = data.board;
   const renderBoard = () => {
     if (!board) return null;
-    const bounds = boardHandBounds(board);
-    const scale = 54 / Math.min(...board.regions.map((r) => r.width));
     return <figure className="source-board">
-      <div className="source-board-full" style={{ aspectRatio: `${board.width} / ${board.height}` }}>
+      <div className="source-board-full" role="group" aria-label="切る牌を選択" style={{ aspectRatio: `${board.width} / ${board.height}` }}>
         <img src={board.imageUrl} alt="出題場面の元盤面。自分の手牌だけを選択できます" onError={() => setFailedImage(true)} />
-        {!failedImage && board.regions.map((r, i) => <button key={i} type="button" tabIndex={-1} aria-hidden="true" disabled={answered} className={`source-tile-hit preview-hit${resultClass(i)}`} style={{ left: `${r.x / board.width * 100}%`, top: `${r.y / board.height * 100}%`, width: `${r.width / board.width * 100}%`, height: `${r.height / board.height * 100}%` }} onClick={() => choose(i)} />)}
+        {!failedImage && board.regions.map((r, i) => <button key={i} type="button" aria-label={label(i)} aria-pressed={i === pick} disabled={answered} className={`source-tile-hit preview-hit${resultClass(i)}`} style={{ left: `${r.x / board.width * 100}%`, top: `${r.y / board.height * 100}%`, width: `${r.width / board.width * 100}%`, height: `${r.height / board.height * 100}%` }} onClick={() => choose(i)} />)}
       </div>
       {failedImage ? <p className="error" role="alert">盤面画像を読み込めませんでした。再読み込みするか、<a href={board.imageUrl} target="_blank" rel="noreferrer">元画像を開く</a>から確認してください。</p> : <>
         <figcaption>{answered ? "選んだ牌を枠で表示しています" : "自分の手牌をタップして回答"}<a href={board.imageUrl} target="_blank" rel="noreferrer">盤面を拡大</a></figcaption>
-        <div className="source-hand-scroll" tabIndex={0} aria-label="元画像の手牌拡大。横にスクロールできます">
-          <div className="source-hand-canvas" role="group" aria-label="切る牌を選択" style={{ width: bounds.width * scale, height: bounds.height * scale }}>
-            <img src={board.imageUrl} alt="" aria-hidden="true" draggable={false} style={{ width: board.width * scale, height: board.height * scale, left: -bounds.x * scale, top: -bounds.y * scale }} />
-            {board.regions.map((r, i) => <button key={i} type="button" aria-label={label(i)} aria-pressed={i === pick} disabled={answered} className={`source-tile-hit${resultClass(i)}`} style={{ left: (r.x - bounds.x) * scale, top: (r.y - bounds.y) * scale, width: r.width * scale, height: r.height * scale } as CSSProperties} onClick={() => choose(i)} />)}
-          </div>
-        </div>
-        {!answered && <p className="tile-scroll-hint">元の画像を拡大しています。手牌は横に動かせます。</p>}
       </>}
     </figure>;
   };

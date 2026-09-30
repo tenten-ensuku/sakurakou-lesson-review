@@ -49,6 +49,14 @@ test("tile selection answers immediately below the preserved board, without a co
   assert.match(page,/ratings: \{ \.\.\.r\.ratings, \[activeKey\]: result.correct \? "known" : "again" \}/);
   assert.match(editor,/value\?\.board \? JSON.stringify\(value.board/);
 });
+test("source-board choices remain accessible without a second enlarged hand",()=>{
+  const tile=readFileSync("app/TileQuestion.tsx","utf8"),page=readFileSync("app/page.tsx","utf8"),css=readFileSync("app/notebook.css","utf8");
+  for (const source of [tile,page,css]) assert.doesNotMatch(source,/source-hand-scroll|source-hand-canvas/);
+  assert.match(tile,/className="source-board-full" role="group" aria-label="切る牌を選択"/);
+  assert.match(tile,/board\.regions\.map\(\(r, i\) => <button[^>]*aria-label=\{label\(i\)\} aria-pressed=\{i === pick\}/);
+  assert.doesNotMatch(tile,/tabIndex=\{-1\}|元の画像を拡大しています/);
+  assert.match(page,/\.source-board-full button,\.tile-choice-row button/);
+});
 test("submitted tile choice survives local progress, server sanitation and duplicate session synchronization",()=>{
   const key="lesson-20260930-tenten:custom:card-20260930-safe-five-pin";
   const q={hand:parseTileCodes("223m12p123889s77z"),draw:"9p",correctTiles:["9p"]};

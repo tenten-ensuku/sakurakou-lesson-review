@@ -77,7 +77,7 @@ const provenance = {
     "89p block deletion accepts either tile. East or North accepts both as allowed by the lecturer. The last-round 6s push is not universally wrong.",
     "Q15 uses the actual ten-tile PRE-pon hand with two 4p still present. Its prompt explicitly fixes the hypothetical 4p pon. Independent winning-hand enumeration removes those 4p before verifying 5s tanki vs depleted 6p/9p waits.",
     "Q18 has no question image; Q19 and Q8 reveal their source tables only with the explanation, preventing answer leakage. The in-app summary contains ten original screenshot-then-explanation points and features the same material-page entry as the previous lessons.",
-    "Question board crops retain x=0..760,y=0..614 of the source frame, covering all concealed hands, calls, dora, score and rivers while removing the answer-bearing lower-third. The enlarged choice strip uses these exact pixels with transparent hit regions.",
+    "Question board crops retain x=0..760,y=0..614 of the source frame, covering all concealed hands, calls, dora, score and rivers while removing the answer-bearing lower-third. Choices use transparent, keyboard-accessible hit regions on the original board only; no separate enlarged hand is displayed.",
     "Keiten 2500-point swing holds with one or two other tenpai players; with zero or three it is 3000. Preserve the condition rather than generalizing the spoken shorthand.",
     "Canonical honitsu 9/10/11 excerpts preserve the live document wording. Older lessons, stable IDs, personal records, and public edits are not changed.",
   ],
