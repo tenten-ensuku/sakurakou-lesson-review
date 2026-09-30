@@ -86,6 +86,23 @@ test("failed catalog initialization can be retried", async () => {
   await ensureLearning(db);
   assert.equal(batches, 3);
 });
+test("a stalled cold request cannot trap catalog or learning sync in another request", async () => {
+  const db = database(), original = db.batch;
+  let release, calls = 0;
+  db.batch = async (statements) => {
+    if (++calls === 1) await new Promise(resolve => { release = resolve; });
+    return original(statements);
+  };
+  const stalled = ensureLearning(db, { request: "abandoned" });
+  await ensureLearning(db, { request: "new catalog request" });
+  assert.equal(calls, 3);
+  assert.ok(db.sql.prepare("SELECT COUNT(*) AS count FROM review_checks").get().count > 0);
+  release();
+  await stalled;
+  await ensureLearning(db, { request: "warm request" });
+  assert.equal(calls, 4);
+  db.sql.close();
+});
 async function call(db, path, method = "GET", value, token = secret) {
   const response = await handleLearningApi(
     new Request("https://example.test" + path, {

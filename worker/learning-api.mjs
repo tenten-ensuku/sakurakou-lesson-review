@@ -53,9 +53,13 @@ const ids = (v) =>
   Array.isArray(v) && v.length <= 500 && v.every(idOK) ? [...new Set(v)] : null;
 const http = (v) =>
   !v || (typeof v === "string" && v.length < 2000 && /^https?:\/\//i.test(v));
-const initialized = new WeakMap();
-export async function ensureLearning(db) {
-  if (!initialized.has(db)) {
+const initialized = new WeakSet();
+const initializing = new WeakMap();
+export async function ensureLearning(db, requestScope = db) {
+  if (initialized.has(db)) return;
+  // Workers must not await D1 I/O owned by a different request. Only the
+  // completed flag is shared; in-flight work belongs to the current request.
+  if (!initializing.has(requestScope)) {
     const seed = seedCatalog();
     // One ordered transaction avoids dozens of cold-start network round trips.
     // INSERT OR IGNORE must never overwrite shared edits or deleted entries.
@@ -78,13 +82,11 @@ export async function ensureLearning(db) {
         ),
       ])
       .then(() => db.batch([...augustCheckStatements(db), ...septemberCheckStatements(db), ...september29CheckStatements(db)]))
-      .catch((error) => {
-        initialized.delete(db);
-        throw error;
-      });
-    initialized.set(db, pending);
+      .then(() => { initialized.add(db); })
+      .finally(() => { initializing.delete(requestScope); });
+    initializing.set(requestScope, pending);
   }
-  await initialized.get(db);
+  await initializing.get(requestScope);
 }
 export async function readCatalog(db) {
   const [a, b, c] = await Promise.all([
@@ -309,7 +311,7 @@ export async function handleLearningApi(req, env) {
   if (req.method === "OPTIONS") return response(req, null, 204);
   if (!env.DB) return response(req, { error: "保存先に接続できません。" }, 503);
   try {
-    await ensureLearning(env.DB);
+    await ensureLearning(env.DB, req);
     if (path === "/api/catalog" && req.method === "GET")
       return response(req, await readCatalog(env.DB));
     const cm = path.match(/^\/api\/catalog\/(theories|items)\/([a-z0-9-]+)$/i);
