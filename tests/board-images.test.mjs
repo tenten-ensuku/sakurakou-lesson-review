@@ -70,7 +70,7 @@ test("rendered learning images open at original size without breaking inline til
     (id) => require(id === "./lib/notebook-types" ? "./lib/notebook-types.ts" : id), exports,
   );
   const html = renderToStaticMarkup(React.createElement(exports.default, {
-    text: "![東1局の盤面](https://example.test/board.jpg)\n\n6sのくっつきと2pの先切りを比較。",
+    text: "![東1局の盤面](https://example.test/board.jpg)\n\n6sのくっつきと2pの先切りを比較。4ｍと6ｍ、４７ｍ。中張牌・発展。https://example.test/4m?q=6m",
   }));
   assert.match(html, /class="note-image-open"/);
   assert.match(html, /href="https:\/\/example.test\/board.jpg" target="_blank" rel="noreferrer"/);
@@ -78,6 +78,12 @@ test("rendered learning images open at original size without breaking inline til
   assert.match(html, /画像を押すと拡大/);
   assert.match(html, /sou6-66-90-l.png/);
   assert.match(html, /pin2-66-90-l.png/);
+  assert.match(html, /man4-66-90-l.png/);
+  assert.match(html, /man6-66-90-l.png/);
+  assert.match(html, /man7-66-90-l.png/);
+  assert.match(html, /中張牌・発展/);
+  assert.match(html, /href="https:\/\/example.test\/4m\?q=6m"/);
+  assert.doesNotMatch(html, /ji[57]-66-90-l.png/);
   assert.match(html, /のくっつきと/);
   const css = await readFile(new URL("../app/notebook.css", import.meta.url), "utf8");
   assert.match(css, /\.note-image img\s*\{[^}]*height:\s*auto;[^}]*object-fit:\s*contain;/s);

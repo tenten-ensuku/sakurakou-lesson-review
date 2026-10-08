@@ -13,7 +13,7 @@ export function honorTileNumber(character) {
   return HONOR_TILE_NUMBERS[character] ?? null;
 }
 
-const TILE_PATTERN = /([1-9]+)\s*([mps])|([1-7]+)\s*(z)|([東南西北白發発中]{2,})|(?<![\p{L}\p{N}])([東南西北白發発中])(?![\p{L}\p{N}])/giu;
+const TILE_PATTERN = /([1-9１-９]+)\s*([mpsｍｐｓ])|([1-7１-７]+)\s*([zｚ])|([東南西北白發発中]{2,})|(?<![\p{L}\p{N}])([東南西北白發発中])(?![\p{L}\p{N}])/giu;
 
 export function tokenizeMahjongText(value) {
   const tokens = [];
@@ -25,10 +25,11 @@ export function tokenizeMahjongText(value) {
     if (match.index > cursor) tokens.push({ type: "text", value: value.slice(cursor, match.index) });
 
     const honorCharacters = match[5] ?? match[6];
-    const suit = honorCharacters ? "ji" : (match[4] ? "ji" : match[2].toLowerCase());
+    // Normalize only tile captures, preserving the original editor text and offsets.
+    const suit = honorCharacters ? "ji" : (match[4] ? "ji" : match[2].normalize("NFKC").toLowerCase());
     const digits = honorCharacters
       ? [...honorCharacters].map(honorTileNumber)
-      : [...(match[3] ?? match[1])];
+      : [...(match[3] ?? match[1]).normalize("NFKC")];
 
     tokens.push({ type: "tiles", suit, digits, source: match[0] });
     cursor = TILE_PATTERN.lastIndex;
