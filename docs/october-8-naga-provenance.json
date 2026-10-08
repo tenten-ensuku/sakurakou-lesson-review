@@ -1,0 +1,73 @@
+{
+  "reportId": "55dcc4f273b5505306277ed1c64fb5c87fff7b6883edebb127eb2cfcddb48f05v2_2",
+  "reportSha256": "3746010c35d9a281074c2da6b32a7884880634eb1a842a5e53d236bc6e2c64cc",
+  "reportBytes": 2946942,
+  "targetSeat": 1,
+  "generationRuleVersion": "meld-replay-v237",
+  "sharedGeneratorSha256": "000d8677b590bce088ef2615249f86317810abb2c4d855cf892b5120acdc17ed",
+  "networkBudget": {
+    "requests": 1,
+    "maxBytes": 10485760,
+    "usedCachedReport": true
+  },
+  "checkedAt": "2026-10-08",
+  "limitations": [
+    "Video contains edited viewer hands. Only these two exact hand/draw/dora matches carry NAGA rates. No rates from another event are reused."
+  ],
+  "questions": [
+    {
+      "appId": "card-20261008-penchan-versus-one",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=55dcc4f273b5505306277ed1c64fb5c87fff7b6883edebb127eb2cfcddb48f05v2_2&tw=1&ts=2&tv=23",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "doraMarker": "8s",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "instructorAnswers": [
+        "1p"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "ニシキ",
+          "recommendation": "1p"
+        },
+        {
+          "name": "カガシ",
+          "recommendation": "1p"
+        }
+      ]
+    },
+    {
+      "appId": "card-20261008-wide-versus-wait",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=55dcc4f273b5505306277ed1c64fb5c87fff7b6883edebb127eb2cfcddb48f05v2_2&tw=1&ts=10&tv=39",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "doraMarker": "3m",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "instructorAnswers": [
+        "5m",
+        "6m",
+        "7p"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "ニシキ",
+          "recommendation": "7p"
+        },
+        {
+          "name": "カガシ",
+          "recommendation": "7p"
+        }
+      ]
+    }
+  ]
+}

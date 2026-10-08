@@ -1,0 +1,457 @@
+{
+  "video": {
+    "id": "qveZzp7SDcQ",
+    "title": "桜紅　動画検討　★4　蒼嵐戦（せいらんせん）",
+    "channel": "てんてん",
+    "date": "2026-10-08",
+    "durationSeconds": 5140,
+    "url": "https://www.youtube.com/watch?v=qveZzp7SDcQ"
+  },
+  "method": "Full Japanese automatic-caption track read through the conclusion, and selected source frames individually inspected. Captions are an index, not verbatim authority; no continuous audiovisual playback or separate ASR claimed.",
+  "tools": {
+    "downloader": "yt-dlp 2026.08.19",
+    "frames": "ffmpeg",
+    "captions": "YouTube ja-orig"
+  },
+  "canonicalDocuments": [
+    {
+      "title": "【基本序列】",
+      "documentId": "1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM",
+      "revisionId": "AHj4eMR8rcW7TYQ-fcvrJY72Q0jK06QAYUeg7_sXTSZM-tPJrVNv1ML9U_6fVleMjeyb6iNStsA2pEG3DIV7mg",
+      "checkedAt": "2026-10-08"
+    },
+    {
+      "title": "セオリー集（随時更新）",
+      "documentId": "1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA",
+      "revisionId": "ANLCKQl8mIqi4TSg5xRgNnI6AmzTxukxlZpLa00LMop89qoPh7Tk6LWYe74xFuYNJxAD9Wy_DDNQrd4YZNI84A",
+      "checkedAt": "2026-10-08"
+    },
+    {
+      "title": "一向聴（基礎講義）",
+      "documentId": "1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA",
+      "revisionId": "AHj4eMTNXg1R6l3lUTMYyDGKuiVA8c1erUmUBNXimvtvQTxhUHbWDjkttjaG5FtBjQtaKHi-jZpxQDKnE5UjbA",
+      "checkedAt": "2026-10-08"
+    }
+  ],
+  "transcriptSha256": "f34cf1ad60580286009cf8d5ca7e862b581e9013587a07f32caad26baca8e60b",
+  "editorialNotes": [
+    "No fixed 30-question quota. Eighteen distinct lecturer-emphasized questions; concise 雀豪 explanations.",
+    "Question images remove the answer-bearing lower-third; theory/definition cards need no unrelated board.",
+    "The video contains edited NAGA viewer hands. Only two exact hand/draw/dora matches use the supplied report. Evaluation rates remain independent of instructor answers.",
+    "The 6-minute spoken two-meld explanation conflicts with the displayed reconstructed hand. It is tested as an explicit 2-meld/4-block theory question without that misleading scene.",
+    "6m, 5m and 7p in the 76-minute comparison are all allowed by the lecturer. The late preference for 7p is retained, not overwritten by the first 5m suggestion.",
+    "Last-round point condition: opponent is dealer; 1300/2600 tsumo closes 7800 of the 7400 gap.",
+    "Public screenshots retain board/rivers/scores/tiles but anonymize secondary player labels; raw video/report stay outside Git.",
+    "Older lesson IDs, shared edits and learning records are untouched."
+  ],
+  "questions": [
+    {
+      "sourceId": "six-turn-check",
+      "appId": "card-20261008-six-turn-check",
+      "displayNumber": 1,
+      "type": "flashcard",
+      "at": 203,
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "missing-block",
+      "appId": "check-20261008-missing-block",
+      "displayNumber": 2,
+      "type": "choice",
+      "at": 365,
+      "scene": null,
+      "canonicalSources": [
+        "shanten"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "menma-shape",
+      "appId": "check-20261008-menma-shape",
+      "displayNumber": 3,
+      "type": "cloze",
+      "at": 534,
+      "scene": null,
+      "canonicalSources": [
+        "shanten"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "zero-zero",
+      "appId": "check-20261008-zero-zero",
+      "displayNumber": 4,
+      "type": "choice",
+      "at": 960,
+      "scene": "1060",
+      "canonicalSources": [
+        "theory",
+        "ranking"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "red-five-value",
+      "appId": "card-20261008-red-five-value",
+      "displayNumber": 5,
+      "type": "flashcard",
+      "at": 1199,
+      "scene": "1199",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "depleted-kanchan",
+      "appId": "check-20261008-depleted-kanchan",
+      "displayNumber": 6,
+      "type": "choice",
+      "at": 1320,
+      "scene": null,
+      "canonicalSources": [
+        "ranking"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "pinfu-headless",
+      "appId": "card-20261008-pinfu-headless",
+      "displayNumber": 7,
+      "type": "flashcard",
+      "at": 1490,
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "penchan-versus-one",
+      "appId": "card-20261008-penchan-versus-one",
+      "displayNumber": 8,
+      "type": "tile",
+      "at": 1810,
+      "scene": "1810",
+      "canonicalSources": [
+        "ranking"
+      ],
+      "reviewStatus": "manually-source-checked",
+      "nagaSource": {
+        "tw": 1,
+        "ts": 2,
+        "tv": 23,
+        "dora": "8s"
+      }
+    },
+    {
+      "sourceId": "super-isolated-conditions",
+      "appId": "card-20261008-super-isolated-conditions",
+      "displayNumber": 9,
+      "type": "flashcard",
+      "at": 1884,
+      "scene": null,
+      "canonicalSources": [
+        "ranking"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "same-turn-safety",
+      "appId": "card-20261008-same-turn-safety",
+      "displayNumber": 10,
+      "type": "flashcard",
+      "at": 2460,
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "seven-block-space",
+      "appId": "check-20261008-seven-block-space",
+      "displayNumber": 11,
+      "type": "choice",
+      "at": 2600,
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "parent-three-calls",
+      "appId": "check-20261008-parent-three-calls",
+      "displayNumber": 12,
+      "type": "choice",
+      "at": 2880,
+      "scene": "2800",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "kuinobashi",
+      "appId": "check-20261008-kuinobashi",
+      "displayNumber": 13,
+      "type": "cloze",
+      "at": 3030,
+      "scene": null,
+      "canonicalSources": [
+        "shanten"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "exposed-four-six",
+      "appId": "card-20261008-exposed-four-six",
+      "displayNumber": 14,
+      "type": "flashcard",
+      "at": 3240,
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "three-head-ryanmen",
+      "appId": "card-20261008-three-head-ryanmen",
+      "displayNumber": 15,
+      "type": "flashcard",
+      "at": 4260,
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "second-pair-safety",
+      "appId": "check-20261008-second-pair-safety",
+      "displayNumber": 16,
+      "type": "choice",
+      "at": 4396,
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "wide-versus-wait",
+      "appId": "card-20261008-wide-versus-wait",
+      "displayNumber": 17,
+      "type": "tile",
+      "at": 4595,
+      "scene": "4595",
+      "canonicalSources": [
+        "shanten",
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked",
+      "nagaSource": {
+        "tw": 1,
+        "ts": 10,
+        "tv": 39,
+        "dora": "3m"
+      }
+    },
+    {
+      "sourceId": "final-tsumo-condition",
+      "appId": "check-20261008-final-tsumo-condition",
+      "displayNumber": 18,
+      "type": "choice",
+      "at": 4790,
+      "scene": "4790",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    }
+  ],
+  "images": {
+    "1060": {
+      "at": 1060,
+      "caption": "東2局：0面子・0両面の重い手。手役の種を残す方針を比較",
+      "sha256": "f5b7f555d7f51737f9462af58f7686c1791e7d87946243ce2be93e7caa73486e",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/2f4719a4-e074-48d9-8f56-187b4cf63607.jpg",
+      "sourceFile": "frames-public/1060.jpg",
+      "sourceSecond": 1060,
+      "width": 1280,
+      "height": 720,
+      "transformation": "Full source frame. Secondary player names and viewer seat selector anonymized as 新人/初級. No board/hand redrawing."
+    },
+    "1199": {
+      "at": 1199,
+      "caption": "東2局：赤5sがある手で、ドラ9pを処理する打点上の理由を検討",
+      "sha256": "2ae9a6a674f8f84deb270bc6c821ca6fcda885ba890260719535bed675def19d",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/e8c86f45-ed6b-4398-b39d-c617e772eedd.jpg",
+      "sourceFile": "frames-public/1199.jpg",
+      "sourceSecond": 1199,
+      "width": 1280,
+      "height": 720,
+      "transformation": "Full source frame. Secondary player names and viewer seat selector anonymized as 新人/初級. No board/hand redrawing."
+    },
+    "1508": {
+      "at": 1508,
+      "caption": "東3局序盤：面子と両面はあるが雀頭がない。平和効率の条件を確認",
+      "sha256": "9323aa04efe206b4789d1b4f72ffa59313e4aa8a663de0a07c5d52050b728d49",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/a8bcf8c1-b454-47e0-aade-b99422f30d8c.jpg",
+      "sourceFile": "frames-public/1508.jpg",
+      "sourceSecond": 1508,
+      "width": 1280,
+      "height": 720,
+      "transformation": "Full source frame. Secondary player names and viewer seat selector anonymized as 新人/初級. No board/hand redrawing."
+    },
+    "1810": {
+      "at": 1810,
+      "caption": "東3局：4pツモ。孤立1pと89mのペンチャンを比較",
+      "sha256": "fe92b839504f0c03e31d7b316e143a09eea3f826f8d66bedd146e38b974fcafe",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/1e3ab0bc-9946-434e-8be4-283fbff98eb4.jpg",
+      "sourceFile": "frames-public/1810.jpg",
+      "sourceSecond": 1810,
+      "width": 1280,
+      "height": 720,
+      "transformation": "Full source frame. Secondary player names and viewer seat selector anonymized as 新人/初級. No board/hand redrawing."
+    },
+    "2440": {
+      "at": 2440,
+      "caption": "東4局：同巡に切られた牌へ合わせる。今の安全と次巡の安全を分ける",
+      "sha256": "817874473ae6dedd2beee771e78241beb29639e1337011f00ff72f2f5145f54d",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/17f616a3-c275-4a28-8417-ebdbf9c29c28.jpg",
+      "sourceFile": "frames-public/2440.jpg",
+      "sourceSecond": 2440,
+      "width": 1280,
+      "height": 720,
+      "transformation": "Full source frame. Secondary player names and viewer seat selector anonymized as 新人/初級. No board/hand redrawing."
+    },
+    "2800": {
+      "at": 2800,
+      "caption": "東4局：親の3副露に対応。親・聴牌率・自手価値を確認",
+      "sha256": "736b4cc5ee8e6b9a0e9b323b5dd84585d481eb1ade833e3360b7c54a45e5518a",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/4b094697-3373-464a-ae62-f66027b5bd5f.jpg",
+      "sourceFile": "frames-public/2800.jpg",
+      "sourceSecond": 2800,
+      "width": 1280,
+      "height": 720,
+      "transformation": "Full source frame. Secondary player names and viewer seat selector anonymized as 新人/初級. No board/hand redrawing."
+    },
+    "4396": {
+      "at": 4396,
+      "caption": "南3局：門前3対子の整理と、対子落としの2枚目の安全を比較",
+      "sha256": "463aed2163f639429efbf1cedd2df05f61c2d34997e976fb068602ef9b1eb8e9",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/94f873bb-50cd-4571-a4cc-d0a0a4e70666.jpg",
+      "sourceFile": "frames-public/4396.jpg",
+      "sourceSecond": 4396,
+      "width": 1280,
+      "height": 720,
+      "transformation": "Full source frame. Secondary player names and viewer seat selector anonymized as 新人/初級. No board/hand redrawing."
+    },
+    "4595": {
+      "at": 4595,
+      "caption": "南3局：5mツモ。最大受け入れと、最終待ち・ドラ受けを比較",
+      "sha256": "6d0fc3615338b8a4c484ab70bf3d774aa50818b32b276c7e266ab967609af3cf",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/7f0e4a6c-3d4a-401c-9bc5-7e1820ac0572.jpg",
+      "sourceFile": "frames-public/4595.jpg",
+      "sourceSecond": 4595,
+      "width": 1280,
+      "height": 720,
+      "transformation": "Full source frame. Secondary player names and viewer seat selector anonymized as 新人/初級. No board/hand redrawing."
+    },
+    "4790": {
+      "at": 4790,
+      "caption": "最終局：首位の親39000点、自分31600点。必要なツモ打点から手組みを決める",
+      "sha256": "ac7eb957f8f1482cbce6c8fbf8918f8ecfe19331c6b0e377a5c65b916400514b",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/d5a2fced-83e8-4d4f-a1e6-875e44cdcf1a.jpg",
+      "sourceFile": "frames-public/4790.jpg",
+      "sourceSecond": 4790,
+      "width": 1280,
+      "height": 720,
+      "transformation": "Full source frame. Secondary player names and viewer seat selector anonymized as 新人/初級. No board/hand redrawing."
+    },
+    "0250": {
+      "at": 250,
+      "caption": "東1局6巡目：将来のリーチに備え、共通現物の南を残す検討",
+      "sha256": "fe632b4b2c96faf87fa2d5693e737f3a2f441cdbe1120e1da136ed2769e1a898",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c1feccc0-3b92-46b8-aa35-98f8d2817a7f.jpg",
+      "sourceFile": "frames-public/0250.jpg",
+      "sourceSecond": 250,
+      "width": 1280,
+      "height": 720,
+      "transformation": "Full source frame. Secondary player names and viewer seat selector anonymized as 新人/初級. No board/hand redrawing."
+    },
+    "1060-board": {
+      "at": 1060,
+      "caption": "東2局：0面子・0両面の重い手。手役の種を残す方針を比較",
+      "width": 835,
+      "height": 644,
+      "sha256": "5fb01c0010a7d2aa3d1e63e6f4af3773541dab732c16ec400f52b9e094e88a98",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/1c0b2774-4e42-465a-8f4c-1fdaae3b87f9.jpg",
+      "sourceFile": "frames-public/1060-board.jpg",
+      "sourceSecond": 1060,
+      "transformation": "Original source frame cropped to x=0,y=0,835x644. Answer-bearing lower third and toolbar removed. Secondary player names masked and replaced with 初級; visible names are 新人. No board/hand redrawing."
+    },
+    "1199-board": {
+      "at": 1199,
+      "caption": "東2局：赤5sがある手で、ドラ9pを処理する打点上の理由を検討",
+      "width": 835,
+      "height": 644,
+      "sha256": "cc2af136f8161723cb1687a6adcda3295eb84e6460aa9e872443898b397b3cdd",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/b2a746cd-710e-4973-ad10-3c745852e548.jpg",
+      "sourceFile": "frames-public/1199-board.jpg",
+      "sourceSecond": 1199,
+      "transformation": "Original source frame cropped to x=0,y=0,835x644. Answer-bearing lower third and toolbar removed. Secondary player names masked and replaced with 初級; visible names are 新人. No board/hand redrawing."
+    },
+    "1810-board": {
+      "at": 1810,
+      "caption": "東3局：4pツモ。孤立1pと89mのペンチャンを比較",
+      "width": 835,
+      "height": 644,
+      "sha256": "19082f18a96f4b28f6877057ba3b10d01f97edea5345aca3eda6f0d8055acf6d",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/2f194e2a-b83b-4c82-9e0c-061c10a29e93.jpg",
+      "sourceFile": "frames-public/1810-board.jpg",
+      "sourceSecond": 1810,
+      "transformation": "Original source frame cropped to x=0,y=0,835x644. Answer-bearing lower third and toolbar removed. Secondary player names masked and replaced with 初級; visible names are 新人. No board/hand redrawing."
+    },
+    "2800-board": {
+      "at": 2800,
+      "caption": "東4局：親の3副露に対応。親・聴牌率・自手価値を確認",
+      "width": 835,
+      "height": 644,
+      "sha256": "5093716944853222ca66b12d20a9da02c13fe9d37e6d7aad4c9e89fa4d484d08",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/9908a889-891a-40c4-ac49-9680c00d4fcb.jpg",
+      "sourceFile": "frames-public/2800-board.jpg",
+      "sourceSecond": 2800,
+      "transformation": "Original source frame cropped to x=0,y=0,835x644. Answer-bearing lower third and toolbar removed. Secondary player names masked and replaced with 初級; visible names are 新人. No board/hand redrawing."
+    },
+    "4595-board": {
+      "at": 4595,
+      "caption": "南3局：5mツモ。最大受け入れと、最終待ち・ドラ受けを比較",
+      "width": 835,
+      "height": 644,
+      "sha256": "3ee045724893c99f25d8cb54e2c37ad0f1c4e7b2146e47d81b21af113f7481f9",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/da51a66d-9c8f-4a8e-a0c4-376306c2ce64.jpg",
+      "sourceFile": "frames-public/4595-board.jpg",
+      "sourceSecond": 4595,
+      "transformation": "Original source frame cropped to x=0,y=0,835x644. Answer-bearing lower third and toolbar removed. Secondary player names masked and replaced with 初級; visible names are 新人. No board/hand redrawing."
+    },
+    "4790-board": {
+      "at": 4790,
+      "caption": "最終局：首位の親39000点、自分31600点。必要なツモ打点から手組みを決める",
+      "width": 835,
+      "height": 644,
+      "sha256": "2e6004939004abee10792af364d3191b39f739f6fe5cd9e4d0d13b7dc33ac5ef",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/35c6fcad-e42f-4d86-b364-980ee63d1e85.jpg",
+      "sourceFile": "frames-public/4790-board.jpg",
+      "sourceSecond": 4790,
+      "transformation": "Original source frame cropped to x=0,y=0,835x644. Answer-bearing lower third and toolbar removed. Secondary player names masked and replaced with 初級; visible names are 新人. No board/hand redrawing."
+    }
+  }
+}

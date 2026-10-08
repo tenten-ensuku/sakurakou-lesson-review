@@ -1,0 +1,649 @@
+{
+  "lessons": [
+    {
+      "id": "lesson-20261008-tenten",
+      "date": "10/8",
+      "teacher": "てんてん",
+      "title": "蒼嵐戦牌譜検討｜手牌の役割・安全牌・逆転条件",
+      "videoUrl": "https://www.youtube.com/watch?v=qveZzp7SDcQ"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-20261008-summary",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "note",
+      "question": "授業の要約：10のポイント",
+      "answer": "![東1局6巡目：将来のリーチに備え、共通現物の南を残す検討（動画 4:10）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c1feccc0-3b92-46b8-aa35-98f8d2817a7f.jpg)\n\n1. 6巡目に、将来のリーチへ備えられているか確認する\n222の法則は「2シャンテン・愚形2つ残り・立直して2ハン」。全て該当なら和了は厳しいと見て、将来の放銃回避を意識する。0面子も該当、副露手は例外。この手は共通現物の南を残し、2mを先に処理する。機械的な即ベタオリとは分ける。\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=250s\n\n![東2局：0面子・0両面の重い手。手役の種を残す方針を比較（動画 17:40）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/2f4719a4-e074-48d9-8f56-187b4cf63607.jpg)\n\n2. 0面子・0両面の手を、立直前提で整理しない\n講師の「00物件」は0面子・0両面の重い手。通常の役牌と端牌の比較だけでは、安い遠い手にまとまりやすい。役牌の重なりや123三色・チャンタの種を残し、鳴ける手役も見て打点を作る。このゴミ手での例外を、通常の三色6種類の基準に混ぜない。\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=1060s\n\n![東2局：赤5sがある手で、ドラ9pを処理する打点上の理由を検討（動画 19:59）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/e8c86f45-ed6b-4398-b39d-c617e772eedd.jpg)\n\n3. ドラを切れるかは、切った後の打点で判断する\n赤5sが残るため、ドラ9pを切ってもリーのみにならない。赤がなければ安い愚形立直になりやすく、ドラを残す価値が上がる。ターツ比較では河も見る。2mが2枚切れなら13mのカンチャンを先に外す判断が有力で、基本の両面・カンチャン・ペンチャン序列だけで固定しない。\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=1199s\n\n![東3局序盤：面子と両面はあるが雀頭がない。平和効率の条件を確認（動画 25:08）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/a8bcf8c1-b454-47e0-aade-b99422f30d8c.jpg)\n\n4. 雀頭なしで平和が近ければ、役牌より端牌を残す\nセオリーの条件は「2面子＋1両面＋ヘッド無」または「1面子＋3両面＋ヘッド無」。平和効率で打つので、基本のオタ風・1.9＜役牌という序列が逆転する。雀頭ができた後まで、ヘッドレス時の優先順位を固定しない。\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=1508s\n\n![東3局：4pツモ。孤立1pと89mのペンチャンを比較（動画 30:10）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/1e3ab0bc-9946-434e-8be4-283fbff98eb4.jpg)\n\n5. ペンチャンを外す理由は、孤立牌の質まで見る\nここは1p処理。孤立1pは超強孤立牌3〜7ではなく、薄い一通の種を理由に89mを壊さない。基本序列は「強孤立牌3〜7≦ペンチャン＜超強孤立牌3〜7」。超強は5を含む4連形・中膨れ・打点や手役の種という条件付き。\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=1810s\n\n![東4局：同巡に切られた牌へ合わせる。今の安全と次巡の安全を分ける（動画 40:40）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/17f616a3-c275-4a28-8417-ebdbf9c29c28.jpg)\n\n6. 同巡の安全牌は、今使う価値が高い\n相手が今切った牌には、同巡フリテンの安全がある。次に相手のツモ番が進めば、その保証は持ち越せない。オリでは今合わせられる牌を使い、後でも使える現物の対子を残す。1人に通る牌だけでなく、別の相手への二の矢も考える。\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=2440s\n\n![東4局：親の3副露に対応。親・聴牌率・自手価値を確認（動画 46:40）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/4b094697-3373-464a-ae62-f66027b5bd5f.jpg)\n\n7. 3副露の親へは、形と対応条件の両方を見る\n親・待ちが絞れている／聴牌率が高い、という複数条件で要対応。自手価値が低いならさらに警戒する。晒し手が46mなら、両面への放銃には食い伸ばしを伴う形が必要、という読みも使える。ただし単騎・シャボ・カンチャンまで安全扱いせず、相手の効率的な手順という前提も残す。\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=2800s\n\n![南3局：門前3対子の整理と、対子落としの2枚目の安全を比較（動画 73:16）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/94f873bb-50cd-4571-a4cc-d0a0a4e70666.jpg)\n\n8. 門前3対子は両面固定。対子落としは2枚目も見る\n門前3対子では、両面対子を両面へ固定する。ロスは切った牌の重なりだけなので、6ブロックでも両面固定が有力。4対子になれば七対子も再評価。対子を落とす際は、次巡にリーチが来ても2枚目を切れるかまで比較する。\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=4396s\n\n![南3局：5mツモ。最大受け入れと、最終待ち・ドラ受けを比較（動画 76:35）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/7f0e4a6c-3d4a-401c-9bc5-7e1820ac0572.jpg)\n\n9. 一向聴の最大受け入れと、最終待ちは別\n6mなら完全形で瞬間の受け入れは最大。ただし聴牌の多くがカン6s待ちになる。5mはドラ4mの受けを、7pは強い69p待ちと一盃口のダマを意識した余剰牌型。講師は5mを評価しつつ、最後は7pも有力と修正し、6mも許容した。微差を唯一解にしない。\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=4595s\n\n![最終局：首位の親39000点、自分31600点。必要なツモ打点から手組みを決める（動画 79:50）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/d5a2fced-83e8-4d4f-a1e6-875e44cdcf1a.jpg)\n\n10. 最終局は、逆転に必要な点から手組みを決める\n首位の親39000点、自分31600点で7400点差。1300・2600ツモなら自分＋5200、首位−2600で差が7800縮み逆転できる。役牌のみの鳴きへ寄せるより、立直・ツモ・平和などの条件を残す。89mを壊して孤立3sを残す判断も、この着順条件から見直す。\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=4790s",
+      "sortOrder": -1
+    },
+    {
+      "id": "card-20261008-six-turn-check",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "question",
+      "question": "6巡目の定点チェックで使う「222の法則」。三つの条件と、0面子・副露手の扱いは？",
+      "answer": "2シャンテン、愚形2つ残り、立直して2ハン、これを全て満たすなら和了れないと思え。０面子は無条件で該当。ただし、副露手は例外。\n\nセオリー集の原文。将来のリーチに備えて放銃回避を意識する基準で、即ベタオリの指示ではない。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=203s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 1
+    },
+    {
+      "id": "card-20261008-red-five-value",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "question",
+      "question": "ドラ9pを処理できる打点上の理由は？ 赤5sが通常の5sなら、どう変わる？\n\n![出題場面の盤面（動画 19:59）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/b2a746cd-710e-4973-ad10-3c745852e548.jpg)",
+      "answer": "赤5sが残り、立直してもリーのみにならない。通常5sなら、ドラを残す価値が上がる。\n\n弱い手を安い愚形立直にまとめない。ドラ単体の序列だけでなく、切った後に残る打点を見る。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=1199s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 5
+    },
+    {
+      "id": "card-20261008-pinfu-headless",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "question",
+      "question": "役牌よりオタ風・1.9を残す「平和効率で打つ基準」は？ 雀頭の条件まで答えて。",
+      "answer": "2面子＋1両面＋ヘッド無、または1面子＋3両面＋ヘッド無。\n\nヘッドレスが条件。雀頭ができた後も役牌と端牌の優先順位を固定しない。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=1490s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 7
+    },
+    {
+      "id": "card-20261008-penchan-versus-one",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "question",
+      "question": "何を切る？\n\n![出題場面の盤面（動画 30:10）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/2f194e2a-b83b-4c82-9e0c-061c10a29e93.jpg)",
+      "answer": "1p。89mのペンチャンを残す。\n\n孤立1pは超強孤立牌ではない。薄い一通の種だけを理由にペンチャンを壊さない。講師の推奨と、回答後のNAGA評価は別。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=1810s\n\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "sortOrder": 8,
+      "tileQuestion": {
+        "hand": [
+          "3m",
+          "4m",
+          "5m",
+          "8m",
+          "9m",
+          "1p",
+          "4p",
+          "5p",
+          "6p",
+          "7p",
+          "8p",
+          "7s",
+          "7s"
+        ],
+        "draw": "4p",
+        "correctTiles": [
+          "1p"
+        ],
+        "board": {
+          "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/2f194e2a-b83b-4c82-9e0c-061c10a29e93.jpg",
+          "width": 835,
+          "height": 644,
+          "regions": [
+            {
+              "x": 273,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 301,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 329,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 357,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 385,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 413,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 441,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 469,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 497,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 525,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 553,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 581,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 609,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 652,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            }
+          ]
+        },
+        "naga": {
+          "kind": "discard",
+          "reportId": "55dcc4f273b5505306277ed1c64fb5c87fff7b6883edebb127eb2cfcddb48f05v2_2",
+          "tw": 1,
+          "ts": 2,
+          "tv": 23,
+          "handSnapshot": [
+            "3m",
+            "4m",
+            "5m",
+            "8m",
+            "9m",
+            "1p",
+            "4p",
+            "5p",
+            "6p",
+            "7p",
+            "8p",
+            "7s",
+            "7s",
+            "4p"
+          ],
+          "models": [
+            {
+              "name": "ニシキ",
+              "rates": {
+                "3m": 0,
+                "4m": 0,
+                "5m": 0,
+                "8m": 0,
+                "9m": 2.06,
+                "1p": 96.91,
+                "4p": 1.01,
+                "5p": 0,
+                "6p": 0,
+                "7p": 0,
+                "8p": 0,
+                "7s": 0
+              }
+            },
+            {
+              "name": "カガシ",
+              "rates": {
+                "3m": 0,
+                "4m": 0,
+                "5m": 0,
+                "8m": 0.07,
+                "9m": 12.5,
+                "1p": 84.41,
+                "4p": 2.99,
+                "5p": 0,
+                "6p": 0,
+                "7p": 0,
+                "8p": 0,
+                "7s": 0
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "card-20261008-super-isolated-conditions",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "question",
+      "question": "ペンチャンより優先して残す「超強孤立牌3〜7」の条件は？ 4連形の条件も省かずに。",
+      "answer": "4連形or中膨れor打点や手役の種、になっている強孤立牌。4連形は5を含むこと。1234・6789は通常の強孤立牌扱い。\n\n強孤立牌3〜7≦ペンチャン＜超強孤立牌3〜7。端の4連形まで超強と一括りにしない。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=1884s\n\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "sortOrder": 9
+    },
+    {
+      "id": "card-20261008-same-turn-safety",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "question",
+      "question": "オリ中、相手が今切った牌と、後でも切れる現物の対子がある。今切った牌へ合わせる理由と、その安全の期限は？",
+      "answer": "同巡フリテンの安全を今使い、後でも使える現物を温存する。相手の次のツモ番後まで安全を持ち越さない。\n\n今だけ安全な牌から使う。後続の手出し・ツモで待ちが変わり得るため、次巡も同じ安全牌とはしない。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=2460s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 10
+    },
+    {
+      "id": "card-20261008-exposed-four-six",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "question",
+      "question": "5mチーで手から46mを晒した相手。その周辺の両面待ちを読むとき、何を考える？ 安全と断定できる？",
+      "answer": "両面が残るには食い伸ばしを伴う手順が必要になる、と読む。安全とは断定しない。\n\n鳴かれた5mだけでなく晒し手46mを見る。単騎・シャボ・カンチャンは別で、途中の食い伸ばしや非効率な手順もある。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=3240s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 14
+    },
+    {
+      "id": "card-20261008-three-head-ryanmen",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "question",
+      "question": "門前3対子で両面対子もある。6ブロックでも両面へ固定する理由は？ 4対子になったら？",
+      "answer": "3対子ではロスが切った牌の重なりだけなので、両面固定が有力。4対子なら七対子も再評価する。\n\nセオリー⑥「門前手で3対子の際は、両面対子を両面に固定」。4対子でも面子手が強ければ、七対子へ決め打ちしない。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=4260s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 15
+    },
+    {
+      "id": "card-20261008-wide-versus-wait",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "question",
+      "question": "何を切る？\n\n![出題場面の盤面（動画 76:35）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/da51a66d-9c8f-4a8e-a0c4-376306c2ce64.jpg)",
+      "answer": "5m・7pが有力。最大受け入れを取る6mも講師は許容。\n\n6mは完全形だがカン6s聴牌が多い。5mはドラ4m受け、7pは69pの強い待ちと一盃口ダマを残す。講師は最後に7pも有力と修正。微差を唯一解にしない。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=4595s\n\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 17,
+      "tileQuestion": {
+        "hand": [
+          "5m",
+          "6m",
+          "7p",
+          "7p",
+          "7p",
+          "8p",
+          "8p",
+          "9p",
+          "1s",
+          "2s",
+          "3s",
+          "0s",
+          "7s"
+        ],
+        "draw": "5m",
+        "correctTiles": [
+          "5m",
+          "6m",
+          "7p"
+        ],
+        "board": {
+          "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/da51a66d-9c8f-4a8e-a0c4-376306c2ce64.jpg",
+          "width": 835,
+          "height": 644,
+          "regions": [
+            {
+              "x": 273,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 301,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 329,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 357,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 385,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 413,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 441,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 469,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 497,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 525,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 553,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 581,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 609,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            },
+            {
+              "x": 652,
+              "y": 565,
+              "width": 28,
+              "height": 39
+            }
+          ]
+        },
+        "naga": {
+          "kind": "discard",
+          "reportId": "55dcc4f273b5505306277ed1c64fb5c87fff7b6883edebb127eb2cfcddb48f05v2_2",
+          "tw": 1,
+          "ts": 10,
+          "tv": 39,
+          "handSnapshot": [
+            "5m",
+            "6m",
+            "7p",
+            "7p",
+            "7p",
+            "8p",
+            "8p",
+            "9p",
+            "1s",
+            "2s",
+            "3s",
+            "0s",
+            "7s",
+            "5m"
+          ],
+          "models": [
+            {
+              "name": "ニシキ",
+              "rates": {
+                "5m": 25.66,
+                "6m": 3,
+                "7p": 70.94,
+                "8p": 0.12,
+                "9p": 0.23,
+                "1s": 0,
+                "2s": 0,
+                "3s": 0,
+                "0s": 0,
+                "7s": 0
+              }
+            },
+            {
+              "name": "カガシ",
+              "rates": {
+                "5m": 15.84,
+                "6m": 1.48,
+                "7p": 82.46,
+                "8p": 0.16,
+                "9p": 0.02,
+                "1s": 0,
+                "2s": 0,
+                "3s": 0,
+                "0s": 0,
+                "7s": 0.01
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "check-20261008-missing-block",
+      "theoryId": "",
+      "type": "choice",
+      "question": "2面子＋雀頭があり、計4ブロックの手。不足をどう捉える？",
+      "choices": [
+        "一向聴。2面子あるのでブロックは足りている",
+        "くっつき二向聴。新しいブロックが一つ必要",
+        "ヘッドレス一向聴。雀頭だけが不足",
+        "三向聴。面子がもう一つできないと二向聴にはならない"
+      ],
+      "correctIndex": 1,
+      "explanation": "くっつき二向聴。新しいブロックが一つ必要。\n\n2面子＋雀頭があっても4ブロック。今はフォローの一般的な強さより、足りないブロックを作るくっつきを優先して比較する。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=365s\n\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20261008-tenten"
+      ],
+      "sortOrder": 2,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261008-menma-shape",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "45579mのように「両面対子＋リャンカン」が複合する形を、この授業では［　］と呼んでいる。",
+      "choices": [
+        "アンチョビ形",
+        "リャンカンリャンメン形",
+        "メンマ形",
+        "ウィング形"
+      ],
+      "correctIndex": 2,
+      "explanation": "メンマ形。\n\n講師が示した呼称。45mの両面対子と579mのリャンカンを複合で見る。単なるカンチャンとして9mを外すと、8m受けを落とす。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=534s\n\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20261008-tenten"
+      ],
+      "sortOrder": 3,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261008-zero-zero",
+      "theoryId": "",
+      "type": "choice",
+      "question": "0面子・0両面のこの手で、123三色やチャンタの種を残す狙いは？\n\n![出題場面の盤面（動画 17:40）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/1c0b2774-4e42-465a-8f4c-1fdaae3b87f9.jpg)",
+      "choices": [
+        "遠い立直一本にせず、鳴ける手役と打点を残す",
+        "5種類の三色は、どんな手でも役牌より強いから",
+        "雀頭がある手では役牌を全て残す決まりだから",
+        "三色が確定しているので、他の色を全て切るため"
+      ],
+      "correctIndex": 0,
+      "explanation": "遠い立直一本にせず、鳴ける手役と打点を残す。\n\n「00物件」は0面子・0両面。通常の三色6種類という比較基準を機械的に当てず、手なりでゴミ手になる手の打点ルートを残す。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=960s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit\n\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20261008-tenten"
+      ],
+      "sortOrder": 4,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261008-depleted-kanchan",
+      "theoryId": "",
+      "type": "choice",
+      "question": "13mのカンチャンと12sのペンチャンを比べる。2mが2枚切れのとき、講師の基本線は？",
+      "choices": [
+        "常にペンチャンの12sから外す",
+        "必ず両方残し、雀頭を壊す",
+        "2mの見え枚数はターツ比較に使わない",
+        "受けが減った13mから外す"
+      ],
+      "correctIndex": 3,
+      "explanation": "受けが減った13mから外す。\n\n通常のカンチャン＞ペンチャンだけで決めない。1枚差程度なら端の12sを外す比較もあるが、2枚切れなら13mの評価を下げる。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=1320s\n\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "lessonIds": [
+        "lesson-20261008-tenten"
+      ],
+      "sortOrder": 6,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261008-seven-block-space",
+      "theoryId": "",
+      "type": "choice",
+      "question": "7ブロックの整理。1mのフォローを外しても12pを丸ごと外しても、失う受け入れは各1種。講師が12p外しを選ぶ理由は？",
+      "choices": [
+        "1mなら2m、12pなら3pを失うので、どちらも常に同価値",
+        "同じ1種ロスでも、12pなら2枚分の余剰スペースができる",
+        "ペンチャンを外すと向聴数が必ず一つ進む",
+        "フォロー牌は、どんな7ブロックでも全て残すべきだから"
+      ],
+      "correctIndex": 1,
+      "explanation": "同じ1種ロスでも、12pなら2枚分の余剰スペースができる。\n\n受け入れの種数だけで止めない。余ったブロックを整理し、残せる牌のスペースまで比較する。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=2600s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20261008-tenten"
+      ],
+      "sortOrder": 11,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261008-parent-three-calls",
+      "theoryId": "",
+      "type": "choice",
+      "question": "対面の親が3副露。この場面で、副露対応表から警戒へ切り替える根拠は？\n\n![出題場面の盤面（動画 46:40）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/9908a889-891a-40c4-ac49-9680c00d4fcb.jpg)",
+      "choices": [
+        "自分が子なら、副露には一律にオリる",
+        "親だけの1条件で、全ての数牌を止める",
+        "親と、待ちが絞れている／聴牌率が高いという複数条件",
+        "満貫確定を確認するまで、聴牌率は考慮しない"
+      ],
+      "correctIndex": 2,
+      "explanation": "親と、待ちが絞れている／聴牌率が高いという複数条件。\n\n右側条件が二つ以上なら要対応。自手価値の低さも警戒材料。ただし「要対応＝絶対聴牌・無条件ベタオリ」ではない。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=2880s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20261008-tenten"
+      ],
+      "sortOrder": 12,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261008-kuinobashi",
+      "theoryId": "",
+      "type": "cloze",
+      "question": "4456mから5mをチーし、順子456m＋ターツ45mにする。順子＋孤立牌を鳴いて2ブロックにする手順を［　］という。",
+      "choices": [
+        "食い伸ばし",
+        "食い替え",
+        "空切り",
+        "先切り"
+      ],
+      "correctIndex": 0,
+      "explanation": "食い伸ばし。\n\n順子を一つ持っていても、鳴いてターツを増やせる。晒す46mと、残る45mの役割を分けて数える。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=3030s\n\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20261008-tenten"
+      ],
+      "sortOrder": 13,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261008-second-pair-safety",
+      "theoryId": "",
+      "type": "choice",
+      "question": "対子落としを選ぶ際、受け入れ差が小さい二つの対子を比べる。中盤に重視したい追加条件は？",
+      "choices": [
+        "今の1枚だけ切れればよく、2枚目はその時考える",
+        "安全度に関係なく、必ず端牌の対子から落とす",
+        "役牌の対子は全て安全牌として残す",
+        "次巡にリーチが来ても、2枚目を切れるか"
+      ],
+      "correctIndex": 3,
+      "explanation": "次巡にリーチが来ても、2枚目を切れるか。\n\n1枚目だけでなくセットの安全を見る。講師は、場に枯れた2pを後から使える価値と、9mの2枚目を切るリスクを比較した。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=4396s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20261008-tenten"
+      ],
+      "sortOrder": 16,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261008-final-tsumo-condition",
+      "theoryId": "",
+      "type": "choice",
+      "question": "最終局。首位の親39000点、自分31600点。逆転に届くツモと、それに合わせた基本方針は？\n\n![出題場面の盤面（動画 79:50）](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/35c6fcad-e42f-4d86-b364-980ee63d1e85.jpg)",
+      "choices": [
+        "1000・2000で逆転できるので、役牌のみの鳴きを優先",
+        "1300・2600で逆転できるので、立直・ツモ・平和のルートを残す",
+        "満貫ツモが必須なので、今の速度を捨てて混一色へ固定",
+        "7400点差なので、8000点以上のロンだけを狙う"
+      ],
+      "correctIndex": 1,
+      "explanation": "1300・2600で逆転。立直・ツモ・平和のルートを残す。\n\n自分＋5200、首位の親−2600で差が7800縮む。必要打点から手組みを決め、役牌のみの鳴きや89mの早いペンチャン外しへ寄せすぎない。\n\nhttps://www.youtube.com/watch?v=qveZzp7SDcQ&t=4790s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20261008-tenten"
+      ],
+      "sortOrder": 18,
+      "deleted": false,
+      "revision": 1
+    }
+  ],
+  "resources": [
+    {
+      "id": "resource-20261008-summary",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "link",
+      "label": "授業の要約・盤面で振り返る10のポイント",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/materials/october-2026/1008.html",
+      "sortOrder": 0
+    },
+    {
+      "id": "resource-20261008-ranking",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "link",
+      "label": "基本序列",
+      "url": "https://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "sortOrder": 1
+    },
+    {
+      "id": "resource-20261008-theory",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "link",
+      "label": "セオリー集（随時更新）",
+      "url": "https://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 2
+    },
+    {
+      "id": "resource-20261008-shanten",
+      "lessonId": "lesson-20261008-tenten",
+      "kind": "link",
+      "label": "一向聴（基礎講義）",
+      "url": "https://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 3
+    }
+  ]
+}
