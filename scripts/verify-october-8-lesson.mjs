@@ -21,8 +21,11 @@ if(process.argv[2]){
 }
 const html=await readFile('public/materials/october-2026/1008.html','utf8');
 for(const base of ['https://sakurakou-lesson-review.pages.dev',SITE_ORIGIN,'https://tenten-ensuku.github.io/sakurakou-lesson-review']){
- assert.equal(await(await get(base+'/materials/october-2026/1008.html')).text(),html);
- const home=await(await get(base+'/')).text();assert.ok(home.includes('ver'+APP_VERSION),base+': home version');
+ // Sites may append a Cloudflare challenge script after </main>. Compare
+ // the complete teaching surface, not provider-owned footer injections.
+ const published=await(await get(base+'/materials/october-2026/1008.html')).text();
+ assert.equal(published.match(/<main\b[\s\S]*?<\/main>/)?.[0],html.match(/<main\b[\s\S]*?<\/main>/)?.[0],base+': complete material content');
+ const home=await(await get(base+'/')).text();assert.ok(home.replace(/<!--[\s\S]*?-->/g,'').includes('ver'+APP_VERSION),base+': home version');
  assert.ok((await(await get(base+'/materials/august-2026/summary.css?v='+APP_VERSION)).text()).includes('.scene'));
  assert.equal((await get(base+'/tiles/man1-66-90-l.png')).headers.get('content-type')?.split(';')[0],'image/png');
 }
