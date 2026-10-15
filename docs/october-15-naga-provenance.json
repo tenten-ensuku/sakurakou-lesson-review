@@ -1,0 +1,223 @@
+{
+  "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+  "reportSha256": "2045197f4e51c09d5b53deb902e93676ec5508387a1c379f3ad4e79debacd098",
+  "reportBytes": 2311460,
+  "targetSeat": 0,
+  "generationRuleVersion": "meld-replay-v237",
+  "sharedGeneratorSha256": "271032b838a7fc450024a4c45ab841f2f0d8881ff9893e08eb91c28f4993ed4e",
+  "networkBudget": {
+    "requests": 1,
+    "maxBytes": 10485760,
+    "cached": true
+  },
+  "checkedAt": "2026-10-16",
+  "questions": [
+    {
+      "appId": "card-20261015-wide-or-open",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2&tw=0&ts=0&tv=61",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "doraMarker": "0m",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "immediateCallDiscard": false,
+      "melds": [],
+      "instructorAnswers": [
+        "7m",
+        "9p"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "オメガ",
+          "recommendation": "9p"
+        },
+        {
+          "name": "ニシキ",
+          "recommendation": "9p"
+        }
+      ]
+    },
+    {
+      "appId": "card-20261015-take-7700-tenpai",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2&tw=0&ts=0&tv=77",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "doraMarker": "0m",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "immediateCallDiscard": false,
+      "melds": [],
+      "instructorAnswers": [
+        "7m"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "オメガ",
+          "recommendation": "7m"
+        },
+        {
+          "name": "ニシキ",
+          "recommendation": "7m"
+        }
+      ]
+    },
+    {
+      "appId": "card-20261015-pon-5800",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2&tw=0&ts=0&tv=81",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "doraMarker": "0m",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 11
+      },
+      "immediateCallDiscard": true,
+      "melds": [
+        {
+          "type": "pon",
+          "tiles": [
+            "5s",
+            "0s",
+            "5s"
+          ]
+        }
+      ],
+      "instructorAnswers": [
+        "7m"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "オメガ",
+          "recommendation": "7m"
+        },
+        {
+          "name": "ニシキ",
+          "recommendation": "7m"
+        }
+      ]
+    },
+    {
+      "appId": "card-20261015-equal-acceptance-safety",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2&tw=0&ts=1&tv=79",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "doraMarker": "4p",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "immediateCallDiscard": false,
+      "melds": [],
+      "instructorAnswers": [
+        "7p"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "オメガ",
+          "recommendation": "2p"
+        },
+        {
+          "name": "ニシキ",
+          "recommendation": "7p"
+        }
+      ]
+    },
+    {
+      "appId": "card-20261015-keep-sanmenchan",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2&tw=0&ts=2&tv=63",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "doraMarker": "8s",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "immediateCallDiscard": false,
+      "melds": [],
+      "instructorAnswers": [
+        "3s"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "オメガ",
+          "recommendation": "3s"
+        },
+        {
+          "name": "ニシキ",
+          "recommendation": "3s"
+        }
+      ]
+    },
+    {
+      "appId": "card-20261015-skip-nine-vs-honors",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2&tw=0&ts=7&tv=21",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "doraMarker": "7s",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "immediateCallDiscard": false,
+      "melds": [],
+      "instructorAnswers": [
+        "9m"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "オメガ",
+          "recommendation": "9m"
+        },
+        {
+          "name": "ニシキ",
+          "recommendation": "9m"
+        }
+      ]
+    },
+    {
+      "appId": "card-20261015-four-block-honitsu",
+      "sourceUrl": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2&tw=0&ts=8&tv=13",
+      "handMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "doraMarker": "3s",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "immediateCallDiscard": false,
+      "melds": [],
+      "instructorAnswers": [
+        "5p",
+        "3s"
+      ],
+      "modelRecommendations": [
+        {
+          "name": "オメガ",
+          "recommendation": "5p"
+        },
+        {
+          "name": "ニシキ",
+          "recommendation": "5p"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,767 @@
+{
+  "lessonDate": "2026-10-15",
+  "sources": [
+    {
+      "id": "guKgCOJ_Kng",
+      "title": "桜紅さん牌譜検討３前半",
+      "channel": "ねじまき鳥",
+      "uploadDate": "20261010",
+      "durationSeconds": 3058,
+      "url": "https://www.youtube.com/watch?v=guKgCOJ_Kng",
+      "transcriptSha256": "5af2a7c92e60fc84460e8897b746c887b13b5aee3d15868cdd28a8a0202609e1"
+    },
+    {
+      "id": "yOVM-RWRlYE",
+      "title": "桜紅さん牌譜検討３後半",
+      "channel": "ねじまき鳥",
+      "uploadDate": "20261015",
+      "durationSeconds": 3579,
+      "url": "https://www.youtube.com/watch?v=yOVM-RWRlYE",
+      "transcriptSha256": "376a186f0a642b761d221c7275caa4b9b7ef9ef45d2a187e0446e0bc52d59c42"
+    }
+  ],
+  "method": "Both complete Japanese automatic-caption tracks read through the conclusion. Selected source frames individually inspected, including enlarged hand crops for seven exact NAGA matches. No full continuous audiovisual playback or separate ASR claimed.",
+  "tools": {
+    "downloader": "yt-dlp 2026.08.19",
+    "frames": "ffmpeg",
+    "captions": "YouTube ja-orig"
+  },
+  "canonicalDocuments": [
+    {
+      "title": "【基本序列】",
+      "documentId": "1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM",
+      "revisionId": "AHj4eMR8rcW7TYQ-fcvrJY72Q0jK06QAYUeg7_sXTSZM-tPJrVNv1ML9U_6fVleMjeyb6iNStsA2pEG3DIV7mg",
+      "checkedAt": "2026-10-16",
+      "tabs": [
+        {
+          "id": "t.0",
+          "empty": false
+        }
+      ]
+    },
+    {
+      "title": "セオリー集（随時更新）",
+      "documentId": "1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA",
+      "revisionId": "AHj4eMSixj4OnNGrAhCFzQI5MB48kbwxP-RLHmEJe99iIi-isO87JgjhrvhHmbvHVSkLKHDoMVxD4jEqiY9sNw",
+      "checkedAt": "2026-10-16",
+      "tabs": [
+        {
+          "id": "t.0",
+          "empty": false
+        },
+        {
+          "id": "t.mbzxyws4etwa",
+          "empty": true
+        }
+      ]
+    },
+    {
+      "title": "一向聴（基礎講義）",
+      "documentId": "1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA",
+      "revisionId": "AHj4eMTNXg1R6l3lUTMYyDGKuiVA8c1erUmUBNXimvtvQTxhUHbWDjkttjaG5FtBjQtaKHi-jZpxQDKnE5UjbA",
+      "checkedAt": "2026-10-16",
+      "tabs": [
+        {
+          "id": "t.0",
+          "empty": false
+        }
+      ]
+    }
+  ],
+  "tenten2": {
+    "guide": "指南方針.md",
+    "applied": [
+      "Compare whole-hand purpose before local tile efficiency.",
+      "Distinguish lecturer, canonical baseline, correction, acceptable alternative and NAGA rates.",
+      "Treat small chiitoitsu choices and limited calculation time fairly."
+    ],
+    "relatedNotes": [
+      {
+        "videoId": "t4u3k9n4t-E",
+        "at": 2928,
+        "usedFor": "Finisher purpose and pushable tiles; note text read, not imported as a matching board."
+      },
+      {
+        "videoId": "vNHRcqjnSEE",
+        "at": 4450,
+        "usedFor": "Headless I/II boundary; note text read, not imported as a matching board."
+      }
+    ]
+  },
+  "editorialNotes": [
+    "User-specified 10/15 class groups both parts. First source upload date is 10/10; not mislabelled as a 10/15 upload.",
+    "Eighteen distinct points, no fixed thirty-question quota. Notes excluded from all study modes.",
+    "Lecturer corrects 3s-discard classification from 余剰牌型 to ヘッドレス1型 at first 40:35.",
+    "3334557s + 3s - 7s waits on 2/4/5s, not a fifth 3s. Corrected range shorthand after independent enumeration.",
+    "The parent 7700/5800 comparisons are not child 8000/3900 point comparisons.",
+    "NAGA Omega/Nishiki rates are exact source values, never instructor grading. Seven hand/draw/dora matches; red tiles retained.",
+    "34 divided by effective tile kinds and doubling chi chances are lecture heuristics, not exact probabilities.",
+    "Do not present lecturer speculation about AI training dates or a corrected hypothetical bad-move rate as verified statistics.",
+    "Public player labels use 新人/初級. Raw media, full reports and private reference corpus stay outside the repository.",
+    "Existing shared lesson edits, IDs and learner data remain untouched."
+  ],
+  "questions": [
+    {
+      "sourceId": "wide-or-open",
+      "appId": "card-20261015-wide-or-open",
+      "displayNumber": 1,
+      "type": "tile",
+      "part": "first",
+      "at": 267,
+      "videoUrl": "https://www.youtube.com/watch?v=guKgCOJ_Kng&t=267s",
+      "scene": "first-267",
+      "canonicalSources": [
+        "shanten",
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked",
+      "nagaSource": {
+        "tw": 0,
+        "ts": 0,
+        "tv": 61,
+        "dora": "0m"
+      }
+    },
+    {
+      "sourceId": "double-decomposition",
+      "appId": "card-20261015-double-decomposition",
+      "displayNumber": 2,
+      "type": "flashcard",
+      "part": "first",
+      "at": 695,
+      "videoUrl": "https://www.youtube.com/watch?v=guKgCOJ_Kng&t=695s",
+      "scene": null,
+      "canonicalSources": [
+        "shanten"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "take-7700-tenpai",
+      "appId": "card-20261015-take-7700-tenpai",
+      "displayNumber": 3,
+      "type": "tile",
+      "part": "first",
+      "at": 725,
+      "videoUrl": "https://www.youtube.com/watch?v=guKgCOJ_Kng&t=725s",
+      "scene": "first-725",
+      "canonicalSources": [
+        "shanten",
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked",
+      "nagaSource": {
+        "tw": 0,
+        "ts": 0,
+        "tv": 77,
+        "dora": "0m"
+      }
+    },
+    {
+      "sourceId": "seven-tile-upgrades",
+      "appId": "card-20261015-seven-tile-upgrades",
+      "displayNumber": 4,
+      "type": "flashcard",
+      "part": "first",
+      "at": 945,
+      "videoUrl": "https://www.youtube.com/watch?v=guKgCOJ_Kng&t=945s",
+      "scene": null,
+      "canonicalSources": [
+        "shanten"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "pon-5800",
+      "appId": "card-20261015-pon-5800",
+      "displayNumber": 5,
+      "type": "tile",
+      "part": "first",
+      "at": 1278,
+      "videoUrl": "https://www.youtube.com/watch?v=guKgCOJ_Kng&t=1278s",
+      "scene": "first-1278",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked",
+      "nagaSource": {
+        "tw": 0,
+        "ts": 0,
+        "tv": 81,
+        "dora": "0m"
+      }
+    },
+    {
+      "sourceId": "ranking-exception-scope",
+      "appId": "check-20261015-ranking-exception-scope",
+      "displayNumber": 6,
+      "type": "cloze",
+      "part": "first",
+      "at": 1465,
+      "videoUrl": "https://www.youtube.com/watch?v=guKgCOJ_Kng&t=1465s",
+      "scene": null,
+      "canonicalSources": [
+        "ranking"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "equal-acceptance-safety",
+      "appId": "card-20261015-equal-acceptance-safety",
+      "displayNumber": 7,
+      "type": "tile",
+      "part": "first",
+      "at": 1845,
+      "videoUrl": "https://www.youtube.com/watch?v=guKgCOJ_Kng&t=1845s",
+      "scene": "first-1845",
+      "canonicalSources": [
+        "theory",
+        "shanten"
+      ],
+      "reviewStatus": "manually-source-checked",
+      "nagaSource": {
+        "tw": 0,
+        "ts": 1,
+        "tv": 79,
+        "dora": "4p"
+      }
+    },
+    {
+      "sourceId": "keep-sanmenchan",
+      "appId": "card-20261015-keep-sanmenchan",
+      "displayNumber": 8,
+      "type": "tile",
+      "part": "first",
+      "at": 2270,
+      "videoUrl": "https://www.youtube.com/watch?v=guKgCOJ_Kng&t=2270s",
+      "scene": "first-2270",
+      "canonicalSources": [
+        "shanten"
+      ],
+      "reviewStatus": "manually-source-checked",
+      "nagaSource": {
+        "tw": 0,
+        "ts": 2,
+        "tv": 63,
+        "dora": "8s"
+      }
+    },
+    {
+      "sourceId": "kanchan-dama-context",
+      "appId": "check-20261015-kanchan-dama-context",
+      "displayNumber": 9,
+      "type": "choice",
+      "part": "first",
+      "at": 2890,
+      "videoUrl": "https://www.youtube.com/watch?v=guKgCOJ_Kng&t=2890s",
+      "scene": "first-2840",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "dealer-eight-turn",
+      "appId": "check-20261015-dealer-eight-turn",
+      "displayNumber": 10,
+      "type": "choice",
+      "part": "second",
+      "at": 320,
+      "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=320s",
+      "scene": "second-260",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "late-3900-call",
+      "appId": "check-20261015-late-3900-call",
+      "displayNumber": 11,
+      "type": "choice",
+      "part": "second",
+      "at": 850,
+      "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=850s",
+      "scene": "second-850",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "skip-nine-vs-honors",
+      "appId": "card-20261015-skip-nine-vs-honors",
+      "displayNumber": 12,
+      "type": "tile",
+      "part": "second",
+      "at": 1105,
+      "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=1105s",
+      "scene": "second-1105",
+      "canonicalSources": [
+        "ranking",
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked",
+      "nagaSource": {
+        "tw": 0,
+        "ts": 7,
+        "tv": 21,
+        "dora": "7s"
+      }
+    },
+    {
+      "sourceId": "six-turn-not-forced",
+      "appId": "check-20261015-six-turn-not-forced",
+      "displayNumber": 13,
+      "type": "choice",
+      "part": "second",
+      "at": 1505,
+      "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=1505s",
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "four-block-honitsu",
+      "appId": "card-20261015-four-block-honitsu",
+      "displayNumber": 14,
+      "type": "tile",
+      "part": "second",
+      "at": 2175,
+      "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=2175s",
+      "scene": "second-2175",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked",
+      "nagaSource": {
+        "tw": 0,
+        "ts": 8,
+        "tv": 13,
+        "dora": "3s"
+      }
+    },
+    {
+      "sourceId": "chiitoi-finisher",
+      "appId": "card-20261015-chiitoi-finisher",
+      "displayNumber": 15,
+      "type": "flashcard",
+      "part": "second",
+      "at": 2280,
+      "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=2280s",
+      "scene": "second-2280",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "unpushable-dora",
+      "appId": "check-20261015-unpushable-dora",
+      "displayNumber": 16,
+      "type": "choice",
+      "part": "second",
+      "at": 2860,
+      "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=2860s",
+      "scene": "second-2860",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "time-limited-safety",
+      "appId": "card-20261015-time-limited-safety",
+      "displayNumber": 17,
+      "type": "flashcard",
+      "part": "second",
+      "at": 3005,
+      "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=3005s",
+      "scene": "second-3005",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "effective-change-quality",
+      "appId": "check-20261015-effective-change-quality",
+      "displayNumber": 18,
+      "type": "cloze",
+      "part": "second",
+      "at": 3300,
+      "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=3300s",
+      "scene": "second-3300",
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked"
+    }
+  ],
+  "images": {
+    "first-267": {
+      "part": "first",
+      "at": 267,
+      "caption": "東1局：6mツモ。7mと9pで一向聴の質を比較",
+      "sha256": "30ce969b5d909fdd77e288db9d8b0657ef61128d21e9d4ce7b4454007c8ce687",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/2d632c49-ed86-4e48-9aa9-016eb11da12d.jpg",
+      "sourceFile": "frames-public/first-267.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "first-695": {
+      "part": "first",
+      "at": 695,
+      "diagram": true,
+      "caption": "講師の分解図：5677m・333455sのくっつき受けを両方から探す",
+      "sha256": "86c9aa594147707e7d03761637f7ba18d6d61af14d1e64f3d3b3b8648193fdb4",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/ccc8ad64-4684-4442-b434-73ab64babc77.jpg",
+      "sourceFile": "frames-public/first-695.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Original lecturer diagram cropped to remove decorative margins."
+    },
+    "first-725": {
+      "part": "first",
+      "at": 725,
+      "caption": "東1局：7sツモ。カン6sの役あり聴牌を取るか比較",
+      "sha256": "163acb2fa9673703bec53cc6359e81df9590dad4cbc3862e0f23da50a9769b2f",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/1abd1012-9e3a-41d7-b6f1-43a6f27c50d3.jpg",
+      "sourceFile": "frames-public/first-725.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "first-1278": {
+      "part": "first",
+      "at": 1278,
+      "caption": "東1局：5sポン直後。7mと4sの待ち選択（ポンは画面下端）",
+      "sha256": "69970b4e5621e53ccfcd8d557409d4aaa6f35e2cd3e7803a30b26309dc422147",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/591fba2d-3fec-4b9a-9475-d96c12cc0d04.jpg",
+      "sourceFile": "frames-public/first-1278.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "first-1465": {
+      "part": "first",
+      "at": 1465,
+      "diagram": true,
+      "caption": "基本序列の原典で、オタ風と孤立1・9の逆転条件を確認",
+      "sha256": "80b3fa68956b3dfa6cc5cf011272b35ab4bf5bfd5cabc734eea399e9958d18dc",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/d41c9e21-afe2-4392-93e9-489507f57174.jpg",
+      "sourceFile": "frames-public/first-1465.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Original lecturer diagram cropped to remove decorative margins."
+    },
+    "first-1845": {
+      "part": "first",
+      "at": 1845,
+      "caption": "東1局1本場：5pツモ。4mと7pで同じ聴牌受けを維持できる",
+      "sha256": "aad33ed30ce28c99bcbcd502805b25e5c23005cc06a062785fef565f6237881d",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/25caad15-2175-406d-874e-4caeb6e572a8.jpg",
+      "sourceFile": "frames-public/first-1845.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "first-2270": {
+      "part": "first",
+      "at": 2270,
+      "caption": "東2局：6sツモ。1sが4枚見えの手で3sと7sを比較",
+      "sha256": "962669d1410e37c00bba107ac399d813d914532ccca765aaf8a4e35205538dce",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/07a4b756-e04e-44e9-9ece-c60b8f7c0fcb.jpg",
+      "sourceFile": "frames-public/first-2270.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "first-2840": {
+      "part": "first",
+      "at": 2840,
+      "caption": "東4局：カン4mの愚形聴牌。手変わりと立直を比較",
+      "sha256": "8db9b2c60f39d617043c203f0b6c41319487f8217588b52b0d95eefc8e968dd5",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/1998330b-ddf8-4de1-9492-a64dc0a2d925.jpg",
+      "sourceFile": "frames-public/first-2840.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "second-260": {
+      "part": "second",
+      "at": 260,
+      "caption": "南1局の親：8巡目、1p・3pのシャンポンで残り3枚",
+      "sha256": "120c2f835b6248b63684952bfb48c135fc6d75b2d829c86ac1369f7a45a5f6da",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/a637a927-9181-4aff-b3ca-837cf3bd6f9a.jpg",
+      "sourceFile": "frames-public/second-260.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "second-850": {
+      "part": "second",
+      "at": 850,
+      "caption": "南2局：僅差の点況で、南バック3900点のチーを検討",
+      "sha256": "a14e86795671c10421df9f7028182656bfa177ce8861eb57b6062b719b37d505",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c3d6db46-af50-4cba-933f-1964cac2d4aa.jpg",
+      "sourceFile": "frames-public/second-850.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "second-1105": {
+      "part": "second",
+      "at": 1105,
+      "caption": "南3局：5sツモ。689mの9mと役牌を比較",
+      "sha256": "1ee9919b7da39b9221de82cdbdb53478b41c98e618d8ac8e2bb0ef09241e51db",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/42345689-340b-47e7-850d-a62c2968db40.jpg",
+      "sourceFile": "frames-public/second-1105.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "second-2175": {
+      "part": "second",
+      "at": 2175,
+      "caption": "南3局1本場：1mツモで、萬子と字牌が4ブロックになった場面",
+      "sha256": "af1972c016faa1b1bb86fdb450e43c3ddaa7ee0bd0e31e6cc4bb1fbff2aeadd1",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/51ab26e6-c206-40f0-879c-05c501d28414.jpg",
+      "sourceFile": "frames-public/second-2175.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "second-2280": {
+      "part": "second",
+      "at": 2280,
+      "caption": "南3局1本場：七対子一向聴。面子手への渡りと南の単騎候補を比較",
+      "sha256": "cd77457b28048c9c1d52fb4beb5c45c77eb0072f77ae168e1fd9081bad9d79da",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/5153cb96-8992-43fc-aae0-1c6bf5a2c625.jpg",
+      "sourceFile": "frames-public/second-2280.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "second-2860": {
+      "part": "second",
+      "at": 2860,
+      "caption": "南3局1本場の終盤：聴牌時にドラ4sを押せるかまで考える",
+      "sha256": "55f72be0e16a17adac2b2f157423db6a09f3667caad4fc9dadf6b80aaf4e3b5e",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/6d626e1a-ee7c-4dbc-89f9-9654de5189bf.jpg",
+      "sourceFile": "frames-public/second-2860.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "second-3005": {
+      "part": "second",
+      "at": 3005,
+      "caption": "南3局1本場：3pの安全を精査できるか、明確な現物を使うか",
+      "sha256": "bcf2a82f37a43e6351fe5e4ae7d195f87b9a63e4004fcc5bf38af78b5cc9198b",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/5724c84f-fe09-4def-8d67-7fc7370e0369.jpg",
+      "sourceFile": "frames-public/second-3005.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "second-3300": {
+      "part": "second",
+      "at": 3300,
+      "caption": "南4局：4m・6mシャンポンの、枯れ・フリテン変化を確認",
+      "sha256": "92dfd37230fe586bfed4968b6b5026f9a4a0e20e8d2d438057912d2c71efebb1",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/69d207ce-f9a6-4eb9-935c-6c8f1c32fd54.jpg",
+      "sourceFile": "frames-public/second-3300.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級."
+    },
+    "first-267-board": {
+      "part": "first",
+      "at": 267,
+      "caption": "東1局：6mツモ。7mと9pで一向聴の質を比較",
+      "sha256": "38b41899414b1a81b1f2b3e192993074ea28a0252b09330f9dff4c90edd2ad69",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/57971417-ac5e-4e09-93d0-8691c4e835fd.jpg",
+      "sourceFile": "frames-public/first-267-board.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "first-725-board": {
+      "part": "first",
+      "at": 725,
+      "caption": "東1局：7sツモ。カン6sの役あり聴牌を取るか比較",
+      "sha256": "95a62367dcd36a9e5b268190d06ff271d53a9248129499bb3299f363bba2eacd",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/8be13d8b-eb7b-4c93-8599-a5624c3b5df8.jpg",
+      "sourceFile": "frames-public/first-725-board.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "first-1278-board": {
+      "part": "first",
+      "at": 1278,
+      "caption": "東1局：5sポン直後。7mと4sの待ち選択（ポンは画面下端）",
+      "sha256": "e888470c9be31c20c4fe8866c53081dda6b67c3cfc8739732ae792023d8df1e9",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/7f589752-28ef-4689-b83e-12df84ae566b.jpg",
+      "sourceFile": "frames-public/first-1278-board.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "first-1845-board": {
+      "part": "first",
+      "at": 1845,
+      "caption": "東1局1本場：5pツモ。4mと7pで同じ聴牌受けを維持できる",
+      "sha256": "fcaa67e05abe5eecb9ede54b2014123f6c6d9f45fb4b67bf1eb6943b34f3d4f6",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/b5cce029-e5be-4bd6-a4d7-da4c1de332bf.jpg",
+      "sourceFile": "frames-public/first-1845-board.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "first-2270-board": {
+      "part": "first",
+      "at": 2270,
+      "caption": "東2局：6sツモ。1sが4枚見えの手で3sと7sを比較",
+      "sha256": "48a607bb1ed49bb52b67af4efb61d63eb371ba2f9f481947d657b95dff96e9ab",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/3aebcefe-0608-45ff-a91f-4cfb70d632d2.jpg",
+      "sourceFile": "frames-public/first-2270-board.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "first-2840-board": {
+      "part": "first",
+      "at": 2840,
+      "caption": "東4局：カン4mの愚形聴牌。手変わりと立直を比較",
+      "sha256": "81ab60fcb74543ce5db2667e815246309b2de9cdc987e34874743876fe02a13c",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/4e5da724-ea65-43cd-80a5-45ee27df16e3.jpg",
+      "sourceFile": "frames-public/first-2840-board.jpg",
+      "width": 970,
+      "height": 720,
+      "videoId": "guKgCOJ_Kng",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "second-260-board": {
+      "part": "second",
+      "at": 260,
+      "caption": "南1局の親：8巡目、1p・3pのシャンポンで残り3枚",
+      "sha256": "9671cc8da424884efecb23f479c6c2484b716330ff2fb56c6c501dc7f8b46cd8",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/593be490-48e8-4aac-9912-625fc80be4c1.jpg",
+      "sourceFile": "frames-public/second-260-board.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "second-850-board": {
+      "part": "second",
+      "at": 850,
+      "caption": "南2局：僅差の点況で、南バック3900点のチーを検討",
+      "sha256": "56f1109aed2ac101e3f46a0f8cbf16951b25af464f3083d68acfa1c2a53dbc82",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/2fd345e6-9bcb-4f42-b7f1-af21ed05855f.jpg",
+      "sourceFile": "frames-public/second-850-board.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "second-1105-board": {
+      "part": "second",
+      "at": 1105,
+      "caption": "南3局：5sツモ。689mの9mと役牌を比較",
+      "sha256": "a1a5218b5df8c0d1191129af157ff698348dbe58895b40355523ad84b75b739d",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c463a299-22a4-4b8b-898b-47c9a925f825.jpg",
+      "sourceFile": "frames-public/second-1105-board.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "second-2175-board": {
+      "part": "second",
+      "at": 2175,
+      "caption": "南3局1本場：1mツモで、萬子と字牌が4ブロックになった場面",
+      "sha256": "34ec96d321a5582cb479bc6c6b551865f4a302fa63d4684b0cf69d5cd026282a",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/e5956614-4c1a-46e3-9883-3db911326e73.jpg",
+      "sourceFile": "frames-public/second-2175-board.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "second-2280-board": {
+      "part": "second",
+      "at": 2280,
+      "caption": "南3局1本場：七対子一向聴。面子手への渡りと南の単騎候補を比較",
+      "sha256": "5adeb6f878f1b05f1103b446f1ecf8b0f629510a72bc2db9cebfa6034e8a94d3",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c0c94e1b-c4c9-4d98-add1-6ad0e31e1b69.jpg",
+      "sourceFile": "frames-public/second-2280-board.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "second-2860-board": {
+      "part": "second",
+      "at": 2860,
+      "caption": "南3局1本場の終盤：聴牌時にドラ4sを押せるかまで考える",
+      "sha256": "4e44d865acf151c017e3fd859169515e56e724a84b12d41a7cf9f772528ac47e",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/55affb99-fa3b-43ea-b489-736888fcd14d.jpg",
+      "sourceFile": "frames-public/second-2860-board.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "second-3005-board": {
+      "part": "second",
+      "at": 3005,
+      "caption": "南3局1本場：3pの安全を精査できるか、明確な現物を使うか",
+      "sha256": "3e270f1a13c1189bc4a2c49afbdc005221350bcc85026985277cdf44dbdfb163",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/207545c4-45db-408b-9eae-abed78442eae.jpg",
+      "sourceFile": "frames-public/second-3005-board.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    },
+    "second-3300-board": {
+      "part": "second",
+      "at": 3300,
+      "caption": "南4局：4m・6mシャンポンの、枯れ・フリテン変化を確認",
+      "sha256": "f8652c8eaa854693601e36f3d963afa54fc8fb0476ecd3085fd822f8e8e0530f",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/95e020f5-c92c-4265-9aab-c694ed07d16c.jpg",
+      "sourceFile": "frames-public/second-3300-board.jpg",
+      "width": 704,
+      "height": 580,
+      "videoId": "yOVM-RWRlYE",
+      "transformation": "Source board cropped to remove decorative margins, controls and metrics. All player labels anonymized as 新人/初級. Original answer bars and selection outlines masked outside tile faces; no hand redraw. Question caption contains no answer."
+    }
+  }
+}

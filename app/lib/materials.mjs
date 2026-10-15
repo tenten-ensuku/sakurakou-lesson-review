@@ -38,7 +38,7 @@ export function materialDetails(resource) {
           ? "Googleスライド"
           : "Google資料";
   } else if (host === "drive.google.com") service = "Googleドライブ";
-  else if (url.origin === SITE_ORIGIN && /^\/materials\/(august|september)-2026\//.test(url.pathname)) service = "授業のまとめ";
+  else if (url.origin === SITE_ORIGIN && /^\/materials\/(august|september|october)-2026\//.test(url.pathname)) service = "授業のまとめ";
   return {
     title: resource.label?.trim() || service,
     service,

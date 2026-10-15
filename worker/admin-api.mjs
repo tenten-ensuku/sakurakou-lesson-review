@@ -7,6 +7,7 @@ import { ensureSeptemberLessons } from "./september-lessons.mjs";
 import { ensureSeptember29Lessons } from "./september-29-lessons.mjs";
 import { ensureSeptember30Lessons } from "./september-30-lessons.mjs";
 import { ensureOctober8Lessons } from "./october-8-lessons.mjs";
+import { ensureOctober15Lessons } from "./october-15-lessons.mjs";
 import { normalizeTileQuestion } from "../app/lib/tile-question.mjs";
 
 const DEFAULT_LESSON_ID = "sakurakou-2026-07-21";
@@ -197,6 +198,7 @@ export async function handleAdminApi(request, env) {
   await ensureSeptember29Lessons(env.DB);
   await ensureSeptember30Lessons(env.DB);
   await ensureOctober8Lessons(env.DB);
+  await ensureOctober15Lessons(env.DB);
 
   if (url.pathname === "/api/notebook" && request.method === "GET") {
     const [legacy, metadata, lessons, cards, resources] = await Promise.all([
