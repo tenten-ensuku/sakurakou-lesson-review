@@ -6,7 +6,7 @@ import { SITE_ORIGIN, resolveSiteUrl } from "../app/lib/site-origin.mjs";
 import { tokenizeMahjongText } from "../app/lib/mahjong-tiles.mjs";
 import { lesson, summary, references } from "../content/september-2026-source.mjs";
 const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
-const rich = (text) => tokenizeMahjongText(text).map((t) => t.type === "text" ? esc(t.value) : `<span class="tiles">${t.digits.map((n) => `<img src="../../tiles/${({ m: "man", p: "pin", s: "sou", ji: "ji" })[t.suit]}${n}-66-90-l.png" alt="${esc(t.source ?? "麻雀牌")}" width="66" height="90">`).join("")}</span>`).join("");
+const rich = (text) => tokenizeMahjongText(text).map((t) => t.type === "text" ? esc(t.value) : `<span class="tiles">${t.digits.map((n) => `<img src="../../tiles/${({ m: "man", p: "pin", s: "sou", ji: "ji" })[t.suit]}${n}-66-90-l.png" alt="${esc(t.label ?? t.source ?? "麻雀牌")}" width="66" height="90">`).join("")}</span>`).join("");
 export function renderSeptemberMaterial(provenance, content = { lesson, summary, references }) {
   const { lesson, summary, references } = content;
   const sections = summary.map((s, index) => {

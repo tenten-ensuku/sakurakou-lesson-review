@@ -31,7 +31,7 @@ export default function RichContent({
               }
               width={66}
               height={90}
-              alt={t.source ?? "麻雀牌"}
+              alt={t.label ?? t.source ?? "麻雀牌"}
             />
           ))}
         </span>

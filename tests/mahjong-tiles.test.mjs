@@ -56,3 +56,29 @@ test("converts suited and explicit honor notation without replacing ordinary Jap
   ]);
   assert.equal(tokens.filter((token) => token.type === "text").map((token) => token.value).join(""), "中張牌からを残し、発展を狙う。南3局。と、、。");
 });
+
+test("a trailing suit applies to all range endpoints and listed numbers without changing the source", () => {
+  const value = "4〜9mと2～7ｓの12種38枚受け。２・４・５Ｓ、1-4-7m、3~6p。";
+  const tokens = tokenizeMahjongText(value);
+  assert.deepEqual(tokens.filter(t => t.type === "tiles").map(t => [t.suit, t.digits.join("")]), [
+    ["m", "4"], ["m", "9"], ["s", "2"], ["s", "7"],
+    ["s", "2"], ["s", "4"], ["s", "5"],
+    ["m", "1"], ["m", "4"], ["m", "7"], ["p", "3"], ["p", "6"],
+  ]);
+  assert.equal(tokens.map(t => t.type === "text" ? t.value : t.source).join(""), value);
+  assert.equal(tokens.filter(t => t.type === "text").map(t => t.value).join(""), "〜と～の12種38枚受け。・・、--、~。");
+  assert.deepEqual(tokens.filter(t => t.type === "tiles").map(t => t.label), ["4m", "9m", "2s", "7s", "2s", "4s", "5s", "1m", "4m", "7m", "3p", "6p"]);
+});
+
+test("shorthand preserves spaces, mixed notation, separators and unrelated prose", () => {
+  const value = "２ ～ ７ Ｓ、2s～7s、23・56p、1･4･7m、東1局・南3局。中張牌、発展。2〜7、2・4・5。";
+  for (let i = 0; i < 2; i++) {
+    const tokens = tokenizeMahjongText(value);
+    assert.deepEqual(tokens.filter(t => t.type === "tiles").map(t => [t.suit, t.digits.join("")]), [
+      ["s", "2"], ["s", "7"], ["s", "2"], ["s", "7"],
+      ["p", "23"], ["p", "56"], ["m", "1"], ["m", "4"], ["m", "7"],
+    ]);
+    assert.equal(tokens.map(t => t.type === "text" ? t.value : t.source).join(""), value);
+    assert.ok(tokens.at(-1).value.endsWith("東1局・南3局。中張牌、発展。2〜7、2・4・5。"));
+  }
+});

@@ -21,7 +21,7 @@ export const readSummary = (data, lessonId) => {
   });
 };
 const rich = (text) => tokenizeMahjongText(text).map((t) => t.type === "text" ? esc(t.value) :
-  `<span class="tiles">${t.digits.map((n) => `<img src="../../tiles/${({m:"man",p:"pin",s:"sou",ji:"ji"})[t.suit]}${n}-66-90-l.png" alt="${esc(t.source ?? "麻雀牌")}" width="66" height="90">`).join("")}</span>`).join("");
+  `<span class="tiles">${t.digits.map((n) => `<img src="../../tiles/${({m:"man",p:"pin",s:"sou",ji:"ji"})[t.suit]}${n}-66-90-l.png" alt="${esc(t.label ?? t.source ?? "麻雀牌")}" width="66" height="90">`).join("")}</span>`).join("");
 
 export function renderMaterial(lesson, data, provenance) {
   const day = lesson.id.match(/lesson-2026(\d{4})-/)?.[1];

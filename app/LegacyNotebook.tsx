@@ -116,7 +116,7 @@ function TileText({ text, links = true }: { text: string; links?: boolean }) {
                   src={`${BASE_PATH}/tiles/${suit}${digit}-66-90-l.png`}
                   width="66"
                   height="90"
-                  alt={token.source ?? "麻雀牌"}
+                  alt={token.label ?? token.source ?? "麻雀牌"}
                 />
               </span>
             );

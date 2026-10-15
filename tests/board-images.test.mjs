@@ -70,7 +70,7 @@ test("rendered learning images open at original size without breaking inline til
     (id) => require(id === "./lib/notebook-types" ? "./lib/notebook-types.ts" : id), exports,
   );
   const html = renderToStaticMarkup(React.createElement(exports.default, {
-    text: "![東1局の盤面](https://example.test/board.jpg)\n\n6sのくっつきと2pの先切りを比較。4ｍと6ｍ、４７ｍ。中張牌・発展。https://example.test/4m?q=6m",
+    text: "![東1局の盤面](https://example.test/board.jpg)\n\n6sのくっつきと2pの先切りを比較。4ｍと6ｍ、４７ｍ。4〜9mと2～7ｓ、2・4・5ｓ。中張牌・発展。https://example.test/4m?q=6m&range=2~7s",
   }));
   assert.match(html, /class="note-image-open"/);
   assert.match(html, /href="https:\/\/example.test\/board.jpg" target="_blank" rel="noreferrer"/);
@@ -82,7 +82,14 @@ test("rendered learning images open at original size without breaking inline til
   assert.match(html, /man6-66-90-l.png/);
   assert.match(html, /man7-66-90-l.png/);
   assert.match(html, /中張牌・発展/);
-  assert.match(html, /href="https:\/\/example.test\/4m\?q=6m"/);
+  assert.match(html, /href="https:\/\/example.test\/4m\?q=6m&amp;range=2~7s"/);
+  const tileImages = [...html.matchAll(/<img[^>]+src="[^"]*\/tiles\/([^"/]+)"[^>]*>/g)];
+  assert.deepEqual(tileImages.map(m => m[1]), [
+    "sou6-66-90-l.png", "pin2-66-90-l.png", "man4-66-90-l.png", "man6-66-90-l.png", "man4-66-90-l.png", "man7-66-90-l.png",
+    "man4-66-90-l.png", "man9-66-90-l.png", "sou2-66-90-l.png", "sou7-66-90-l.png", "sou2-66-90-l.png", "sou4-66-90-l.png", "sou5-66-90-l.png",
+  ]);
+  assert.match(html, /alt="2s"[^>]*\/><\/span>～<span class="tile-run"><img[^>]*alt="7s"/);
+  assert.match(html, /alt="2s"[^>]*\/><\/span>・<span class="tile-run"><img[^>]*alt="4s"[^>]*\/><\/span>・<span class="tile-run"><img[^>]*alt="5s"/);
   assert.doesNotMatch(html, /ji[57]-66-90-l.png/);
   assert.match(html, /のくっつきと/);
   const css = await readFile(new URL("../app/notebook.css", import.meta.url), "utf8");
