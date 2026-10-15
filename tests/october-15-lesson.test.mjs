@@ -15,6 +15,7 @@ import {normalizeTileQuestion,tileAnswer,tileOptions,tileFile} from '../app/lib/
 import {lessonStudyEntries} from '../app/lib/study-session.mjs';
 import {sourceBoardEvaluation,nagaModelIndex} from '../app/lib/theory-evaluation.mjs';
 import {renderSeptemberMaterial} from '../scripts/render-september-material.mjs';
+import {jsonBoardLayout} from '../app/lib/json-board.mjs';
 import {materialDetails,isFeaturedMaterial} from '../app/lib/materials.mjs';
 const card=id=>data.cards.find(q=>q.id==='card-20261015-'+id);
 test('10/15 is one newest class with both parts and eighteen mixed questions, never a summary first',()=>{
@@ -45,15 +46,17 @@ test('seven exact NAGA matches preserve red tiles, post-pon counts, allowed alte
   const pick=tileOptions(q).findIndex(t=>q.correctTiles.includes(t));assert.equal(tileAnswer(q,pick).correct,true);
   const overlay=sourceBoardEvaluation(q,pick);assert.equal(overlay.modelName,'ニシキ');assert.equal(overlay.tiles.length,tileOptions(q).length);
   for(const t of tileOptions(q))assert.ok(existsSync('public/tiles/'+tileFile(t)));
-  for(const r of q.board.regions)assert.ok(r.x>=0&&r.x+r.width<=q.board.width&&r.y+r.height<=q.board.height);
-  assert.ok(c.question.includes(q.board.imageUrl));
+  const board=jsonBoardLayout(q);assert.ok(board);assert.equal(q.board,undefined);
+  for(const r of board.regions)assert.ok(r.x>=0&&r.x+r.width<=board.width&&r.y+r.height<=board.height);
+  assert.ok(c.question.includes(q.previousBoardImageUrl));
  }
  assert.ok(card('wide-or-open').tileQuestion.hand.includes('0s'));
  assert.deepEqual(card('wide-or-open').tileQuestion.correctTiles,['7m','9p']);
  assert.deepEqual(card('four-block-honitsu').tileQuestion.correctTiles,['5p','3s']);
  const pon=card('pon-5800').tileQuestion;assert.equal(pon.hand.length,11);assert.equal(pon.draw,undefined);assert.equal(nagaEvidence.questions.find(q=>q.appId.endsWith('pon-5800')).immediateCallDiscard,true);
  assert.deepEqual(card('skip-nine-vs-honors').tileQuestion.hand,['1m','1m','2m','6m','8m','9m','7p','2s','2s','5s','3z','6z','7z']);
- assert.doesNotMatch(JSON.stringify(data),/比屋定|simon|けんぬ|playerName|rating/);
+ assert.doesNotMatch(JSON.stringify(data),/比屋定|simon|けんぬ|playerName/);
+ for(const c of data.cards.filter(c=>c.tileQuestion))for(const p of c.tileQuestion.boardScene.players){assert.equal(p.name,'新人');assert.equal(p.rank,'初級');assert.equal(p.rating,null);}
 });
 test('summary uses fourteen screenshot-before-explanation scenes and the correct part/time for each source link',()=>{
  const material={...source,summary:source.summary.map(s=>({...s,videoUrl:source.videos.find(v=>v.part===source.scenes[s.scene].part).url}))};

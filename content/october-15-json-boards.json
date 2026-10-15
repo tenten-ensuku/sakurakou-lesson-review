@@ -1,0 +1,2410 @@
+{
+  "card-20261015-wide-or-open": {
+    "boardScene": {
+      "schemaVersion": 1,
+      "renderer": "naga-json-board",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 0,
+        "tv": 61
+      },
+      "round": {
+        "wind": "東",
+        "number": 1,
+        "honba": 0,
+        "kyotaku": 0,
+        "remaining": 40,
+        "dealer": 0
+      },
+      "doraIndicators": [
+        "aka1"
+      ],
+      "players": [
+        {
+          "seat": 0,
+          "relative": 0,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "東",
+          "score": 25000,
+          "concealedCount": 14,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji7",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man1",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji6",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji7",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": true
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": null
+        },
+        {
+          "seat": 1,
+          "relative": 1,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "南",
+          "score": 25000,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji4",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji3",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji4",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0108
+        },
+        {
+          "seat": 2,
+          "relative": 2,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "西",
+          "score": 25000,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "pin9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou8",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0653
+        },
+        {
+          "seat": 3,
+          "relative": 3,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "北",
+          "score": 25000,
+          "concealedCount": 10,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji3",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji7",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [
+            {
+              "type": "pon",
+              "pai": "ji1",
+              "consumed": [
+                "ji1",
+                "ji1"
+              ],
+              "from": 1
+            }
+          ],
+          "reached": false,
+          "tenpaiProbability": 0.0643
+        }
+      ],
+      "hand": {
+        "tiles": [
+          "man5",
+          "man7",
+          "man7",
+          "pin2",
+          "pin3",
+          "pin4",
+          "pin8",
+          "pin9",
+          "sou3",
+          "sou3",
+          "sou4",
+          "aka3",
+          "sou5"
+        ],
+        "draw": "man6"
+      },
+      "immediateCall": false
+    },
+    "previousBoardImageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/57971417-ac5e-4e09-93d0-8691c4e835fd.jpg"
+  },
+  "card-20261015-take-7700-tenpai": {
+    "boardScene": {
+      "schemaVersion": 1,
+      "renderer": "naga-json-board",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 0,
+        "tv": 77
+      },
+      "round": {
+        "wind": "東",
+        "number": 1,
+        "honba": 0,
+        "kyotaku": 0,
+        "remaining": 32,
+        "dealer": 0
+      },
+      "doraIndicators": [
+        "aka1"
+      ],
+      "players": [
+        {
+          "seat": 0,
+          "relative": 0,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "東",
+          "score": 25000,
+          "concealedCount": 14,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji7",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man1",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji6",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji7",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": true
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": null
+        },
+        {
+          "seat": 1,
+          "relative": 1,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "南",
+          "score": 25000,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji4",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji3",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji4",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0228
+        },
+        {
+          "seat": 2,
+          "relative": 2,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "西",
+          "score": 25000,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "pin9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou8",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man8",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji6",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0346
+        },
+        {
+          "seat": 3,
+          "relative": 3,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "北",
+          "score": 25000,
+          "concealedCount": 10,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji3",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji7",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin9",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji6",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [
+            {
+              "type": "pon",
+              "pai": "ji1",
+              "consumed": [
+                "ji1",
+                "ji1"
+              ],
+              "from": 1
+            }
+          ],
+          "reached": false,
+          "tenpaiProbability": 0.0846
+        }
+      ],
+      "hand": {
+        "tiles": [
+          "man5",
+          "man6",
+          "man7",
+          "man7",
+          "pin2",
+          "pin3",
+          "pin4",
+          "sou3",
+          "sou3",
+          "sou3",
+          "sou4",
+          "aka3",
+          "sou5"
+        ],
+        "draw": "sou7"
+      },
+      "immediateCall": false
+    },
+    "previousBoardImageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/8be13d8b-eb7b-4c93-8599-a5624c3b5df8.jpg"
+  },
+  "card-20261015-pon-5800": {
+    "boardScene": {
+      "schemaVersion": 1,
+      "renderer": "naga-json-board",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 0,
+        "tv": 81
+      },
+      "round": {
+        "wind": "東",
+        "number": 1,
+        "honba": 0,
+        "kyotaku": 0,
+        "remaining": 31,
+        "dealer": 0
+      },
+      "doraIndicators": [
+        "aka1"
+      ],
+      "players": [
+        {
+          "seat": 0,
+          "relative": 0,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "東",
+          "score": 25000,
+          "concealedCount": 11,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji7",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man1",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji6",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji7",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": true
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou7",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [
+            {
+              "type": "pon",
+              "pai": "sou5",
+              "consumed": [
+                "aka3",
+                "sou5"
+              ],
+              "from": 1
+            }
+          ],
+          "reached": false,
+          "tenpaiProbability": null
+        },
+        {
+          "seat": 1,
+          "relative": 1,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "南",
+          "score": 25000,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji4",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji3",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji4",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": true
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.1348
+        },
+        {
+          "seat": 2,
+          "relative": 2,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "西",
+          "score": 25000,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "pin9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou8",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man8",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji6",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0271
+        },
+        {
+          "seat": 3,
+          "relative": 3,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "北",
+          "score": 25000,
+          "concealedCount": 10,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji3",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji7",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin9",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji6",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [
+            {
+              "type": "pon",
+              "pai": "ji1",
+              "consumed": [
+                "ji1",
+                "ji1"
+              ],
+              "from": 1
+            }
+          ],
+          "reached": false,
+          "tenpaiProbability": 0.0662
+        }
+      ],
+      "hand": {
+        "tiles": [
+          "man5",
+          "man6",
+          "man7",
+          "man7",
+          "pin2",
+          "pin3",
+          "pin4",
+          "sou3",
+          "sou3",
+          "sou3",
+          "sou4",
+          null,
+          null
+        ],
+        "draw": null
+      },
+      "immediateCall": true
+    },
+    "previousBoardImageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/7f589752-28ef-4689-b83e-12df84ae566b.jpg"
+  },
+  "card-20261015-equal-acceptance-safety": {
+    "boardScene": {
+      "schemaVersion": 1,
+      "renderer": "naga-json-board",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 1,
+        "tv": 79
+      },
+      "round": {
+        "wind": "東",
+        "number": 1,
+        "honba": 1,
+        "kyotaku": 0,
+        "remaining": 34,
+        "dealer": 0
+      },
+      "doraIndicators": [
+        "pin4"
+      ],
+      "players": [
+        {
+          "seat": 0,
+          "relative": 0,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "東",
+          "score": 30800,
+          "concealedCount": 14,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "man1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man1",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": true
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji3",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": null
+        },
+        {
+          "seat": 1,
+          "relative": 1,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "南",
+          "score": 25000,
+          "concealedCount": 7,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "pin8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou8",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji3",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin1",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou1",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [
+            {
+              "type": "chi",
+              "pai": "man1",
+              "consumed": [
+                "man2",
+                "man3"
+              ],
+              "from": 3
+            },
+            {
+              "type": "pon",
+              "pai": "ji6",
+              "consumed": [
+                "ji6",
+                "ji6"
+              ],
+              "from": 2
+            }
+          ],
+          "reached": false,
+          "tenpaiProbability": 0.561
+        },
+        {
+          "seat": 2,
+          "relative": 2,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "西",
+          "score": 25000,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "sou9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji4",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": true
+            },
+            {
+              "tile": "sou1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji3",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou9",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": true
+            },
+            {
+              "tile": "pin6",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.093
+        },
+        {
+          "seat": 3,
+          "relative": 3,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "北",
+          "score": 19200,
+          "concealedCount": 7,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji6",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": true
+            },
+            {
+              "tile": "pin4",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou7",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin6",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man6",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin2",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [
+            {
+              "type": "pon",
+              "pai": "ji4",
+              "consumed": [
+                "ji4",
+                "ji4"
+              ],
+              "from": 3
+            },
+            {
+              "type": "chi",
+              "pai": "sou8",
+              "consumed": [
+                "sou6",
+                "sou7"
+              ],
+              "from": 3
+            }
+          ],
+          "reached": false,
+          "tenpaiProbability": 0.7681
+        }
+      ],
+      "hand": {
+        "tiles": [
+          "man4",
+          "pin2",
+          "pin3",
+          "pin6",
+          "pin7",
+          "pin7",
+          "pin8",
+          "pin8",
+          "sou1",
+          "sou2",
+          "sou3",
+          "sou6",
+          "sou7"
+        ],
+        "draw": "pin5"
+      },
+      "immediateCall": false
+    },
+    "previousBoardImageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/b5cce029-e5be-4bd6-a4d7-da4c1de332bf.jpg"
+  },
+  "card-20261015-keep-sanmenchan": {
+    "boardScene": {
+      "schemaVersion": 1,
+      "renderer": "naga-json-board",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 2,
+        "tv": 63
+      },
+      "round": {
+        "wind": "東",
+        "number": 2,
+        "honba": 0,
+        "kyotaku": 0,
+        "remaining": 38,
+        "dealer": 1
+      },
+      "doraIndicators": [
+        "sou8"
+      ],
+      "players": [
+        {
+          "seat": 0,
+          "relative": 0,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "北",
+          "score": 24600,
+          "concealedCount": 14,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "pin1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji6",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji4",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou3",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man4",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": null
+        },
+        {
+          "seat": 1,
+          "relative": 1,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "東",
+          "score": 27300,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "sou1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin1",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin7",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou4",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man6",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0231
+        },
+        {
+          "seat": 2,
+          "relative": 2,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "南",
+          "score": 25000,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "sou8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji6",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji4",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin9",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou1",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0116
+        },
+        {
+          "seat": 3,
+          "relative": 3,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "西",
+          "score": 23100,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji4",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji5",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji1",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0075
+        }
+      ],
+      "hand": {
+        "tiles": [
+          "man2",
+          "man3",
+          "man4",
+          "man7",
+          "man8",
+          "man9",
+          "pin6",
+          "pin7",
+          "sou2",
+          "sou3",
+          "sou6",
+          "sou6",
+          "sou7"
+        ],
+        "draw": "sou6"
+      },
+      "immediateCall": false
+    },
+    "previousBoardImageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/3aebcefe-0608-45ff-a91f-4cfb70d632d2.jpg"
+  },
+  "card-20261015-skip-nine-vs-honors": {
+    "boardScene": {
+      "schemaVersion": 1,
+      "renderer": "naga-json-board",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 7,
+        "tv": 21
+      },
+      "round": {
+        "wind": "南",
+        "number": 3,
+        "honba": 0,
+        "kyotaku": 0,
+        "remaining": 59,
+        "dealer": 2
+      },
+      "doraIndicators": [
+        "sou7"
+      ],
+      "players": [
+        {
+          "seat": 0,
+          "relative": 0,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "西",
+          "score": 28700,
+          "concealedCount": 14,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "sou9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": null
+        },
+        {
+          "seat": 1,
+          "relative": 1,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "北",
+          "score": 22400,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "man9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0009
+        },
+        {
+          "seat": 2,
+          "relative": 2,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "東",
+          "score": 27100,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "man1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "pin9",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji3",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0002
+        },
+        {
+          "seat": 3,
+          "relative": 3,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "南",
+          "score": 21800,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji4",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji2",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "man8",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.002
+        }
+      ],
+      "hand": {
+        "tiles": [
+          "man1",
+          "man1",
+          "man2",
+          "man6",
+          "man8",
+          "man9",
+          "pin7",
+          "sou2",
+          "sou2",
+          "sou5",
+          "ji3",
+          "ji5",
+          "ji7"
+        ],
+        "draw": "sou5"
+      },
+      "immediateCall": false
+    },
+    "previousBoardImageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c463a299-22a4-4b8b-898b-47c9a925f825.jpg"
+  },
+  "card-20261015-four-block-honitsu": {
+    "boardScene": {
+      "schemaVersion": 1,
+      "renderer": "naga-json-board",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 8,
+        "tv": 13
+      },
+      "round": {
+        "wind": "南",
+        "number": 3,
+        "honba": 1,
+        "kyotaku": 1,
+        "remaining": 63,
+        "dealer": 2
+      },
+      "doraIndicators": [
+        "sou3"
+      ],
+      "players": [
+        {
+          "seat": 0,
+          "relative": 0,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "西",
+          "score": 27200,
+          "concealedCount": 14,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "sou9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": null
+        },
+        {
+          "seat": 1,
+          "relative": 1,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "北",
+          "score": 23900,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "man9",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0001
+        },
+        {
+          "seat": 2,
+          "relative": 2,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "東",
+          "score": 27600,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "sou1",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji7",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0.0003
+        },
+        {
+          "seat": 3,
+          "relative": 3,
+          "name": "新人",
+          "rank": "初級",
+          "rating": null,
+          "wind": "南",
+          "score": 20300,
+          "concealedCount": 13,
+          "hiddenSlots": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "hiddenDraw": false,
+          "river": [
+            {
+              "tile": "ji3",
+              "tsumogiri": true,
+              "riichi": false,
+              "called": false
+            },
+            {
+              "tile": "ji4",
+              "tsumogiri": false,
+              "riichi": false,
+              "called": false
+            }
+          ],
+          "melds": [],
+          "reached": false,
+          "tenpaiProbability": 0
+        }
+      ],
+      "hand": {
+        "tiles": [
+          "man1",
+          "man2",
+          "man2",
+          "man3",
+          "man6",
+          "man8",
+          "man8",
+          "pin5",
+          "sou3",
+          "ji1",
+          "ji1",
+          "ji2",
+          "ji4"
+        ],
+        "draw": "man1"
+      },
+      "immediateCall": false
+    },
+    "previousBoardImageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/e5956614-4c1a-46e3-9883-3db911326e73.jpg"
+  }
+}

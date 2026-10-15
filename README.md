@@ -5,7 +5,9 @@
 - Cloudflare公開画面: https://sakurakou-lesson-review.pages.dev/
 - 既存公開画面: https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/ と https://tenten-ensuku.github.io/sakurakou-lesson-review/
 - このリポジトリは桜紅さん専用です。瀬利さりなさん版とは別の教材・DBです。
-- 表示版と内部版は `app/lib/lesson.mjs` の `APP_VERSION`（ver45）に統一しています。
+- 表示版と内部版は `app/lib/lesson.mjs` の `APP_VERSION`（ver46）に統一しています。
+
+10/15の何切る7問は、みん切るの共通生成器・盤面投影・描画器を使うJSON再現盤面です。元スクショの画像は削除せず、旧回答署名との互換用URLだけを保持します。牌のタップ直後に採点し、NAGAの数値と講師の正解候補を分離しています。公開用の対局者は全員「新人／初級」、他家の暗手牌は枚数のみです。
 - 9/30の盤面選択問題は、回答後に照合済みのNAGA（ニシキ・カガシ）推奨バーを表示します。授業の採点とは独立し、仮定したポン後の打牌評価が無い問題ではポン前の副露評価を区別します。
 - Sitesの現行URLは `https://sakurakou-lesson-review.tentensuku.chatgpt.site/`。旧kobotenmitsu URLは404のため、旧URLを含む教材は保存値を変えず表示時に現行URLへ補正します。Cloudflare Pages・GitHub PagesのアプリURLは変更ありません。
 - タブ・ホーム画面のアイコンは、左上と同じミント色の丸に濃緑の「桜」です。他のエンスクアプリのアイコンは変更しません。

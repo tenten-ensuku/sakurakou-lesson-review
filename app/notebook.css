@@ -1566,6 +1566,12 @@ body {
 .source-board { margin: 14px 0 0; min-width: 0; }
 .source-board-full { position: relative; width: 100%; background: #143750; border-radius: 12px; overflow: hidden; }
 .source-board-full > img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.json-board-drawing { aspect-ratio: 700 / 650; background: radial-gradient(ellipse at 50% 20%, #0077a9, #05528b 55%, #0b3971); overflow: hidden; }
+.source-board-full.json-board-drawing { border-radius: 0; }
+.json-board-markup { position: absolute; inset: 0; pointer-events: none; }
+.json-board-drawing .naga-json-board-svg { display: block; width: 100%; height: auto; fill: #fff; font-family: "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif; font-weight: 400; line-height: normal; }
+.json-board-drawing .dora-sheen-sweep-v333 { display: none; }
+.notebook .source-evaluation-model.json-evaluation-model { left: 39%; top: 94%; width: 22%; height: 5%; font-size: clamp(10px, 1.8vw, 14px); padding: 0 3px; }
 .notebook--naga { max-width: 1040px; }
 .source-question-stage { display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; text-align: left; }
 .source-question-stage.with-supplement { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }

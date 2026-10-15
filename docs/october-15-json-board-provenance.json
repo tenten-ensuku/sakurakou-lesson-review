@@ -1,0 +1,165 @@
+{
+  "checkedAt": "2026-10-16",
+  "reportSha256": "2045197f4e51c09d5b53deb902e93676ec5508387a1c379f3ad4e79debacd098",
+  "networkRequests": 0,
+  "imageUploads": 0,
+  "rendererSha256": "33bf6ac72be0ee944be793e0ede1c8b9401eb76143b5eed5a16510545138c3fe",
+  "projectorSha256": "8a5ea09f6494a92fb76df4c562614c20a6cbb1b97df26b599dfe84e9ff6a06df",
+  "source": "min-kiru shared generator, boardState.project/validate, boardRenderer.markup/handPositions",
+  "questions": [
+    {
+      "id": "card-20261015-wide-or-open",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 0,
+        "tv": 61
+      },
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "handOrderPreserved": true,
+      "answerAndRatesPreserved": true,
+      "previousImage": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/57971417-ac5e-4e09-93d0-8691c4e835fd.jpg",
+      "otherPlayerMeldCounts": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "card-20261015-take-7700-tenpai",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 0,
+        "tv": 77
+      },
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "handOrderPreserved": true,
+      "answerAndRatesPreserved": true,
+      "previousImage": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/8be13d8b-eb7b-4c93-8599-a5624c3b5df8.jpg",
+      "otherPlayerMeldCounts": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "card-20261015-pon-5800",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 0,
+        "tv": 81
+      },
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "handOrderPreserved": true,
+      "answerAndRatesPreserved": true,
+      "previousImage": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/7f589752-28ef-4689-b83e-12df84ae566b.jpg",
+      "otherPlayerMeldCounts": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "card-20261015-equal-acceptance-safety",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 1,
+        "tv": 79
+      },
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "handOrderPreserved": true,
+      "answerAndRatesPreserved": true,
+      "previousImage": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/b5cce029-e5be-4bd6-a4d7-da4c1de332bf.jpg",
+      "otherPlayerMeldCounts": [
+        0,
+        2,
+        0,
+        2
+      ]
+    },
+    {
+      "id": "card-20261015-keep-sanmenchan",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 2,
+        "tv": 63
+      },
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "handOrderPreserved": true,
+      "answerAndRatesPreserved": true,
+      "previousImage": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/3aebcefe-0608-45ff-a91f-4cfb70d632d2.jpg",
+      "otherPlayerMeldCounts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "card-20261015-skip-nine-vs-honors",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 7,
+        "tv": 21
+      },
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "handOrderPreserved": true,
+      "answerAndRatesPreserved": true,
+      "previousImage": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c463a299-22a4-4b8b-898b-47c9a925f825.jpg",
+      "otherPlayerMeldCounts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "id": "card-20261015-four-block-honitsu",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 8,
+        "tv": 13
+      },
+      "validation": {
+        "valid": true,
+        "errors": []
+      },
+      "handOrderPreserved": true,
+      "answerAndRatesPreserved": true,
+      "previousImage": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/e5956614-4c1a-46e3-9883-3db911326e73.jpg",
+      "otherPlayerMeldCounts": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ]
+}

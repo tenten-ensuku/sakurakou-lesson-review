@@ -25,7 +25,7 @@ import {
 import LegacyNotebook from "./LegacyNotebook";
 import ConfirmProvider, { useConfirm } from "./ConfirmAction";
 import RichContent from "./RichContent";
-import TileQuestion, { TileHand, TileResult } from "./TileQuestion";
+import TileQuestion, { TileHand, TileResult, preloadLessonBoards } from "./TileQuestion";
 import { savedTilePick, tileAnswer, tileQuestionSignature } from "./lib/tile-question.mjs";
 import { retryTileQuestion } from "./lib/theory-evaluation.mjs";
 import { MaterialLink } from "./LessonMaterials";
@@ -235,6 +235,10 @@ function NotebookHome() {
     } catch {}
     void refresh();
   }, [refresh]);
+  useEffect(() => {
+    // Small shared tile set, not the original report or screenshots.
+    void preloadLessonBoards(notebook.cards).catch(() => {});
+  }, [notebook.cards]);
   useEffect(() => {
     if (teacherToken)
       api("/api/learning/teacher", "GET", undefined, teacherToken)
@@ -1223,7 +1227,7 @@ function NotebookHome() {
                   currentCard.tileQuestion ? <>
                     <TileQuestion key={activeKey} data={currentCard.tileQuestion} question={currentCard.question} pick={currentTilePick} onSubmit={answerTile} explanation={currentCard.answer} model={run.tileModels?.[activeKey]} onModelChange={changeTileModel} onRetry={retryTile} navigation={{ index: run.index, total: run.keys.length, previous: () => advance(-1), next: () => advance() }} />
                     {currentTilePick !== undefined && <section className="tile-feedback" aria-label="何切るの解説">
-                      {!(currentCard.tileQuestion.naga && currentCard.tileQuestion.board) && <><TileResult data={currentCard.tileQuestion} pick={currentTilePick} /><div className="rich-content"><RichContent text={currentCard.answer} /></div></>}
+                      {!(currentCard.tileQuestion.naga && (currentCard.tileQuestion.board || currentCard.tileQuestion.boardScene)) && <><TileResult data={currentCard.tileQuestion} pick={currentTilePick} /><div className="rich-content"><RichContent text={currentCard.answer} /></div></>}
                       <div className="action-grid">
                         <button className="review-action" aria-pressed={state.reviewIds.includes(activeKey)} onClick={() => record("review", { target: activeKey, active: !state.reviewIds.includes(activeKey) })}><ArrowClockwise />{state.reviewIds.includes(activeKey) ? "解き直しから外す" : "解き直しに追加"}</button>
                         <button className="primary" onClick={() => advance()}>{run.index === run.keys.length - 1 ? "結果を見る" : "次の問題へ"}<CaretRight /></button>

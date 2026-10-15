@@ -1,8 +1,9 @@
 import { resolveSiteUrl } from "./site-origin.mjs";
 export type TileRegion = { x: number; y: number; width: number; height: number };
 export type TileBoard = { imageUrl: string; width: number; height: number; regions: TileRegion[] };
+export type NagaBoardScene = { schemaVersion: 1; renderer: "naga-json-board"; source: { reportId: string; tw: number; ts: number; tv: number }; hand: { tiles: (string | null)[]; draw: string | null }; [key: string]: unknown };
 export type NagaEvaluation = { kind: "discard" | "call"; reportId: string; tw: number; ts: number; tv: number; handSnapshot: string[]; previousHandSnapshot?: string[]; models: { name: string; rates: Record<string, number> }[] };
-export type TileQuestionData = { hand: string[]; draw?: string; correctTiles: string[]; label?: "候補牌"; board?: TileBoard; naga?: NagaEvaluation };
+export type TileQuestionData = { hand: string[]; draw?: string; correctTiles: string[]; label?: "候補牌"; board?: TileBoard; naga?: NagaEvaluation; boardScene?: NagaBoardScene; previousBoardImageUrl?: string };
 export type Card = {
   id: string | number;
   kind: "question" | "section" | "note";

@@ -1,6 +1,7 @@
 import "./theory-board-renderer.js";
 import { normalizeNagaEvaluation } from "./naga-evaluation.mjs";
 import { tileOptions } from "./tile-question.mjs";
+import { jsonBoardLayout } from "./json-board.mjs";
 
 // Reuse the theory collection's renderer, not a second bar implementation.
 // Only its pure overlay API is used; source screenshots retain their own geometry.
@@ -17,7 +18,8 @@ export function nagaModelIndex(evaluation, name) {
 export function sourceBoardEvaluation(question, pick, name) {
   const options = tileOptions(question);
   const data = normalizeNagaEvaluation(question.naga, options);
-  if (!data || !question.board || !Number.isInteger(pick) || pick < 0 || pick >= options.length) return null;
+  const board = question.boardScene ? jsonBoardLayout(question) : question.board;
+  if (!data || !board || !Number.isInteger(pick) || pick < 0 || pick >= options.length) return null;
   const modelIndex = nagaModelIndex(data, name);
   const models = data.models.map((model, index) => ({ name: model.name, index }));
   const probabilities = Object.fromEntries([...new Set(options)].map(tile => [tile, data.models.map(model => model.rates[tile])]));
@@ -25,7 +27,7 @@ export function sourceBoardEvaluation(question, pick, name) {
   const recommended = data.kind === "discard" ? Object.keys(rates).reduce((best, tile) => rates[tile] > rates[best] ? tile : best) : null;
   // The reference places the NAGA frame on the draw when it is the recommended tile.
   const recommendedIndex = question.draw === recommended ? options.length - 1 : options.indexOf(recommended);
-  const tiles = data.kind === "discard" ? question.board.regions.map((region, index) => ({
+  const tiles = data.kind === "discard" ? board.regions.map((region, index) => ({
     ...region, index, value: rates[options[index]],
     markup: renderer.tileRecommendationsMarkup(options[index], {
       index, models, probabilities, selectedModel: modelIndex,

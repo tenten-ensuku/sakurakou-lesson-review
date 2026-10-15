@@ -52,7 +52,7 @@ test("tile selection answers immediately below the preserved board, without a co
 test("source-board choices remain accessible without a second enlarged hand",()=>{
   const tile=readFileSync("app/TileQuestion.tsx","utf8"),page=readFileSync("app/page.tsx","utf8"),css=readFileSync("app/notebook.css","utf8");
   for (const source of [tile,page,css]) assert.doesNotMatch(source,/source-hand-scroll|source-hand-canvas/);
-  assert.match(tile,/className="source-board-full" role="group" aria-label="切る牌を選択"/);
+  assert.match(tile,/source-board-full[\s\S]*?role="group" aria-label="切る牌を選択"/);
   assert.match(tile,/board\.regions\.map\(\(r, i\) => <button[^>]*aria-label=\{label\(i\)\} aria-pressed=\{i === pick\}/);
   assert.doesNotMatch(tile,/tabIndex=\{-1\}|元の画像を拡大しています/);
   assert.match(page,/\.source-board-full button,\.tile-choice-row button/);

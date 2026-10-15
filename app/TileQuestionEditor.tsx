@@ -5,11 +5,11 @@ import { normalizeTileQuestion, parseTileCodes, tileCodesText } from "./lib/tile
 import { TileHand } from "./TileQuestion";
 export default function TileQuestionEditor({ value, onChange, onValidityChange }: { value?: TileQuestionData | null; onChange: (value: TileQuestionData | null) => void; onValidityChange: (valid: boolean) => void }) {
   const [enabled, setEnabled] = useState(!!value);
-  const [fields, setFields] = useState({ hand: tileCodesText(value?.hand), draw: value?.draw ?? "", correct: tileCodesText(value?.correctTiles), label: value?.label ?? "手牌", board: value?.board ? JSON.stringify(value.board, null, 2) : "", naga: value?.naga ? JSON.stringify(value.naga, null, 2) : "" });
+  const [fields, setFields] = useState({ hand: tileCodesText(value?.hand), draw: value?.draw ?? "", correct: tileCodesText(value?.correctTiles), label: value?.label ?? "手牌", board: value?.board ? JSON.stringify(value.board, null, 2) : "", naga: value?.naga ? JSON.stringify(value.naga, null, 2) : "", boardScene: value?.boardScene ? JSON.stringify(value.boardScene, null, 2) : "" });
   const parse = (next: typeof fields): TileQuestionData | null => {
-    let board, naga;
-    try { board = next.board.trim() ? JSON.parse(next.board) : undefined; naga = next.naga.trim() ? JSON.parse(next.naga) : undefined; } catch { return null; }
-    return normalizeTileQuestion({ hand: parseTileCodes(next.hand), ...(next.draw.trim() ? { draw: parseTileCodes(next.draw)?.length === 1 ? parseTileCodes(next.draw)?.[0] : "invalid" } : {}), correctTiles: parseTileCodes(next.correct), label: next.label, ...(board !== undefined ? { board } : {}), ...(naga !== undefined ? { naga } : {}) }) as TileQuestionData | null;
+    let board, naga, boardScene;
+    try { board = next.board.trim() ? JSON.parse(next.board) : undefined; naga = next.naga.trim() ? JSON.parse(next.naga) : undefined; boardScene = next.boardScene.trim() ? JSON.parse(next.boardScene) : undefined; } catch { return null; }
+    return normalizeTileQuestion({ hand: parseTileCodes(next.hand), ...(next.draw.trim() ? { draw: parseTileCodes(next.draw)?.length === 1 ? parseTileCodes(next.draw)?.[0] : "invalid" } : {}), correctTiles: parseTileCodes(next.correct), label: next.label, ...(board !== undefined ? { board } : {}), ...(naga !== undefined ? { naga } : {}), ...(boardScene !== undefined ? { boardScene, previousBoardImageUrl: value?.previousBoardImageUrl } : {}) }) as TileQuestionData | null;
   };
   const parsed = parse(fields);
   const update = (field: keyof typeof fields, text: string) => {
@@ -25,6 +25,11 @@ export default function TileQuestionEditor({ value, onChange, onValidityChange }
       <label>手牌（ツモ牌を除く）<input value={fields.hand} onChange={(e) => update("hand", e.target.value)} placeholder="234m 567p 123s 11z" /></label>
       <label>ツモ牌（任意・1枚）<input value={fields.draw} onChange={(e) => update("draw", e.target.value)} placeholder="9p" /></label>
       <label>正解牌（複数可）<input value={fields.correct} onChange={(e) => update("correct", e.target.value)} placeholder="8p 9p" /></label>
+      <details>
+        <summary>NAGA再現盤面 {fields.boardScene ? "（設定あり）" : "（任意）"}</summary>
+        <p className="muted">解析から生成した盤面です。文章や正解だけの編集では保持されます。手牌や局面を変える場合は対応する盤面データも更新してください。</p>
+        <label>再現盤面（JSON）<textarea value={fields.boardScene} onChange={e => update("boardScene", e.target.value)} /></label>
+      </details>
       <details>
         <summary>元盤面画像の選択範囲 {fields.board ? "（設定あり）" : "（任意）"}</summary>
         <p className="muted">元画像URL・サイズ・各牌の座標です。画像内の左から順に、手牌とツモ牌の数だけ範囲を登録します。順番・枚数を変えたら座標も確認してください。空欄にすると従来の牌画像表示になります。</p>

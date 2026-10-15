@@ -1,4 +1,5 @@
 import { normalizeNagaEvaluation } from "./naga-evaluation.mjs";
+import { normalizeJsonBoard } from "./json-board.mjs";
 const CODE = /^(?:[0-9][mps]|[1-7]z)$/;
 const SUITS = { m: "man", p: "pin", s: "sou", z: "ji" };
 const RED = { m: "aka1", p: "aka2", s: "aka3" };
@@ -50,14 +51,19 @@ export function normalizeTileQuestion(value) {
   if (value.board !== undefined && !board) return null;
   const naga = value.naga === undefined ? undefined : normalizeNagaEvaluation(value.naga, options);
   if (value.naga !== undefined && !naga) return null;
-  return { hand: [...hand], ...(draw ? { draw } : {}), correctTiles: [...new Set(correctTiles)], ...(value.label === "候補牌" ? { label: "候補牌" } : {}), ...(board ? { board } : {}), ...(naga ? { naga } : {}) };
+  const boardScene = value.boardScene === undefined ? undefined : normalizeJsonBoard(value.boardScene, options, draw, naga);
+  if (value.boardScene !== undefined && (!boardScene || board)) return null;
+  const previousBoardImageUrl = value.previousBoardImageUrl;
+  if (previousBoardImageUrl !== undefined && (!boardScene || typeof previousBoardImageUrl !== "string" || previousBoardImageUrl.length > 2048 || !/^https?:\/\//.test(previousBoardImageUrl))) return null;
+  return { hand: [...hand], ...(draw ? { draw } : {}), correctTiles: [...new Set(correctTiles)], ...(value.label === "候補牌" ? { label: "候補牌" } : {}), ...(board ? { board } : {}), ...(naga ? { naga } : {}), ...(boardScene ? { boardScene } : {}), ...(previousBoardImageUrl ? { previousBoardImageUrl } : {}) };
 }
 export function tileAnswer(q, index) {
   const tiles = tileOptions(q);
   if (!Number.isInteger(index) || index < 0 || index >= tiles.length) return null;
   return { tile: tiles[index], correct: q.correctTiles.includes(tiles[index]) };
 }
-export const tileQuestionSignature = (q) => JSON.stringify([tileOptions(q), q.correctTiles, q.board?.imageUrl ?? ""]);
+// A visual-only screenshot -> JSON migration must not invalidate saved answers.
+export const tileQuestionSignature = (q) => JSON.stringify([tileOptions(q), q.correctTiles, q.board?.imageUrl ?? q.previousBoardImageUrl ?? (q.boardScene ? JSON.stringify(q.boardScene.source) : "")]);
 export function savedTilePick(session, key, q) {
   const pick = session?.tilePicks?.[key];
   const previous = q.naga?.previousHandSnapshot;

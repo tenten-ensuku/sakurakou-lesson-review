@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { DatabaseSync } from "node:sqlite";
 import data from "../content/september-30.json" with { type: "json" };
+import octoberData from "../content/october-15.json" with { type: "json" };
 import evaluations from "../content/september-30-naga.json" with { type: "json" };
 import evidence from "../docs/september-30-naga-provenance.json" with { type: "json" };
 import { nagaSourceUrl, normalizeNagaEvaluation } from "../app/lib/naga-evaluation.mjs";
@@ -112,7 +113,7 @@ test("only the verified red/ordinary-five correction preserves older saved tile 
 });
 
 test("reference renderer is reused verbatim, with proportional bars anchored to each measured source tile", () => {
-  assert.equal(createHash("sha256").update(readFileSync("app/lib/theory-board-renderer.js", "utf8").replace(/\r\n/g, "\n")).digest("hex"), "37f1108a8e862dcc580951bf31a1315c304eff91406cb8262becaa39c2afe377");
+  assert.equal(createHash("sha256").update(readFileSync("app/lib/theory-board-renderer.js", "utf8").replace(/\r\n/g, "\n")).digest("hex"), "33bf6ac72be0ee944be793e0ede1c8b9401eb76143b5eed5a16510545138c3fe");
   const q = card("safe-five-pin").tileQuestion, e = sourceBoardEvaluation(q, 0);
   assert.equal(e.modelName, "ニシキ");
   assert.equal(e.recommended, "5p");
@@ -183,6 +184,31 @@ function database() {
   const prepare = (query, values = []) => ({ bind: (...v) => prepare(query, v), run: async () => sql.prepare(query).run(...values), all: async () => ({ results: sql.prepare(query).all(...values) }) });
   return { sql, prepare, batch: async (statements) => { sql.exec("BEGIN"); try { for (const s of statements) await s.run(); sql.exec("COMMIT"); } catch (e) { sql.exec("ROLLBACK"); throw e; } } };
 }
+
+test("JSON boards persist through guarded edits, text-only changes, soft delete/restore and conflicts", async () => {
+  const db=database(),lessonId="lesson-json-board-editor";
+  for(const s of NOTEBOOK_SCHEMA_SQL)db.sql.exec(s);
+  const call=async(path,method="GET",body)=>{
+    const r=await handleAdminApi(new Request("https://test.example"+path,{method,headers:{"content-type":"application/json"},...(body?{body:JSON.stringify(body)}:{})}),{DB:db});
+    return {status:r.status,data:await r.json()};
+  };
+  for(const card of octoberData.cards.filter(c=>c.tileQuestion)){
+    const q=card.tileQuestion;
+    const result=await call(`/api/lessons/${lessonId}/cards`,"POST",{kind:"question",question:"何切る？",answer:"元の解説",tileQuestion:q});assert.equal(result.status,200);
+    const id=result.data.card.id,path=`/api/lessons/${lessonId}/cards/${id}`;
+    const read=()=>JSON.parse(db.sql.prepare("SELECT tile_question FROM notebook_cards WHERE card_id=?").get(id).tile_question);
+    assert.deepEqual(read(),q);
+    const expected={kind:"question",question:"何切る？",answer:"元の解説",tileQuestion:q};
+    assert.equal((await call(path,"PUT",{...expected,question:"編集した問題",answer:"編集した解説",expected})).status,200);
+    assert.deepEqual(read(),q);
+    assert.equal((await call(path,"PUT",{...expected,expected})).status,409);
+    assert.equal((await call(path,"PUT",{kind:"question",question:"文章だけ",answer:"牌表記2〜7sを保持"})).status,200);
+    assert.deepEqual(read(),q);
+    await call(path,"DELETE");await call(path+"/restore","POST",{});
+    assert.deepEqual((await call("/api/notebook")).data.cards.find(c=>c.id===id).tileQuestion,q);
+  }
+  db.sql.close();
+});
 test("shared editor and database preserve NAGA on text edits, reject stale hands and retain soft-deleted data", async () => {
   const db = database(), lessonId = "lesson-test-naga-editor";
   for (const s of NOTEBOOK_SCHEMA_SQL) db.sql.exec(s);

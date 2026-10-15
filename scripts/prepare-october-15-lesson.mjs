@@ -4,6 +4,7 @@ import {resolve,join} from 'node:path';
 import {createHash} from 'node:crypto';
 import * as content from '../content/october-15-source.mjs';
 import naga from '../content/october-15-naga.json' with {type:'json'};
+import jsonBoards from '../content/october-15-json-boards.json' with {type:'json'};
 import {normalizeTileQuestion} from '../app/lib/tile-question.mjs';
 import {renderSeptemberMaterial} from './render-september-material.mjs';
 import {SITE_ORIGIN} from '../app/lib/site-origin.mjs';
@@ -49,7 +50,7 @@ for(const [i,q]of questions.entries()){
   if(q.choices.length!==4||new Set(q.choices).size!==4||q.choices[q.correctIndex]===undefined||q.type==='cloze'&&!question.includes('［　］'))throw Error('Invalid choices');
   output.items.push({id,theoryId:'',type:q.type,question,choices:q.choices,correctIndex:q.correctIndex,explanation:answer,lessonIds:[lesson.id],sortOrder:i+1,deleted:false,revision:1});
  }else{
-  const tileQuestion=q.tileQuestion?normalizeTileQuestion({...q.tileQuestion,board:{...q.tileQuestion.sourceBoard,imageUrl:images[q.scene+'-board'].url},naga:naga[q.id]}):null;
+  const tileQuestion=q.tileQuestion?normalizeTileQuestion({...q.tileQuestion,...(jsonBoards[id]??{board:{...q.tileQuestion.sourceBoard,imageUrl:images[q.scene+'-board'].url}}),naga:naga[q.id]}):null;
   if(q.tileQuestion&&!tileQuestion)throw Error('Invalid tile question: '+q.id);
   output.cards.push({id,lessonId:lesson.id,kind:'question',question,answer,sortOrder:i+1,...(tileQuestion?{tileQuestion}:{})});
  }
