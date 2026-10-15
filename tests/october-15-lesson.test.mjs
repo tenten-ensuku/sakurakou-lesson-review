@@ -18,17 +18,17 @@ import {renderSeptemberMaterial} from '../scripts/render-september-material.mjs'
 import {jsonBoardLayout} from '../app/lib/json-board.mjs';
 import {materialDetails,isFeaturedMaterial} from '../app/lib/materials.mjs';
 const card=id=>data.cards.find(q=>q.id==='card-20261015-'+id);
-test('10/15 is one newest class with both parts and eighteen mixed questions, never a summary first',()=>{
+test('10/15 is one newest class with both parts and nineteen mixed questions, never a summary first',()=>{
  assert.equal(data.lessons.length,1);assert.equal(source.lesson.date,'10/15');assert.equal(source.lesson.teacher,'ねじまき鳥');
  assert.equal(sortLessons([source.lesson,{date:'10/8',title:'old'}])[0].id,source.lesson.id);
  assert.deepEqual(source.videos.map(v=>v.id),['guKgCOJ_Kng','yOVM-RWRlYE']);
  const entries=lessonStudyEntries(source.lesson.id,data.cards.map(c=>({...c,source:'custom'})),data.items);
- assert.equal(entries.length,18);assert.ok(entries[0].key.endsWith('wide-or-open'));
+ assert.equal(entries.length,19);assert.ok(entries[0].key.endsWith('wide-or-open'));
  assert.ok(entries.every(e=>!e.key.includes('summary')));assert.equal(data.cards.filter(c=>c.kind==='note').length,2);
  const questions=[...data.cards.filter(c=>c.kind==='question'),...data.items];
- assert.deepEqual(questions.sort((a,b)=>a.sortOrder-b.sortOrder).map(q=>q.sortOrder),Array.from({length:18},(_,i)=>i+1));
- assert.equal(new Set(questions.map(q=>q.id)).size,18);
- assert.equal(data.cards.filter(c=>c.tileQuestion).length,7);assert.equal(data.items.filter(c=>c.type==='choice').length,5);assert.equal(data.items.filter(c=>c.type==='cloze').length,2);
+ assert.deepEqual(questions.sort((a,b)=>a.sortOrder-b.sortOrder).map(q=>q.sortOrder),Array.from({length:19},(_,i)=>i+1));
+ assert.equal(new Set(questions.map(q=>q.id)).size,19);
+ assert.equal(data.cards.filter(c=>c.tileQuestion).length,7);assert.equal(data.items.filter(c=>c.type==='choice').length,6);assert.equal(data.items.filter(c=>c.type==='cloze').length,2);
  for(const q of data.items){assert.equal(new Set(q.choices).size,4);assert.ok(q.choices[q.correctIndex]);if(q.type==='cloze')assert.ok(q.question.includes('［　］'));}
  for(const q of [...data.cards,...data.items]){assert.ok(q.question.length<=2000);assert.ok((q.answer??q.explanation).length<=5000);}
  for(const v of source.videos)assert.ok(data.resources.some(r=>r.url===v.url));

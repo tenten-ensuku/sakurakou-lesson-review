@@ -42,7 +42,7 @@ for(const part of ['first','second']){
 const mapping=[];if(new Set(questions.map(q=>q.id)).size!==questions.length)throw Error('Duplicate source IDs');
 for(const [i,q]of questions.entries()){
  if(!q.answer||!q.explanation||q.at<0||q.at>(q.part==='first'?3058:3579)||q.scene&&!images[q.scene])throw Error('Invalid question: '+q.id);
- const question=q.scene?[q.question,image(q.scene+'-board',true)].join('\n\n'):q.question;
+ const question=q.boardIllustration?[q.question,`![出題場面の盤面（後半 ${stamp(q.at)}）](${q.boardIllustration})`].join('\n\n'):q.scene?[q.question,image(q.scene+'-board',true)].join('\n\n'):q.question;
  const answer=[q.answer,q.explanation,...(q.answerScene?[image(q.answerScene)]:[]),video(q),...q.refs.map(k=>references[k].url)].join('\n\n');
  if(question.length>2000||answer.length>5000)throw Error('Editor limit: '+q.id);
  const check=['choice','cloze'].includes(q.type),id=(check?'check':'card')+'-20261015-'+q.id;

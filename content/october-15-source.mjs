@@ -1,6 +1,7 @@
 // Both complete caption tracks read; final explanations checked against source frames.
 // The class date is user-specified: the first video was uploaded on 10/10, the second on 10/15.
 import { references as canonical } from './september-2026-source.mjs';
+import { checkpoint } from './october-15-checkpoint.mjs';
 export const references = { ranking: canonical.order, theory: canonical.theory, shanten: canonical.shape };
 export const reportId = '8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2';
 export const videos = [
@@ -68,4 +69,5 @@ export const questions = [
  {id:'unpushable-dora',type:'choice',scene:'second-2860',part:'second',at:2860,refs:['theory'],question:'面子手の聴牌にはドラ4sを押す必要があるが、そこまで押す価値がないと判断した。今、面子手の一向聴を維持するために危険を増やすべき？',choices:['一向聴の表示を維持できるなら必ず押す','維持する意味は薄い。より安全な3mなどで降りる','ドラは必ず切り飛ばすので関係ない','七対子の道も必ず同時に捨てる'],correctIndex:1,answer:'実際に使えない受けのために危険を増やさない。',explanation:'鳴いても4sを押さず、聴牌を取るつもりがないなら、名目の一向聴を守る価値は低い。形を残す前に、聴牌時の押し牌を確認する。'},
  {id:'time-limited-safety',type:'flashcard',scene:'second-3005',part:'second',at:3005,refs:['theory'],question:'終盤、3pなら形を保てそうだが、時間内に安全度を精査できない。東は現物だと明確に認識できている。このとき講師が許容した実戦対応は？',answer:'東を切る。安全だと確認できない3pを、形だけで選ばない。',explanation:'時間を使えば3pの安全を精査できる場面でも、実戦の処理時間は別。確認できた現物で守る判断を責めない。'},
  {id:'effective-change-quality',type:'cloze',scene:'second-3300',part:'second',at:3300,refs:['theory'],question:'2mが枯れ、7mを引く両面変化はフリテンになる4m・6mシャンポン。手変わりは［　］。',choices:['両面という名前になれば全て強い変化と数える','理論上の種類数だけで評価する','残り枚数とフリテンを反映して質を評価する','ドラがあると全て無効になる'],correctIndex:2,answer:'残り枚数とフリテンを反映して、変化の質を評価する。',explanation:'今回は萬子の両面変化が弱い。立直も、立直しないなら聴牌を外す案も講師は許容した。「聴牌は必ず取る」へ固定しない。'},
+ checkpoint,
 ];

@@ -1,0 +1,53 @@
+// Add exactly one question; never regenerate existing shared/student-authored text.
+import assert from 'node:assert/strict';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {createHash} from 'node:crypto';
+import {checkpoint as q} from '../content/october-15-checkpoint.mjs';
+import {reportId,references,lesson,videos} from '../content/october-15-source.mjs';
+import {jsonBoardMarkup} from '../app/lib/json-board.mjs';
+const [reportFile,minkiruRoot,canonicalFile]=process.argv.slice(2);
+assert.ok(reportFile&&minkiruRoot&&canonicalFile);
+const runtime=f=>pathToFileURL(resolve(minkiruRoot,'scripts',f));
+const {verifiedSceneCandidate,generator}=await import(runtime('naga-generator-runtime.mjs'));
+const {boardState}=await import(runtime('naga-board-runtime.mjs'));
+const raw=await readFile(reportFile),report=JSON.parse(raw);
+const url=`https://naga.dmv.nico/htmls/report_viewer.html?report_id=${reportId}&tw=0&ts=7&tv=53`;
+const candidate=verifiedSceneCandidate(report,url,{decisionType:'discard'});
+const scene=boardState.project(report,candidate);
+assert.ok(boardState.validate(scene,candidate).valid);
+const expected=['man1','man1','man2','man6','man8','man8','man9','pin7','pin8','sou2','sou2','sou5','sou5'];
+assert.deepEqual([...scene.hand.tiles].sort(),[...expected].sort());
+assert.equal(scene.hand.draw,'ji3');assert.equal(scene.round.remaining,43);
+assert.equal(scene.doraIndicators[0],'sou7');assert.equal(scene.players[0].score,28700);
+assert.equal(scene.players[0].melds.length,0);
+scene.players.forEach(p=>{p.name='新人';p.rank='初級';p.rating=null;});
+assert.ok(boardState.validate(scene).valid);
+const id='check-20261015-'+q.id;
+const data=JSON.parse(await readFile('content/october-15.json','utf8'));
+const question=q.question+`\n\n![出題場面の盤面（後半 23:30）](${q.boardIllustration})`;
+const video=videos.find(v=>v.part===q.part).url+`&t=${q.at}s`;
+const explanation=[q.answer,q.explanation,video,references.theory.url].join('\n\n');
+const value={id,theoryId:'',type:q.type,question,choices:q.choices,correctIndex:q.correctIndex,explanation,lessonIds:[lesson.id],sortOrder:19,deleted:false,revision:1};
+const old=data.items.find(x=>x.id===id);if(old)assert.deepEqual(old,value);else data.items.push(value);
+await writeFile('content/october-15.json',JSON.stringify(data,null,2)+'\n');
+await writeFile('content/october-15-checkpoint-board.json',JSON.stringify({[q.boardIllustration]:{id,number:19,boardScene:scene}},null,2)+'\n');
+// This fallback uses the same shared renderer and unmodified approved PNGs.
+// In-app RichContent renders the structured scene inline, without an image request.
+let svg=jsonBoardMarkup(scene).replace('<svg class=','<svg xmlns="http://www.w3.org/2000/svg" width="700" height="650" style="fill:white;font-family:Yu Gothic,Meiryo,sans-serif" class=').replace('<rect width="700" height="650" fill="transparent"/>','<rect width="700" height="650" fill="#05528b"/>').replace(/<rect class="dora-sheen-sweep-v333"[^>]*\/>/g,'').replace(/href="\/tiles\//g,'href="https://sakurakou-lesson-review.pages.dev/tiles/');
+await mkdir('public/materials/boards',{recursive:true});
+await writeFile('public/materials/boards/20261015-six-turn.svg',svg+'\n');
+const noMeld=tiles=>{
+ const counts=new Map();for(const t of tiles)counts.set(t,(counts.get(t)||0)+1);
+ return ![...counts.values()].some(n=>n>=3)&&!['man','pin','sou'].some(s=>Array.from({length:7},(_,i)=>i+1).some(i=>[i,i+1,i+2].every(n=>counts.has(s+n))));
+};
+const initial=generator.replayKyoku(report.pred[7],1,0).allHands[0];
+assert.ok(noMeld(initial)&&noMeld([...expected,'ji3']));
+assert.ok(!['man','pin','sou'].some(s=>Array.from({length:6},(_,i)=>i+2).some(i=>initial.includes(s+i)&&initial.includes(s+(i+1)))));
+const proof={checkedAt:'2026-10-16',id,displayNumber:19,videoUrl:video,source:scene.source,reportSha256:createHash('sha256').update(raw).digest('hex'),networkRequests:0,imageUploads:0,sourceFrameHandMatchPercent:100,hand:expected,draw:'ji3',dora:'sou7',remaining:43,initialHand:initial,initialZeroMeldZeroRyanmen:true,currentZeroMeld:true,currentRyanmen:'78p',sceneValidation:boardState.validate(scene,candidate),canonicalDocuments:JSON.parse(await readFile(canonicalFile,'utf8')),canonicalRule:'手組⑱：0面子は無条件で該当。ただし、副露手は例外。手組㉝：00物件は0面子0両面。',sourceReadRangeSeconds:[1360,1570],qualification:'講師は後半25:06以降、各家に2〜3枚の安全候補があることを確認して西切りも許容。西残しを唯一解にはしない。',existingQuestionsUnchanged:true};
+await writeFile('docs/october-15-checkpoint-provenance.json',JSON.stringify(proof,null,2)+'\n');
+const provenance=JSON.parse(await readFile('docs/october-15-provenance.json','utf8'));
+if(!provenance.questions.some(x=>x.appId===id))provenance.questions.push({sourceId:q.id,appId:id,displayNumber:19,type:q.type,part:q.part,at:q.at,videoUrl:video,scene:null,canonicalSources:q.refs,reviewStatus:'manually-source-checked',nagaSource:scene.source});
+await writeFile('docs/october-15-provenance.json',JSON.stringify(provenance,null,2)+'\n');
+console.log(JSON.stringify({added:id,questions:19,source:scene.source,uploads:0}));

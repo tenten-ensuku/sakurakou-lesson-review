@@ -398,6 +398,26 @@
         "theory"
       ],
       "reviewStatus": "manually-source-checked"
+    },
+    {
+      "sourceId": "six-turn-zero-meld-checkpoint",
+      "appId": "check-20261015-six-turn-zero-meld-checkpoint",
+      "displayNumber": 19,
+      "type": "choice",
+      "part": "second",
+      "at": 1410,
+      "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=1410s",
+      "scene": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "reviewStatus": "manually-source-checked",
+      "nagaSource": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 7,
+        "tv": 53
+      }
     }
   ],
   "images": {

@@ -3188,6 +3188,26 @@
       "sortOrder": 18,
       "deleted": false,
       "revision": 1
+    },
+    {
+      "id": "check-20261015-six-turn-zero-meld-checkpoint",
+      "theoryId": "",
+      "type": "choice",
+      "question": "6巡目のこの手。ここからの方針として適切なのは？\n\n![出題場面の盤面（後半 23:30）](https://sakurakou-lesson-review.pages.dev/materials/boards/20261015-six-turn.svg)",
+      "choices": [
+        "78pの両面があるので、定点チェックの対象外とする",
+        "立直して2翻あれば、愚形が残っても目いっぱいに進める",
+        "0面子なので定点チェックに該当。各家への安全候補を確認して備える",
+        "3対子なので七対子に決め打ちし、安全牌は持たない"
+      ],
+      "correctIndex": 2,
+      "explanation": "0面子は無条件で該当。和了の遠さをシビアに見て、将来の立直に備える。\n\n配牌は00物件（0面子0両面）。6巡目も0面子なら、222＝「2シャンテン・愚形2つ残り・立直して2ハン」を全て数えるまでもなく該当する（副露手は例外）。安牌をため、誰から立直が来たら何を切るかを確認しつつ七対子などの道を残す。今回は既に安全候補もあり、西残しだけが正解という話ではない。\n\nhttps://www.youtube.com/watch?v=yOVM-RWRlYE&t=1410s\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20261015-nejimaki"
+      ],
+      "sortOrder": 19,
+      "deleted": false,
+      "revision": 1
     }
   ],
   "resources": [

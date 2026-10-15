@@ -1,0 +1,102 @@
+{
+  "checkedAt": "2026-10-16",
+  "id": "check-20261015-six-turn-zero-meld-checkpoint",
+  "displayNumber": 19,
+  "videoUrl": "https://www.youtube.com/watch?v=yOVM-RWRlYE&t=1410s",
+  "source": {
+    "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+    "tw": 0,
+    "ts": 7,
+    "tv": 53
+  },
+  "reportSha256": "2045197f4e51c09d5b53deb902e93676ec5508387a1c379f3ad4e79debacd098",
+  "networkRequests": 0,
+  "imageUploads": 0,
+  "sourceFrameHandMatchPercent": 100,
+  "hand": [
+    "man1",
+    "man1",
+    "man2",
+    "man6",
+    "man8",
+    "man8",
+    "man9",
+    "pin7",
+    "pin8",
+    "sou2",
+    "sou2",
+    "sou5",
+    "sou5"
+  ],
+  "draw": "ji3",
+  "dora": "sou7",
+  "remaining": 43,
+  "initialHand": [
+    "sou5",
+    "sou2",
+    "man1",
+    "pin7",
+    "sou2",
+    "ji7",
+    "ji5",
+    "ji2",
+    "man8",
+    "man9",
+    "ji3",
+    "sou9",
+    "man2"
+  ],
+  "initialZeroMeldZeroRyanmen": true,
+  "currentZeroMeld": true,
+  "currentRyanmen": "78p",
+  "sceneValidation": {
+    "valid": true,
+    "errors": []
+  },
+  "canonicalDocuments": [
+    {
+      "documentId": "1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM",
+      "title": "【基本序列】",
+      "revisionId": "AHj4eMR8rcW7TYQ-fcvrJY72Q0jK06QAYUeg7_sXTSZM-tPJrVNv1ML9U_6fVleMjeyb6iNStsA2pEG3DIV7mg",
+      "tabs": [
+        {
+          "id": "t.0",
+          "empty": false
+        }
+      ]
+    },
+    {
+      "documentId": "1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA",
+      "title": "セオリー集（随時更新）",
+      "revisionId": "AHj4eMSixj4OnNGrAhCFzQI5MB48kbwxP-RLHmEJe99iIi-isO87JgjhrvhHmbvHVSkLKHDoMVxD4jEqiY9sNw",
+      "tabs": [
+        {
+          "id": "t.0",
+          "empty": false
+        },
+        {
+          "id": "t.mbzxyws4etwa",
+          "empty": true
+        }
+      ]
+    },
+    {
+      "documentId": "1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA",
+      "title": "一向聴（基礎講義）",
+      "revisionId": "AHj4eMTNXg1R6l3lUTMYyDGKuiVA8c1erUmUBNXimvtvQTxhUHbWDjkttjaG5FtBjQtaKHi-jZpxQDKnE5UjbA",
+      "tabs": [
+        {
+          "id": "t.0",
+          "empty": false
+        }
+      ]
+    }
+  ],
+  "canonicalRule": "手組⑱：0面子は無条件で該当。ただし、副露手は例外。手組㉝：00物件は0面子0両面。",
+  "sourceReadRangeSeconds": [
+    1360,
+    1570
+  ],
+  "qualification": "講師は後半25:06以降、各家に2〜3枚の安全候補があることを確認して西切りも許容。西残しを唯一解にはしない。",
+  "existingQuestionsUnchanged": true
+}
