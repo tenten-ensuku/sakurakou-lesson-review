@@ -1,0 +1,172 @@
+{
+  "checkedAt": "2026-10-16",
+  "reportSha256": "2045197f4e51c09d5b53deb902e93676ec5508387a1c379f3ad4e79debacd098",
+  "networkRequests": 0,
+  "imageUploads": 0,
+  "questions": [
+    {
+      "id": "check-20261015-kanchan-dama-context",
+      "number": 9,
+      "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/4e5da724-ea65-43cd-80a5-45ee27df16e3.jpg",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 4,
+        "tv": 66
+      },
+      "sourceEvent": "reach_accepted",
+      "hand": [
+        "man1",
+        "man2",
+        "man3",
+        "man3",
+        "man5",
+        "man6",
+        "man7",
+        "man8",
+        "pin3",
+        "pin4",
+        "pin5",
+        "sou3",
+        "sou3"
+      ],
+      "draw": null,
+      "dora": "pin2",
+      "remaining": 40,
+      "sourceFrameHandMatchPercent": 100,
+      "physicalValidation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 13
+      },
+      "sceneValidation": {
+        "valid": true,
+        "errors": []
+      },
+      "grading": "Existing lesson question unchanged; read-only illustration only"
+    },
+    {
+      "id": "check-20261015-dealer-eight-turn",
+      "number": 10,
+      "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/593be490-48e8-4aac-9912-625fc80be4c1.jpg",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 5,
+        "tv": 55
+      },
+      "sourceEvent": "tsumo",
+      "hand": [
+        "man4",
+        "man4",
+        "man5",
+        "pin1",
+        "pin1",
+        "pin3",
+        "pin3",
+        "sou2",
+        "sou3",
+        "sou4",
+        "sou7",
+        "sou8",
+        "sou9"
+      ],
+      "draw": "man6",
+      "dora": "ji1",
+      "remaining": 43,
+      "sourceFrameHandMatchPercent": 100,
+      "physicalValidation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "sceneValidation": {
+        "valid": true,
+        "errors": []
+      },
+      "grading": "Existing lesson question unchanged; read-only illustration only"
+    },
+    {
+      "id": "check-20261015-late-3900-call",
+      "number": 11,
+      "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/2fd345e6-9bcb-4f42-b7f1-af21ed05855f.jpg",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 6,
+        "tv": 50
+      },
+      "sourceEvent": "dahai",
+      "hand": [
+        "man1",
+        "man2",
+        "man3",
+        "man4",
+        "aka1",
+        "man8",
+        "man8",
+        "pin6",
+        "pin6",
+        "sou2",
+        "sou3",
+        "ji2",
+        "ji2"
+      ],
+      "draw": null,
+      "dora": "man9",
+      "remaining": 47,
+      "sourceFrameHandMatchPercent": 100,
+      "physicalValidation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 13
+      },
+      "sceneValidation": {
+        "valid": true,
+        "errors": []
+      },
+      "grading": "Existing lesson question unchanged; read-only illustration only"
+    },
+    {
+      "id": "card-20261015-chiitoi-finisher",
+      "number": 15,
+      "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c0c94e1b-c4c9-4d98-add1-6ad0e31e1b69.jpg",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 8,
+        "tv": 24
+      },
+      "sourceEvent": "dahai",
+      "hand": [
+        "man1",
+        "man1",
+        "man2",
+        "man2",
+        "man3",
+        "man6",
+        "man8",
+        "man8",
+        "pin5",
+        "pin5",
+        "sou3",
+        "ji1",
+        "ji1"
+      ],
+      "draw": null,
+      "dora": "sou3",
+      "remaining": 58,
+      "sourceFrameHandMatchPercent": 100,
+      "physicalValidation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 13
+      },
+      "sceneValidation": {
+        "valid": true,
+        "errors": []
+      },
+      "grading": "Existing lesson question unchanged; read-only illustration only"
+    }
+  ]
+}

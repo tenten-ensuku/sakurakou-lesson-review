@@ -2,6 +2,17 @@ import { tokenizeRichText } from "./lib/rich-text.mjs";
 import { tokenizeMahjongText } from "./lib/mahjong-tiles.mjs";
 import { BASE_PATH } from "./lib/notebook-types";
 import type { ReactNode } from "react";
+import { boardIllustration } from "./lib/board-illustrations.mjs";
+import { jsonBoardMarkup } from "./lib/json-board.mjs";
+
+function VerifiedBoardImage({ url, alt }: { url: string; alt?: string }) {
+  const scene = boardIllustration(url);
+  if (!scene) return null;
+  return <figure className="note-image verified-board-illustration">
+    <div className="json-board-drawing" dangerouslySetInnerHTML={{ __html: jsonBoardMarkup(scene, BASE_PATH) }} />
+    {alt && alt !== "画像" && <figcaption>{alt}</figcaption>}
+  </figure>;
+}
 export default function RichContent({
   text,
   links = true,
@@ -43,7 +54,7 @@ export default function RichContent({
         t.type === "text" ? (
           <span key={i}>{tiles(t.value)}</span>
         ) : t.type === "image" ? (
-          renderImage ? <span className="rich-image-slot" key={i}>{renderImage(t)}</span> : <figure className="note-image" key={i}>
+          renderImage ? <span className="rich-image-slot" key={i}>{renderImage(t)}</span> : boardIllustration(t.url) ? <VerifiedBoardImage key={i} url={t.url} alt={t.alt} /> : <figure className="note-image" key={i}>
             <a
               className="note-image-open"
               href={t.url}
