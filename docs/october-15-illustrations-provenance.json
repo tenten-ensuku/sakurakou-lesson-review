@@ -167,6 +167,129 @@
         "errors": []
       },
       "grading": "Existing lesson question unchanged; read-only illustration only"
+    },
+    {
+      "id": "check-20261015-unpushable-dora",
+      "number": 16,
+      "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/55affb99-fa3b-43ea-b489-736888fcd14d.jpg",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 8,
+        "tv": 105
+      },
+      "sourceEvent": "tsumo",
+      "hand": [
+        "man1",
+        "man1",
+        "man2",
+        "man2",
+        "man3",
+        "man8",
+        "man8",
+        "man8",
+        "pin5",
+        "pin5",
+        "sou4",
+        "ji1",
+        "ji1"
+      ],
+      "draw": "man7",
+      "dora": "sou3",
+      "remaining": 20,
+      "sourceFrameHandMatchPercent": 100,
+      "physicalValidation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "sceneValidation": {
+        "valid": true,
+        "errors": []
+      },
+      "grading": "Existing lesson question unchanged; read-only illustration only"
+    },
+    {
+      "id": "card-20261015-time-limited-safety",
+      "number": 17,
+      "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/207545c4-45db-408b-9eae-abed78442eae.jpg",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 8,
+        "tv": 113
+      },
+      "sourceEvent": "tsumo",
+      "hand": [
+        "man1",
+        "man1",
+        "man2",
+        "man2",
+        "man3",
+        "man8",
+        "man8",
+        "man8",
+        "pin5",
+        "pin5",
+        "sou4",
+        "ji1",
+        "ji1"
+      ],
+      "draw": "pin3",
+      "dora": "sou3",
+      "remaining": 16,
+      "sourceFrameHandMatchPercent": 100,
+      "physicalValidation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "sceneValidation": {
+        "valid": true,
+        "errors": []
+      },
+      "grading": "Existing lesson question unchanged; read-only illustration only"
+    },
+    {
+      "id": "check-20261015-effective-change-quality",
+      "number": 18,
+      "imageUrl": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/95e020f5-c92c-4265-9aab-c694ed07d16c.jpg",
+      "source": {
+        "reportId": "8961624c46df9bfb32d0caac72ac6f2979d0249f89962b6b362ad8e7ea80f05ev2_2",
+        "tw": 0,
+        "ts": 9,
+        "tv": 57
+      },
+      "sourceEvent": "tsumo",
+      "hand": [
+        "man2",
+        "man3",
+        "man4",
+        "man4",
+        "man6",
+        "man6",
+        "pin5",
+        "sou5",
+        "sou6",
+        "sou7",
+        "sou7",
+        "sou8",
+        "sou9"
+      ],
+      "draw": "man1",
+      "dora": "sou5",
+      "remaining": 43,
+      "sourceFrameHandMatchPercent": 100,
+      "physicalValidation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "sceneValidation": {
+        "valid": true,
+        "errors": []
+      },
+      "grading": "Existing lesson question unchanged; read-only illustration only"
     }
   ]
 }

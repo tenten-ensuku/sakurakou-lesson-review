@@ -13,8 +13,8 @@ import { boardIllustration } from "../app/lib/board-illustrations.mjs";
 import { jsonBoardMarkup } from "../app/lib/json-board.mjs";
 const rows=Object.entries(illustrations);
 
-test("Q9, Q10, Q11 and Q15 use exactly matched visible snapshots, not invented hands",()=>{
-  assert.deepEqual(proof.questions.map(q=>q.number),[9,10,11,15]);
+test("Q9, Q10, Q11 and Q15–Q18 use exactly matched visible snapshots, not invented hands",()=>{
+  assert.deepEqual(proof.questions.map(q=>q.number),[9,10,11,15,16,17,18]);
   assert.equal(proof.networkRequests,0);assert.equal(proof.imageUploads,0);
   for(const [url,value]of rows){
     const p=proof.questions.find(q=>q.id===value.id),scene=boardIllustration(url);
@@ -31,7 +31,7 @@ test("Q9, Q10, Q11 and Q15 use exactly matched visible snapshots, not invented h
   assert.equal(rows.find(([,q])=>q.number===10)[1].boardScene.hand.draw,"man6");
 });
 
-test("all four self hands are contiguous; only the draw is separate",()=>{
+test("all seven self hands are contiguous; only the draw is separate",()=>{
   for(const [,{boardScene:scene}]of rows){
     const positions=globalThis.NagaBoardV248.handPositions(scene),hand=positions.filter(p=>!p.draw);
     for(let i=1;i<hand.length;i++)assert.ok(Math.abs(hand[i].x-hand[i-1].x-29.3)<1e-8);

@@ -5,7 +5,7 @@
 - Cloudflare公開画面: https://sakurakou-lesson-review.pages.dev/
 - 既存公開画面: https://sakurakou-lesson-review.kobotenmitsu.chatgpt.site/ と https://tenten-ensuku.github.io/sakurakou-lesson-review/
 - このリポジトリは桜紅さん専用です。瀬利さりなさん版とは別の教材・DBです。
-- 表示版と内部版は `app/lib/lesson.mjs` の `APP_VERSION`（ver48）に統一しています。
+- 表示版と内部版は `app/lib/lesson.mjs` の `APP_VERSION`（ver49）に統一しています。
 
 10/15の何切る7問は、みん切るの共通生成器・盤面投影・描画器を使うJSON再現盤面です。元スクショの画像は削除せず、旧回答署名との互換用URLだけを保持します。牌のタップ直後に採点し、NAGAの数値と講師の正解候補を分離しています。公開用の対局者は全員「新人／初級」、他家の暗手牌は枚数のみです。
 

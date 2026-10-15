@@ -1,4 +1,4 @@
-// Four read-only lesson illustrations. Cached NAGA report only; no uploads.
+// Verified read-only lesson illustrations. Cached NAGA report only; no uploads.
 // Physical hands come exclusively from the shared replay. These snapshots do
 // not create discard/call questions, recommendations or new grading rules.
 import assert from "node:assert/strict";
@@ -18,6 +18,9 @@ const specs=[
   {number:10,id:"check-20261015-dealer-eight-turn",ts:5,tv:55,hand:["man4","man4","man5","pin1","pin1","pin3","pin3","sou2","sou3","sou4","sou7","sou8","sou9"],draw:"man6",dora:"ji1",remaining:43},
   {number:11,id:"check-20261015-late-3900-call",ts:6,tv:50,hand:["man1","man2","man3","man4","aka1","man8","man8","pin6","pin6","sou2","sou3","ji2","ji2"],draw:null,dora:"man9",remaining:47},
   {number:15,id:"card-20261015-chiitoi-finisher",ts:8,tv:24,hand:["man1","man1","man2","man2","man3","man6","man8","man8","pin5","pin5","sou3","ji1","ji1"],draw:null,dora:"sou3",remaining:58},
+  {number:16,id:"check-20261015-unpushable-dora",ts:8,tv:105,hand:["man1","man1","man2","man2","man3","man8","man8","man8","pin5","pin5","sou4","ji1","ji1"],draw:"man7",dora:"sou3",remaining:20},
+  {number:17,id:"card-20261015-time-limited-safety",ts:8,tv:113,hand:["man1","man1","man2","man2","man3","man8","man8","man8","pin5","pin5","sou4","ji1","ji1"],draw:"pin3",dora:"sou3",remaining:16},
+  {number:18,id:"check-20261015-effective-change-quality",ts:9,tv:57,hand:["man2","man3","man4","man4","man6","man6","pin5","sou5","sou6","sou7","sou7","sou8","sou9"],draw:"man1",dora:"sou5",remaining:43},
 ];
 const sorted=v=>[...v].sort(),output={},proof=[];
 for(const s of specs){
