@@ -6,7 +6,7 @@ export function normalizeNagaEvaluation(value, options) {
       !Number.isInteger(tw) || tw < 0 || tw > 3 || !Number.isInteger(ts) || ts < 0 || ts > 99 ||
       !Number.isInteger(tv) || tv < 0 || tv > 10000 || !Array.isArray(handSnapshot) ||
       handSnapshot.length !== options.length || handSnapshot.some((tile, i) => tile !== options[i]) ||
-      !Array.isArray(models) || !models.length || models.length > 5) return null;
+      !Array.isArray(models) || !models.length || models.length > 7) return null;
   const keys = kind === "discard" ? [...new Set(options)] : ["pon", "pass"];
   const clean = [], names = new Set();
   for (const model of models) {

@@ -1,7 +1,8 @@
 import illustrations from "../../content/verified-board-illustrations.json" with { type: "json" };
 import checkpoint from "../../content/october-15-checkpoint-board.json" with { type: "json" };
+import october26 from "../../content/october-26-boards.json" with { type: "json" };
 import "./naga-board-state.js";
-const bindings = { ...illustrations, ...checkpoint };
+const bindings = { ...illustrations, ...checkpoint, ...october26 };
 // Exact image-URL bindings preserve editable text, question revisions and past
 // answers. New/replaced student image URLs are never guessed or reinterpreted.
 export function boardIllustration(url) {

@@ -1,0 +1,414 @@
+{
+  "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+  "reportSha256": "8049b3a5ff9fe166f35ad03ec82c2fa5e51d308356e6e4825c318ac4b731000b",
+  "dataVersion": [
+    1,
+    1
+  ],
+  "generationRuleVersion": "meld-replay-v237",
+  "sharedRuntime": "C:/Users/kobot/Documents/Codex/2026-08-01/o/work/naga-nanikiru-site",
+  "questions": [
+    {
+      "scene": "s90",
+      "source": {
+        "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+        "tw": 0,
+        "ts": 0,
+        "tv": 17
+      },
+      "sourceFrameFullHandMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "remaining": 61,
+      "hand": [
+        "aka1",
+        "aka2",
+        "ji1",
+        "man1",
+        "man2",
+        "man2",
+        "man8",
+        "man8",
+        "pin8",
+        "sou1",
+        "sou1",
+        "sou3",
+        "sou5"
+      ],
+      "draw": "man1",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "models": [
+        "オメガ",
+        "ガンマ",
+        "ニシキ",
+        "ヒバカリ",
+        "カガシ",
+        "アナンタ",
+        "ウロボロス"
+      ],
+      "instructorAnswers": [
+        "8p"
+      ],
+      "snapshotOnly": false
+    },
+    {
+      "scene": "s700",
+      "source": {
+        "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+        "tw": 0,
+        "ts": 1,
+        "tv": 20
+      },
+      "sourceFrameFullHandMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "remaining": 60,
+      "hand": [
+        "aka1",
+        "man1",
+        "man1",
+        "man5",
+        "pin1",
+        "pin2",
+        "pin3",
+        "pin3",
+        "pin3",
+        "pin4",
+        "sou2",
+        "sou3",
+        "sou6"
+      ],
+      "draw": null,
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 13
+      },
+      "models": [],
+      "instructorAnswers": [],
+      "snapshotOnly": true
+    },
+    {
+      "scene": "s1290",
+      "source": {
+        "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+        "tw": 0,
+        "ts": 4,
+        "tv": 31
+      },
+      "sourceFrameFullHandMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "remaining": 55,
+      "hand": [
+        "man4",
+        "man8",
+        "pin2",
+        "pin2",
+        "pin5",
+        "pin7",
+        "pin8",
+        "pin9",
+        "sou4",
+        "sou6",
+        "sou6",
+        "sou7",
+        "sou9"
+      ],
+      "draw": "ji1",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "models": [
+        "オメガ",
+        "ガンマ",
+        "ニシキ",
+        "ヒバカリ",
+        "カガシ",
+        "アナンタ",
+        "ウロボロス"
+      ],
+      "instructorAnswers": [
+        "9p"
+      ],
+      "snapshotOnly": false
+    },
+    {
+      "scene": "s2190",
+      "source": {
+        "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+        "tw": 0,
+        "ts": 10,
+        "tv": 61
+      },
+      "sourceFrameFullHandMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "remaining": 39,
+      "hand": [
+        "aka1",
+        "aka2",
+        "man1",
+        "man2",
+        "pin2",
+        "pin3",
+        "pin4",
+        "pin4",
+        "pin5",
+        "pin5",
+        "pin6",
+        "sou6",
+        "sou8"
+      ],
+      "draw": "pin7",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "models": [],
+      "instructorAnswers": [],
+      "snapshotOnly": true
+    },
+    {
+      "scene": "s2285",
+      "source": {
+        "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+        "tw": 0,
+        "ts": 10,
+        "tv": 93
+      },
+      "sourceFrameFullHandMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "remaining": 24,
+      "hand": [
+        "aka1",
+        "aka2",
+        "pin2",
+        "pin3",
+        "pin4",
+        "pin4",
+        "pin5",
+        "pin5",
+        "pin6",
+        "pin7",
+        "sou4",
+        "sou6",
+        "sou8"
+      ],
+      "draw": "ji1",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "models": [],
+      "instructorAnswers": [],
+      "snapshotOnly": true
+    },
+    {
+      "scene": "s2615",
+      "source": {
+        "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+        "tw": 0,
+        "ts": 12,
+        "tv": 47
+      },
+      "sourceFrameFullHandMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "remaining": 47,
+      "hand": [
+        "man3",
+        "man4",
+        "man5",
+        "man7",
+        "pin2",
+        "pin2",
+        "pin3",
+        "pin4",
+        "pin4",
+        "sou4",
+        "sou4",
+        "sou6",
+        "sou8"
+      ],
+      "draw": "man8",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "models": [],
+      "instructorAnswers": [],
+      "snapshotOnly": true
+    },
+    {
+      "scene": "s3170",
+      "source": {
+        "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+        "tw": 0,
+        "ts": 13,
+        "tv": 51
+      },
+      "sourceFrameFullHandMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "remaining": 46,
+      "hand": [
+        "man6",
+        "man6",
+        "man8",
+        "pin3",
+        "pin3",
+        "sou2",
+        "sou2",
+        "sou3",
+        "sou4",
+        "sou6",
+        "sou7",
+        "sou9",
+        "sou9"
+      ],
+      "draw": "sou6",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "models": [],
+      "instructorAnswers": [],
+      "snapshotOnly": true
+    },
+    {
+      "scene": "s3550",
+      "source": {
+        "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+        "tw": 0,
+        "ts": 13,
+        "tv": 123
+      },
+      "sourceFrameFullHandMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "remaining": 10,
+      "hand": [
+        "man3",
+        "man6",
+        "man6",
+        "pin3",
+        "pin3",
+        "pin3",
+        "pin6",
+        "sou2",
+        "sou3",
+        "sou4",
+        "sou6",
+        "sou6",
+        "sou6"
+      ],
+      "draw": "pin4",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "models": [
+        "オメガ",
+        "ガンマ",
+        "ニシキ",
+        "ヒバカリ",
+        "カガシ",
+        "アナンタ",
+        "ウロボロス"
+      ],
+      "instructorAnswers": [
+        "4p"
+      ],
+      "snapshotOnly": false
+    },
+    {
+      "scene": "s3635",
+      "source": {
+        "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+        "tw": 0,
+        "ts": 14,
+        "tv": 69
+      },
+      "sourceFrameFullHandMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "remaining": 35,
+      "hand": [
+        "aka2",
+        "man1",
+        "man1",
+        "man3",
+        "man4",
+        "man5",
+        "man6",
+        "pin1",
+        "pin2",
+        "pin3",
+        "pin3",
+        "pin7",
+        "pin9"
+      ],
+      "draw": "sou5",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "models": [],
+      "instructorAnswers": [],
+      "snapshotOnly": true
+    },
+    {
+      "scene": "s3785",
+      "source": {
+        "reportId": "d6bd62a52540d10d042efb1c59eddb4fec1cf9192afeadfae3e13fa61f6a43b1v2_2",
+        "tw": 0,
+        "ts": 15,
+        "tv": 65
+      },
+      "sourceFrameFullHandMatchPercent": 100,
+      "drawMatched": true,
+      "doraMatched": true,
+      "remaining": 38,
+      "hand": [
+        "aka1",
+        "ji6",
+        "ji6",
+        "man3",
+        "man4",
+        "man5",
+        "man7",
+        "man7",
+        "pin2",
+        "pin3",
+        "pin3",
+        "pin4",
+        "pin5"
+      ],
+      "draw": "pin1",
+      "validation": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "models": [],
+      "instructorAnswers": [],
+      "snapshotOnly": true
+    }
+  ],
+  "networkRequests": 0,
+  "sourceReportsPublished": false
+}

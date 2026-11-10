@@ -6,6 +6,7 @@ import { septemberCheckStatements } from "./september-lessons.mjs";
 import { september29CheckStatements } from "./september-29-lessons.mjs";
 import { october8CheckStatements } from "./october-8-lessons.mjs";
 import { october15CheckStatements } from "./october-15-lessons.mjs";
+import { october26CheckStatements } from "./october-26-lessons.mjs";
 import { progressFrom, teacherView, newSecret } from "../app/lib/progress.mjs";
 export const validSecret = (v) => /^ensuku-[a-f0-9]{64}$/.test(v ?? "");
 export async function hashSecret(secret) {
@@ -83,7 +84,7 @@ export async function ensureLearning(db, requestScope = db) {
             .bind(q.id, JSON.stringify(q)),
         ),
       ])
-      .then(() => db.batch([...augustCheckStatements(db), ...septemberCheckStatements(db), ...september29CheckStatements(db), ...october8CheckStatements(db), ...october15CheckStatements(db)]))
+      .then(() => db.batch([...augustCheckStatements(db), ...septemberCheckStatements(db), ...september29CheckStatements(db), ...october8CheckStatements(db), ...october15CheckStatements(db), ...october26CheckStatements(db)]))
       .then(() => { initialized.add(db); })
       .finally(() => { initializing.delete(requestScope); });
     initializing.set(requestScope, pending);
