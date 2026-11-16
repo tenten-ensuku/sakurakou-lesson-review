@@ -1,0 +1,2497 @@
+{
+  "lessons": [
+    {
+      "id": "lesson-20261115-nejimaki",
+      "date": "11/15",
+      "teacher": "ねじまき鳥",
+      "title": "NANA桜紅さん牌譜検討｜超愚形・副露対応・打点",
+      "videoUrl": "https://www.youtube.com/watch?v=JbCOa8wJQVQ"
+    }
+  ],
+  "cards": [
+    {
+      "id": "card-20261115-chanta-fifth-block",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "question",
+      "question": "5ブロック目のくっつきを比べるとき、5mを残す案と白・発を残す案では、何が違う？\n\n![出題場面の盤面](https://sakurakou-lesson-review.tentensuku.chatgpt.site/materials/november-2026/boards/chanta-fifth-block.svg)",
+      "answer": "9m側は純チャン・三色に伸び、白・発の重なりならチャンタが残る。5mも両面になれば一盃口を含む一向聴だが、3m引きでは愚形が残りやすい。\n\n講師は5mを残す案も許容。くっつきの枚数だけで、できあがる一向聴の打点と形を決めない。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=309s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=2&tv=13\n\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit\n\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 2
+    },
+    {
+      "id": "card-20261115-avoid-two-out-kanchan",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "question",
+      "question": "何を切る？",
+      "answer": "9m切り。45mの両面を使い、索子は6s・8sの両方を受ける。\n\n8sは残り2枚でも、6sが4枚残っていて合計6枚。5sを切ると6s受けが消え、残り2枚のカン8sに固定される。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=444s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=2&tv=33\n\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 3,
+      "tileQuestion": {
+        "hand": [
+          "1m",
+          "1m",
+          "5m",
+          "9m",
+          "7p",
+          "8p",
+          "9p",
+          "5s",
+          "7s",
+          "7s",
+          "8s",
+          "9s",
+          "9s"
+        ],
+        "draw": "4m",
+        "correctTiles": [
+          "9m"
+        ],
+        "naga": {
+          "kind": "discard",
+          "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+          "tw": 3,
+          "ts": 2,
+          "tv": 33,
+          "handSnapshot": [
+            "1m",
+            "1m",
+            "5m",
+            "9m",
+            "7p",
+            "8p",
+            "9p",
+            "5s",
+            "7s",
+            "7s",
+            "8s",
+            "9s",
+            "9s",
+            "4m"
+          ],
+          "models": [
+            {
+              "name": "オメガ",
+              "rates": {
+                "1m": 0,
+                "5m": 0,
+                "9m": 98.02,
+                "7p": 0,
+                "8p": 0,
+                "9p": 0,
+                "5s": 1.85,
+                "7s": 0,
+                "8s": 0,
+                "9s": 0.07,
+                "4m": 0.03
+              }
+            },
+            {
+              "name": "ガンマ",
+              "rates": {
+                "1m": 0,
+                "5m": 0.01,
+                "9m": 95.21,
+                "7p": 0,
+                "8p": 0,
+                "9p": 0,
+                "5s": 3.62,
+                "7s": 0,
+                "8s": 0,
+                "9s": 1.05,
+                "4m": 0.07
+              }
+            },
+            {
+              "name": "ニシキ",
+              "rates": {
+                "1m": 0,
+                "5m": 0,
+                "9m": 98.49,
+                "7p": 0,
+                "8p": 0,
+                "9p": 0,
+                "5s": 1.21,
+                "7s": 0,
+                "8s": 0,
+                "9s": 0.24,
+                "4m": 0.02
+              }
+            },
+            {
+              "name": "ヒバカリ",
+              "rates": {
+                "1m": 0,
+                "5m": 0,
+                "9m": 82.11,
+                "7p": 0,
+                "8p": 0,
+                "9p": 0,
+                "5s": 17.42,
+                "7s": 0,
+                "8s": 0,
+                "9s": 0.36,
+                "4m": 0.08
+              }
+            },
+            {
+              "name": "カガシ",
+              "rates": {
+                "1m": 0,
+                "5m": 0.02,
+                "9m": 91.66,
+                "7p": 0,
+                "8p": 0,
+                "9p": 0,
+                "5s": 7.9,
+                "7s": 0,
+                "8s": 0,
+                "9s": 0.14,
+                "4m": 0.26
+              }
+            },
+            {
+              "name": "アナンタ",
+              "rates": {
+                "1m": 0,
+                "5m": 0,
+                "9m": 99.99,
+                "7p": 0,
+                "8p": 0,
+                "9p": 0,
+                "5s": 0,
+                "7s": 0,
+                "8s": 0,
+                "9s": 0,
+                "4m": 0
+              }
+            },
+            {
+              "name": "ウロボロス",
+              "rates": {
+                "1m": 0,
+                "5m": 0,
+                "9m": 99.99,
+                "7p": 0,
+                "8p": 0,
+                "9p": 0,
+                "5s": 0,
+                "7s": 0,
+                "8s": 0,
+                "9s": 0,
+                "4m": 0
+              }
+            }
+          ]
+        },
+        "boardScene": {
+          "schemaVersion": 1,
+          "renderer": "naga-json-board",
+          "source": {
+            "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+            "tw": 3,
+            "ts": 2,
+            "tv": 33
+          },
+          "round": {
+            "wind": "東",
+            "number": 2,
+            "honba": 1,
+            "kyotaku": 0,
+            "remaining": 54,
+            "dealer": 1
+          },
+          "doraIndicators": [
+            "sou2"
+          ],
+          "players": [
+            {
+              "seat": 3,
+              "relative": 0,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "西",
+              "score": 18400,
+              "concealedCount": 14,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji4",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji6",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": true
+                },
+                {
+                  "tile": "ji5",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin9",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": null
+            },
+            {
+              "seat": 0,
+              "relative": 1,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "北",
+              "score": 16400,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji2",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji3",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.0004
+            },
+            {
+              "seat": 1,
+              "relative": 2,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "東",
+              "score": 29800,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji3",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin9",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou8",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji5",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.0017
+            },
+            {
+              "seat": 2,
+              "relative": 3,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "南",
+              "score": 35400,
+              "concealedCount": 10,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "pin8",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin2",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou1",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [
+                {
+                  "type": "pon",
+                  "pai": "ji6",
+                  "consumed": [
+                    "ji6",
+                    "ji6"
+                  ],
+                  "from": 1
+                }
+              ],
+              "reached": false,
+              "tenpaiProbability": 0.0816
+            }
+          ],
+          "hand": {
+            "tiles": [
+              "man1",
+              "man1",
+              "man5",
+              "man9",
+              "pin7",
+              "pin8",
+              "pin9",
+              "sou5",
+              "sou7",
+              "sou7",
+              "sou8",
+              "sou9",
+              "sou9"
+            ],
+            "draw": "man4"
+          },
+          "immediateCall": false
+        }
+      }
+    },
+    {
+      "id": "card-20261115-keep-both-routes",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "question",
+      "question": "何を切る？",
+      "answer": "5m切り。七対子一向聴を維持しながら、面子手への変化も残す。\n\n例えば8mを縦引きすれば、面子手の一向聴に渡れる。対面は子の発1副露で、河にも聴牌を強く示す材料が乏しいため、現物5sを合わせるより自己都合を優先する。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=1238s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=4&tv=67\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit\n\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 5,
+      "tileQuestion": {
+        "hand": [
+          "5m",
+          "8m",
+          "8m",
+          "2p",
+          "2p",
+          "3p",
+          "4p",
+          "4p",
+          "5p",
+          "2s",
+          "2s",
+          "4s",
+          "4s"
+        ],
+        "draw": "5s",
+        "correctTiles": [
+          "5m"
+        ],
+        "naga": {
+          "kind": "discard",
+          "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+          "tw": 3,
+          "ts": 4,
+          "tv": 67,
+          "handSnapshot": [
+            "5m",
+            "8m",
+            "8m",
+            "2p",
+            "2p",
+            "3p",
+            "4p",
+            "4p",
+            "5p",
+            "2s",
+            "2s",
+            "4s",
+            "4s",
+            "5s"
+          ],
+          "models": [
+            {
+              "name": "オメガ",
+              "rates": {
+                "5m": 99.9,
+                "8m": 0,
+                "2p": 0,
+                "3p": 0.02,
+                "4p": 0,
+                "5p": 0.02,
+                "2s": 0,
+                "4s": 0,
+                "5s": 0.04
+              }
+            },
+            {
+              "name": "ガンマ",
+              "rates": {
+                "5m": 98.99,
+                "8m": 0,
+                "2p": 0.01,
+                "3p": 0.28,
+                "4p": 0,
+                "5p": 0.44,
+                "2s": 0,
+                "4s": 0.01,
+                "5s": 0.23
+              }
+            },
+            {
+              "name": "ニシキ",
+              "rates": {
+                "5m": 99.84,
+                "8m": 0,
+                "2p": 0,
+                "3p": 0.04,
+                "4p": 0,
+                "5p": 0.03,
+                "2s": 0,
+                "4s": 0,
+                "5s": 0.06
+              }
+            },
+            {
+              "name": "ヒバカリ",
+              "rates": {
+                "5m": 98.91,
+                "8m": 0,
+                "2p": 0,
+                "3p": 0.03,
+                "4p": 0,
+                "5p": 0.77,
+                "2s": 0,
+                "4s": 0.01,
+                "5s": 0.24
+              }
+            },
+            {
+              "name": "カガシ",
+              "rates": {
+                "5m": 99.92,
+                "8m": 0,
+                "2p": 0.01,
+                "3p": 0,
+                "4p": 0,
+                "5p": 0,
+                "2s": 0,
+                "4s": 0.02,
+                "5s": 0.01
+              }
+            },
+            {
+              "name": "アナンタ",
+              "rates": {
+                "5m": 99.99,
+                "8m": 0,
+                "2p": 0,
+                "3p": 0,
+                "4p": 0,
+                "5p": 0,
+                "2s": 0,
+                "4s": 0,
+                "5s": 0
+              }
+            },
+            {
+              "name": "ウロボロス",
+              "rates": {
+                "5m": 99.59,
+                "8m": 0,
+                "2p": 0,
+                "3p": 0.16,
+                "4p": 0,
+                "5p": 0,
+                "2s": 0,
+                "4s": 0,
+                "5s": 0.24
+              }
+            }
+          ]
+        },
+        "boardScene": {
+          "schemaVersion": 1,
+          "renderer": "naga-json-board",
+          "source": {
+            "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+            "tw": 3,
+            "ts": 4,
+            "tv": 67
+          },
+          "round": {
+            "wind": "東",
+            "number": 3,
+            "honba": 0,
+            "kyotaku": 0,
+            "remaining": 37,
+            "dealer": 2
+          },
+          "doraIndicators": [
+            "pin6"
+          ],
+          "players": [
+            {
+              "seat": 3,
+              "relative": 0,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "南",
+              "score": 20900,
+              "concealedCount": 14,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji4",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou7",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin8",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin8",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou7",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": null
+            },
+            {
+              "seat": 0,
+              "relative": 1,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "西",
+              "score": 1700,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "man9",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji7",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji3",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou8",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou8",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou9",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji6",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": true
+                },
+                {
+                  "tile": "sou5",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.0194
+            },
+            {
+              "seat": 1,
+              "relative": 2,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "北",
+              "score": 48100,
+              "concealedCount": 10,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji2",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji4",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji2",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji1",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji5",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man1",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [
+                {
+                  "type": "pon",
+                  "pai": "ji6",
+                  "consumed": [
+                    "ji6",
+                    "ji6"
+                  ],
+                  "from": 3
+                }
+              ],
+              "reached": false,
+              "tenpaiProbability": 0.0426
+            },
+            {
+              "seat": 2,
+              "relative": 3,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "東",
+              "score": 29300,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji4",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou8",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji5",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou7",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou3",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji4",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man7",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man9",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.0438
+            }
+          ],
+          "hand": {
+            "tiles": [
+              "man5",
+              "man8",
+              "man8",
+              "pin2",
+              "pin2",
+              "pin3",
+              "pin4",
+              "pin4",
+              "pin5",
+              "sou2",
+              "sou2",
+              "sou4",
+              "sou4"
+            ],
+            "draw": "sou5"
+          },
+          "immediateCall": false
+        }
+      }
+    },
+    {
+      "id": "card-20261115-prepare-open-tanyao",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "question",
+      "question": "次の6sをチーして食いタンへ向かうなら、何を切る？",
+      "answer": "1p切り。2枚目の6sをチーする食いタン手順に備える。\n\n6sをチーすると、123sはそのまま使えない。2sを残せば1sを外した後に223sが残り、組み替えやすい。6sを鳴かない方針なら1pと2sは安全度でも比較できる。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=2171s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=5&tv=33\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 7,
+      "tileQuestion": {
+        "hand": [
+          "5m",
+          "6m",
+          "6m",
+          "8m",
+          "8m",
+          "1p",
+          "3p",
+          "4p",
+          "1s",
+          "2s",
+          "3s",
+          "0s",
+          "7s"
+        ],
+        "draw": "2s",
+        "correctTiles": [
+          "1p"
+        ],
+        "naga": {
+          "kind": "discard",
+          "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+          "tw": 3,
+          "ts": 5,
+          "tv": 33,
+          "handSnapshot": [
+            "5m",
+            "6m",
+            "6m",
+            "8m",
+            "8m",
+            "1p",
+            "3p",
+            "4p",
+            "1s",
+            "2s",
+            "3s",
+            "0s",
+            "7s",
+            "2s"
+          ],
+          "models": [
+            {
+              "name": "オメガ",
+              "rates": {
+                "5m": 0,
+                "6m": 6.54,
+                "8m": 0,
+                "1p": 91.19,
+                "3p": 0,
+                "4p": 0,
+                "1s": 0,
+                "2s": 2.24,
+                "3s": 0,
+                "0s": 0,
+                "7s": 0
+              }
+            },
+            {
+              "name": "ガンマ",
+              "rates": {
+                "5m": 0,
+                "6m": 20.14,
+                "8m": 0,
+                "1p": 66.57,
+                "3p": 0,
+                "4p": 0,
+                "1s": 0,
+                "2s": 13.25,
+                "3s": 0,
+                "0s": 0,
+                "7s": 0
+              }
+            },
+            {
+              "name": "ニシキ",
+              "rates": {
+                "5m": 0,
+                "6m": 9.86,
+                "8m": 0,
+                "1p": 85.67,
+                "3p": 0,
+                "4p": 0,
+                "1s": 0,
+                "2s": 4.44,
+                "3s": 0,
+                "0s": 0,
+                "7s": 0
+              }
+            },
+            {
+              "name": "ヒバカリ",
+              "rates": {
+                "5m": 0,
+                "6m": 10.86,
+                "8m": 0,
+                "1p": 62.66,
+                "3p": 0,
+                "4p": 0,
+                "1s": 0,
+                "2s": 26.45,
+                "3s": 0,
+                "0s": 0,
+                "7s": 0
+              }
+            },
+            {
+              "name": "カガシ",
+              "rates": {
+                "5m": 0,
+                "6m": 10.16,
+                "8m": 0,
+                "1p": 89.23,
+                "3p": 0,
+                "4p": 0,
+                "1s": 0,
+                "2s": 0.58,
+                "3s": 0,
+                "0s": 0,
+                "7s": 0
+              }
+            },
+            {
+              "name": "アナンタ",
+              "rates": {
+                "5m": 0,
+                "6m": 11.31,
+                "8m": 0,
+                "1p": 88.68,
+                "3p": 0,
+                "4p": 0,
+                "1s": 0,
+                "2s": 0,
+                "3s": 0,
+                "0s": 0,
+                "7s": 0
+              }
+            },
+            {
+              "name": "ウロボロス",
+              "rates": {
+                "5m": 0,
+                "6m": 0.24,
+                "8m": 0,
+                "1p": 99.75,
+                "3p": 0,
+                "4p": 0,
+                "1s": 0,
+                "2s": 0,
+                "3s": 0,
+                "0s": 0,
+                "7s": 0
+              }
+            }
+          ]
+        },
+        "boardScene": {
+          "schemaVersion": 1,
+          "renderer": "naga-json-board",
+          "source": {
+            "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+            "tw": 3,
+            "ts": 5,
+            "tv": 33
+          },
+          "round": {
+            "wind": "東",
+            "number": 4,
+            "honba": 1,
+            "kyotaku": 0,
+            "remaining": 54,
+            "dealer": 3
+          },
+          "doraIndicators": [
+            "sou5"
+          ],
+          "players": [
+            {
+              "seat": 3,
+              "relative": 0,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "東",
+              "score": 22400,
+              "concealedCount": 14,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji6",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji7",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man2",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin8",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": null
+            },
+            {
+              "seat": 0,
+              "relative": 1,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "南",
+              "score": 200,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "pin2",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man3",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man6",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin4",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.0095
+            },
+            {
+              "seat": 1,
+              "relative": 2,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "西",
+              "score": 49600,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji2",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": true
+                },
+                {
+                  "tile": "ji5",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji6",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin9",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.0039
+            },
+            {
+              "seat": 2,
+              "relative": 3,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "北",
+              "score": 27800,
+              "concealedCount": 10,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "sou8",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou2",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou6",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin7",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [
+                {
+                  "type": "pon",
+                  "pai": "ji2",
+                  "consumed": [
+                    "ji2",
+                    "ji2"
+                  ],
+                  "from": 3
+                }
+              ],
+              "reached": false,
+              "tenpaiProbability": 0.023
+            }
+          ],
+          "hand": {
+            "tiles": [
+              "man5",
+              "man6",
+              "man6",
+              "man8",
+              "man8",
+              "pin1",
+              "pin3",
+              "pin4",
+              "sou1",
+              "sou2",
+              "sou3",
+              "aka3",
+              "sou7"
+            ],
+            "draw": "sou2"
+          },
+          "immediateCall": false
+        }
+      }
+    },
+    {
+      "id": "card-20261115-keep-dora-pair-upside",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "question",
+      "question": "白・北をポンしたこの場面で、ドラ2mをすぐ切らず、4mから切る理由は？\n\n![出題場面の盤面](https://sakurakou-lesson-review.tentensuku.chatgpt.site/materials/november-2026/boards/keep-dora-pair-upside.svg)",
+      "answer": "4mを先に切る。2m・4mはどちらも危険牌で、4mを残しても安全牌確保にはならない。\n\nドラ2mが重なれば満貫が見える。後で明確な安全牌を引いたなら、そこでドラと入れ替える選択はある。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=2298s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=6&tv=41\n\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 8
+    },
+    {
+      "id": "card-20261115-keep-honitsu-upside",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "question",
+      "question": "何を切る？",
+      "answer": "2s・4sから切って、筒子のホンイツとドラ7sの変化を残す。\n\nカン3sを固定すると、発のみの安い鳴き手になりやすい。4ブロックある染めの渡りを優先。4対子ではドラ7sの重なりも七対子一向聴への種になる。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=2480s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=7&tv=21\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit\n\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "sortOrder": 9,
+      "tileQuestion": {
+        "hand": [
+          "1p",
+          "2p",
+          "2p",
+          "3p",
+          "3p",
+          "6p",
+          "9p",
+          "9p",
+          "4s",
+          "7s",
+          "1z",
+          "5z",
+          "5z"
+        ],
+        "draw": "2s",
+        "correctTiles": [
+          "2s",
+          "4s"
+        ],
+        "naga": {
+          "kind": "discard",
+          "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+          "tw": 3,
+          "ts": 7,
+          "tv": 21,
+          "handSnapshot": [
+            "1p",
+            "2p",
+            "2p",
+            "3p",
+            "3p",
+            "6p",
+            "9p",
+            "9p",
+            "4s",
+            "7s",
+            "1z",
+            "5z",
+            "5z",
+            "2s"
+          ],
+          "models": [
+            {
+              "name": "オメガ",
+              "rates": {
+                "1p": 0,
+                "2p": 0,
+                "3p": 0,
+                "6p": 0.05,
+                "9p": 0,
+                "4s": 58.06,
+                "7s": 0.49,
+                "1z": 3.68,
+                "5z": 0,
+                "2s": 37.7
+              }
+            },
+            {
+              "name": "ガンマ",
+              "rates": {
+                "1p": 0,
+                "2p": 0,
+                "3p": 0,
+                "6p": 0.08,
+                "9p": 0,
+                "4s": 30.86,
+                "7s": 4.17,
+                "1z": 4.36,
+                "5z": 0,
+                "2s": 60.51
+              }
+            },
+            {
+              "name": "ニシキ",
+              "rates": {
+                "1p": 0,
+                "2p": 0,
+                "3p": 0,
+                "6p": 0.06,
+                "9p": 0,
+                "4s": 56.52,
+                "7s": 1.15,
+                "1z": 4.38,
+                "5z": 0,
+                "2s": 37.88
+              }
+            },
+            {
+              "name": "ヒバカリ",
+              "rates": {
+                "1p": 0,
+                "2p": 0,
+                "3p": 0,
+                "6p": 0.07,
+                "9p": 0,
+                "4s": 39.54,
+                "7s": 0.43,
+                "1z": 1.63,
+                "5z": 0,
+                "2s": 58.3
+              }
+            },
+            {
+              "name": "カガシ",
+              "rates": {
+                "1p": 0,
+                "2p": 0,
+                "3p": 0,
+                "6p": 0.1,
+                "9p": 0,
+                "4s": 19.52,
+                "7s": 0.25,
+                "1z": 2.18,
+                "5z": 0,
+                "2s": 77.92
+              }
+            },
+            {
+              "name": "アナンタ",
+              "rates": {
+                "1p": 0,
+                "2p": 0,
+                "3p": 0,
+                "6p": 0,
+                "9p": 0,
+                "4s": 80.42,
+                "7s": 0.52,
+                "1z": 0.01,
+                "5z": 0,
+                "2s": 19.03
+              }
+            },
+            {
+              "name": "ウロボロス",
+              "rates": {
+                "1p": 0,
+                "2p": 0,
+                "3p": 0,
+                "6p": 0,
+                "9p": 0,
+                "4s": 73.42,
+                "7s": 0,
+                "1z": 0,
+                "5z": 0,
+                "2s": 26.57
+              }
+            }
+          ]
+        },
+        "boardScene": {
+          "schemaVersion": 1,
+          "renderer": "naga-json-board",
+          "source": {
+            "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+            "tw": 3,
+            "ts": 7,
+            "tv": 21
+          },
+          "round": {
+            "wind": "南",
+            "number": 2,
+            "honba": 0,
+            "kyotaku": 0,
+            "remaining": 59,
+            "dealer": 1
+          },
+          "doraIndicators": [
+            "sou6"
+          ],
+          "players": [
+            {
+              "seat": 3,
+              "relative": 0,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "西",
+              "score": 24400,
+              "concealedCount": 14,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "man2",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man5",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": null
+            },
+            {
+              "seat": 0,
+              "relative": 1,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "北",
+              "score": 200,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "man1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou4",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.0054
+            },
+            {
+              "seat": 1,
+              "relative": 2,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "東",
+              "score": 49900,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji4",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin6",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.0122
+            },
+            {
+              "seat": 2,
+              "relative": 3,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "南",
+              "score": 25500,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji7",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man9",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji4",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.0013
+            }
+          ],
+          "hand": {
+            "tiles": [
+              "pin1",
+              "pin2",
+              "pin2",
+              "pin3",
+              "pin3",
+              "pin6",
+              "pin9",
+              "pin9",
+              "sou4",
+              "sou7",
+              "ji1",
+              "ji6",
+              "ji6"
+            ],
+            "draw": "sou2"
+          },
+          "immediateCall": false
+        }
+      }
+    },
+    {
+      "id": "card-20261115-last-hand-value",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "question",
+      "question": "上位との大差を縮めたいオーラスの親。何を切る？",
+      "answer": "4p切り。平和・234三色を目指し、東・発は後手で押し返すために残す。\n\n1p・4pの縦引きで取れる愚形リーノミは、2000点を和了しても大差が残る。安い和了で目的を達成できる点況なら、縦受けを残す価値は上がる。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=3934s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=10&tv=49\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 12,
+      "tileQuestion": {
+        "hand": [
+          "3m",
+          "4m",
+          "8m",
+          "9m",
+          "1p",
+          "1p",
+          "3p",
+          "4p",
+          "2s",
+          "3s",
+          "4s",
+          "1z",
+          "5z"
+        ],
+        "draw": "4p",
+        "correctTiles": [
+          "4p"
+        ],
+        "naga": {
+          "kind": "discard",
+          "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+          "tw": 3,
+          "ts": 10,
+          "tv": 49,
+          "handSnapshot": [
+            "3m",
+            "4m",
+            "8m",
+            "9m",
+            "1p",
+            "1p",
+            "3p",
+            "4p",
+            "2s",
+            "3s",
+            "4s",
+            "1z",
+            "5z",
+            "4p"
+          ],
+          "models": [
+            {
+              "name": "オメガ",
+              "rates": {
+                "3m": 0,
+                "4m": 0,
+                "8m": 0.09,
+                "9m": 0,
+                "1p": 0.08,
+                "3p": 0,
+                "4p": 98.25,
+                "2s": 0,
+                "3s": 0,
+                "4s": 0.01,
+                "1z": 1.01,
+                "5z": 0.5
+              }
+            },
+            {
+              "name": "ガンマ",
+              "rates": {
+                "3m": 0,
+                "4m": 0.01,
+                "8m": 0.05,
+                "9m": 0.01,
+                "1p": 0.06,
+                "3p": 0,
+                "4p": 97.31,
+                "2s": 0,
+                "3s": 0,
+                "4s": 0.02,
+                "1z": 1.46,
+                "5z": 1.03
+              }
+            },
+            {
+              "name": "ニシキ",
+              "rates": {
+                "3m": 0,
+                "4m": 0.01,
+                "8m": 0.06,
+                "9m": 0.01,
+                "1p": 0.1,
+                "3p": 0,
+                "4p": 98.18,
+                "2s": 0,
+                "3s": 0,
+                "4s": 0.04,
+                "1z": 1.15,
+                "5z": 0.39
+              }
+            },
+            {
+              "name": "ヒバカリ",
+              "rates": {
+                "3m": 0,
+                "4m": 0,
+                "8m": 0.04,
+                "9m": 0,
+                "1p": 0.01,
+                "3p": 0,
+                "4p": 96.71,
+                "2s": 0,
+                "3s": 0,
+                "4s": 0,
+                "1z": 1.97,
+                "5z": 1.22
+              }
+            },
+            {
+              "name": "カガシ",
+              "rates": {
+                "3m": 0,
+                "4m": 0,
+                "8m": 0.01,
+                "9m": 0,
+                "1p": 0,
+                "3p": 0,
+                "4p": 97.32,
+                "2s": 0,
+                "3s": 0,
+                "4s": 0,
+                "1z": 2.14,
+                "5z": 0.5
+              }
+            },
+            {
+              "name": "アナンタ",
+              "rates": {
+                "3m": 0,
+                "4m": 0,
+                "8m": 0,
+                "9m": 0,
+                "1p": 0,
+                "3p": 0,
+                "4p": 99.84,
+                "2s": 0,
+                "3s": 0.01,
+                "4s": 0.02,
+                "1z": 0.01,
+                "5z": 0.08
+              }
+            },
+            {
+              "name": "ウロボロス",
+              "rates": {
+                "3m": 0,
+                "4m": 0,
+                "8m": 0,
+                "9m": 0,
+                "1p": 0,
+                "3p": 0,
+                "4p": 99.82,
+                "2s": 0,
+                "3s": 0,
+                "4s": 0,
+                "1z": 0.03,
+                "5z": 0.13
+              }
+            }
+          ]
+        },
+        "boardScene": {
+          "schemaVersion": 1,
+          "renderer": "naga-json-board",
+          "source": {
+            "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+            "tw": 3,
+            "ts": 10,
+            "tv": 49
+          },
+          "round": {
+            "wind": "南",
+            "number": 4,
+            "honba": 0,
+            "kyotaku": 0,
+            "remaining": 47,
+            "dealer": 3
+          },
+          "doraIndicators": [
+            "sou9"
+          ],
+          "players": [
+            {
+              "seat": 3,
+              "relative": 0,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "東",
+              "score": 16900,
+              "concealedCount": 14,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "sou9",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji2",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou8",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji4",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin6",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": null
+            },
+            {
+              "seat": 0,
+              "relative": 1,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "南",
+              "score": -1300,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji1",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man9",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji6",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": true
+                },
+                {
+                  "tile": "ji1",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji7",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "man1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": true
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.0073
+            },
+            {
+              "seat": 1,
+              "relative": 2,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "西",
+              "score": 41900,
+              "concealedCount": 7,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "sou1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji3",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji5",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "ji7",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin9",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou8",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [
+                {
+                  "type": "pon",
+                  "pai": "ji6",
+                  "consumed": [
+                    "ji6",
+                    "ji6"
+                  ],
+                  "from": 3
+                },
+                {
+                  "type": "chi",
+                  "pai": "man1",
+                  "consumed": [
+                    "man2",
+                    "man3"
+                  ],
+                  "from": 3
+                }
+              ],
+              "reached": false,
+              "tenpaiProbability": 0.171
+            },
+            {
+              "seat": 2,
+              "relative": 3,
+              "name": "新人",
+              "rank": "初級",
+              "rating": null,
+              "wind": "北",
+              "score": 42500,
+              "concealedCount": 13,
+              "hiddenSlots": [
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true,
+                true
+              ],
+              "hiddenDraw": false,
+              "river": [
+                {
+                  "tile": "ji3",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou2",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "sou9",
+                  "tsumogiri": true,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "pin1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                },
+                {
+                  "tile": "aka1",
+                  "tsumogiri": false,
+                  "riichi": false,
+                  "called": false
+                }
+              ],
+              "melds": [],
+              "reached": false,
+              "tenpaiProbability": 0.1447
+            }
+          ],
+          "hand": {
+            "tiles": [
+              "man3",
+              "man4",
+              "man8",
+              "man9",
+              "pin1",
+              "pin1",
+              "pin3",
+              "pin4",
+              "sou2",
+              "sou3",
+              "sou4",
+              "ji1",
+              "ji6"
+            ],
+            "draw": "pin4"
+          },
+          "immediateCall": false
+        }
+      }
+    },
+    {
+      "id": "card-20261115-summary-1",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "note",
+      "question": "授業の要約 1",
+      "answer": "![東2局：3pは現物。9pの押しは残りの安全牌と比較](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/aa2d382f-7c85-4062-9c35-5064b2c4a6aa.png)\n\n現物が1種類しかない二向聴：9pの当たり方を数える\n\n9pは3枚見えで双碰に当たらず、主な放銃パターンは69pの両面。現物3pを切っても次の安全牌がないので、形を残す9p切りには理由がある。 9pは現物ではない。講師自身は3pから降りる案も選ぶと述べており、9p押しを唯一解にはしていない。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=156s\n\n![東2局1本場：5m・9m・白・発のどれで5ブロック目を作るか](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/7451096d-51b9-483c-a229-bc1c0853c051.png)\n\nくっつくかだけでなく、くっついた後の形を見る\n\n9m側は純チャン・三色に伸び、白・発の重なりならチャンタが残る。5mも両面になれば一盃口を含む一向聴だが、3m引きでは愚形が残りやすい。 講師は5mを残す案も許容。くっつきの枚数だけで、できあがる一向聴の打点と形を決めない。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=309s\n\n![東2局1本場：6sは4枚、8sは自分と河に1枚ずつ見えている](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/5272b554-99b3-4ddc-9021-4c07d5adb66a.png)\n\nリャンカンを割って残り2枚の嵌張に固定しない\n\n9m切り。45mの両面を使い、索子は6s・8sの両方を受ける。 8sは残り2枚でも、6sが4枚残っていて合計6枚。5sを切ると6s受けが消え、残り2枚のカン8sに固定される。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=444s\n\n![東2局1本場：5pが重なり、対面から立直。8sは残り1枚](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/127a0ef7-9824-439d-97a4-a216d2a77e26.png)\n\n雀頭の差し替えには気づく。押すかは別に決める\n\n5pを雀頭にして1mを切れば、3m・6m・8s受けの一向聴を維持できる。 ただし8sは残り1枚。1mに残る単騎への放銃まで避けたいなら、9pを抜いて降りるのも許容。形の認識と押し引きは分ける。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=571s\n\n![東3局：対面は発の1副露だけ。ツモ5sで二つの手順を比較](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/609c6d3e-462f-4b87-b38c-272aba0f249a.png)\n\n七対子一向聴でも、面子手の一向聴を残せる\n\n5m切り。七対子一向聴を維持しながら、面子手への変化も残す。 例えば8mを縦引きすれば、面子手の一向聴に渡れる。対面は子の発1副露で、河にも聴牌を強く示す材料が乏しいため、現物5sを合わせるより自己都合を優先する。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=1238s",
+      "sortOrder": -3
+    },
+    {
+      "id": "card-20261115-summary-2",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "note",
+      "question": "授業の要約 2",
+      "answer": "![東4局1本場：上家の6sが1枚目。6sはドラ](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/396268ba-5f5c-4244-8f2c-38b3bd9deade.png)\n\n鳴くか迷ったら、見送った後に何枚残るか\n\n1枚目はスルーしても残り3枚。2枚目を見送ると残り2枚の超愚形になるため、同じ手格好で食いタンへ進めるなら2枚目からチー。 1枚目を鳴くこと自体も講師は否定していない。出た牌が同じでも、見送った後の残り枚数が変われば基準も変わる。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=2046s\n\n![東4局1本場：6sが1枚見えた後の2sツモ](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/465c062d-6c36-4daf-9888-6808c709be59.png)\n\n次に鳴くなら、鳴いた後の組み替えまで準備する\n\n1p切り。2枚目の6sをチーする食いタン手順に備える。 6sをチーすると、123sはそのまま使えない。2sを残せば1sを外した後に223sが残り、組み替えやすい。6sを鳴かない方針なら1pと2sは安全度でも比較できる。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=2171s\n\n![南1局：白・北をポン。ドラ2mと4mを比較](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/7969c42f-7e8b-4795-8f2d-198b4f9ef721.png)\n\n危険牌同士なら、ドラを切っても守備にはならない\n\n4mを先に切る。2m・4mはどちらも危険牌で、4mを残しても安全牌確保にはならない。 ドラ2mが重なれば満貫が見える。後で明確な安全牌を引いたなら、そこでドラと入れ替える選択はある。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=2298s\n\n![南2局：筒子と発で4ブロック。2sツモ、ドラ7s](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/389a74df-ac93-41c9-a9dd-05d293579b9a.png)\n\n染め色に4ブロックあるなら、ノミ手に急がない\n\n2s・4sから切って、筒子のホンイツとドラ7sの変化を残す。 カン3sを固定すると、発のみの安い鳴き手になりやすい。4ブロックある染めの渡りを優先。4対子ではドラ7sの重なりも七対子一向聴への種になる。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=2480s\n\n![南2局：西切りで聴牌。下家は200点](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/21fc8a39-828f-4308-bb4e-9c0d5fbef308.png)\n\n段位戦とNANAリーグでは、同じ聴牌でも目標が違う\n\n講師はこのNANAリーグの点況では立直。安い和了で2着を確保するより、トップに届く打点を取りに行く。 飛び終了のある段位戦なら、下家を飛ばすロンやツモで2着終了できるためダマも候補。NAGAのバーだけで終了条件の扱いは断定しない。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=3065s",
+      "sortOrder": -2
+    },
+    {
+      "id": "card-20261115-summary-3",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "note",
+      "question": "授業の要約 3",
+      "answer": "![南3局：4pを雀頭と見た2p切りと、8s先切りの比較](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c1b78d20-0c03-4c43-bcfe-1488c76c7547.png)\n\nくっつき二向聴に見えても、雀頭を固定しすぎない\n\n8s切りなら、3pを引いて234pを面子にし、索子側で雀頭を作る道も残る。 4pを頭と決めれば2p切りは自然。ただし8sは9sが2枚見えで、4sとも受けが一部かぶる。今回は8s切りが柔軟だが、講師も2p切りを大きなミスとは扱っていない。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=3337s\n\n![南4局：親、上位とは約2万5000点差。4pツモ](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/82b481e0-4b06-4eb6-8f92-7877868e91c2.png)\n\n大差のオーラスでは、安い連荘に寄せすぎない\n\n4p切り。平和・234三色を目指し、東・発は後手で押し返すために残す。 1p・4pの縦引きで取れる愚形リーノミは、2000点を和了しても大差が残る。安い和了で目的を達成できる点況なら、縦受けを残す価値は上がる。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=3934s\n\n![南4局の中盤：上家の2mをチーするか](https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/bbffce3e-e355-4192-9919-10958ed3de37.png)\n\n門前高打点を狙う局でも、間に合わなくなったら方針を変える\n\n2mをチーして234三色の片和了一向聴にする案を講師は支持。 序盤は安い連荘のために受けを広げる価値が低かった。ただし他家に先に和了されそうになったら、門前の理想形を待つより、鳴いて打点のあるルートを間に合わせる。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=4133s",
+      "sortOrder": -1
+    }
+  ],
+  "items": [
+    {
+      "id": "check-20261115-one-safe-or-shape",
+      "theoryId": "",
+      "type": "choice",
+      "question": "立直に対して、現物3pで降りる案に加え、9pで二向聴を維持する案も許容されたのはなぜ？\n\n![出題場面の盤面](https://sakurakou-lesson-review.tentensuku.chatgpt.site/materials/november-2026/boards/one-safe-or-shape.svg)",
+      "choices": [
+        "9pは3枚見えで主に69pの両面にしか当たらず、3pを切っても次の現物がない",
+        "9pが立直者の現物だから",
+        "9pを切ると良形聴牌になるから",
+        "対子落としなら最初の1枚も必ず安全だから"
+      ],
+      "correctIndex": 0,
+      "explanation": "9pは3枚見えで双碰に当たらず、主な放銃パターンは69pの両面。現物3pを切っても次の安全牌がないので、形を残す9p切りには理由がある。\n\n9pは現物ではない。講師自身は3pから降りる案も選ぶと述べており、9p押しを唯一解にはしていない。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=156s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=1&tv=55\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20261115-nejimaki"
+      ],
+      "sortOrder": 1,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261115-head-swap-under-riichi",
+      "theoryId": "",
+      "type": "choice",
+      "question": "対面の立直を受けたこの場面。1m切りで一向聴を維持できるのはなぜ？\n\n![出題場面の盤面](https://sakurakou-lesson-review.tentensuku.chatgpt.site/materials/november-2026/boards/head-swap-under-riichi.svg)",
+      "choices": [
+        "9pを切っても789pの面子が残るから",
+        "5pを雀頭に差し替えられるから",
+        "1mが立直者の現物だから",
+        "8sが4枚残っているから"
+      ],
+      "correctIndex": 1,
+      "explanation": "5pを雀頭にして1mを切れば、3m・6m・8s受けの一向聴を維持できる。\n\nただし8sは残り1枚。1mに残る単騎への放銃まで避けたいなら、9pを抜いて降りるのも許容。形の認識と押し引きは分ける。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=571s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=2&tv=59\n\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20261115-nejimaki"
+      ],
+      "sortOrder": 4,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261115-second-copy-call",
+      "theoryId": "",
+      "type": "choice",
+      "question": "講師の基本線では、上家の6sを1枚目と2枚目でどう扱う？\n\n![出題場面の盤面](https://sakurakou-lesson-review.tentensuku.chatgpt.site/materials/november-2026/boards/second-copy-call.svg)",
+      "choices": [
+        "1枚目も2枚目も、残り枚数によらずスルー",
+        "1枚目はスルー。2枚目は残り2枚になる前にチー",
+        "1枚目だけチー。2枚目はドラだからスルー",
+        "1枚目も2枚目も、タンヤオへの移行を確認せずチー"
+      ],
+      "correctIndex": 1,
+      "explanation": "1枚目はスルーしても残り3枚。2枚目を見送ると残り2枚の超愚形になるため、同じ手格好で食いタンへ進めるなら2枚目からチー。\n\n1枚目を鳴くこと自体も講師は否定していない。出た牌が同じでも、見送った後の残り枚数が変われば基準も変わる。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=2046s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=5&tv=24\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20261115-nejimaki"
+      ],
+      "sortOrder": 6,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261115-league-riichi-goal",
+      "theoryId": "",
+      "type": "choice",
+      "question": "この聴牌で、段位戦ではダマも候補なのに、講師がNANAリーグでは立直を推した理由は？\n\n![出題場面の盤面](https://sakurakou-lesson-review.tentensuku.chatgpt.site/materials/november-2026/boards/league-riichi-goal.svg)",
+      "choices": [
+        "飛び終了のある段位戦では立直できないから",
+        "下家が200点ならどのルールでも同じ判断だから",
+        "NANAリーグではトップを狙う打点を取りに行く価値があり、段位戦では2着終了のダマにも価値があるから",
+        "ダマでは役が付かず、どの相手からも和了できないから"
+      ],
+      "correctIndex": 2,
+      "explanation": "講師はこのNANAリーグの点況では立直。安い和了で2着を確保するより、トップに届く打点を取りに行く。\n\n飛び終了のある段位戦なら、下家を飛ばすロンやツモで2着終了できるためダマも候補。NAGAのバーだけで終了条件の扱いは断定しない。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=3065s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=7&tv=101\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20261115-nejimaki"
+      ],
+      "sortOrder": 10,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261115-keep-head-flexible",
+      "theoryId": "",
+      "type": "choice",
+      "question": "4pを雀頭と見れば2p切りも自然。この場面で、8sを先に切る方が柔軟になるのはなぜ？\n\n![出題場面の盤面](https://sakurakou-lesson-review.tentensuku.chatgpt.site/materials/november-2026/boards/keep-head-flexible.svg)",
+      "choices": [
+        "4pを必ず雀頭に固定できるから",
+        "3pを引いたとき筒子を面子に使い、索子側で雀頭を作る道を残せるから",
+        "8sを切ると七対子が聴牌するから",
+        "9sが2枚見えなら8sはどの相手にも現物だから"
+      ],
+      "correctIndex": 1,
+      "explanation": "8s切りなら、3pを引いて234pを面子にし、索子側で雀頭を作る道も残る。\n\n4pを頭と決めれば2p切りは自然。ただし8sは9sが2枚見えで、4sとも受けが一部かぶる。今回は8s切りが柔軟だが、講師も2p切りを大きなミスとは扱っていない。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=3337s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=8&tv=43\n\nhttps://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit\n\nhttps://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "lessonIds": [
+        "lesson-20261115-nejimaki"
+      ],
+      "sortOrder": 11,
+      "deleted": false,
+      "revision": 1
+    },
+    {
+      "id": "check-20261115-last-hand-call-window",
+      "theoryId": "",
+      "type": "choice",
+      "question": "序盤は門前の平和・三色を狙った手。ここで講師が2mチーに傾いた理由は？\n\n![出題場面の盤面](https://sakurakou-lesson-review.tentensuku.chatgpt.site/materials/november-2026/boards/last-hand-call-window.svg)",
+      "choices": [
+        "鳴いても門前立直できるから",
+        "このチーで両側とも三色が付くから",
+        "南4局では必ず鳴かなければならないから",
+        "他家に先に和了されそうで、234三色を残す一向聴を間に合わせる価値が上がったから"
+      ],
+      "correctIndex": 3,
+      "explanation": "2mをチーして234三色の片和了一向聴にする案を講師は支持。\n\n序盤は安い連荘のために受けを広げる価値が低かった。ただし他家に先に和了されそうになったら、門前の理想形を待つより、鳴いて打点のあるルートを間に合わせる。\n\nhttps://www.youtube.com/watch?v=JbCOa8wJQVQ&t=4133s\n\nhttps://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3&ts=10&tv=80\n\nhttps://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "lessonIds": [
+        "lesson-20261115-nejimaki"
+      ],
+      "sortOrder": 13,
+      "deleted": false,
+      "revision": 1
+    }
+  ],
+  "resources": [
+    {
+      "id": "resource-20261115-summary",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "link",
+      "label": "授業の要約・盤面で振り返る13のポイント",
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/materials/november-2026/1115.html",
+      "sortOrder": 0
+    },
+    {
+      "id": "resource-20261115-naga",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "link",
+      "label": "NAGA解析（桜紅さん視点）",
+      "url": "https://naga.dmv.nico/htmls/report_viewer.html?report_id=21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2&tw=3",
+      "sortOrder": 1
+    },
+    {
+      "id": "resource-20261115-order",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "link",
+      "label": "基本序列",
+      "url": "https://docs.google.com/document/d/1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM/edit",
+      "sortOrder": 2
+    },
+    {
+      "id": "resource-20261115-theory",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "link",
+      "label": "セオリー集（随時更新）",
+      "url": "https://docs.google.com/document/d/1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA/edit",
+      "sortOrder": 3
+    },
+    {
+      "id": "resource-20261115-shape",
+      "lessonId": "lesson-20261115-nejimaki",
+      "kind": "link",
+      "label": "一向聴（基礎講義）",
+      "url": "https://docs.google.com/document/d/1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA/edit",
+      "sortOrder": 4
+    }
+  ]
+}

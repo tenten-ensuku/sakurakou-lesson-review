@@ -1,0 +1,566 @@
+{
+  "lessonDate": "2026-11-15",
+  "sources": [
+    {
+      "id": "JbCOa8wJQVQ",
+      "title": "NANA桜紅さん牌譜検討",
+      "channel": "ねじまき鳥",
+      "uploadDate": "20261115",
+      "durationSeconds": 4401,
+      "url": "https://www.youtube.com/watch?v=JbCOa8wJQVQ",
+      "captionCount": 1597,
+      "captionSha256": "75bd2fc8700517ebe8b3bf117a137156a549f4ea3aab6a092bb703b041a49bc0"
+    }
+  ],
+  "canonicalDocuments": [
+    {
+      "title": "【基本序列】",
+      "documentId": "1ltSjkugjAjWXf_pJfxQIdFNFKblAP_N5USet8T0UCKM",
+      "revisionId": "AHj4eMR8rcW7TYQ-fcvrJY72Q0jK06QAYUeg7_sXTSZM-tPJrVNv1ML9U_6fVleMjeyb6iNStsA2pEG3DIV7mg",
+      "tabs": [
+        {
+          "id": "t.0",
+          "empty": false
+        }
+      ],
+      "checkedAt": "2026-11-16"
+    },
+    {
+      "title": "セオリー集（随時更新）",
+      "documentId": "1e-up8AUtuAOT2vF1hzsXDyMh3mMxxiosLG4LMiz46aA",
+      "revisionId": "AHj4eMR02OgwW65ZS2xqG6y990h44UE5lUBQ85HinC0F7nK7bihkDXj5WD9G9txuSxcuOANy15itf0W2s9F7Sw",
+      "tabs": [
+        {
+          "id": "t.0",
+          "empty": false
+        },
+        {
+          "id": "t.mbzxyws4etwa",
+          "empty": true
+        }
+      ],
+      "checkedAt": "2026-11-16"
+    },
+    {
+      "title": "一向聴（基礎講義）",
+      "documentId": "1eLvRIePIbduCcXKTtZ_A4j2kuTrChOcMEuMQ6ReMrmA",
+      "revisionId": "AHj4eMTNXg1R6l3lUTMYyDGKuiVA8c1erUmUBNXimvtvQTxhUHbWDjkttjaG5FtBjQtaKHi-jZpxQDKnE5UjbA",
+      "tabs": [
+        {
+          "id": "t.0",
+          "empty": false
+        }
+      ],
+      "checkedAt": "2026-11-16"
+    }
+  ],
+  "method": "Complete auto-caption track read, decision frames individually checked against cached NAGA event replay. Explanations follow the teaching guide: compare the rejected option, state the condition and preserve acceptable alternatives.",
+  "naga": {
+    "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+    "providedSeat": 0,
+    "lectureSeat": 3,
+    "reportSha256": "2e6a2dec7cdaa9d04d628e89e50f6b047e60240eb7ac5d7972444366b412cddb",
+    "reportBytes": 3424192,
+    "generationRuleVersion": "meld-replay-v237",
+    "models": [
+      "オメガ",
+      "ガンマ",
+      "ニシキ",
+      "ヒバカリ",
+      "カガシ",
+      "アナンタ",
+      "ウロボロス"
+    ],
+    "sourceReportPublished": false
+  },
+  "questions": [
+    {
+      "appId": "check-20261115-one-safe-or-shape",
+      "number": 1,
+      "frameSeconds": 110,
+      "explanationSeconds": 156,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 1,
+        "tv": 55
+      },
+      "event": "tsumo",
+      "remaining": 43,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": "sou4",
+      "dora": "man9",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "card-20261115-chanta-fifth-block",
+      "number": 2,
+      "frameSeconds": 360,
+      "explanationSeconds": 309,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 2,
+        "tv": 13
+      },
+      "event": "tsumo",
+      "remaining": 63,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": "pin7",
+      "dora": "sou2",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": null,
+      "canonicalSources": [
+        "order",
+        "shape"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "card-20261115-avoid-two-out-kanchan",
+      "number": 3,
+      "frameSeconds": 4355,
+      "explanationSeconds": 444,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 2,
+        "tv": 33
+      },
+      "event": "tsumo",
+      "remaining": 54,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": "man4",
+      "dora": "sou2",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": [
+        "9m"
+      ],
+      "canonicalSources": [
+        "order",
+        "theory"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "check-20261115-head-swap-under-riichi",
+      "number": 4,
+      "frameSeconds": 605,
+      "explanationSeconds": 571,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 2,
+        "tv": 59
+      },
+      "event": "tsumo",
+      "remaining": 42,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": "pin5",
+      "dora": "sou2",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": null,
+      "canonicalSources": [
+        "shape",
+        "theory"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "card-20261115-keep-both-routes",
+      "number": 5,
+      "frameSeconds": 1328,
+      "explanationSeconds": 1238,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 4,
+        "tv": 67
+      },
+      "event": "tsumo",
+      "remaining": 37,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": "sou5",
+      "dora": "pin6",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": [
+        "5m"
+      ],
+      "canonicalSources": [
+        "theory",
+        "shape"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "check-20261115-second-copy-call",
+      "number": 6,
+      "frameSeconds": 2050,
+      "explanationSeconds": 2046,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 5,
+        "tv": 24
+      },
+      "event": "dahai",
+      "remaining": 59,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": null,
+      "dora": "sou5",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 13
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "card-20261115-prepare-open-tanyao",
+      "number": 7,
+      "frameSeconds": 2173,
+      "explanationSeconds": 2171,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 5,
+        "tv": 33
+      },
+      "event": "tsumo",
+      "remaining": 54,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": "sou2",
+      "dora": "sou5",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": [
+        "1p"
+      ],
+      "canonicalSources": [
+        "theory"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "card-20261115-keep-dora-pair-upside",
+      "number": 8,
+      "frameSeconds": 2284,
+      "explanationSeconds": 2298,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 6,
+        "tv": 41
+      },
+      "event": "pon",
+      "remaining": 51,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": null,
+      "dora": "man1",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 8
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": null,
+      "canonicalSources": [
+        "order",
+        "theory"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "card-20261115-keep-honitsu-upside",
+      "number": 9,
+      "frameSeconds": 2477,
+      "explanationSeconds": 2480,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 7,
+        "tv": 21
+      },
+      "event": "tsumo",
+      "remaining": 59,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": "sou2",
+      "dora": "sou6",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": [
+        "2s",
+        "4s"
+      ],
+      "canonicalSources": [
+        "theory",
+        "order"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "check-20261115-league-riichi-goal",
+      "number": 10,
+      "frameSeconds": 3007,
+      "explanationSeconds": 3065,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 7,
+        "tv": 101
+      },
+      "event": "tsumo",
+      "remaining": 20,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": "pin4",
+      "dora": "sou6",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "check-20261115-keep-head-flexible",
+      "number": 11,
+      "frameSeconds": 3430,
+      "explanationSeconds": 3337,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 8,
+        "tv": 43
+      },
+      "event": "tsumo",
+      "remaining": 48,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": "man7",
+      "dora": "aka1",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": null,
+      "canonicalSources": [
+        "order",
+        "shape"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "card-20261115-last-hand-value",
+      "number": 12,
+      "frameSeconds": 3960,
+      "explanationSeconds": 3934,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 10,
+        "tv": 49
+      },
+      "event": "tsumo",
+      "remaining": 47,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": "pin4",
+      "dora": "sou9",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 14
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": [
+        "4p"
+      ],
+      "canonicalSources": [
+        "theory"
+      ],
+      "manualReviewRequired": []
+    },
+    {
+      "appId": "check-20261115-last-hand-call-window",
+      "number": 13,
+      "frameSeconds": 4150,
+      "explanationSeconds": 4133,
+      "board": {
+        "reportId": "21709badcd04fe8d49fbccab68db16e2a5034f5a706ccc94d66cb466cf79ceadv2_2",
+        "tw": 3,
+        "ts": 10,
+        "tv": 80
+      },
+      "event": "dahai",
+      "remaining": 33,
+      "sourceFrameFullHandMatchPercent": 100,
+      "draw": null,
+      "dora": "sou9",
+      "physical": {
+        "valid": true,
+        "errors": [],
+        "expectedConcealedTiles": 13
+      },
+      "answerSource": "instructor",
+      "acceptedTiles": null,
+      "canonicalSources": [
+        "theory"
+      ],
+      "manualReviewRequired": []
+    }
+  ],
+  "images": {
+    "one-safe-or-shape": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/aa2d382f-7c85-4062-9c35-5064b2c4a6aa.png",
+      "sha256": "81882b09659ee527a232bac84f996a6b9f6b7899e4bb6dd2bb6d0e82e9729f47",
+      "at": 110,
+      "caption": "東2局：3pは現物。9pの押しは残りの安全牌と比較",
+      "width": 650,
+      "height": 545
+    },
+    "chanta-fifth-block": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/7451096d-51b9-483c-a229-bc1c0853c051.png",
+      "sha256": "fe81b4ecaf4c62722eada9e08b807a498de47f07904bfc1cacd10ee84a84b794",
+      "at": 360,
+      "caption": "東2局1本場：5m・9m・白・発のどれで5ブロック目を作るか",
+      "width": 650,
+      "height": 545
+    },
+    "avoid-two-out-kanchan": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/5272b554-99b3-4ddc-9021-4c07d5adb66a.png",
+      "sha256": "c59dcab501036fecb6cad635d45dc6d505d6d4b55f64a55ad07556030a4d8e8f",
+      "at": 4355,
+      "caption": "東2局1本場：6sは4枚、8sは自分と河に1枚ずつ見えている",
+      "width": 650,
+      "height": 545
+    },
+    "head-swap-under-riichi": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/127a0ef7-9824-439d-97a4-a216d2a77e26.png",
+      "sha256": "7bb82936b6298540969a151f58385d4e1efca363c7e8543f5aa0ed4a3cb5bbb5",
+      "at": 605,
+      "caption": "東2局1本場：5pが重なり、対面から立直。8sは残り1枚",
+      "width": 650,
+      "height": 545
+    },
+    "keep-both-routes": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/609c6d3e-462f-4b87-b38c-272aba0f249a.png",
+      "sha256": "ba20bb0280cdbe869a104466b112965ea6d94dfe56b1825f9e99eb8438c274c8",
+      "at": 1328,
+      "caption": "東3局：対面は発の1副露だけ。ツモ5sで二つの手順を比較",
+      "width": 650,
+      "height": 545
+    },
+    "second-copy-call": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/396268ba-5f5c-4244-8f2c-38b3bd9deade.png",
+      "sha256": "c7f9050438c6f0cbb4b570cfbd6a463c526ccb9cab73f7d9dccdc591f2258364",
+      "at": 2050,
+      "caption": "東4局1本場：上家の6sが1枚目。6sはドラ",
+      "width": 650,
+      "height": 545
+    },
+    "prepare-open-tanyao": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/465c062d-6c36-4daf-9888-6808c709be59.png",
+      "sha256": "08dd5f9fac754413972fc7574f1fa83f0e18ef27fb1de731b6271537df4477a7",
+      "at": 2173,
+      "caption": "東4局1本場：6sが1枚見えた後の2sツモ",
+      "width": 650,
+      "height": 545
+    },
+    "keep-dora-pair-upside": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/7969c42f-7e8b-4795-8f2d-198b4f9ef721.png",
+      "sha256": "12a83cde7ad8b3f897b9ddfad9340f71833b94af64518b6df9fbea5fcdd9653e",
+      "at": 2284,
+      "caption": "南1局：白・北をポン。ドラ2mと4mを比較",
+      "width": 650,
+      "height": 545
+    },
+    "keep-honitsu-upside": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/389a74df-ac93-41c9-a9dd-05d293579b9a.png",
+      "sha256": "8c18b2b469302e615c72d04f86577e8965dd9730c83aec2fc5d0e3b66525b18c",
+      "at": 2477,
+      "caption": "南2局：筒子と発で4ブロック。2sツモ、ドラ7s",
+      "width": 650,
+      "height": 545
+    },
+    "league-riichi-goal": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/21fc8a39-828f-4308-bb4e-9c0d5fbef308.png",
+      "sha256": "600310a7ac093040bc229938e70f43034de3dc471e789c5d42b45caf4041b767",
+      "at": 3007,
+      "caption": "南2局：西切りで聴牌。下家は200点",
+      "width": 650,
+      "height": 545
+    },
+    "keep-head-flexible": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/c1b78d20-0c03-4c43-bcfe-1488c76c7547.png",
+      "sha256": "211ce1b60a4504b192650842edc166e8a8b9b69cebd05a77841c3999cac5610e",
+      "at": 3430,
+      "caption": "南3局：4pを雀頭と見た2p切りと、8s先切りの比較",
+      "width": 650,
+      "height": 545
+    },
+    "last-hand-value": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/82b481e0-4b06-4eb6-8f92-7877868e91c2.png",
+      "sha256": "5fe3ebcd039ec318e12d9234d3734063d8a1ec7056d771b284121d4aa73722e6",
+      "at": 3960,
+      "caption": "南4局：親、上位とは約2万5000点差。4pツモ",
+      "width": 650,
+      "height": 545
+    },
+    "last-hand-call-window": {
+      "url": "https://sakurakou-lesson-review.tentensuku.chatgpt.site/api/images/note-images/bbffce3e-e355-4192-9919-10958ed3de37.png",
+      "sha256": "85318ff01160d2b3e1fde719f35d126eca57eb4bfe2c7df102960ac19077e085",
+      "at": 4150,
+      "caption": "南4局の中盤：上家の2mをチーするか",
+      "width": 650,
+      "height": 545
+    }
+  }
+}
